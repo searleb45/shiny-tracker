@@ -2,9 +2,9 @@ import React from 'react';
 import {
 	BrowserRouter as Router,
 	Switch,
-	Route,
-	Link
+	Route
 } from 'react-router-dom';
+import Home from './pages/home';
 
 const App = () => {
 	return (
@@ -13,8 +13,7 @@ const App = () => {
 		<Router>
 			<Switch>
 				<Route exact path="/">
-					<div>This is the homepage content</div>
-					<Link to="/hunts">Go to hunts page</Link>
+					<Home />
 				</Route>
 				<Route path="/hunts">
 					<div>This is the hunts page</div>
