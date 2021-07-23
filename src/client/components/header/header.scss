@@ -1,0 +1,21 @@
+@import '../../scss';
+
+header {
+	background-color: $header-background-color;
+	color: $header-color;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	box-shadow: 2px 2px 5px $copy;
+	margin-bottom: 5px;
+
+	.signin-container {
+		min-width: 25%;
+		display: none;
+
+		@include media-breakpoint(sm) {
+			display: block;
+		}
+	}
+}

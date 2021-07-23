@@ -1,0 +1,21 @@
+@import '../../scss';
+
+.signin {
+	text-align: center;
+	background-color: $twitch-purple;
+	border-radius: 3px;
+	width: 100%;
+	padding: 10px 20px 10px 60px;
+	background-image: url('../../static/icons/TwitchGlitchWhite.svg');
+	background-repeat: no-repeat;
+	background-position: 12px center;
+	background-size: 25px;
+	border: 0;
+	box-shadow: 2px 2px 5px $copy;
+	cursor: pointer;
+
+	&-text-container {
+		font-size: 1.2rem;
+		color: $white;
+	}
+}

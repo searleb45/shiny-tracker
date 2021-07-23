@@ -35,6 +35,10 @@ module.exports = {
 						},
 					},
 				],
+			},
+			{
+				test: /\.(png|jpg|jpeg|gif)$/,
+				loader: 'file-loader'
 			}
 		]
 	},
@@ -46,7 +50,11 @@ module.exports = {
 		}),
 		new CopyPlugin({
 			patterns: [
-				{ from: path.join(__dirname, 'src/client/static'), to: path.join(__dirname, 'build') }
+				{
+					from: path.join(__dirname, 'src/client/static'),
+					to: path.join(__dirname, 'build'),
+					filter: (path) => path.match(/\.html$/)
+				}
 			]
 		})
 	],

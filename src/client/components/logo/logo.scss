@@ -1,0 +1,28 @@
+@import '../../scss';
+
+.logo-ball-container {
+	display: inline-block;
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-right: 0.75rem;
+	vertical-align: bottom;
+	position: relative;
+	top: -2px;
+
+	img {
+		max-width: 100%;
+		transform: rotate(5deg);
+		filter: drop-shadow(2px 2px 5px $copy);
+	}
+}
+
+.logo-text {
+	margin-top: 5px;
+}
+
+.header-logo {
+	color: $header-color;
+	font-size: 2rem;
+	text-decoration: none;
+	white-space: nowrap;
+}
