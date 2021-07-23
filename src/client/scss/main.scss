@@ -14,4 +14,5 @@ body {
 .page-content {
 	margin-top: $header-height + 10px;
 	min-height: calc(100vh - #{$header-height} - 10px);
+	position: relative;
 }

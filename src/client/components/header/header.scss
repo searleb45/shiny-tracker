@@ -16,7 +16,9 @@ header {
 	margin-bottom: 5px;
 
 	.signin-container {
-		min-width: 25%;
+		max-width: 300px;
+		flex-grow: 1;
+		margin-left: 3rem;
 		display: none;
 
 		@include media-breakpoint(sm) {

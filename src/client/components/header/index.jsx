@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import SignIn from '../signin';
+import { useCookies } from 'react-cookie';
+import { AUTH_COOKIE } from '../../constants';
 import Logo from '../logo';
+import SignIn from '../signin';
+import UserWidget from '../user-widget';
 import './header.scss';
 
 const UnauthedHeader = () => {
@@ -18,20 +20,18 @@ const UnauthedHeader = () => {
 const AuthedHeader = () => {
 	return (
 		<header>
-			<Link to="/" className="header-logo">
-
-			</Link>
+			<div className="nav-links">
+				<Logo />
+				{/* TODO: Add links */}
+			</div>
+			{/* <UserWidget username={CookieHelper.read('username')} picture={CookieHelper.read('picture_url')}/> */}
 		</header>
 	)
 }
 
 const Header = () => {
-	const location = useLocation();
-	if(location.pathname === '/') {
-		return (<UnauthedHeader />);
-	}
-
-	return (<header>Authenticated</header>);
+	const [cookies] = useCookies([AUTH_COOKIE]);
+	return cookies[AUTH_COOKIE] ? <AuthedHeader /> : <UnauthedHeader />;
 }
 
 export default Header;
