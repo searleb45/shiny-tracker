@@ -1,8 +1,17 @@
 @import './index';
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	background-color: $background-color;
 	color: $copy;
 	font-family: 'Nunito Sans', Arial, sans-serif;
+}
+
+.page-content {
+	margin-top: $header-height + 10px;
+	min-height: calc(100vh - #{$header-height} - 10px);
 }

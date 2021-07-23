@@ -12,15 +12,17 @@ const App = () => {
 		<>
 		<Router>
 			<Header />
-			<Switch>
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route path="/hunts">
-					<div>This is the hunts page</div>
-					<a href="#" onClick={() => history.back()}>Back</a>
-				</Route>
-			</Switch>
+			<div className="page-content">
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route path="/hunts">
+						<div>This is the hunts page</div>
+						<a href="#" onClick={() => history.back()}>Back</a>
+					</Route>
+				</Switch>
+			</div>
 		</Router>
 		</>
 	)
