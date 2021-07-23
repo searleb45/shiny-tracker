@@ -16,3 +16,11 @@ body {
 	min-height: calc(100vh - #{$header-height} - 10px);
 	position: relative;
 }
+
+button {
+	color: inherit;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	font: inherit;
+}

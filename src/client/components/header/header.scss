@@ -12,8 +12,8 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 2rem;
-	box-shadow: 2px 2px 5px $copy;
 	margin-bottom: 5px;
+	z-index: 1;
 
 	.signin-container {
 		max-width: 300px;

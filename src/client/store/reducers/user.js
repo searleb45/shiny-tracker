@@ -10,6 +10,13 @@ export default function userReducer(state = initialState.user, action) {
 				username: action.username,
 				picture: action.picture
 			};
+		case types.CLEAR_USER:
+			return {
+				...state,
+				id: undefined,
+				username: undefined,
+				picture: undefined
+			}
 		default:
 			return state;
 	}

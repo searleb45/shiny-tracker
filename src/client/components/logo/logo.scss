@@ -11,8 +11,8 @@
 
 	img {
 		max-width: 100%;
-		transform: rotate(5deg);
-		filter: drop-shadow(2px 2px 5px $copy);
+		transform: rotate(20deg);
+		filter: grayscale(0.25);
 	}
 }
 

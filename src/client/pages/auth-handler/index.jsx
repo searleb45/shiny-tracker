@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from '../../constants';
 
 import './auth-handler.scss';
-import { setUser } from '../../store/actions/user';
+import { clearUser } from '../../store/actions/user';
 
 const AuthHandler = () => {
 	const { hash } = useLocation();
@@ -22,7 +22,7 @@ const AuthHandler = () => {
 			removeCookie(AUTH_COOKIE);
 			removeCookie(USERNAME_COOKIE)
 			removeCookie(PICTURE_COOKIE);
-			dispatch(setUser());
+			dispatch(clearUser());
 			window.location.href = '/';
 		}
 

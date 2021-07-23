@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCookies } from 'react-cookie';
-import { AUTH_COOKIE } from '../../constants';
+import { AUTH_COOKIE, PICTURE_COOKIE, USERNAME_COOKIE } from '../../constants';
 import Logo from '../logo';
 import SignIn from '../signin';
 import UserWidget from '../user-widget';
@@ -18,13 +18,14 @@ const UnauthedHeader = () => {
 }
 
 const AuthedHeader = () => {
+	const [cookies] = useCookies([USERNAME_COOKIE, PICTURE_COOKIE]);
 	return (
 		<header>
 			<div className="nav-links">
 				<Logo />
 				{/* TODO: Add links */}
 			</div>
-			{/* <UserWidget username={CookieHelper.read('username')} picture={CookieHelper.read('picture_url')}/> */}
+			<UserWidget username={cookies[USERNAME_COOKIE]} picture={cookies[PICTURE_COOKIE]}/>
 		</header>
 	)
 }

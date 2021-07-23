@@ -1,0 +1,49 @@
+@import '../../scss';
+
+.user-widget {
+	position: relative;
+
+	&-icon {
+		display: inline-block;
+		width: 2.5rem;
+		height: 2.5rem;
+		background-position: center;
+		background-size: cover;
+		border-radius: 100%;
+		margin-right: 1rem;
+		vertical-align: middle;
+	}
+
+	&-menu {
+		position: absolute;
+		top: calc(100% + 1rem);
+		right: 0;
+
+		background-color: $white;
+		border-bottom-left-radius: 2px;
+		border-bottom-right-radius: 2px;
+		color: $copy;
+		width: 100%;
+		
+		max-height: 0;
+		transition: max-height 300ms;
+		overflow: hidden;
+		
+		&.open {
+			border: 1px solid $gainsboro;
+			max-height: 120px;
+		}
+
+		button {
+			padding: 1rem;
+			width: 100%;
+			border-top: 1px solid $gainsboro;
+			display: flex;
+			justify-content: space-between;
+
+			&:first-child {
+				border-top: 0;
+			}
+		}
+	}
+}
