@@ -4,7 +4,9 @@ export default {
 		username: undefined,
 		picture: undefined
 	},
-	activeHunts: {},
-	completedHunts: {},
+	hunts: {
+		active: undefined,
+		completed: undefined
+	},
 	shinyDex: []
 };

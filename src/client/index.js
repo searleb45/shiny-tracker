@@ -12,13 +12,11 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
-		<React.StrictMode>
-			<CookiesProvider>
-				<Provider store={store}>
-					<App />
-				</Provider>
-			</CookiesProvider>
-		</React.StrictMode>,
+		<CookiesProvider>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</CookiesProvider>,
 		document.getElementById('root')
 	);
 });

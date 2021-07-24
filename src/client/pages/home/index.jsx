@@ -5,7 +5,7 @@ const Home = () => {
 	return (
 		<main>
 			<div>This is the homepage content - now in its own component!</div>
-			<Link to="/hunts">Go to hunts page</Link>
+			<Link to="/active-hunts">Go to hunts page</Link>
 		</main>
 	)
 };

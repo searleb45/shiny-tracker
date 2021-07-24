@@ -13,6 +13,7 @@ import { setUser } from './store/actions/user';
 
 import AuthHandler from './pages/auth-handler';
 import Home from './pages/home';
+import ActiveHunts from './pages/active-hunts';
 
 import Header from './components/header';
 
@@ -33,21 +34,16 @@ const App = () => {
 			<div className="page-content">
 				<Switch>
 					<Route exact path="/">
-						{userAuthenticated ? <Redirect to="/hunts" /> : <Home />}
+						{userAuthenticated ? <Redirect to="/active-hunts" /> : <Home />}
 					</Route>
-					<Route path="/hunts">
-						{!userAuthenticated ? <Redirect to="/" /> : (
-							<>
-							<div>This is the hunts page</div>
-							<a href="#" onClick={() => history.back()}>Back</a>
-							</>
-						)}
+					<Route path="/active-hunts">
+						{!userAuthenticated ? <Redirect to="/" /> : <ActiveHunts />}
 					</Route>
 					<Route path="/handleAuthRedirect">
 						<AuthHandler />
 					</Route>
 					<Route path="/">
-						{userAuthenticated ? <Redirect to="/hunts" /> : <Redirect to="/" />}
+						{userAuthenticated ? <Redirect to="/active-hunts" /> : <Redirect to="/" />}
 					</Route>
 				</Switch>
 			</div>

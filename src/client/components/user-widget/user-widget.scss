@@ -14,6 +14,33 @@
 		vertical-align: middle;
 	}
 
+	&-text {
+		display: none;
+
+		@include media-breakpoint(sm) {
+			display: inline;
+		}
+	}
+
+	&-button {
+		&:after {
+			content: '';
+			border: solid $header-color;
+			border-width: 0 3px 3px 0;
+			display: inline-block;
+			transform: rotate(45deg);
+			width: 6px;
+			height: 6px;
+			margin-left: 1rem;
+			position: relative;
+		}
+
+		&.expanded:after {
+			transform: rotate(-135deg);
+			top: 3px;
+		}
+	}
+
 	&-menu {
 		position: absolute;
 		top: calc(100% + 1rem);
@@ -31,7 +58,7 @@
 		
 		&.open {
 			border: 1px solid $gainsboro;
-			max-height: 120px;
+			max-height: 150px;
 		}
 
 		button {

@@ -4,3 +4,25 @@
 		@content;
 	}
 }
+
+%container {
+	width: 100vw;
+	padding: 0 12px;
+	margin: 0 auto;
+
+	@include media-breakpoint(sm) {
+		max-width: 540px;
+	}
+	@include media-breakpoint(md) {
+		max-width: 720px;
+	}
+	@include media-breakpoint(lg) {
+		max-width: 960px;
+	}
+	@include media-breakpoint(xl) {
+		max-width: 1140px;
+	}
+	@include media-breakpoint(xxl) {
+		max-width: 1320px;
+	}
+}

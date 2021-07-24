@@ -33,7 +33,7 @@ const AuthHandler = () => {
 			setCookie(USERNAME_COOKIE, preferred_username);
 			setCookie(PICTURE_COOKIE, picture);
 		
-			window.location.replace('/hunts');
+			window.location.replace('/active-hunts');
 		}
 	});
 

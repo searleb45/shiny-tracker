@@ -9,9 +9,11 @@ import './header.scss';
 const UnauthedHeader = () => {
 	return (
 		<header>
-			<Logo />
-			<div className="signin-container">
-				<SignIn />
+			<div className="header-container">
+				<Logo />
+				<div className="signin-container">
+					<SignIn />
+				</div>
 			</div>
 		</header>
 	);
@@ -21,11 +23,13 @@ const AuthedHeader = () => {
 	const [cookies] = useCookies([USERNAME_COOKIE, PICTURE_COOKIE]);
 	return (
 		<header>
-			<div className="nav-links">
-				<Logo />
-				{/* TODO: Add links */}
+			<div className="header-container">
+				<div className="nav-links">
+					<Logo />
+					{/* TODO: Add links */}
+				</div>
+				<UserWidget username={cookies[USERNAME_COOKIE]} picture={cookies[PICTURE_COOKIE]}/>
 			</div>
-			<UserWidget username={cookies[USERNAME_COOKIE]} picture={cookies[PICTURE_COOKIE]}/>
 		</header>
 	)
 }

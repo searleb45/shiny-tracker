@@ -1,0 +1,44 @@
+@import '../../scss';
+
+.active-hunts {
+	@extend %container;
+
+	.interactions {
+		display: flex;
+		justify-content: flex-end;
+		padding: 1rem 0.5rem;
+		font-size: 1rem;
+		border-bottom: 1px solid $subtle-divide;
+
+		.add-hunt {
+			padding: 0.75rem 1rem;
+			background-color: $ming;
+			color: $tshirt-white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			width: 100%;
+
+			@include media-breakpoint(md) {
+				width: auto;
+			}
+		}
+
+		.plus-icon {
+			font-size: 1.5rem;
+			font-weight: bold;
+			display: inline-block;
+			border-radius: 100%;
+			border: 2px solid $tshirt-white;
+			padding: 0.5rem;
+			line-height: 1rem;
+			margin-right: 1rem;
+			vertical-align: middle;
+		}
+	}
+
+	.hunts-container {
+		padding: 1rem 0.5rem;
+	}
+}

@@ -20,9 +20,9 @@ const UserWidget = (props) => {
 
 	return (
 		<div className="user-widget">
-			<button className="user-widget-button" onClick={() => setDropdownOpen(!dropdownOpen)}>
+			<button className={`user-widget-button ${dropdownOpen && 'expanded'}`} onClick={() => setDropdownOpen(!dropdownOpen)}>
 				<div className="user-widget-icon" style={{backgroundImage: `url(${picture})`}}></div>
-				{username}
+				<span className="user-widget-text">{username}</span>
 			</button>
 			<div className={`user-widget-menu ${dropdownOpen && 'open'}`}>
 				<button onClick={toggleColorPreference}>Dark Mode</button>

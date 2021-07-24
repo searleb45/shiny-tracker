@@ -8,12 +8,16 @@ header {
 	width: 100vw;
 	background-color: $header-background-color;
 	color: $header-color;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 2rem;
 	margin-bottom: 5px;
 	z-index: 1;
+
+	.header-container {
+		@extend %container;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 2rem;
+	}
 
 	.signin-container {
 		max-width: 300px;

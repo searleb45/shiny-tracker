@@ -29,8 +29,9 @@ module.exports = (env, argv) => {
 					options: {
 						presets: [
 							'@babel/preset-react',
-							['@babel/env', { targets: { browsers: ['last 2 versions'] } }],
+							['@babel/preset-env', { targets: { browsers: ['last 2 versions'] } }],
 						],
+						plugins: ['@babel/transform-runtime']
 					},
 				},
 				{
