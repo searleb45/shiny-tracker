@@ -8,4 +8,15 @@ TODO More steps?
 
 
 How to add new Pokemon:
-TODO
+1. Add new generation Pokemon to stc/static/data/pokemon.json
+2. Download animated gifs of the Pokemon in question to src/static/sprites
+	2a. Sprites can be found at https://play.pokemonshowdown.com/sprites/ani-shiny/
+	2b. Make sure to filter out alternate forms that aren't regional variants
+3. Regional variants are a true/false flag on a Pokemon's base entry. JS code for fetching 
+	images will need to be updated for any new region types.
+	Ex: if(generation === 8 && pokemon.hasGalarianForm) {
+		url = url.replace('.gif', '-galar.gif')
+	}
+4. New batches of Pokemon within a generation should use decimal gen numbers to denote 
+	different Pokemon sets and (maybe)hunt odds (7.5 for USUM, 7.75 for LGPE, etc)
+TODO More steps?

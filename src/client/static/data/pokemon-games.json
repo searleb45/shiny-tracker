@@ -202,7 +202,7 @@
 	{
 		"gameId": "ultrasun",
 		"name": "Pokémon Ultra Sun",
-		"generation": 7,
+		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-ultrasun.png",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false
@@ -210,7 +210,7 @@
 	{
 		"gameId": "ultramoon",
 		"name": "Pokémon Ultra Moon",
-		"generation": 7,
+		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-ultramoon.png",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false
@@ -218,7 +218,7 @@
 	{
 		"gameId": "letsgo-pikachu",
 		"name": "Pokémon Let's Go Pikachu",
-		"generation": 7.5,
+		"generation": 7.75,
 		"boxArt": "/boxart/pkmn-letsgo-pikachu.webp",
 		"shinyCharmAvailable": true,
 		"lureAvailable": true
@@ -226,7 +226,7 @@
 	{
 		"gameId": "letsgo-eevee",
 		"name": "Pokémon Let's Go Eevee",
-		"generation": 7.5,
+		"generation": 7.75,
 		"boxArt": "/boxart/pkmn-letsgo-eevee.png",
 		"shinyCharmAvailable": true,
 		"lureAvailable": true
