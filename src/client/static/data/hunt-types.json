@@ -1,0 +1,100 @@
+[
+	{
+		"name": "Random Encounters",
+		"generations": [2,3,4,5],
+		"baseOdds": "1/8192",
+		"shinyCharmOdds": "1/2731"
+	},
+	{
+		"name": "Random Encounters",
+		"generations": [6,6.5,7,7.5,8],
+		"baseOdds": "1/4096",
+		"shinyCharmOdds": "1/1365"
+	},
+	{
+		"name": "Odd Egg",
+		"generations": [2],
+		"baseOdds": "1/7"
+	},
+	{
+		"name": "Breeding (shiny parent)",
+		"generations": [2],
+		"baseOdds": "1/64"
+	},
+	{
+		"name": "Masuda Method",
+		"generations": [4],
+		"baseOdds": "1/1638"
+	},
+	{
+		"name": "Poké Radar (chain > 40)",
+		"generations": [4],
+		"baseOdds": "1/200"
+	},
+	{
+		"name": "Masuda Method",
+		"generations": [5],
+		"baseOdds": "1/1365",
+		"shinyCharmOdds": "1/1024"
+	},
+	{
+		"name": "Masuda Method",
+		"generations": [6,6.5,7,8],
+		"baseOdds": "1/683",
+		"shinyCharmOdds": "1/512"
+	},
+	{
+		"name": "Horde Battles",
+		"generations": [6],
+		"baseOdds": "1/819",
+		"shinyCharmOdds": "1/273"
+	},
+	{
+		"name": "Chain Fishing (chain > 20)",
+		"generations": [6],
+		"baseOdds": "1/100",
+		"shinyCharmOdds": "1/96"
+	},
+	{
+		"name": "Poké Radar (chain > 40)",
+		"generations": [6],
+		"baseOdds": "1/200"
+	},
+	{
+		"name": "Friend Safari",
+		"generations": [6],
+		"baseOdds": "1/819",
+		"shinyCharmOdds": "1/585"
+	},
+	{
+		"name": "DexNav",
+		"generations": [6.5],
+		"baseOdds": "1/512"
+	},
+	{
+		"name": "SOS Chaining (chain > 30)",
+		"generations": [7],
+		"baseOdds": "1/315",
+		"shinyCharmOdds": "1/273"
+	},
+	{
+		"name": "Catch Combo (chain > 31)",
+		"generations": [7.5],
+		"baseOdds": "1/314",
+		"shinyCharmOdds": "1/292",
+		"lureOdds": "1/315",
+		"lureShinyCharmOdds": "1/273"
+	},
+	{
+		"name": "Chain KOs (chain > 500)",
+		"generations": [8],
+		"baseOdds": "1/3562",
+		"shinyCharmOdds": "1/1300"
+	},
+	{
+		"name": "Dynamax Adventures",
+		"generations": [8],
+		"baseOdds": "1/300",
+		"shinyCharmOdds": "1/100"
+	}
+]

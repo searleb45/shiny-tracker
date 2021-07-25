@@ -1,0 +1,11 @@
+How to add a new game/generation:
+
+1. Download boxart to src/static/boxart
+2. Add game info to src/static/data/pokemon-games.json
+3. Update src/static/data/hunt-types.json to include new gen number in any relevant hunt types
+4. Add any new hunt types with odds to hunt-types.json
+TODO More steps?
+
+
+How to add new Pokemon:
+TODO

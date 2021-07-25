@@ -3,204 +3,280 @@
 		"gameId": "gold",
 		"name": "Pokémon Gold",
 		"generation": 2,
-		"boxArt": "/boxart/pkmn-gold.png"
+		"boxArt": "/boxart/pkmn-gold.png",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "silver",
 		"name": "Pokémon Silver",
 		"generation": 2,
-		"boxArt": "/boxart/pkmn-silver.png"
+		"boxArt": "/boxart/pkmn-silver.png",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "crystal",
 		"name": "Pokémon Crystal",
 		"generation": 2,
-		"boxArt": "/boxart/pkmn-crystal.png"
+		"boxArt": "/boxart/pkmn-crystal.png",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "ruby",
 		"name": "Pokémon Ruby",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-ruby.webp"
+		"boxArt": "/boxart/pkmn-ruby.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "sapphire",
 		"name": "Pokémon Sapphire",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-sapphire.webp"
+		"boxArt": "/boxart/pkmn-sapphire.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "emerald",
 		"name": "Pokémon Emerald",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-emerald.jpg"
+		"boxArt": "/boxart/pkmn-emerald.jpg",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "firered",
 		"name": "Pokémon FireRed",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-firered.webp"
+		"boxArt": "/boxart/pkmn-firered.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "leafgreen",
 		"name": "Pokémon LeafGreen",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-leafgreen.png"
+		"boxArt": "/boxart/pkmn-leafgreen.png",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "colosseum",
 		"name": "Pokémon Colosseum",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-colosseum.png"
+		"boxArt": "/boxart/pkmn-colosseum.png",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "xd",
 		"name": "Pokémon XD",
 		"generation": 3,
-		"boxArt": "/boxart/pkmn-xd.webp"
+		"boxArt": "/boxart/pkmn-xd.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "diamond",
 		"name": "Pokémon Diamond",
 		"generation": 4,
-		"boxArt": "/boxart/pkmn-diamond.jpg"
+		"boxArt": "/boxart/pkmn-diamond.jpg",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "pearl",
 		"name": "Pokémon Pearl",
 		"generation": 4,
-		"boxArt": "/boxart/pkmn-pearl.jpg"
+		"boxArt": "/boxart/pkmn-pearl.jpg",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "platinum",
 		"name": "Pokémon Platinum",
 		"generation": 4,
-		"boxArt": "/boxart/pkmn-platinum.webp"
+		"boxArt": "/boxart/pkmn-platinum.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "heartgold",
 		"name": "Pokémon HeartGold",
 		"generation": 4,
-		"boxArt": "/boxart/pkmn-heartgold.jpg"
+		"boxArt": "/boxart/pkmn-heartgold.jpg",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "soulsilver",
 		"name": "Pokémon SoulSilver",
 		"generation": 4,
-		"boxArt": "/boxart/pkmn-soulsilver.jpg"
+		"boxArt": "/boxart/pkmn-soulsilver.jpg",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "black",
 		"name": "Pokémon Black",
 		"generation": 5,
-		"boxArt": "/boxart/pkmn-black.webp"
+		"boxArt": "/boxart/pkmn-black.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "white",
 		"name": "Pokémon White",
 		"generation": 5,
-		"boxArt": "/boxart/pkmn-white.webp"
+		"boxArt": "/boxart/pkmn-white.webp",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "black2",
 		"name": "Pokémon Black 2",
 		"generation": 5,
-		"boxArt": "/boxart/pkmn-black2.webp"
+		"boxArt": "/boxart/pkmn-black2.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "white2",
 		"name": "Pokémon White 2",
 		"generation": 5,
-		"boxArt": "/boxart/pkmn-white2.webp"
+		"boxArt": "/boxart/pkmn-white2.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "x",
 		"name": "Pokémon X",
 		"generation": 6,
-		"boxArt": "/boxart/pkmn-x.webp"
+		"boxArt": "/boxart/pkmn-x.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "y",
 		"name": "Pokémon Y",
 		"generation": 6,
-		"boxArt": "/boxart/pkmn-y.webp"
+		"boxArt": "/boxart/pkmn-y.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "omegaruby",
 		"name": "Pokémon Omega Ruby",
-		"generation": 6,
-		"boxArt": "/boxart/pkmn-omegaruby.webp"
+		"generation": 6.5,
+		"boxArt": "/boxart/pkmn-omegaruby.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "alphasapphire",
 		"name": "Pokémon Alpha Sapphire",
-		"generation": 6,
-		"boxArt": "/boxart/pkmn-alphasapphire.webp"
+		"generation": 6.5,
+		"boxArt": "/boxart/pkmn-alphasapphire.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	}
 	{
 		"gameId": "sun",
 		"name": "Pokémon Sun",
 		"generation": 7,
-		"boxArt": "/boxart/pkmn-sun.webp"
+		"boxArt": "/boxart/pkmn-sun.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "moon",
 		"name": "Pokémon Moon",
 		"generation": 7,
-		"boxArt": "/boxart/pkmn-moon.png"
+		"boxArt": "/boxart/pkmn-moon.png",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "ultrasun",
 		"name": "Pokémon Ultra Sun",
 		"generation": 7,
-		"boxArt": "/boxart/pkmn-ultrasun.png"
+		"boxArt": "/boxart/pkmn-ultrasun.png",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "ultramoon",
 		"name": "Pokémon Ultra Moon",
 		"generation": 7,
-		"boxArt": "/boxart/pkmn-ultramoon.png"
+		"boxArt": "/boxart/pkmn-ultramoon.png",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "letsgo-pikachu",
 		"name": "Pokémon Let's Go Pikachu",
-		"generation": 7,
-		"boxArt": "/boxart/pkmn-letsgo-pikachu.webp"
+		"generation": 7.5,
+		"boxArt": "/boxart/pkmn-letsgo-pikachu.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": true
 	},
 	{
 		"gameId": "letsgo-eevee",
 		"name": "Pokémon Let's Go Eevee",
-		"generation": 7,
-		"boxArt": "/boxart/pkmn-letsgo-eevee.png"
+		"generation": 7.5,
+		"boxArt": "/boxart/pkmn-letsgo-eevee.png",
+		"shinyCharmAvailable": true,
+		"lureAvailable": true
 	},
 	{
 		"gameId": "sword",
 		"name": "Pokémon Sword",
 		"generation": 8,
-		"boxArt": "/boxart/pkmn-sword.webp"
+		"boxArt": "/boxart/pkmn-sword.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "shield",
 		"name": "Pokémon Shield",
 		"generation": 8,
-		"boxArt": "/boxart/pkmn-shield.png"
+		"boxArt": "/boxart/pkmn-shield.png",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "brilliantdiamond",
 		"name": "Pokémon Brilliant Diamond",
 		"generation": 8,
-		"boxArt": "/boxart/pkmn-brilliantdiamond.webp"
+		"boxArt": "/boxart/pkmn-brilliantdiamond.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "shiningpearl",
 		"name": "Pokémon Shining Pearl",
 		"generation": 8,
-		"boxArt": "/boxart/pkmn-shiningpearl.png"
+		"boxArt": "/boxart/pkmn-shiningpearl.png",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
 	},
 	{
 		"gameId": "legendsarceus",
 		"name": "Pokémon Legends Arceus",
 		"generation": 8,
-		"boxArt": "/boxart/pkmn-legendsarceus.webp"
+		"boxArt": "/boxart/pkmn-legendsarceus.webp",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false
+	},
+	{
+		"gameId": "go",
+		"name": "Pokémon GO",
+		"generation": -1,
+		"boxArt": "/boxart/pkmn-go.png",
+		"shinyCharmAvailable": false,
+		"lureAvailable": false
 	}
 ]
