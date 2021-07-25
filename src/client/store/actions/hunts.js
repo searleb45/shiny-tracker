@@ -8,13 +8,10 @@ export function getActiveHunts(userId) {
 		if(hunts.status === 200) {
 			dispatch(setActiveHunts(hunts.data));
 		}
-		console.log('fetched hunts');
-		console.log(hunts);
 	}
 }
 
 export function setActiveHunts(hunts) {
-	console.log('setting active hunts');
 	return {
 		type: types.SET_ACTIVE_HUNTS,
 		hunts

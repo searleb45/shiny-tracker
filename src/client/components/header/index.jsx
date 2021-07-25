@@ -8,7 +8,7 @@ import './header.scss';
 
 const UnauthedHeader = () => {
 	return (
-		<header>
+		<header className="site-header unauthorized">
 			<div className="header-container">
 				<Logo />
 				<div className="signin-container">
@@ -22,7 +22,7 @@ const UnauthedHeader = () => {
 const AuthedHeader = () => {
 	const [cookies] = useCookies([USERNAME_COOKIE, PICTURE_COOKIE]);
 	return (
-		<header>
+		<header className="site-header authorized">
 			<div className="header-container">
 				<div className="nav-links">
 					<Logo />

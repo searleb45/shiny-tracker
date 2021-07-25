@@ -1,0 +1,206 @@
+[
+	{
+		"gameId": "gold",
+		"name": "Pokémon Gold",
+		"generation": 2,
+		"boxArt": "/boxart/pkmn-gold.png"
+	},
+	{
+		"gameId": "silver",
+		"name": "Pokémon Silver",
+		"generation": 2,
+		"boxArt": "/boxart/pkmn-silver.png"
+	},
+	{
+		"gameId": "crystal",
+		"name": "Pokémon Crystal",
+		"generation": 2,
+		"boxArt": "/boxart/pkmn-crystal.png"
+	},
+	{
+		"gameId": "ruby",
+		"name": "Pokémon Ruby",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-ruby.webp"
+	},
+	{
+		"gameId": "sapphire",
+		"name": "Pokémon Sapphire",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-sapphire.webp"
+	},
+	{
+		"gameId": "emerald",
+		"name": "Pokémon Emerald",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-emerald.jpg"
+	},
+	{
+		"gameId": "firered",
+		"name": "Pokémon FireRed",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-firered.webp"
+	},
+	{
+		"gameId": "leafgreen",
+		"name": "Pokémon LeafGreen",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-leafgreen.png"
+	},
+	{
+		"gameId": "colosseum",
+		"name": "Pokémon Colosseum",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-colosseum.png"
+	},
+	{
+		"gameId": "xd",
+		"name": "Pokémon XD",
+		"generation": 3,
+		"boxArt": "/boxart/pkmn-xd.webp"
+	},
+	{
+		"gameId": "diamond",
+		"name": "Pokémon Diamond",
+		"generation": 4,
+		"boxArt": "/boxart/pkmn-diamond.jpg"
+	},
+	{
+		"gameId": "pearl",
+		"name": "Pokémon Pearl",
+		"generation": 4,
+		"boxArt": "/boxart/pkmn-pearl.jpg"
+	},
+	{
+		"gameId": "platinum",
+		"name": "Pokémon Platinum",
+		"generation": 4,
+		"boxArt": "/boxart/pkmn-platinum.webp"
+	},
+	{
+		"gameId": "heartgold",
+		"name": "Pokémon HeartGold",
+		"generation": 4,
+		"boxArt": "/boxart/pkmn-heartgold.jpg"
+	},
+	{
+		"gameId": "soulsilver",
+		"name": "Pokémon SoulSilver",
+		"generation": 4,
+		"boxArt": "/boxart/pkmn-soulsilver.jpg"
+	},
+	{
+		"gameId": "black",
+		"name": "Pokémon Black",
+		"generation": 5,
+		"boxArt": "/boxart/pkmn-black.webp"
+	},
+	{
+		"gameId": "white",
+		"name": "Pokémon White",
+		"generation": 5,
+		"boxArt": "/boxart/pkmn-white.webp"
+	},
+	{
+		"gameId": "black2",
+		"name": "Pokémon Black 2",
+		"generation": 5,
+		"boxArt": "/boxart/pkmn-black2.webp"
+	},
+	{
+		"gameId": "white2",
+		"name": "Pokémon White 2",
+		"generation": 5,
+		"boxArt": "/boxart/pkmn-white2.webp"
+	},
+	{
+		"gameId": "x",
+		"name": "Pokémon X",
+		"generation": 6,
+		"boxArt": "/boxart/pkmn-x.webp"
+	},
+	{
+		"gameId": "y",
+		"name": "Pokémon Y",
+		"generation": 6,
+		"boxArt": "/boxart/pkmn-y.webp"
+	},
+	{
+		"gameId": "omegaruby",
+		"name": "Pokémon Omega Ruby",
+		"generation": 6,
+		"boxArt": "/boxart/pkmn-omegaruby.webp"
+	},
+	{
+		"gameId": "alphasapphire",
+		"name": "Pokémon Alpha Sapphire",
+		"generation": 6,
+		"boxArt": "/boxart/pkmn-alphasapphire.webp"
+	}
+	{
+		"gameId": "sun",
+		"name": "Pokémon Sun",
+		"generation": 7,
+		"boxArt": "/boxart/pkmn-sun.webp"
+	},
+	{
+		"gameId": "moon",
+		"name": "Pokémon Moon",
+		"generation": 7,
+		"boxArt": "/boxart/pkmn-moon.png"
+	},
+	{
+		"gameId": "ultrasun",
+		"name": "Pokémon Ultra Sun",
+		"generation": 7,
+		"boxArt": "/boxart/pkmn-ultrasun.png"
+	},
+	{
+		"gameId": "ultramoon",
+		"name": "Pokémon Ultra Moon",
+		"generation": 7,
+		"boxArt": "/boxart/pkmn-ultramoon.png"
+	},
+	{
+		"gameId": "letsgo-pikachu",
+		"name": "Pokémon Let's Go Pikachu",
+		"generation": 7,
+		"boxArt": "/boxart/pkmn-letsgo-pikachu.webp"
+	},
+	{
+		"gameId": "letsgo-eevee",
+		"name": "Pokémon Let's Go Eevee",
+		"generation": 7,
+		"boxArt": "/boxart/pkmn-letsgo-eevee.png"
+	},
+	{
+		"gameId": "sword",
+		"name": "Pokémon Sword",
+		"generation": 8,
+		"boxArt": "/boxart/pkmn-sword.webp"
+	},
+	{
+		"gameId": "shield",
+		"name": "Pokémon Shield",
+		"generation": 8,
+		"boxArt": "/boxart/pkmn-shield.png"
+	},
+	{
+		"gameId": "brilliantdiamond",
+		"name": "Pokémon Brilliant Diamond",
+		"generation": 8,
+		"boxArt": "/boxart/pkmn-brilliantdiamond.webp"
+	},
+	{
+		"gameId": "shiningpearl",
+		"name": "Pokémon Shining Pearl",
+		"generation": 8,
+		"boxArt": "/boxart/pkmn-shiningpearl.png"
+	},
+	{
+		"gameId": "legendsarceus",
+		"name": "Pokémon Legends Arceus",
+		"generation": 8,
+		"boxArt": "/boxart/pkmn-legendsarceus.webp"
+	}
+]

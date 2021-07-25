@@ -1,0 +1,27 @@
+@import '../../scss';
+
+.modal {
+	&-header {
+		padding: 1rem 0.5rem 0.5rem;
+		border-bottom: 1px solid $gainsboro;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&-title {
+		font-weight: bold;
+		color: $copy;
+		margin: 0;
+	}
+
+	&-close {
+		font-size: 2rem;
+		line-height: 1;
+		padding: 0 0.5rem;
+	}
+
+	&-content {
+		padding: 0.5rem;
+	}
+}
