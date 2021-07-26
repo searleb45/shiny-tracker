@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Modal from '../../components/modal';
+import NewHuntForm from '../../components/new-hunt-form';
 import { getActiveHunts } from '../../store/actions/hunts';
 
 import './active-hunts.scss';
@@ -33,7 +34,7 @@ const ActiveHunts = () => {
 				isOpen={newHuntModalOpen}
 				close={() => setNewHuntModalOpen(false)}
 				modalName="Test Modal">
-					This is the modal wheeeeeee
+					<NewHuntForm onComplete={() => setNewHuntModalOpen(false)} />
 				</Modal>
 		</>
 	);

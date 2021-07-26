@@ -17,7 +17,8 @@
 		"baseOdds": "1/7"
 	},
 	{
-		"name": "Breeding (shiny parent)",
+		"name": "Breeding",
+		"hintText": "shiny parent",
 		"generations": [2],
 		"baseOdds": "1/64"
 	},
@@ -27,7 +28,8 @@
 		"baseOdds": "1/1638"
 	},
 	{
-		"name": "Poké Radar (chain > 40)",
+		"name": "Poké Radar",
+		"hintText": "chain > 40",
 		"generations": [4],
 		"baseOdds": "1/200"
 	},
@@ -50,13 +52,15 @@
 		"shinyCharmOdds": "1/273"
 	},
 	{
-		"name": "Chain Fishing (chain > 20)",
+		"name": "Chain Fishing",
+		"hintText": "chain > 20",
 		"generations": [6],
 		"baseOdds": "1/100",
 		"shinyCharmOdds": "1/96"
 	},
 	{
-		"name": "Poké Radar (chain > 40)",
+		"name": "Poké Radar",
+		"hintText": "chain > 40",
 		"generations": [6],
 		"baseOdds": "1/200"
 	},
@@ -72,13 +76,15 @@
 		"baseOdds": "1/512"
 	},
 	{
-		"name": "SOS Chaining (chain > 30)",
+		"name": "SOS Chaining",
+		"hintText": "chain > 30",
 		"generations": [7],
 		"baseOdds": "1/315",
 		"shinyCharmOdds": "1/273"
 	},
 	{
-		"name": "Catch Combo (chain > 31)",
+		"name": "Catch Combo",
+		"hintText": "chain > 31",
 		"generations": [7.5],
 		"baseOdds": "1/314",
 		"shinyCharmOdds": "1/292",
@@ -86,7 +92,8 @@
 		"lureShinyCharmOdds": "1/273"
 	},
 	{
-		"name": "Chain KOs (chain > 500)",
+		"name": "Chain KOs",
+		"hintText": "chain > 500",
 		"generations": [8],
 		"baseOdds": "1/3562",
 		"shinyCharmOdds": "1/1300"

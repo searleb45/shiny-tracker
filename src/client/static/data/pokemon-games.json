@@ -276,7 +276,20 @@
 		"name": "Pokémon GO",
 		"generation": -1,
 		"boxArt": "/boxart/pkmn-go.png",
-		"shinyCharmAvailable": false,
-		"lureAvailable": false
+		"storageGame": true
+	},
+	{
+		"gameId": "bank",
+		"name": "Pokémon Bank",
+		"generation": -1,
+		"boxArt": "TODO",
+		"storageGame": true
+	},
+	{
+		"gameId": "home",
+		"name": "Pokémon Home",
+		"generation": -1,
+		"boxArt": "TODO",
+		"storageGame": true
 	}
 ]
