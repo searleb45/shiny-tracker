@@ -236,6 +236,7 @@
 		"name": "Pokémon Sword",
 		"generation": 8,
 		"boxArt": "/boxart/pkmn-sword.webp",
+		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false
 	},
@@ -244,6 +245,7 @@
 		"name": "Pokémon Shield",
 		"generation": 8,
 		"boxArt": "/boxart/pkmn-shield.png",
+		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false
 	},
@@ -252,6 +254,7 @@
 		"name": "Pokémon Brilliant Diamond",
 		"generation": 8,
 		"boxArt": "/boxart/pkmn-brilliantdiamond.webp",
+		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false
 	},
@@ -260,6 +263,7 @@
 		"name": "Pokémon Shining Pearl",
 		"generation": 8,
 		"boxArt": "/boxart/pkmn-shiningpearl.png",
+		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false
 	},
@@ -282,14 +286,14 @@
 		"gameId": "bank",
 		"name": "Pokémon Bank",
 		"generation": -1,
-		"boxArt": "TODO",
+		"boxArt": "/boxart/pkmn-bank.png",
 		"storageGame": true
 	},
 	{
 		"gameId": "home",
 		"name": "Pokémon Home",
 		"generation": -1,
-		"boxArt": "TODO",
+		"boxArt": "boxart/pkmn-home.png",
 		"storageGame": true
 	}
 ]

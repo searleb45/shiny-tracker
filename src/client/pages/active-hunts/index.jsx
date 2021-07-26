@@ -33,7 +33,7 @@ const ActiveHunts = () => {
 			<Modal
 				isOpen={newHuntModalOpen}
 				close={() => setNewHuntModalOpen(false)}
-				modalName="Test Modal">
+				modalName="New Shiny Hunt">
 					<NewHuntForm onComplete={() => setNewHuntModalOpen(false)} />
 				</Modal>
 		</>

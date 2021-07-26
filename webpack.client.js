@@ -65,7 +65,7 @@ module.exports = (env, argv) => {
 					{
 						from: path.join(__dirname, 'src/client/static'),
 						to: path.join(__dirname, 'build'),
-						filter: (path) => path.match(/\.html$/)
+						filter: (path) => path.match(/(boxart|sprites|\.html$)/)
 					}
 				]
 			}),
