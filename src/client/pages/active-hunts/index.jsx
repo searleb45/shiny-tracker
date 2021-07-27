@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Modal from '../../components/modal';
-import NewHuntForm from '../../components/new-hunt-form';
+import NewHuntModal from '../../components/new-hunt-modal';
 import { getActiveHunts } from '../../store/actions/hunts';
 
 import './active-hunts.scss';
@@ -21,8 +20,8 @@ const ActiveHunts = () => {
 		<>
 			<main className="active-hunts">
 				<div className="interactions">
-					<button className="add-hunt" onClick={() => setNewHuntModalOpen(true)}>
-						<span className="plus-icon">+</span>
+					<button className="btn-primary add-hunt" onClick={() => setNewHuntModalOpen(true)}>
+						<span className="plus-icon"></span>
 						<span className="button-text">Create New Hunt</span>
 					</button>
 				</div>
@@ -30,12 +29,10 @@ const ActiveHunts = () => {
 					{JSON.stringify(hunts)}
 				</div>
 			</main>
-			<Modal
+			<NewHuntModal
 				isOpen={newHuntModalOpen}
 				close={() => setNewHuntModalOpen(false)}
-				modalName="New Shiny Hunt">
-					<NewHuntForm onComplete={() => setNewHuntModalOpen(false)} />
-				</Modal>
+			/>
 		</>
 	);
 };

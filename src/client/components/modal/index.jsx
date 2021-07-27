@@ -13,16 +13,10 @@ const Modal = (props) => {
 			overlay: {
 				zIndex: 1,
 				backgroundColor: 'rgba(0, 0, 0, 0.75'
-			},
-			content: {
-				inset: '90px 40px',
-				maxWidth: '1200px',
-				margin: '0 auto',
-				padding: '1rem',
-				paddingTop: 0
 			}
 		},
 		contentLabel: props.modalName,
+		className: `modal-container ${props.containerClassName}`
 	};
 
 	return (
