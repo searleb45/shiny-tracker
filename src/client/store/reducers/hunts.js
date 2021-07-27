@@ -8,6 +8,11 @@ export default function huntsReducer(state = initialState.hunts, action) {
 				...state,
 				activeHunts: action.hunts
 			};
+		case types.ADD_NEW_HUNT:
+			return {
+				...state,
+				activeHunts: [...state.activeHunts, action.hunt]
+			};
 		default:
 			return state;
 	}

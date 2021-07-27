@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Modal from '../modal';
+import { postNewHunt } from '../../store/actions/hunts';
 
 import GameSelect from '../game-select';
 import PokemonSelect from '../pokemon-select';
@@ -10,6 +11,7 @@ import './new-hunt-modal.scss';
 
 const NewHuntModal = (props) => {
 	const { isOpen, close } = props;
+	const userId = useSelector(store => store.user.id)
 	const [game, setGame] = useState();
 	const [pokemonHunted, setPokemonHunted] = useState();
 	const [huntType, setHuntType] = useState();
@@ -18,9 +20,16 @@ const NewHuntModal = (props) => {
 
 	const dispatch = useDispatch();
 
-	function submitHunt() {
-		console.log('form submit');
-		typeof(onComplete) === 'function' && onComplete();
+	function submitHunt(evt) {
+		evt.preventDefault();
+		dispatch(postNewHunt(
+			userId,
+			game,
+			pokemonHunted,
+			huntType,
+			calculateOdds(huntType, hasShinyCharm, hasLure),
+			closeModal
+		))
 	}
 
 	function setGameWrapper(game) {

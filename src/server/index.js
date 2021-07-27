@@ -1,8 +1,9 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 import apiModule from './api';
 
 const app = express();
+app.use(express.json());
 
 app.use('/api', apiModule);
 
