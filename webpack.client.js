@@ -14,6 +14,11 @@ module.exports = (env, argv) => {
 			return prev;
 		}, {})
 	}
+	if(argv.mode === 'production') {
+		const clientKeys = ['TWITCH_CLIENT_ID'];
+
+		envKeys = clientKeys.map(key => process.env[key]);
+	}
 	return {
 		entry: './src/client/index.js',
 		output: {
