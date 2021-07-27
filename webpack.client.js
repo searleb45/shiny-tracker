@@ -22,6 +22,7 @@ module.exports = (env, argv) => {
 		
 			envKeys = clientKeys.reduce((prev, next) => {
 				prev[`process.env.${next}`] = process.env[next];
+				return prev;
 			}, {});
 			break;
 	}
