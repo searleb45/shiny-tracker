@@ -7,7 +7,7 @@
 	},
 	{
 		"name": "Random Encounters",
-		"generations": [6,6.5,7,7.5,8],
+		"generations": [6,6.5,7,7.5,7.75,8],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
 	},
@@ -41,7 +41,7 @@
 	},
 	{
 		"name": "Masuda Method",
-		"generations": [6,6.5,7,8],
+		"generations": [6,6.5,7,7.5,8],
 		"baseOdds": "1/683",
 		"shinyCharmOdds": "1/512"
 	},
@@ -78,15 +78,15 @@
 	{
 		"name": "SOS Chaining",
 		"hintText": "chain > 30",
-		"generations": [7],
+		"generations": [7,7.5],
 		"baseOdds": "1/315",
 		"shinyCharmOdds": "1/273"
 	},
 	{
 		"name": "Catch Combo",
 		"hintText": "chain > 31",
-		"generations": [7.5],
-		"baseOdds": "1/314",
+		"generations": [7.75],
+		"baseOdds": "1/341",
 		"shinyCharmOdds": "1/292",
 		"lureOdds": "1/315",
 		"lureShinyCharmOdds": "1/273"

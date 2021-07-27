@@ -23,7 +23,10 @@ const GameSelect = (props) => {
 				);
 			}}
 			value={value}
+			getOptionLabel={opt => opt.name}
+			getOptionValue={opt => opt.gameId}
 			onChange={(newOpt) => onChange(newOpt)}
+			maxMenuHeight={500}
 		/>
 	);
 }

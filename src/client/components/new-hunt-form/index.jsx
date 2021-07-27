@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import GameSelect from '../game-select';
+import PokemonSelect from '../pokemon-select';
+import HuntTypeSelect from '../hunt-select';
 
 import './new-hunt-form.scss';
 
@@ -64,11 +66,21 @@ const NewHuntForm = (props) => {
 				<>
 					<div className="form-input">
 						<label htmlFor="newHuntPokemon">Pokémon</label>
-						{/* TODO: Pokemon select */}
+						<PokemonSelect
+							id="newHuntPokemon"
+							value={pokemonHunted}
+							onChange={(pokemon) => setPokemonWrapper(pokemon)}
+							generation={game.generation}
+						/>
 					</div>
 					<div className="form-input">
 						<label htmlFor="newHuntMethod">Shiny hunting method</label>
-						{/* TODO Hunt select */}
+						<HuntTypeSelect
+							id="newHuntMethod"
+							value={huntType}
+							onChange={(type) => setHuntTypeWrapper(type)}
+							generation={game.generation}
+						/>
 					</div>
 					<div className="form-input">
 						{game.shinyCharmAvailable && (
