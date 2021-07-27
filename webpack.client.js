@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 module.exports = (env, argv) => {
 	let envKeys = {};
+<<<<<<< Updated upstream
 	switch(argv.mode) {
 		case 'development':
 			console.log('pulling dev keys from dotenv');
@@ -26,6 +27,16 @@ module.exports = (env, argv) => {
 			}, {});
 			break;
 	}
+=======
+
+	const resolvedEnv = argv.mode === 'development' ? dotenv.config().parsed : process.env;
+	envKeys = Object.keys(resolvedEnv)
+		.filter(key => key.indexOf('REACT_') === 0)
+		.reduce((prev, next) => {
+			prev[`process.env.${next.replace('REACT_', '')}`] = JSON.stringify(resolvedEnv[next]);
+			return prev;
+		}, {});
+>>>>>>> Stashed changes
 
 	return {
 		entry: './src/client/index.js',
