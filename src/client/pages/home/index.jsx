@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import SignIn from '../../components/signin';
+
+import './home.scss';
 
 const Home = () => {
 	return (
-		<main>
+		<main className="home">
 			<div>This is the homepage content - now in its own component!</div>
-			<Link to="/active-hunts">Go to hunts page</Link>
+			<SignIn />
 		</main>
 	)
 };
