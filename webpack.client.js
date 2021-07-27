@@ -6,19 +6,26 @@ const dotenv = require('dotenv');
 
 module.exports = (env, argv) => {
 	let envKeys = {};
-	if(argv.mode === 'development') {
-		const parsedEnv = dotenv.config().parsed;
-	
-		envKeys = Object.keys(parsedEnv).reduce((prev, next) => {
-			prev[`process.env.${next}`] = JSON.stringify(parsedEnv[next]);
-			return prev;
-		}, {})
+	switch(argv.mode) {
+		case 'development':
+			console.log('pulling dev keys from dotenv');
+			const parsedEnv = dotenv.config().parsed;
+		
+			envKeys = Object.keys(parsedEnv).reduce((prev, next) => {
+				prev[`process.env.${next}`] = JSON.stringify(parsedEnv[next]);
+				return prev;
+			}, {});
+			break;
+		case 'production':
+			console.log('pulling prod keys from Heroku config');
+			const clientKeys = ['TWITCH_CLIENT_ID'];
+		
+			envKeys = clientKeys.reduce((prev, next) => {
+				prev[`process.env.${next}`] = process.env[next];
+			}, {});
+			break;
 	}
-	if(argv.mode === 'production') {
-		const clientKeys = ['TWITCH_CLIENT_ID'];
 
-		envKeys = clientKeys.map(key => process.env[key]);
-	}
 	return {
 		entry: './src/client/index.js',
 		output: {
