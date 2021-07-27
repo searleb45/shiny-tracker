@@ -18,10 +18,12 @@ module.exports = (env, argv) => {
 			break;
 		case 'production':
 			console.log('pulling prod keys from Heroku config');
+			console.log(env);
+			console.log(process.env);
 			const clientKeys = ['TWITCH_CLIENT_ID'];
 		
 			envKeys = clientKeys.reduce((prev, next) => {
-				prev[`process.env.${next}`] = process.env[next];
+				prev[`process.env.${next}`] = env[next];
 				return prev;
 			}, {});
 			break;
