@@ -20,7 +20,7 @@ import Header from './components/header';
 const App = () => {
 	const [cookies] = useCookies([AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE]);
 
-	const userAuthenticated = useSelector(state => state.user.id);
+	const userAuthenticated = useSelector(state => state.user.authenticated);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		if(cookies[AUTH_COOKIE] && !userAuthenticated) {

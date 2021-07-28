@@ -2,9 +2,9 @@ import * as types from './_types';
 import { ACTIVE_HUNTS_URL, COMPLETED_HUNTS_URL } from '../../constants';
 import axios from 'axios';
 
-export function getActiveHunts(userId) {
+export function getActiveHunts() {
 	return async (dispatch) => {
-		const hunts = await axios.get(ACTIVE_HUNTS_URL, { params: { id: userId } });
+		const hunts = await axios.get(ACTIVE_HUNTS_URL);
 		if(hunts.status === 200) {
 			dispatch(setActiveHunts(hunts.data));
 		}
@@ -25,10 +25,9 @@ export function addNewHunt(hunt) {
 	}
 }
 
-export function postNewHunt(userId, game, pokemon, huntType, odds, callback) {
+export function postNewHunt(game, pokemon, huntType, odds, callback) {
 	return async (dispatch) => {
 		const newHunt = await axios.post(ACTIVE_HUNTS_URL, {
-			userId,
 			gameId: game.gameId,
 			pokemon: pokemon.id,
 			huntType: huntType.name,

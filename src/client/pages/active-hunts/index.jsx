@@ -7,13 +7,12 @@ import './active-hunts.scss';
 
 const ActiveHunts = () => {
 	const hunts = useSelector(state => state.hunts.activeHunts);
-	const userId = useSelector(state => state.user.id);
 	const [newHuntModalOpen, setNewHuntModalOpen] = useState(false);
 	const dispatch = useDispatch();
 
 	if(!hunts) {
 		// Need to fetch shiny hunt list for user
-		dispatch(getActiveHunts(userId));
+		dispatch(getActiveHunts());
 		return <h2 className="loading-msg">Fetching your information...</h2>;
 	}
 	return (

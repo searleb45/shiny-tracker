@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Modal from '../modal';
 import { postNewHunt } from '../../store/actions/hunts';
 
@@ -11,7 +11,6 @@ import './new-hunt-modal.scss';
 
 const NewHuntModal = (props) => {
 	const { isOpen, close } = props;
-	const userId = useSelector(store => store.user.id)
 	const [game, setGame] = useState();
 	const [pokemonHunted, setPokemonHunted] = useState();
 	const [huntType, setHuntType] = useState();
@@ -23,7 +22,6 @@ const NewHuntModal = (props) => {
 	function submitHunt(evt) {
 		evt.preventDefault();
 		dispatch(postNewHunt(
-			userId,
 			game,
 			pokemonHunted,
 			huntType,
