@@ -11,7 +11,7 @@ const UserWidget = (props) => {
 	const dispatch = useDispatch();
 
 	function performSignOut() {
-		dispatch(logout());
+		window.location.href = 'twitchAuth/logout';
 	}
 
 	function toggleColorPreference() {

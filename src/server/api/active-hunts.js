@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
 	res.send(JSON.stringify([
 		{
 			id: 1,
-			userId: 'testuser',
+			userId: req.session.id,
 			gameId: 'firered',
 			pokemon: 1,
 			huntType: 'Random Encounter',
@@ -17,10 +17,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-	const { gameId, pokemon, huntType, odds, userId } = req.body;
+	const { gameId, pokemon, huntType, odds } = req.body;
 	res.status(200).send({
 		id: 2,
-		userId,
+		userId: req.session.id,
 		gameId,
 		pokemon,
 		huntType,

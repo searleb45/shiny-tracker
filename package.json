@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node build/server-bundle.js",
+    "start": "NODE_ENV=production node build/server-bundle.js",
     "start:dev": "rimraf build && webpack --mode=development --config webpack.server.js && concurrently --kill-others \"npm run build:watch\" \"npm run start\"",
     "build": "rimraf build && webpack --mode=production --config webpack.server.js && webpack --mode=production --config webpack.client.js",
     "build:watch": "webpack --progress --mode=development --config webpack.client.js -w",
@@ -15,7 +15,9 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cookie-helper": "^1.0.1",
+    "cookie-session": "^1.4.0",
     "express": "^4.17.1",
+    "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
     "react-cookie": "^4.0.3",
     "react-dom": "^17.0.2",

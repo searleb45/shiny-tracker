@@ -1,6 +1,6 @@
 export default {
 	user: {
-		id: undefined,
+		authenticated: false,
 		username: undefined,
 		picture: undefined
 	},

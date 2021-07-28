@@ -8,36 +8,12 @@ module.exports = (env, argv) => {
 	let envKeys = {};
 
 	const resolvedEnv = argv.mode === 'development' ? dotenv.config().parsed : process.env;
-	console.log(resolvedEnv);
 	envKeys = Object.keys(resolvedEnv)
 		.filter(key => key.indexOf('REACT_') === 0)
 		.reduce((prev, next) => {
 			prev[`process.env.${next.replace('REACT_', '')}`] = JSON.stringify(resolvedEnv[next]);
 			return prev;
 		}, {});
-	console.log('envKeys', envKeys);
-	// switch(argv.mode) {
-	// 	case 'development':
-	// 		console.log('pulling dev keys from dotenv');
-	// 		const parsedEnv = dotenv.config().parsed;
-		
-	// 		envKeys = Object.keys(parsedEnv).reduce((prev, next) => {
-	// 			prev[`process.env.${next}`] = JSON.stringify(parsedEnv[next]);
-	// 			return prev;
-	// 		}, {});
-	// 		break;
-	// 	case 'production':
-	// 		console.log('pulling prod keys from Heroku config');
-	// 		console.log(env);
-	// 		console.log(process.env);
-	// 		const clientKeys = ['TWITCH_CLIENT_ID'];
-		
-	// 		envKeys = clientKeys.reduce((prev, next) => {
-	// 			prev[`process.env.${next}`] = env[next];
-	// 			return prev;
-	// 		}, {});
-	// 		break;
-	// }
 
 	return {
 		entry: './src/client/index.js',

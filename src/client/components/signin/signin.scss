@@ -1,6 +1,8 @@
 @import '../../scss';
 
 .signin {
+	display: block;
+	text-decoration: none;
 	text-align: center;
 	background-color: $twitch-purple;
 	border-radius: 3px;
@@ -13,6 +15,7 @@
 	border: 0;
 	box-shadow: 2px 2px 5px $copy;
 	cursor: pointer;
+	white-space: nowrap;
 
 	&-text-container {
 		font-size: 1.2rem;
