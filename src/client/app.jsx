@@ -11,7 +11,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from './constants';
 import { setUser } from './store/actions/user';
 
-import AuthHandler from './pages/auth-handler';
 import Home from './pages/home';
 import ActiveHunts from './pages/active-hunts';
 
@@ -38,9 +37,6 @@ const App = () => {
 					</Route>
 					<Route path="/active-hunts">
 						{!userAuthenticated ? <Redirect to="/" /> : <ActiveHunts />}
-					</Route>
-					<Route path="/handleAuthRedirect">
-						<AuthHandler />
 					</Route>
 					<Route path="/">
 						{userAuthenticated ? <Redirect to="/active-hunts" /> : <Redirect to="/" />}
