@@ -12,6 +12,51 @@ router.get('/', async (req, res) => {
 			huntType: 'Random Encounter',
 			odds: '1/8192',
 			encounters: 0,
+		},
+		{
+			id: 52,
+			userId: req.session.id,
+			gameId: 'moon',
+			pokemon: 52,
+			huntType: 'Masuda Method',
+			odds: '1/1365',
+			encounters: 50
+		},
+		{
+			id: 55,
+			userId: req.session.id,
+			gameId: 'sword',
+			pokemon: 52,
+			huntType: 'Masuda Method',
+			odds: '1/1365',
+			encounters: 50
+		},
+		{
+			id: 500,
+			userId: req.session.id,
+			gameId: 'x',
+			pokemon: 662,
+			huntType: 'Masuda Method',
+			odds: '1/1365',
+			encounters: 50
+		},
+		{
+			id: 1000,
+			userId: req.session.id,
+			gameId: 'crystal',
+			pokemon: 130,
+			huntType: 'Random Encounters',
+			odds: '1/8192',
+			encounters: 12
+		},
+		{
+			id: 5200,
+			userId: req.session.id,
+			gameId: 'moon',
+			pokemon: 103,
+			huntType: 'Masuda Method',
+			odds: '1/1365',
+			encounters: 50
 		}
 	]));
 });

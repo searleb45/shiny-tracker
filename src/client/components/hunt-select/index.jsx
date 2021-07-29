@@ -12,6 +12,7 @@ const HuntTypeSelect = (props) => {
 	return (
 		<Select
 			id={id}
+			isSearchable={false}
 			value={value || ''}
 			onChange={(obj) => onChange(obj)}
 			options={huntOptions}

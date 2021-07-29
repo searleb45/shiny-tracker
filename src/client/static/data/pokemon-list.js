@@ -1,0 +1,3 @@
+import POKEMON_GENERATION_LIST from './pokemon.json';
+
+export default POKEMON_GENERATION_LIST.reduce((prev, newgen) => [...prev, ...newgen.pokemon], []);

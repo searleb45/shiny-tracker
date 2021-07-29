@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NewHuntModal from '../../components/new-hunt-modal';
 import { getActiveHunts } from '../../store/actions/hunts';
+import HuntViewer from '../../components/hunt-viewer';
 
 import './active-hunts.scss';
 
@@ -25,7 +26,7 @@ const ActiveHunts = () => {
 					</button>
 				</div>
 				<div className="hunts-container">
-					{JSON.stringify(hunts)}
+					{hunts.map(hunt => <HuntViewer key={hunt.id} hunt={hunt} />)}
 				</div>
 			</main>
 			<NewHuntModal

@@ -189,7 +189,8 @@
 		"generation": 7,
 		"boxArt": "/boxart/pkmn-sun.webp",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useAlolanForm": true
 	},
 	{
 		"gameId": "moon",
@@ -197,7 +198,8 @@
 		"generation": 7,
 		"boxArt": "/boxart/pkmn-moon.png",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useAlolanForm": true
 	},
 	{
 		"gameId": "ultrasun",
@@ -205,7 +207,8 @@
 		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-ultrasun.png",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useAlolanForm": true
 	},
 	{
 		"gameId": "ultramoon",
@@ -213,7 +216,8 @@
 		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-ultramoon.png",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useAlolanForm": true
 	},
 	{
 		"gameId": "letsgo-pikachu",
@@ -238,7 +242,8 @@
 		"boxArt": "/boxart/pkmn-sword.webp",
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useGalarianForm": true
 	},
 	{
 		"gameId": "shield",
@@ -247,7 +252,8 @@
 		"boxArt": "/boxart/pkmn-shield.png",
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useGalarianForm": true
 	},
 	{
 		"gameId": "brilliantdiamond",

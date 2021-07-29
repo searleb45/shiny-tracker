@@ -40,6 +40,20 @@
 	}
 
 	.hunts-container {
-		padding: 1rem 0.5rem;
+		padding: 1.5rem 0.5rem;
+		display: flex;
+		flex-wrap: wrap;
+
+		.hunt-viewer {
+			flex: 0 0 100%;
+
+			@include media-breakpoint(md) {
+				flex: 0 0 50%;
+			}
+
+			@include media-breakpoint(xl) {
+				flex: 0 0 33%;
+			}
+		}
 	}
 }
