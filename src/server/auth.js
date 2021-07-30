@@ -69,3 +69,12 @@ router.get('/logout', (req, res) => {
 });
 
 export default router;
+
+export function checkAuth(req, res, next) {
+	if(!req.session.id) {
+		res.redirect('/auth/logout');
+		next('user invalid');
+	}
+
+	next();
+}

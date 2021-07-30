@@ -1,8 +1,9 @@
 import express from 'express';
+import { checkAuth } from '../auth';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', checkAuth, async (req, res) => {
 	res.send(JSON.stringify([
 		{
 			id: 1,
@@ -67,8 +68,8 @@ router.get('/', async (req, res) => {
 	]));
 });
 
-router.post('/', async (req, res) => {
-	const { gameId, pokemon, huntType, odds } = req.body;
+router.post('/', checkAuth, async (req, res) => {
+	const { gameId, pokemon, huntType, odds, startDate } = req.body;
 	res.status(200).send({
 		id: 2,
 		userId: req.session.id,
@@ -80,7 +81,7 @@ router.post('/', async (req, res) => {
 	});
 });
 
-router.put('/', async (req, res) => {
+router.put('/', checkAuth, async (req, res) => {
 	const { id, userId, op, val } = req.body;
 	if(op === 'inc') {
 		// TODO Increment
@@ -91,6 +92,10 @@ router.put('/', async (req, res) => {
 	} else if(typeof(val) === 'number' && val >= 0) {
 		// TODO Set value
 	}
-})
+});
+
+router.delete('/', checkAuth, async(req, res) => {
+	res.send('hi'); 
+});
 
 export default router;
