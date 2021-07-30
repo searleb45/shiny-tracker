@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NewHuntModal from '../../components/new-hunt-modal';
-import { getActiveHunts } from '../../store/actions/hunts';
+import FocusedHuntModal from '../../components/focused-hunt-modal';
+import { getActiveHunts, setFocusedHunt } from '../../store/actions/hunts';
 import HuntViewer from '../../components/hunt-viewer';
 
 import './active-hunts.scss';
 
 const ActiveHunts = () => {
-	const hunts = useSelector(state => state.hunts.activeHunts);
+	const hunts = useSelector(state => state.hunts.active);
 	const [newHuntModalOpen, setNewHuntModalOpen] = useState(false);
+	const focusedHunt = useSelector(state => state.hunts.focused);
 	const dispatch = useDispatch();
 
 	if(!hunts) {
@@ -26,12 +28,17 @@ const ActiveHunts = () => {
 					</button>
 				</div>
 				<div className="hunts-container">
-					{hunts.map(hunt => <HuntViewer key={hunt.id} hunt={hunt} />)}
+					{hunts.map(hunt => <HuntViewer key={hunt.id} hunt={hunt} onClick={() => dispatch(setFocusedHunt(hunt.id))} />)}
 				</div>
 			</main>
 			<NewHuntModal
 				isOpen={newHuntModalOpen}
 				close={() => setNewHuntModalOpen(false)}
+			/>
+			<FocusedHuntModal
+				hunt={hunts.find((hunt) => hunt.id === focusedHunt)}
+				isModifiable={true}
+				close={() => dispatch(setFocusedHunt(-1))}
 			/>
 		</>
 	);

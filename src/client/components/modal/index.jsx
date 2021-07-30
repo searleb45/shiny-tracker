@@ -11,7 +11,7 @@ const Modal = (props) => {
 		onRequestClose: props.close,
 		style: {
 			overlay: {
-				zIndex: 1,
+				zIndex: 100,
 				backgroundColor: 'rgba(0, 0, 0, 0.75'
 			}
 		},

@@ -6,12 +6,17 @@ export default function huntsReducer(state = initialState.hunts, action) {
 		case types.SET_ACTIVE_HUNTS:
 			return {
 				...state,
-				activeHunts: action.hunts
+				active: action.hunts
 			};
 		case types.ADD_NEW_HUNT:
 			return {
 				...state,
-				activeHunts: [...state.activeHunts, action.hunt]
+				active: [...state.active, action.hunt]
+			};
+		case types.SET_FOCUSED_HUNT:
+			return {
+				...state,
+				focused: action.hunt
 			};
 		default:
 			return state;

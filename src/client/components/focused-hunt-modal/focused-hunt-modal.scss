@@ -1,0 +1,97 @@
+@import '../../scss';
+
+.focused-hunt {
+	&-modal {
+		inset: 0;
+		border-radius: 0;
+
+		@include media-breakpoint(md) {
+			inset: unset;
+			top: 90px;
+			left: 40px;
+			right: 40px;
+			max-width: 650px;
+		}
+	}
+
+	&-pokemon-view,
+	&-counter {
+		display: inline-block;
+		vertical-align: middle;
+		width: 50%;
+		padding: 0.5rem;
+	}
+
+
+	&-counter {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 3rem;
+
+		form {
+			width: 50%;
+		}
+
+		input {
+			width: 100%;
+			font-size: inherit;
+			text-align: center;
+		}
+	}
+
+	&-interactions {
+		margin-top: 0.5rem;
+		button {
+			width: 50%;
+			margin: 0;
+			padding: 0.5rem;
+			text-align: center;
+			color: $white;
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+	}
+	&-decrement {
+		@include background-color-hover-react($decrement-red);
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	&-increment {
+		@include background-color-hover-react($increment-green);
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+
+	&-detail {
+		border-radius: 5px;
+		margin-top: 0.5rem;
+		border: 1px solid $subtle-divide;
+		overflow: hidden;
+
+		label {
+			display: inline-block;
+			width: 50%;
+			background-color: $ming;
+			color: $white;
+			border-right: 1px solid darken($ming, 10%);
+			padding: 0.5rem;
+			margin-right: 1rem;
+		}
+	}
+
+	&-delete {
+		border-radius: 5px;
+		color: $white;
+		display: block;
+		width: 25%;
+		padding: 0.5rem;
+		margin: 1rem auto 0;
+		@include background-color-hover-react($decrement-red);
+
+		background-image: url('../../static/icons/delete.svg');
+		background-position: 15% center;
+		background-repeat: no-repeat;
+		padding-left: 2.2rem;
+	}
+}

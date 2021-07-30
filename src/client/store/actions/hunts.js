@@ -40,3 +40,10 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 		}
 	}
 }
+
+export function setFocusedHunt(hunt) {
+	return {
+		type: types.SET_FOCUSED_HUNT,
+		hunt
+	}
+}

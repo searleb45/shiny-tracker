@@ -7,7 +7,7 @@ import POKEMON_LIST from '../../static/data/pokemon-list';
 import GAME_LIST from '../../static/data/pokemon-games.json';
 
 const HuntViewer = (props) => {
-	const { hunt } = props;
+	const { hunt, onClick } = props;
 
 	// Shallow clone Pokemon object to avoid mutating sprite for forms
 	const pokemon = {...POKEMON_LIST.find((pkmn) => pkmn.id === hunt.pokemon)};
@@ -22,14 +22,16 @@ const HuntViewer = (props) => {
 
 	return (
 		<div className="hunt-viewer">
-			<div className="pokemon-image">
-				<PokemonViewer pokemon={pokemon} />
-			</div>
-			<div className="data-container">
-				<div className="name">{pokemon.name}</div>
-				<div className="game">{game.name}</div>
-				<div className="hunt-type">{hunt.huntType}</div>
-			</div>
+			<button onClick={onClick}>
+				<div className="pokemon-image">
+					<PokemonViewer pokemonId={hunt.pokemon} gameId={hunt.gameId} />
+				</div>
+				<div className="data-container">
+					<div className="name">{pokemon.name}</div>
+					<div className="game">{game.name}</div>
+					<div className="hunt-type">{hunt.huntType}</div>
+				</div>
+			</button>
 		</div>
 	)
 }

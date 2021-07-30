@@ -11,7 +11,8 @@ router.get('/', async (req, res) => {
 			pokemon: 1,
 			huntType: 'Random Encounter',
 			odds: '1/8192',
-			encounters: 0,
+			encounters: 8192,
+			started: new Date(2020, 2, 12, 3, 18, 12)
 		},
 		{
 			id: 52,
@@ -20,7 +21,8 @@ router.get('/', async (req, res) => {
 			pokemon: 52,
 			huntType: 'Masuda Method',
 			odds: '1/1365',
-			encounters: 50
+			encounters: 50,
+			started: new Date(2020, 2, 12, 3, 18, 12)
 		},
 		{
 			id: 55,
@@ -29,7 +31,8 @@ router.get('/', async (req, res) => {
 			pokemon: 52,
 			huntType: 'Masuda Method',
 			odds: '1/1365',
-			encounters: 50
+			encounters: 50,
+			started: new Date(2020, 2, 12, 3, 18, 12)
 		},
 		{
 			id: 500,
@@ -38,7 +41,8 @@ router.get('/', async (req, res) => {
 			pokemon: 662,
 			huntType: 'Masuda Method',
 			odds: '1/1365',
-			encounters: 50
+			encounters: 50,
+			started: new Date(2020, 2, 12, 3, 18, 12)
 		},
 		{
 			id: 1000,
@@ -47,7 +51,8 @@ router.get('/', async (req, res) => {
 			pokemon: 130,
 			huntType: 'Random Encounters',
 			odds: '1/8192',
-			encounters: 12
+			encounters: 12,
+			started: new Date(2020, 2, 12, 3, 18, 12)
 		},
 		{
 			id: 5200,
@@ -56,7 +61,8 @@ router.get('/', async (req, res) => {
 			pokemon: 103,
 			huntType: 'Masuda Method',
 			odds: '1/1365',
-			encounters: 50
+			encounters: 50,
+			started: new Date(2020, 2, 12, 3, 18, 12)
 		}
 	]));
 });
@@ -80,6 +86,8 @@ router.put('/', async (req, res) => {
 		// TODO Increment
 	} else if(op === 'dec') {
 		// TODO Decrement
+	} else if(op ==='complete') {
+		// TODO Complete hunt
 	} else if(typeof(val) === 'number' && val >= 0) {
 		// TODO Set value
 	}

@@ -1,8 +1,8 @@
 @import '../../scss';
 
 .shiny-hunt-modal {
-	min-height: 50%;
-	height: 0;
+	min-height: 70%;
+	bottom: 50%;
 
 	@include media-breakpoint(md) {
 		inset: unset;
@@ -11,6 +11,8 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
+		min-height: 51%;
+		height: 0;
 	}
 	@include media-breakpoint(lg) {
 		max-width: 60%;

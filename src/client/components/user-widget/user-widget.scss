@@ -71,6 +71,10 @@
 			&:first-child {
 				border-top: 0;
 			}
+
+			&:hover, &:focus {
+				background-color: $tshirt-white;
+			}
 		}
 	}
 }

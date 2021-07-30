@@ -4,6 +4,10 @@
 .hunt-viewer {
 	margin-bottom: 1.5rem;
 
+	button {
+		width: 100%;
+	}
+
 	.pokemon-image,
 	.data-container {
 		position: relative;
@@ -24,7 +28,7 @@
 		border-top-right-radius: 3px;
 		border-bottom-right-radius: 3px;
 		border-left: none;
-		left: -20px;
+		margin-left: -20px;
 		padding: 5px 0 5px 30px;
 
 		.name {

@@ -6,7 +6,8 @@ export default {
 	},
 	hunts: {
 		active: undefined,
-		completed: undefined
+		completed: undefined,
+		focused: -1
 	},
-	shinyDex: []
+	shinyDex: [],
 };

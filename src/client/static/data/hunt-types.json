@@ -1,12 +1,12 @@
 [
 	{
-		"name": "Random Encounters",
+		"name": "Random Encounter",
 		"generations": [2,3,4,5],
 		"baseOdds": "1/8192",
 		"shinyCharmOdds": "1/2731"
 	},
 	{
-		"name": "Random Encounters",
+		"name": "Random Encounter",
 		"generations": [6,6.5,7,7.5,7.75,8],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
@@ -76,7 +76,7 @@
 		"baseOdds": "1/512"
 	},
 	{
-		"name": "SOS Chaining",
+		"name": "SOS Chain",
 		"hintText": "chain > 30",
 		"generations": [7,7.5],
 		"baseOdds": "1/315",

@@ -33,4 +33,6 @@ button {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+
+	@include background-color-hover-react($ming);
 }
