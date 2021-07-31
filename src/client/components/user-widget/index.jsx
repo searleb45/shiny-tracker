@@ -7,7 +7,7 @@ import './user-widget.scss';
 
 const UserWidget = (props) => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const { username, picture } = props;
+	const { username, picture, links } = props;
 	const dispatch = useDispatch();
 
 	function performSignOut() {
@@ -25,6 +25,9 @@ const UserWidget = (props) => {
 				<span className="user-widget-text">{username}</span>
 			</button>
 			<div className={`user-widget-menu ${dropdownOpen && 'open'}`}>
+				<div className="mobile-nav-links" onClick={() => setDropdownOpen(false)}>
+					{links}
+				</div>
 				<button onClick={toggleColorPreference}>Dark Mode</button>
 				<button onClick={performSignOut}>Log Out</button>
 			</div>

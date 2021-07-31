@@ -6,6 +6,8 @@ import FocusedHuntModal from '../../components/focused-hunt-modal';
 
 import { getCompletedHunts } from '../../store/actions/hunts';
 
+import './completed-hunts.scss';
+
 const CompletedHunts = () => {
 	const hunts = useSelector(state => state.hunts.completed);
 	const focusedHunt = useSelector(state => state.hunts.focused);

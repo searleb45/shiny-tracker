@@ -10,13 +10,49 @@
 	color: $header-color;
 	margin-bottom: 5px;
 	z-index: 2;
+	border-bottom: 1px solid $header-background-color;
 
 	.header-container {
 		@extend %container;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1rem 2rem;
+		padding: 0 2rem;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		height: $header-height;
+	}
+
+	.nav-links-desktop {
+		display: none;
+
+		@include media-breakpoint(lg) {
+			display: inline-flex;
+			align-items: center;
+			margin-left: 2rem;
+			height: 100%;
+		}
+
+		a {
+			display: inline-flex;
+			color: $header-color;
+			margin-right: 0.5rem;
+			font-size: 1.2rem;
+			text-decoration: none;
+			padding: 1.1rem 0.5rem;
+			height: 100%;
+			align-items: flex-end;
+			justify-content: center;
+			margin-bottom: 1px;
+
+			&.active {
+				padding-bottom: calc(1.1rem - 5px);
+				border-bottom: 5px solid $header-color;
+			}
+		}
 	}
 
 	.signin-container {
