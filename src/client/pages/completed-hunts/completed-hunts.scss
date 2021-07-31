@@ -1,0 +1,59 @@
+@import '../../scss';
+
+.completed-hunts {
+	@extend %container;
+
+	.interactions {
+		display: flex;
+		justify-content: flex-end;
+		padding: 1rem 0.5rem;
+		font-size: 1rem;
+		border-bottom: 1px solid $subtle-divide;
+
+		.add-hunt {
+			@include media-breakpoint(md) {
+				width: auto;
+			}
+		}
+
+		.plus-icon {
+			display: inline-block;
+			border-radius: 100%;
+			border: 2px solid $tshirt-white;
+			width: 1.5rem;
+			height: 1.5rem;
+			margin-right: 1rem;
+			vertical-align: middle;
+			position: relative;
+
+			&:after {
+				content: '+';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 1rem;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.hunts-container {
+		padding: 1.5rem 0.5rem;
+		display: flex;
+		flex-wrap: wrap;
+
+		.hunt-viewer {
+			flex: 0 0 100%;
+
+			@include media-breakpoint(md) {
+				flex: 0 0 50%;
+			}
+
+			@include media-breakpoint(xl) {
+				flex: 0 0 33%;
+			}
+		}
+	}
+}

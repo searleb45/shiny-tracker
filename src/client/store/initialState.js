@@ -1,8 +1,11 @@
+import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from "../constants";
+import CookieHelper from 'cookie-helper';
+
 export default {
 	user: {
-		authenticated: false,
-		username: undefined,
-		picture: undefined
+		authenticated: CookieHelper.read(AUTH_COOKIE) !== null,
+		username: CookieHelper.read(USERNAME_COOKIE),
+		picture: decodeURI(CookieHelper.read(PICTURE_COOKIE))
 	},
 	hunts: {
 		active: undefined,

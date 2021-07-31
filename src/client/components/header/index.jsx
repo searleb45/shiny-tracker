@@ -1,6 +1,5 @@
 import React from 'react';
-import { useCookies } from 'react-cookie';
-import { AUTH_COOKIE, PICTURE_COOKIE, USERNAME_COOKIE } from '../../constants';
+import { useSelector } from 'react-redux';
 import Logo from '../logo';
 import SignIn from '../signin';
 import UserWidget from '../user-widget';
@@ -20,7 +19,8 @@ const UnauthedHeader = () => {
 }
 
 const AuthedHeader = () => {
-	const [cookies] = useCookies([USERNAME_COOKIE, PICTURE_COOKIE]);
+	const username = useSelector(state => state.user.username);
+	const picture = useSelector(state => state.user.picture);
 	return (
 		<header className="site-header authorized">
 			<div className="header-container">
@@ -28,15 +28,15 @@ const AuthedHeader = () => {
 					<Logo />
 					{/* TODO: Add links */}
 				</div>
-				<UserWidget username={cookies[USERNAME_COOKIE]} picture={cookies[PICTURE_COOKIE]}/>
+				<UserWidget username={username} picture={picture}/>
 			</div>
 		</header>
 	)
 }
 
 const Header = () => {
-	const [cookies] = useCookies([AUTH_COOKIE]);
-	return cookies[AUTH_COOKIE] ? <AuthedHeader /> : <UnauthedHeader />;
+	const isAuthed = useSelector(state => state.user.authenticated);
+	return isAuthed ? <AuthedHeader /> : <UnauthedHeader />;
 }
 
 export default Header;

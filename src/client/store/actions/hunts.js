@@ -9,6 +9,13 @@ export function setActiveHunts(hunts) {
 	};
 }
 
+export function setCompletedHunts(hunts) {
+	return {
+		type: types.SET_COMPLETED_HUNTS,
+		hunts
+	};
+}
+
 export function addNewHunt(hunt) {
 	return {
 		type: types.ADD_NEW_HUNT,
@@ -94,6 +101,15 @@ export function deleteHunt(id) {
 
 		if(deleteHunt.status === 200) {
 			dispatch(removeHunt({id}));
+		}
+	}
+}
+
+export function getCompletedHunts() {
+	return async (dispatch) => {
+		const hunts = await axios.get(COMPLETED_HUNTS_URL);
+		if(hunts.status === 200) {
+			dispatch(setCompletedHunts(hunts.data));
 		}
 	}
 }
