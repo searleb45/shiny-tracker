@@ -5,6 +5,8 @@ import FocusedHuntModal from '../../components/focused-hunt-modal';
 import { getActiveHunts, setFocusedHunt } from '../../store/actions/hunts';
 import HuntViewer from '../../components/hunt-viewer';
 
+import BasePageTemplate from '../_base-template';
+
 import './active-hunts.scss';
 
 const ActiveHunts = () => {
@@ -20,17 +22,22 @@ const ActiveHunts = () => {
 	}
 	return (
 		<>
-			<main className="active-hunts">
-				<div className="interactions">
-					<button className="btn-primary add-hunt" onClick={() => setNewHuntModalOpen(true)}>
-						<span className="plus-icon"></span>
-						<span className="button-text">Create New Hunt</span>
-					</button>
-				</div>
-				<div className="hunts-container">
-					{hunts.map(hunt => <HuntViewer key={hunt.id} hunt={hunt} onClick={() => dispatch(setFocusedHunt(hunt.id))} />)}
-				</div>
-			</main>
+			<BasePageTemplate
+				className="active-hunts"
+				header={
+					<div className="interactions">
+						<button className="btn-primary add-hunt" onClick={() => setNewHuntModalOpen(true)}>
+							<span className="plus-icon"></span>
+							<span className="button-text">Create New Hunt</span>
+						</button>
+					</div>
+				}
+				page={
+					<>
+						{hunts.map(hunt => <HuntViewer key={hunt.id} hunt={hunt} onClick={() => dispatch(setFocusedHunt(hunt.id))} />)}
+					</>
+				}
+			/>
 			<NewHuntModal
 				isOpen={newHuntModalOpen}
 				close={() => setNewHuntModalOpen(false)}

@@ -1,0 +1,30 @@
+@import '../../scss';
+
+.base-page-template {
+	@extend %container;
+
+	.header {
+		padding: 1rem 0.5rem;
+		font-size: 1rem;
+		border-bottom: 1px solid $subtle-divide;
+		height: 81px;
+	}
+
+	.page {
+		padding: 1.5rem 0.5rem;
+		display: flex;
+		flex-wrap: wrap;
+
+		& > * {
+			flex: 0 0 100%;
+
+			@include media-breakpoint(md) {
+				flex: 0 0 50%;
+			}
+
+			@include media-breakpoint(xl) {
+				flex: 0 0 33%;
+			}
+		}
+	}
+}
