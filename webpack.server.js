@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const dotenv = require('dotenv');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
 	let envKeys = {};
@@ -20,6 +21,7 @@ module.exports = (env, argv) => {
 			path: path.resolve(__dirname, 'build')
 		},
 		target: 'node',
+		externals: [nodeExternals()],
 		module: {
 			rules: [
 				{

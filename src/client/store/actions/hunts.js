@@ -38,8 +38,7 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 			gameId: game.gameId,
 			pokemon: pokemon.id,
 			huntType: huntType.name,
-			odds,
-			startDate: new Date()
+			odds
 		});
 
 		if(newHunt.status === 200) {
