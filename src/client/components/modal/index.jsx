@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 
 import './modal.scss';
@@ -18,6 +18,14 @@ const Modal = (props) => {
 		contentLabel: props.modalName,
 		className: `modal-container ${props.containerClassName}`
 	};
+
+	useEffect(() => {
+		if(modalOpts.isOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+	});
 
 	return (
 		<ReactModal {...modalOpts}>
