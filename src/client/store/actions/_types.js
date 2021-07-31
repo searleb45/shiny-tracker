@@ -7,6 +7,10 @@ export const SET_ACTIVE_HUNTS = 'SET_ACTIVE_HUNTS';
 export const ADD_NEW_HUNT = 'ADD_NEW_HUNT';
 export const UPDATE_HUNT = 'UPDATE_HUNT';
 export const REMOVE_HUNT = 'REMOVE_HUNT';
+
+export const SET_COMPLETED_HUNTS = 'SET_COMPLETED_HUNTS';
+export const ADD_COMPLETED_HUNT = 'ADD_COMPLETED_HUNT';
+
 export const SET_FOCUSED_HUNT = 'SET_FOCUSED_HUNT';
 
 // Shinydex

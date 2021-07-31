@@ -24,7 +24,18 @@ export default function huntsReducer(state = initialState.hunts, action) {
 		case types.REMOVE_HUNT:
 			return {
 				...state,
-				active: state.active.filter((hunt) => hunt.id !== action.hunt.id)
+				active: state.active.filter((hunt) => hunt.id !== action.hunt.id),
+				completed: state.completed && state.completed.filter((hunt) => hunt.id !== action.hunt.id)
+			};
+		case types.SET_COMPLETED_HUNTS:
+			return {
+				...state,
+				completed: action.hunts
+			};
+		case types.ADD_COMPLETED_HUNT:
+			return {
+				...state,
+				completed: state.completed !== undefined ? [...state.completed, action.hunt] : undefined
 			};
 		case types.SET_FOCUSED_HUNT:
 			return {

@@ -30,6 +30,13 @@ export function removeHunt(hunt) {
 	}
 };
 
+export function addCompletedHunt(hunt) {
+	return {
+		type: types.ADD_COMPLETED_HUNT,
+		hunt
+	}
+};
+
 export function setFocusedHunt(hunt) {
 	return {
 		type: types.SET_FOCUSED_HUNT,
@@ -73,7 +80,7 @@ export function putHuntUpdate(id, action, count) {
 		if(updatedHunt.status === 200) {
 			if(action === 'complete') {
 				dispatch(removeHunt(updatedHunt.data));
-				// TODO Maybe add hunt to completed hunts?
+				dispatch(addCompletedHunt(updatedHunt.data));
 			} else {
 				dispatch(updateHunt(updatedHunt.data));
 			}
