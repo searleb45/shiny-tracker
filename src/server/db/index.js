@@ -16,7 +16,7 @@ if(user && password && host && db) {
 
 connection.authenticate().then(() => {
 	console.log('Connection successful!');
-	connection.sync({ force: true });
+	connection.sync();
 }).catch((err) => {
 	throw new Error('Database connection unsuccessful', err);
 });
