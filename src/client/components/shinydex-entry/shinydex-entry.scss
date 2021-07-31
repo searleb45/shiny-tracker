@@ -1,0 +1,51 @@
+
+@import '../../scss';
+
+.shinydex-entry {
+	margin-bottom: 1.5rem;
+
+	button {
+		width: 100%;
+	}
+
+	.pokemon-image,
+	.data-container {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.pokemon-image {
+		width: 35%;
+		border-radius: 100%;
+		background-color: $background-color;
+		z-index: 1;
+
+		&.silhouette img {
+			filter: contrast(0%) brightness(50%);
+		}
+	}
+
+	.data-container {
+		width: 65%;
+		border: 1px solid $subtle-divide;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		border-left: none;
+		margin-left: -50px;
+		padding: 5px 10px 5px 60px;
+
+		.name {
+			font-size: 1.2rem;
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				max-width: 1.2rem;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}

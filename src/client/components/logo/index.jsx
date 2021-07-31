@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './logo.scss';
 
-import pokeBall from '../../static/icons/Pokeball.png?fromJS=true';
+import pokeBall from '../../static/icons/Pokeball.png';
 
 const Logo = () => {
 	return (

@@ -12,10 +12,10 @@ const PokemonViewer = (props) => {
 	const pokemon = {...POKEMON_LIST.find((pkmn) => pkmn.id === pokemonId)};
 	const game = GAME_LIST.find((game) => game.gameId === gameId);
 
-	if(game.useAlolanForm && pokemon.hasAlolanForm) {
+	if(game && game.useAlolanForm && pokemon.hasAlolanForm) {
 		pokemon.sprite = pokemon.sprite.replace('.gif', '-alola.gif');
 	}
-	if(game.useGalarianForm && pokemon.hasGalarianForm) {
+	if(game && game.useGalarianForm && pokemon.hasGalarianForm) {
 		pokemon.sprite = pokemon.sprite.replace('.gif', '-galar.gif');
 	}
 
