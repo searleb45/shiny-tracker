@@ -90,25 +90,42 @@ router.post('/', checkAuth, async (req, res) => {
 		odds
 	});
 
-	console.log(newHunt.toJSON());
 	res.status(200).send(newHunt);
 });
 
 router.put('/', checkAuth, async (req, res) => {
-	const { id, userId, op, val } = req.body;
+	const { id, op, val } = req.body;
+	const where = {
+		userId: req.session.id,
+		id,
+		completed: false
+	};
+	let response;
+	
 	if(op === 'inc') {
-		// TODO Increment
+		response = await db.hunt.increment('encounters', { where });
 	} else if(op === 'dec') {
-		// TODO Decrement
+		response = await db.hunt.decrement('encounters', { where });
 	} else if(op ==='complete') {
-		// TODO Complete hunt
+		response = await db.hunt.update({ completed: true }, { where });
 	} else if(typeof(val) === 'number' && val >= 0) {
-		// TODO Set value
+		response = await db.hunt.update({ encounters: val }, { where });
 	}
+
+	res.status(200).send(response);
 });
 
 router.delete('/', checkAuth, async(req, res) => {
-	res.send('hi'); 
+	const { id } = req.body;
+
+	const response = await db.hunt.destroy({
+		where: {
+			id,
+			userId: req.session.id
+		}
+	});
+
+	res.status(200).send(response);
 });
 
 export default router;

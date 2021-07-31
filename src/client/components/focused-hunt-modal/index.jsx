@@ -34,12 +34,16 @@ const FocusedHuntModal = (props) => {
 		setUpdatedCount(-1);
 	}
 
+	function handleHuntInteract(action) {
+		// TODO Handle increment/decrement operations
+	}
+
 	function handleDelete() {
 		// TODO Prompt for confirmation before sending delete request
 	}
+	
+	function handleHuntFinish() {
 
-	function handleHuntInteract(action) {
-		// TODO Handle increment/decrement operations
 	}
 
 	return (
@@ -84,7 +88,8 @@ const FocusedHuntModal = (props) => {
 					<label>Encounters until 90%</label>
 					{encountersTo90.toLocaleString()}
 				</div>
-				{isModifiable && <button className="focused-hunt-delete" onClick={handleDelete}>Delete</button>}
+				{isModifiable && <button className="focused-hunt-finish" onClick={handleHuntFinish}>Got it!</button>}
+				<button className="focused-hunt-delete" onClick={handleDelete}>Delete</button>
 			</div>
 		</Modal>
 	)
