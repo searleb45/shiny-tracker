@@ -109,6 +109,7 @@ router.put('/', checkAuth, async (req, res) => {
 		hunt.encounters = Math.max(hunt.encounters - 1, 0);
 	} else if(op ==='complete') {
 		hunt.completed = true;
+		hunt.completionDate = new Date();
 	} else if(typeof(val) === 'number' && val >= 0) {
 		hunt.encounters = val
 	}

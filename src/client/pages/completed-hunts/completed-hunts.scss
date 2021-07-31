@@ -1,8 +1,26 @@
 @import '../../scss';
 
 .completed-hunts {
-	.interactions {
-		display: flex;
-		justify-content: flex-end;
+	.filter {
+		flex-grow: 3;
+		margin-right: 1rem;
+	}
+	.sort {
+		flex-grow: 1;
+
+		&-label {
+			display: flex;
+			align-items: center;
+			margin-right: 0.5rem;
+		}
+	
+		&-dropdown {
+			&__control {
+				height: 100%;
+			}
+			&__menu {
+				z-index: 2;
+			}
+		}
 	}
 }

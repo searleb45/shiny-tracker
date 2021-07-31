@@ -25,12 +25,12 @@ const ActiveHunts = () => {
 			<BasePageTemplate
 				className="active-hunts"
 				header={
-					<div className="interactions">
+					<>
 						<button className="btn-primary add-hunt" onClick={() => setNewHuntModalOpen(true)}>
 							<span className="plus-icon"></span>
 							<span className="button-text">Create New Hunt</span>
 						</button>
-					</div>
+					</>
 				}
 				page={
 					<>

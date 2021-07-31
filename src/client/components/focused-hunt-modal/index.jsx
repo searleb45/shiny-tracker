@@ -78,10 +78,23 @@ const FocusedHuntModal = (props) => {
 						<button className="focused-hunt-increment" onClick={() => handleHuntInteract('inc')}>+</button>
 					</div>
 				)}
-				<div className="focused-hunt-detail">
-					<label>Hunt started</label>
-					<TimeAgo datetime={hunt.started} />
-				</div>
+				{hunt.completed ? (
+					<>
+						<div className="focused-hunt-detail">
+							<label>Hunt started</label>
+							{new Date(hunt.started).toLocaleDateString()}
+						</div>
+						<div className="focused-hunt-detail">
+							<label>Hunt finished</label>
+							{new Date(hunt.completionDate).toLocaleDateString()}
+						</div>
+					</>
+				) : (
+					<div className="focused-hunt-detail">
+						<label>Hunt started</label>
+						<TimeAgo datetime={hunt.started} />
+					</div>
+				)}
 				<div className="focused-hunt-detail">
 					<label>Odds</label>
 					{hunt.odds}

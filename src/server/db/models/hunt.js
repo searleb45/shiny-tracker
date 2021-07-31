@@ -33,6 +33,10 @@ export default (sequelize, Sequelize) => {
 		completed: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: 0
+		},
+		completionDate: {
+			type: Sequelize.DATE,
+			defaultValue: null
 		}
 	}, {
 		createdAt: 'started',
