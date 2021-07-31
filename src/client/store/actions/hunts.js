@@ -13,8 +13,22 @@ export function addNewHunt(hunt) {
 	return {
 		type: types.ADD_NEW_HUNT,
 		hunt
-	}
+	};
 }
+
+export function updateHunt(hunt) {
+	return {
+		type: types.UPDATE_HUNT,
+		hunt
+	};
+}
+
+export function removeHunt(hunt) {
+	return {
+		type: types.REMOVE_HUNT,
+		hunt
+	}
+};
 
 export function setFocusedHunt(hunt) {
 	return {
@@ -44,6 +58,35 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 		if(newHunt.status === 200) {
 			dispatch(addNewHunt(newHunt.data));
 			typeof(callback) === 'function' && callback();
+		}
+	}
+}
+
+export function putHuntUpdate(id, action, count) {
+	return async (dispatch) => {
+		const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
+			id,
+			op: action,
+			val: count
+		});
+
+		if(updatedHunt.status === 200) {
+			if(action === 'complete') {
+				dispatch(removeHunt(updatedHunt.data));
+				// TODO Maybe add hunt to completed hunts?
+			} else {
+				dispatch(updateHunt(updatedHunt.data));
+			}
+		}
+	}
+}
+
+export function deleteHunt(id) {
+	return async (dispatch) => {
+		const deleteHunt = await axios.delete(`${ACTIVE_HUNTS_URL}/${id}`);
+
+		if(deleteHunt.status === 200) {
+			dispatch(removeHunt({id}));
 		}
 	}
 }

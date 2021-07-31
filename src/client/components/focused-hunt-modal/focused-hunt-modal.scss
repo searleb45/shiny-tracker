@@ -80,18 +80,35 @@
 		}
 	}
 
-	&-delete {
+	&-final-interactions {
+		display: flex;
+		justify-content: center;
+		margin: 1rem 0 0;
+	}
+
+	&-finish, &-delete {
 		border-radius: 5px;
 		color: $white;
-		display: block;
-		width: 25%;
 		padding: 0.5rem;
-		margin: 1rem auto 0;
+	}
+
+	&-finish {
+		@include background-color-hover-react($increment-green);
+		margin-right: 1rem;
+		flex-grow: 2;
+	}
+
+	&-delete {
 		@include background-color-hover-react($decrement-red);
+		flex: 0 1 33%;
 
 		background-image: url('../../static/icons/delete.svg');
 		background-position: 15% center;
 		background-repeat: no-repeat;
 		padding-left: 2.2rem;
+
+		&:first-child {
+			flex: 0 0 25%
+		}
 	}
 }

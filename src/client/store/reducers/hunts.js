@@ -13,6 +13,19 @@ export default function huntsReducer(state = initialState.hunts, action) {
 				...state,
 				active: [...state.active, action.hunt]
 			};
+		case types.UPDATE_HUNT:
+			const index = state.active.findIndex((hunt) => hunt.id === action.hunt.id);
+			const newActiveList = [...state.active];
+			newActiveList[index] = action.hunt;
+			return {
+				...state,
+				active: newActiveList
+			};
+		case types.REMOVE_HUNT:
+			return {
+				...state,
+				active: state.active.filter((hunt) => hunt.id !== action.hunt.id)
+			};
 		case types.SET_FOCUSED_HUNT:
 			return {
 				...state,

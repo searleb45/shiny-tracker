@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import TimeAgo from 'timeago-react';
-import Modal from '../modal';
 
+import { putHuntUpdate, deleteHunt } from '../../store/actions/hunts';
+
+import Modal from '../modal';
 import PokemonViewer from '../pokemon-viewer';
 
 import './focused-hunt-modal.scss';
@@ -11,6 +14,7 @@ import POKEMON_LIST from '../../static/data/pokemon-list';
 const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
 	const [updatedCount, setUpdatedCount] = useState(-1);
+	const dispatch = useDispatch();
 
 	if(!hunt) return null;
 
@@ -29,21 +33,22 @@ const FocusedHuntModal = (props) => {
 
 	function updateHuntCount(newCount) {
 		if(newCount !== hunt.encounters) {
-			// TODO Dispatch request to update encounter number for this hunt
+			dispatch(putHuntUpdate(hunt.id, 'setCount', parseInt(newCount)));
 		}
 		setUpdatedCount(-1);
 	}
 
 	function handleHuntInteract(action) {
-		// TODO Handle increment/decrement operations
+		dispatch(putHuntUpdate(hunt.id, action));
 	}
 
 	function handleDelete() {
 		// TODO Prompt for confirmation before sending delete request
-	}
-	
-	function handleHuntFinish() {
+		const confirmDelete = confirm('Are you sure you want to delete this hunt? This cannot be undone!');
 
+		if(confirmDelete) {
+			dispatch(deleteHunt(hunt.id));
+		}
 	}
 
 	return (
@@ -88,8 +93,10 @@ const FocusedHuntModal = (props) => {
 					<label>Encounters until 90%</label>
 					{encountersTo90.toLocaleString()}
 				</div>
-				{isModifiable && <button className="focused-hunt-finish" onClick={handleHuntFinish}>Got it!</button>}
-				<button className="focused-hunt-delete" onClick={handleDelete}>Delete</button>
+				<div className="focused-hunt-final-interactions">
+					{isModifiable && <button className="focused-hunt-finish" onClick={() => handleHuntInteract('complete')}>Got it!</button>}
+					<button className="focused-hunt-delete" onClick={handleDelete}>Delete</button>
+				</div>
 			</div>
 		</Modal>
 	)

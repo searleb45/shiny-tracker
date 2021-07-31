@@ -95,28 +95,30 @@ router.post('/', checkAuth, async (req, res) => {
 
 router.put('/', checkAuth, async (req, res) => {
 	const { id, op, val } = req.body;
-	const where = {
-		userId: req.session.id,
-		id,
-		completed: false
-	};
-	let response;
+	const hunt = await db.hunt.findOne({
+		where: {
+			userId: req.session.id,
+			id,
+			completed: false
+		}
+	});
 	
 	if(op === 'inc') {
-		response = await db.hunt.increment('encounters', { where });
+		hunt.encounters = hunt.encounters + 1;
 	} else if(op === 'dec') {
-		response = await db.hunt.decrement('encounters', { where });
+		hunt.encounters = Math.max(hunt.encounters - 1, 0);
 	} else if(op ==='complete') {
-		response = await db.hunt.update({ completed: true }, { where });
+		hunt.completed = true;
 	} else if(typeof(val) === 'number' && val >= 0) {
-		response = await db.hunt.update({ encounters: val }, { where });
+		hunt.encounters = val
 	}
 
-	res.status(200).send(response);
+	await hunt.save();
+	res.status(200).send(hunt);
 });
 
-router.delete('/', checkAuth, async(req, res) => {
-	const { id } = req.body;
+router.delete('/:id', checkAuth, async(req, res) => {
+	const { id } = req.params;
 
 	const response = await db.hunt.destroy({
 		where: {
@@ -125,7 +127,11 @@ router.delete('/', checkAuth, async(req, res) => {
 		}
 	});
 
-	res.status(200).send(response);
+	if(response === 1) {
+		res.status(200).send();
+	} else {
+		res.status(500).send();
+	}
 });
 
 export default router;
