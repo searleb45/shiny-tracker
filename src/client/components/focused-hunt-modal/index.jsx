@@ -66,9 +66,10 @@ const FocusedHuntModal = (props) => {
 							onChange={(e) => setUpdatedCount(e.target.value)}
 							onBlur={() => updateHuntCount(updatedCount)} />
 					</form>
-				) : (
-					<button onClick={() => isModifiable && setUpdatedCount(hunt.encounters)}>{hunt.encounters.toLocaleString()}</button>
-				)}
+				) : isModifiable ? (
+					<button onClick={() => setUpdatedCount(hunt.encounters)}>{hunt.encounters.toLocaleString()}</button>
+					) : hunt.encounters.toLocaleString()
+				}
 			</div>
 			<div className="focused-hunt-display">
 				{isModifiable && (

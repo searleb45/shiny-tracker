@@ -6,7 +6,7 @@ import BasePageTemplate from '../_base-template';
 import HuntViewer from '../../components/hunt-viewer';
 import FocusedHuntModal from '../../components/focused-hunt-modal';
 
-import { getCompletedHunts } from '../../store/actions/hunts';
+import { getCompletedHunts, setFocusedHunt } from '../../store/actions/hunts';
 
 import './completed-hunts.scss';
 
