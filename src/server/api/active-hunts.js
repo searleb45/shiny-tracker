@@ -110,6 +110,13 @@ router.put('/', checkAuth, async (req, res) => {
 	} else if(op ==='complete') {
 		hunt.completed = true;
 		hunt.completionDate = new Date();
+
+		await db.shinydex.create({
+			userId: req.session.id,
+			gameId: hunt.gameId,
+			pokemon: hunt.pokemon,
+			notes: `Shiny hunt - Completed ${hunt.completionDate.toLocaleDateString()} after ${hunt.encounters} encounters`
+		})
 	} else if(typeof(val) === 'number' && val >= 0) {
 		hunt.encounters = val
 	}

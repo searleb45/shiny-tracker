@@ -44,6 +44,14 @@ const FocusedHuntModal = (props) => {
 		dispatch(putHuntUpdate(hunt.id, action));
 	}
 
+	function handleComplete() {
+		const confirmComplete = confirm('Are you sure you want to finish this shiny hunt? (This will also add an entry for this Pokémon to your Shinydex)');
+		
+		if(confirmComplete) {
+			dispatch(putHuntUpdate(hunt.id, 'complete'));
+		}
+	}
+
 	function handleDelete() {
 		const confirmDelete = confirm('Are you sure you want to delete this hunt? This cannot be undone!');
 
@@ -109,7 +117,7 @@ const FocusedHuntModal = (props) => {
 					{encountersTo90.toLocaleString()}
 				</div>
 				<div className="focused-hunt-final-interactions">
-					{isModifiable && <button className="focused-hunt-finish" onClick={() => handleHuntInteract('complete')}>Got it!</button>}
+					{isModifiable && <button className="focused-hunt-finish" onClick={handleComplete}>Got it!</button>}
 					<button className="focused-hunt-delete" onClick={handleDelete}>Delete</button>
 				</div>
 			</div>
