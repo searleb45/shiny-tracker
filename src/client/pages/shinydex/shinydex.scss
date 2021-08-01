@@ -1,0 +1,50 @@
+@import '../../scss';
+
+.shinydex {
+	.header {
+		flex-wrap: wrap;
+
+		@include media-breakpoint(md) {
+			flex-wrap: nowrap;
+		}
+		& > * {
+			flex-basis: 100%;
+			display: flex;
+			align-items: center;
+			margin-bottom: 0.5rem;
+			min-height: 38px;
+
+			@include media-breakpoint(md) {
+				flex-basis: 25%;
+				margin-right: 0.5rem;
+				margin-bottom: 0;
+			}
+		}
+	}
+	.shinydex-pokemon-filter {
+		padding: 0.5rem;
+	}
+	.game-select {
+		&__control {
+			width: 100%;
+			height: 100%;
+		}
+		&__menu {
+			z-index: 2;
+		}
+	}
+	#shinydex-obtained-filter {
+		margin-right: 0.5rem;
+	}
+	.add-shinydex-entry {
+		@include media-breakpoint(md) {
+			width: auto;
+		}
+	}
+
+	.shinydex-metadata {
+		flex-basis: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+}

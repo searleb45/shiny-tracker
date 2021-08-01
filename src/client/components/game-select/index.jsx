@@ -6,7 +6,7 @@ import './game-select.scss';
 import GAME_DATA from '../../static/data/pokemon-games.json';
 
 const GameSelect = (props) => {
-	const { id, value, onChange, useStorageGames } = props;
+	const { id, value, onChange, useStorageGames, placeholder, isClearable, isSearchable } = props;
 
 	const options = GAME_DATA.filter((game) => useStorageGames ? true : !game.storageGame);
 
@@ -27,6 +27,11 @@ const GameSelect = (props) => {
 			getOptionValue={opt => opt.gameId}
 			onChange={(newOpt) => onChange(newOpt)}
 			maxMenuHeight={500}
+			className="game-select"
+			classNamePrefix="game-select"
+			placeholder={placeholder}
+			isClearable={isClearable || false}
+			isSearchable={isSearchable || true}
 		/>
 	);
 }
