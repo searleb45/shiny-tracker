@@ -31,7 +31,8 @@ const FocusedHuntModal = (props) => {
 		typeof(close) === 'function' && close();
 	}
 
-	function updateHuntCount(newCount) {
+	function updateHuntCount(newCount, e) {
+		if(e) e.preventDefault();
 		if(newCount !== hunt.encounters) {
 			dispatch(putHuntUpdate(hunt.id, 'setCount', parseInt(newCount)));
 		}
@@ -58,7 +59,7 @@ const FocusedHuntModal = (props) => {
 			</div>
 			<div className="focused-hunt-counter">
 				{updatedCount > -1 ? (
-					<form onSubmit={() => updateHuntCount(updatedCount)}>
+					<form onSubmit={(e) => updateHuntCount(updatedCount, e)}>
 						<input
 							type="number"
 							autoFocus
