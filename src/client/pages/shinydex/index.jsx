@@ -7,9 +7,9 @@ import GameSelect from '../../components/game-select';
 import ShinyDexEntry from '../../components/shinydex-entry';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
-import GAME_LIST from '../../static/data/pokemon-games.json';
 
 import './shinydex.scss';
+import { getShinydex } from '../../store/actions/shinydex';
 
 function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter) {
 	let filteredList = POKEMON_LIST;
@@ -36,10 +36,12 @@ const Shinydex = () => {
 	const [pokemonFilter, setPokemonFilter] = useState('');
 	const [gameFilter, setGameFilter] = useState(null);
 	const [showObtainedOnly, setShowObtainedOnly] = useState(false);
+	const dispatch = useDispatch();
 
 	if(!shinydex) {
+		dispatch(getShinydex());
 		return <h2>Loading your information...</h2>
-	};
+	}
 
 	const handleGameChange = (game) => {
 		if(game != null) {
@@ -63,7 +65,7 @@ const Shinydex = () => {
 			className="shinydex"
 			header={<>
 				<input type="text" className="shinydex-pokemon-filter" placeholder="Filter Pokémon" value={pokemonFilter} onChange={(e) => setPokemonFilter(e.target.value)} />
-				<GameSelect id="shinydex-game-filter" placeholder="Select Game" isSearchable={false} isClearable={true} useStorageGames={true} value={gameFilter} onChange={(opt) => handleGameChange(opt)} />
+				<GameSelect id="shinydex-game-filter" placeholder="Filter Games" isSearchable={false} isClearable={true} useStorageGames={true} value={gameFilter} onChange={(opt) => handleGameChange(opt)} />
 				<label htmlFor="shinydex-obtained-filter">
 					<input id="shinydex-obtained-filter" type="checkbox" checked={showObtainedOnly} onChange={(e) => handleObtainedCheckbox(e.target.checked)} />
 					Show obtained Pokémon only

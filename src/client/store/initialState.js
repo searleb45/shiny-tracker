@@ -12,5 +12,5 @@ export default {
 		completed: undefined,
 		focused: -1
 	},
-	shinyDex: [{id: 1, userId: 'asdf', gameId: 'sun', pokemon: 26, form: 'alola'}],
+	shinyDex: null,
 };

@@ -39,6 +39,7 @@ const FocusedHuntModal = (props) => {
 	}
 
 	function handleHuntInteract(action) {
+		window.navigator.vibrate(50);
 		dispatch(putHuntUpdate(hunt.id, action));
 	}
 

@@ -18,9 +18,11 @@ export default (sequelize, Sequelize) => {
 			type: Sequelize.INTEGER,
 			allowNull: false
 		},
-		form: {
-			type: Sequelize.STRING(15)
+		notes: {
+			type: Sequelize.STRING
 		}
+	}, {
+		freezeTableName: true
 	});
 
 	return Shinydex;
