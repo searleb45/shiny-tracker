@@ -40,7 +40,7 @@ export function getShinydex() {
 	}
 }
 
-export function postNewShinydexEntry(game, pokemon, notes) {
+export function postNewShinydexEntry(game, pokemon, notes, callback) {
 	return async (dispatch) => {
 		const newEntry = await axios.post(SHINYDEX_URL, {
 			gameId: game.gameId,

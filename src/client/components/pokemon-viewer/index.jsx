@@ -21,7 +21,7 @@ const PokemonViewer = (props) => {
 
 	return (
 		<div className="pokemon-viewer">
-			<img src={pokemon.sprite} />
+			<img loading="lazy" src={pokemon.sprite} />
 		</div>
 	)
 }

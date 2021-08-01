@@ -5,6 +5,7 @@ import BasePageTemplate from '../_base-template';
 
 import GameSelect from '../../components/game-select';
 import ShinyDexEntry from '../../components/shinydex-entry';
+import AddShinydexEntryModal from '../../components/add-shinydex-entry-modal';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
 
@@ -36,6 +37,7 @@ const Shinydex = () => {
 	const [pokemonFilter, setPokemonFilter] = useState('');
 	const [gameFilter, setGameFilter] = useState(null);
 	const [showObtainedOnly, setShowObtainedOnly] = useState(false);
+	const [addEntryModalOpen, setAddEntryModalOpen] = useState(false);
 	const dispatch = useDispatch();
 
 	if(!shinydex) {
@@ -61,27 +63,33 @@ const Shinydex = () => {
 	}, 0);
 
 	return (
-		<BasePageTemplate
-			className="shinydex"
-			header={<>
-				<input type="text" className="shinydex-pokemon-filter" placeholder="Filter Pokémon" value={pokemonFilter} onChange={(e) => setPokemonFilter(e.target.value)} />
-				<GameSelect id="shinydex-game-filter" placeholder="Filter Games" isSearchable={false} isClearable={true} useStorageGames={true} value={gameFilter} onChange={(opt) => handleGameChange(opt)} />
-				<label htmlFor="shinydex-obtained-filter">
-					<input id="shinydex-obtained-filter" type="checkbox" checked={showObtainedOnly} onChange={(e) => handleObtainedCheckbox(e.target.checked)} />
-					Show obtained Pokémon only
-				</label>
-				<button className="btn-primary add-shinydex-entry" onClick={() => console.log('add entry')}>Add New Entry</button>
-			</>}
-			page={
-				<>
-					<div className="shinydex-metadata">
-						{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : null}
-						<h4>Obtained {numObtained} of {POKEMON_LIST.length} </h4>
-					</div>
-					{filteredDexList.map(pkmn => <ShinyDexEntry key={pkmn.id} pokemon={pkmn} collected={shinydex.some(entry => entry.pokemon === pkmn.id)} />)}
-				</>
-			}
-		/>
+		<>
+			<BasePageTemplate
+				className="shinydex"
+				header={<>
+					<input type="text" className="shinydex-pokemon-filter" placeholder="Filter Pokémon" value={pokemonFilter} onChange={(e) => setPokemonFilter(e.target.value)} />
+					<GameSelect id="shinydex-game-filter" placeholder="Filter Games" isSearchable={false} isClearable={true} useStorageGames={true} value={gameFilter} onChange={(opt) => handleGameChange(opt)} />
+					<label htmlFor="shinydex-obtained-filter">
+						<input id="shinydex-obtained-filter" type="checkbox" checked={showObtainedOnly} onChange={(e) => handleObtainedCheckbox(e.target.checked)} />
+						Show obtained Pokémon only
+					</label>
+					<button className="btn-primary add-shinydex-entry" onClick={() => setAddEntryModalOpen(true)}>Add New Entry</button>
+				</>}
+				page={
+					<>
+						<div className="shinydex-metadata">
+							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : null}
+							<h4>Obtained {numObtained} of {POKEMON_LIST.length} </h4>
+						</div>
+						{filteredDexList.map(pkmn => <ShinyDexEntry key={pkmn.id} pokemon={pkmn} collected={shinydex.some(entry => entry.pokemon === pkmn.id)} />)}
+					</>
+				}
+			/>
+			<AddShinydexEntryModal
+				isOpen={addEntryModalOpen}
+				close={() => setAddEntryModalOpen(false)}
+			/>
+		</>
 	)
 };
 

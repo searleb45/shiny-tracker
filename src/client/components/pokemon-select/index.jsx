@@ -7,7 +7,7 @@ const PokemonSelect = (props) => {
 	const { id, value, onChange, generation } = props;
 
 	const pokemonOptions = POKEMON_GENERATION_LIST
-		.filter((gen) => gen.generation <= generation)
+		.filter((gen) => generation === -1 || gen.generation <= generation)
 		.reduce((acc, obj) => [...acc, ...obj.pokemon], []);
 	
 	return (

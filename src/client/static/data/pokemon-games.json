@@ -291,7 +291,7 @@
 	{
 		"gameId": "bank",
 		"name": "Pokémon Bank",
-		"generation": -1,
+		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-bank.png",
 		"storageGame": true
 	},

@@ -1,0 +1,52 @@
+@import '../../scss';
+
+.add-shinydex-entry-modal {
+	min-height: 70%;
+	bottom: 50%;
+
+	@include media-breakpoint(md) {
+		inset: unset;
+		max-width: 70%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		min-height: 51%;
+		height: 0;
+	}
+	@include media-breakpoint(lg) {
+		max-width: 60%;
+	}
+	@include media-breakpoint(xl) {
+		max-width: 50%;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: 100%;
+	}
+	.form-input {
+		margin-top: 0.5rem;
+
+		label {
+			display: block;
+			margin: 0.25rem 0;
+		}
+
+		textarea {
+			width: 100%;
+			padding: 0.5rem;
+			min-height: 5rem;
+			font: inherit;
+		}
+
+		.textarea-counter {
+			text-align: right;
+		}
+	}
+	.submit {
+		margin-top: 0.5rem;
+	}
+}
