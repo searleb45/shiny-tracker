@@ -55,12 +55,12 @@ export function postNewShinydexEntry(game, pokemon, notes, callback) {
 	}
 }
 	
-export function putShinydexUpdate(id, game, pokemon, notes) {
+export function putShinydexUpdate(id, gameId, pokemon, notes) {
 	return async (dispatch) => {
 		const updatedEntry = await axios.put(SHINYDEX_URL, {
 			id,
-			game: game.gameId,
-			pokemon: pokemon.id,
+			gameId,
+			pokemon,
 			notes
 		});
 

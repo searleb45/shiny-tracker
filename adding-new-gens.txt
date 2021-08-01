@@ -4,7 +4,6 @@ How to add a new game/generation:
 2. Add game info to src/static/data/pokemon-games.json
 3. Update src/static/data/hunt-types.json to include new gen number in any relevant hunt types
 4. Add any new hunt types with odds to hunt-types.json
-TODO More steps?
 
 
 How to add new Pokemon:
@@ -19,4 +18,3 @@ How to add new Pokemon:
 	}
 4. New batches of Pokemon within a generation should use decimal gen numbers to denote 
 	different Pokemon sets and (maybe)hunt odds (7.5 for USUM, 7.75 for LGPE, etc)
-TODO More steps?

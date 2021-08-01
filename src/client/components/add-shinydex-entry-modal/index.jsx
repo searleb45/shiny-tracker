@@ -63,7 +63,7 @@ const NewShinydexEntryModal = (props) => {
 							/>
 						</div>
 						<div className="form-input">
-							<label htmlFor="newEntryNotes">Any notes (level, CP, alternate forms)?</label>
+							<label htmlFor="newEntryNotes">Any notes (when/how obtained, level, CP, alternate forms)?</label>
 							<textarea id="newEntryNotes" value={notes} onChange={(e) => setNotes(e.target.value)} maxLength="255" />
 							<div className="textarea-counter">{255 - notes.length}/255 characters remaining</div>
 						</div>

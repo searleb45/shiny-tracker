@@ -51,6 +51,18 @@ module.exports = (env, argv) => {
 				{
 					test: /\.(png|jpg|jpeg|gif)$/,
 					type: 'asset/resource'
+				},
+				{
+					test: /\.svg$/,
+					oneOf: [
+						{
+							resourceQuery: /react/,
+							loader: 'react-svg-loader'
+						},
+						{
+							type: 'asset/inline'
+						}
+					]
 				}
 			]
 		},

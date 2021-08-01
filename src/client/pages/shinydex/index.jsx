@@ -11,6 +11,7 @@ import POKEMON_LIST from '../../static/data/pokemon-list';
 
 import './shinydex.scss';
 import { getShinydex } from '../../store/actions/shinydex';
+import ShinydexDetailModal from '../../components/shinydex-detail-modal';
 
 function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter) {
 	let filteredList = POKEMON_LIST;
@@ -38,6 +39,7 @@ const Shinydex = () => {
 	const [gameFilter, setGameFilter] = useState(null);
 	const [showObtainedOnly, setShowObtainedOnly] = useState(false);
 	const [addEntryModalOpen, setAddEntryModalOpen] = useState(false);
+	const [focusedEntry, setFocusedEntry] = useState(-1);
 	const dispatch = useDispatch();
 
 	if(!shinydex) {
@@ -79,15 +81,20 @@ const Shinydex = () => {
 					<>
 						<div className="shinydex-metadata">
 							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : null}
-							<h4>Obtained {numObtained} of {POKEMON_LIST.length} </h4>
+							<h4>Obtained {numObtained} of {POKEMON_LIST.length} | {shinydex.length} entr{shinydex.length === 1 ? 'y' : 'ies'} total</h4>
 						</div>
-						{filteredDexList.map(pkmn => <ShinyDexEntry key={pkmn.id} pokemon={pkmn} collected={shinydex.some(entry => entry.pokemon === pkmn.id)} />)}
+						{filteredDexList.map(pkmn => <ShinyDexEntry key={pkmn.id} pokemon={pkmn} collected={shinydex.some(entry => entry.pokemon === pkmn.id)} onClick={() => setFocusedEntry(pkmn.id)} />)}
 					</>
 				}
 			/>
 			<AddShinydexEntryModal
 				isOpen={addEntryModalOpen}
 				close={() => setAddEntryModalOpen(false)}
+			/>
+			<ShinydexDetailModal
+				close={() => setFocusedEntry(null)}
+				pokemon={POKEMON_LIST.find(pkmn => pkmn.id === focusedEntry)}
+				entries={(shinydex || []).filter(entry => entry.pokemon === focusedEntry)}
 			/>
 		</>
 	)

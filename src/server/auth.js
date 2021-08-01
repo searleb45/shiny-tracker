@@ -49,7 +49,6 @@ router.get('/callback', async (req, res) => {
 			req.session.id = decodedToken.sub;
 			res.cookie(AUTH_COOKIE, true);
 			res.cookie(USERNAME_COOKIE, decodedToken.preferred_username);
-			console.log(decodedToken.picture);
 			res.cookie(PICTURE_COOKIE, decodedToken.picture, { encode: encodeURI });
 			res.redirect('/active-hunts');
 		} else {

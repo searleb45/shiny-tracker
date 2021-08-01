@@ -44,7 +44,6 @@ const FocusedHuntModal = (props) => {
 	}
 
 	function handleDelete() {
-		// TODO Prompt for confirmation before sending delete request
 		const confirmDelete = confirm('Are you sure you want to delete this hunt? This cannot be undone!');
 
 		if(confirmDelete) {

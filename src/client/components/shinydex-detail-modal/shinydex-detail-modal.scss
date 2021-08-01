@@ -1,0 +1,52 @@
+@import '../../scss';
+
+.shinydex-detail-modal {
+	.shinydex-entry {
+		max-width: 80%;
+		margin: 1rem auto;
+
+		@include media-breakpoint(md) {
+			max-width: 50%;
+		}
+
+		button {
+			cursor: auto;
+		}
+	}
+
+	h4 {
+		text-align: center;
+		margin: 0;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+
+		th, td {
+			width: 30%;
+			border: 1px solid $copy;
+			padding: 0.5rem;
+
+			&:last-child {
+				width: 10%;
+			}
+		}
+
+		textarea {
+			width: 100%;
+		}
+	}
+
+	.interaction-container {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		a { height: 24px; }
+
+		svg {
+			fill: $interact-blue;
+		}
+	}
+}
