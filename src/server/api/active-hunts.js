@@ -115,7 +115,7 @@ router.put('/', checkAuth, async (req, res) => {
 			userId: req.session.id,
 			gameId: hunt.gameId,
 			pokemon: hunt.pokemon,
-			notes: `Shiny hunt - Completed ${hunt.completionDate.toLocaleDateString()} after ${hunt.encounters} encounters`
+			notes: val
 		})
 	} else if(typeof(val) === 'number' && val >= 0) {
 		hunt.encounters = val

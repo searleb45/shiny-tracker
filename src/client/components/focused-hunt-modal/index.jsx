@@ -48,7 +48,8 @@ const FocusedHuntModal = (props) => {
 		const confirmComplete = confirm('Are you sure you want to finish this shiny hunt? (This will also add an entry for this Pokémon to your Shinydex)');
 		
 		if(confirmComplete) {
-			dispatch(putHuntUpdate(hunt.id, 'complete'));
+			const completionString = `Shiny hunt - Completed ${new Date().toLocaleDateString()} after ${hunt.encounters.toLocaleString()} encounters`;
+			dispatch(putHuntUpdate(hunt.id, 'complete', completionString));
 		}
 	}
 
