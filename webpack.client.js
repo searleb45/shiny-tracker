@@ -3,6 +3,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const dotenv = require('dotenv');
+const sharp = require('sharp');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
 	let envKeys = {};
@@ -75,11 +77,18 @@ module.exports = (env, argv) => {
 			new CopyPlugin({
 				patterns: [
 					{
-						from: path.join(__dirname, 'src/client/static'),
-						to: path.join(__dirname, 'build'),
-						filter: (path) => path.match(/(boxart|sprites|\.html$)/)
+						from: path.join(__dirname, 'src/client/static/boxart'),
+						to: path.join(__dirname, 'build/boxart'),
+						transform: (content) => sharp(content).resize(200).toBuffer()
+					},
+					{
+						from: path.join(__dirname, 'src/client/static/sprites'),
+						to: path.join(__dirname, 'build/sprites')
 					}
 				]
+			}),
+			new HtmlWebpackPlugin({
+				template: path.join(__dirname, 'src/client/static/index.html')
 			}),
 			new webpack.DefinePlugin(envKeys)
 		],
