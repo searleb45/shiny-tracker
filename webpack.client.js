@@ -83,7 +83,7 @@ module.exports = (env, argv) => {
 					},
 					{
 						from: path.join(__dirname, 'src/client/static/sprites'),
-						to: path.join(__dirname, 'build/sprites')
+						to: path.join(__dirname, 'build/sprites'),
 					}
 				]
 			}),

@@ -1,0 +1,18 @@
+1. Image optimization for Pokemon gifs
+2. Add separate listings for Alolan/Galarian forms in Shinydex
+	2a. Display alt forms at bottom of Shinydex
+	2b. Add option to Pokemon-select to pick alt forms where applicable
+	2c. When completing a hunt, figure out logic for determining alt form in Shinydex entry
+3. Completion string should be generated on frontend and sent to API - better locale formats for dates/numbers
+4. Service worker
+	4a. Precache app shell, core assets, etc
+	4b. Cache-first strategy for boxart/sprites
+	4c. Offline queueing for shiny hunt creation/update/Completion
+5. Manifest file for native install
+	5a. Icons
+	5b. Colors
+	5c. Other important manifest shit
+6. Dark mode support
+	6a. Can we have a mixin to set colors based on light/dark preference?
+	6b. Save dark theme preference as persistent cookie
+7. Homepage content
