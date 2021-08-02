@@ -20,7 +20,8 @@ module.exports = (env, argv) => {
 	return {
 		entry: './src/client/index.js',
 		output: {
-			filename: 'bundle.js',
+			filename: '[name].[contenthash].js',
+			chunkFilename: '[chunkhash].js',
 			path: path.resolve(__dirname, 'build')
 		},
 		module: {
@@ -71,8 +72,8 @@ module.exports = (env, argv) => {
 
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: '[name].css',
-				chunkFilename: '[id].css',
+				filename: '[name].[hash].css',
+				chunkFilename: '[chunkhash].css',
 			}),
 			new CopyPlugin({
 				patterns: [
@@ -84,11 +85,15 @@ module.exports = (env, argv) => {
 					{
 						from: path.join(__dirname, 'src/client/static/sprites'),
 						to: path.join(__dirname, 'build/sprites'),
+					},
+					{
+						from: path.join(__dirname, 'src/client/static/favicon.ico'),
+						to: path.join(__dirname, 'build')
 					}
 				]
 			}),
 			new HtmlWebpackPlugin({
-				template: path.join(__dirname, 'src/client/static/index.html')
+				template: path.join(__dirname, 'src/client/index.html')
 			}),
 			new webpack.DefinePlugin(envKeys)
 		],
