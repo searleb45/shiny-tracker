@@ -18,6 +18,8 @@ const PokemonSelect = (props) => {
 			options={pokemonOptions}
 			getOptionLabel={(obj) => obj.name}
 			getOptionValue={(obj) => obj.id}
+			className="pokemon-select"
+			classNamePrefix="pokemon-select"
 		/>
 	)
 }

@@ -1,12 +1,34 @@
 @import '../../scss';
 
 .shinydex-detail-modal {
+	inset: 0;
+	border-radius: 0;
+	max-width: none;
+
+	@include media-breakpoint(md) {
+		inset: 90px 40px;
+		max-width: 1200px;
+		border-radius: 4px;
+	}
+
 	.shinydex-entry {
-		max-width: 80%;
+		max-width: 100%;
 		margin: 1rem auto;
+
+		.data-container {
+			width: 75%;
+		}
+
+		@include media-breakpoint(sm) {
+			max-width: 80%;
+		}
 
 		@include media-breakpoint(md) {
 			max-width: 50%;
+
+			.data-container {
+				width: 65%;
+			}
 		}
 
 		button {
@@ -35,6 +57,24 @@
 
 		textarea {
 			width: 100%;
+			font: inherit;
+		}
+	}
+
+	.game-select__menu,
+	.pokemon-select__menu {
+		width: 50vw;
+
+		@include media-breakpoint(md) {
+			width: auto;
+		}
+	}
+
+	.game-select__menu {
+		transform: translateX(-25%);
+
+		@include media-breakpoint(md) {
+			transform: none;
 		}
 	}
 
