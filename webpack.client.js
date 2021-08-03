@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const sharp = require('sharp');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = (env, argv) => {
 	let envKeys = {};
@@ -93,10 +94,10 @@ module.exports = (env, argv) => {
 					}
 				]
 			}),
+			new webpack.DefinePlugin(envKeys),
 			new HtmlWebpackPlugin({
 				template: path.join(__dirname, 'src/client/index.html')
 			}),
-			new webpack.DefinePlugin(envKeys),
 			new GenerateSW({
 				skipWaiting: true,
 				exclude: [/sprites\/.*/],
@@ -126,6 +127,23 @@ module.exports = (env, argv) => {
 						}
 					}
 				]
+			}),
+			new WebpackPwaManifest({
+				short_name: "Shiny Tracker",
+				name: "Shiny Tracker: Pokémon Shiny Hunt Tracker",
+				description: "Pokémon Shiny Hunt Tracker",
+				icons: [
+					{
+						src: path.resolve('src/client/static/icons/pwa-icon.png'),
+						sizes: [48, 72, 96, 128, 192, 384, 512]
+					}
+				],
+				start_url: "/",
+				background_color: "#e3e3e3",
+				display: "standalone",
+				scope: "/",
+				theme_color: "#284b63",
+				publicPath: '/'
 			})
 		],
 		resolve: {

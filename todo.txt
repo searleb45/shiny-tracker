@@ -1,7 +1,3 @@
-5. Manifest file for native install
-	5a. Icons
-	5b. Colors
-	5c. Other important manifest shit
 6. Dark mode support
 	6a. Can we have a mixin to set colors based on light/dark preference?
 	6b. Save dark theme preference as persistent cookie
