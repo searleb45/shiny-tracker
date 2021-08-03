@@ -87,7 +87,6 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 
 export function putHuntUpdate(id, action, count) {
 	return async (dispatch) => {
-		console.log('putHuntUpdate running');
 		try {
 			const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
 				id,
@@ -104,9 +103,10 @@ export function putHuntUpdate(id, action, count) {
 				}
 			}
 		} catch(err) {
-			console.log(err);
 			if(window.serviceWorkerRegistered) {
 				dispatch(offlineHuntUpdate(id, action, count));
+			} else {
+				console.error(err);
 			}
 		}
 	}

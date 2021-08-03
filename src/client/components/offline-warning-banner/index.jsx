@@ -15,7 +15,6 @@ const OfflineWarningBanner = (props) => {
 	const serviceWorkerEnabled = useSelector(state => state.serviceWorkerEnabled);
 	const userAuthenticated = useSelector(state => state.user.authenticated);
 	const location = useLocation();
-	console.log('location', location);
 
 	return (
 		<Offline>
