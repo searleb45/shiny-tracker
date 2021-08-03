@@ -2,3 +2,7 @@
 	6a. Can we have a mixin to set colors based on light/dark preference?
 	6b. Save dark theme preference as persistent cookie
 7. Homepage content
+
+1. Sort dropdown too narrow on mobile completed hunts page
+3. See if you can fix offline sync - try modifying inc/dec operations to set a static value
+	 and have service worker cache only the latest update request for each

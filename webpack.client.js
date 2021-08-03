@@ -101,6 +101,7 @@ module.exports = (env, argv) => {
 			new GenerateSW({
 				skipWaiting: true,
 				exclude: [/sprites\/.*/],
+				navigateFallbackDenylist: [/\/twitchAuth(\/.*)?/],
 				navigateFallback: 'index.html',
 				runtimeCaching: [
 					{
@@ -139,7 +140,7 @@ module.exports = (env, argv) => {
 					}
 				],
 				start_url: "/",
-				background_color: "#e3e3e3",
+				background_color: "#000000",
 				display: "standalone",
 				scope: "/",
 				theme_color: "#284b63",
