@@ -43,6 +43,30 @@ export default function huntsReducer(state = initialState.hunts, action) {
 				...state,
 				focused: action.hunt
 			};
+		case types.OFFLINE_HUNT_UPDATE:
+			const offlineIdx = state.active.findIndex((hunt) => hunt.id === action.id);
+			const offlineActiveList = [...state.active];
+			let completedItem = null;
+			switch(action.action) {
+				case 'inc':
+					offlineActiveList[offlineIdx].encounters++;
+					break;
+				case 'dec':
+					offlineActiveList[offlineIdx].encounters = Math.max(offlineActiveList[offlineIdx].encounters - 1, 0);
+					break;
+				case 'setCount':
+					offlineActiveList[offlineIdx].encounters = action.val;
+					break;
+				case 'complete':
+					completedItem = offlineActiveList.splice(offlineIdx, 1)[0];
+					break;
+			};
+			return {
+				...state,
+				active: offlineActiveList,
+				completed: state.completed && completedItem ? [...state.completed, completedItem] : state.completed,
+				focused: action.action === 'complete' ? -1 : state.focused
+			};
 		default:
 			return state;
 	}

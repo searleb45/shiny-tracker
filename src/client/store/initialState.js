@@ -13,4 +13,5 @@ export default {
 		focused: -1
 	},
 	shinyDex: null,
+	serviceWorkerEnabled: false
 };

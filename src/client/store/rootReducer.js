@@ -6,5 +6,6 @@ import shinyDexReducer from "./reducers/shinydex";
 export default combineReducers({
 	user: userReducer,
 	hunts: huntsReducer,
-	shinyDex: shinyDexReducer
+	shinyDex: shinyDexReducer,
+	serviceWorkerEnabled: (state) => state || false
 });

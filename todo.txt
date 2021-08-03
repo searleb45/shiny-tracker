@@ -1,7 +1,3 @@
-4. Service worker
-	4a. Precache app shell, core assets, etc
-	4b. Cache-first strategy for boxart/sprites
-	4c. Offline queueing for shiny hunt creation/update/Completion
 5. Manifest file for native install
 	5a. Icons
 	5b. Colors

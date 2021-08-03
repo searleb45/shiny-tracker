@@ -51,6 +51,15 @@ export function setFocusedHunt(hunt) {
 	}
 }
 
+export function offlineHuntUpdate(id, action, val) {
+	return {
+		type: types.OFFLINE_HUNT_UPDATE,
+		id,
+		action,
+		val
+	};
+}
+
 export function getActiveHunts() {
 	return async (dispatch) => {
 		const hunts = await axios.get(ACTIVE_HUNTS_URL);
@@ -78,18 +87,26 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 
 export function putHuntUpdate(id, action, count) {
 	return async (dispatch) => {
-		const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
-			id,
-			op: action,
-			val: count
-		});
-
-		if(updatedHunt.status === 200) {
-			if(action === 'complete') {
-				dispatch(removeHunt(updatedHunt.data));
-				dispatch(addCompletedHunt(updatedHunt.data));
-			} else {
-				dispatch(updateHunt(updatedHunt.data));
+		console.log('putHuntUpdate running');
+		try {
+			const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
+				id,
+				op: action,
+				val: count
+			});
+	
+			if(updatedHunt.status === 200) {
+				if(action === 'complete') {
+					dispatch(removeHunt(updatedHunt.data));
+					dispatch(addCompletedHunt(updatedHunt.data));
+				} else {
+					dispatch(updateHunt(updatedHunt.data));
+				}
+			}
+		} catch(err) {
+			console.log(err);
+			if(window.serviceWorkerRegistered) {
+				dispatch(offlineHuntUpdate(id, action, count));
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Online } from 'react-detect-offline';
 import NewHuntModal from '../../components/new-hunt-modal';
 import FocusedHuntModal from '../../components/focused-hunt-modal';
 import { getActiveHunts, setFocusedHunt } from '../../store/actions/hunts';
@@ -25,12 +26,12 @@ const ActiveHunts = () => {
 			<BasePageTemplate
 				className="active-hunts"
 				header={
-					<>
+					<Online>
 						<button className="btn-primary add-hunt" onClick={() => setNewHuntModalOpen(true)}>
 							<span className="plus-icon"></span>
 							<span className="button-text">Create New Hunt</span>
 						</button>
-					</>
+					</Online>
 				}
 				page={
 					<>

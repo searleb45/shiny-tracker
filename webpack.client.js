@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const dotenv = require('dotenv');
 const sharp = require('sharp');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = (env, argv) => {
 	let envKeys = {};
@@ -95,7 +96,37 @@ module.exports = (env, argv) => {
 			new HtmlWebpackPlugin({
 				template: path.join(__dirname, 'src/client/index.html')
 			}),
-			new webpack.DefinePlugin(envKeys)
+			new webpack.DefinePlugin(envKeys),
+			new GenerateSW({
+				skipWaiting: true,
+				exclude: [/sprites\/.*/],
+				navigateFallback: 'index.html',
+				runtimeCaching: [
+					{
+						urlPattern: /\/(boxart|sprites)\/.*/,
+						handler: 'CacheFirst'
+					},
+					{
+						urlPattern: /\.(css|js)/,
+						handler: 'CacheFirst'
+					},
+					{
+						urlPattern: /\/api\/.*/,
+						method: 'GET',
+						handler: 'NetworkFirst'
+					},
+					{
+						urlPattern: /\/api\/.*/,
+						method: 'PUT',
+						handler: 'NetworkOnly',
+						options: {
+							backgroundSync: {
+								name: 'hunt-update-sync'
+							}
+						}
+					}
+				]
+			})
 		],
 		resolve: {
 			extensions: ['.js', '.jsx']

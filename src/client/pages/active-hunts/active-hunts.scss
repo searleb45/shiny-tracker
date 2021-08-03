@@ -5,6 +5,10 @@
 	.header {
 		justify-content: flex-end;
 
+		&:empty {
+			display: none;
+		}
+
 		.add-hunt {
 			@include media-breakpoint(md) {
 				width: auto;

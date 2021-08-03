@@ -6,11 +6,8 @@ import {
 	Redirect
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import OfflineWarningBanner from './components/offline-warning-banner';
 
-// import Home from './pages/_async/async-home';
-// import ActiveHunts from './pages/_async/async-active-hunts';
-// import CompletedHunts from './pages/_async/async-completed-hunts';
-// import Shinydex from './pages/_async/async-shinydex';
 const Home = React.lazy(() => import(/* webpackChunkName: 'home' */'./pages/home'));
 const ActiveHunts = React.lazy(() => import(/* webpackChunkName: 'active-hunts' */'./pages/active-hunts'));
 const CompletedHunts = React.lazy(() => import(/* webpackChunkName: 'completed-hunts' */'./pages/completed-hunts'));
@@ -19,13 +16,13 @@ const Shinydex = React.lazy(() => import(/* webpackChunkName: 'shinydex' */'./pa
 import Header from './components/header';
 
 const App = () => {
-
 	const userAuthenticated = useSelector(state => state.user.authenticated);
 
 	return (
 		<Router>
 			<Header />
 			<div className="page-content">
+				<OfflineWarningBanner />
 				<Switch>
 					<React.Suspense fallback={<h2>Loading...</h2>}>
 						<Route path="/active-hunts">

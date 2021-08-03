@@ -1,0 +1,12 @@
+@import '../../scss';
+
+.offline-warning-banner {
+	background-color: $warning-yellow;
+	color: $white;
+	padding: 0.5rem;
+	text-align: center;
+
+	.content {
+		@extend %container;
+	}
+}

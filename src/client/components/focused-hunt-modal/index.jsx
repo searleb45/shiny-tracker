@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import TimeAgo from 'timeago-react';
+import { Online } from 'react-detect-offline';
 
 import { putHuntUpdate, deleteHunt } from '../../store/actions/hunts';
 
@@ -119,7 +120,7 @@ const FocusedHuntModal = (props) => {
 				</div>
 				<div className="focused-hunt-final-interactions">
 					{isModifiable && <button className="focused-hunt-finish" onClick={handleComplete}>Got it!</button>}
-					<button className="focused-hunt-delete" onClick={handleDelete}>Delete</button>
+					<Online><button className="focused-hunt-delete" onClick={handleDelete}>Delete</button></Online>
 				</div>
 			</div>
 		</Modal>

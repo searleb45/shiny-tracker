@@ -25,16 +25,20 @@
 		align-items: center;
 		height: $header-height;
 	}
-
+	
 	.nav-links-desktop {
 		display: none;
-
 		@include media-breakpoint(lg) {
-			display: inline-flex;
-			align-items: center;
-			margin-left: 2rem;
+			display: block;
 			height: 100%;
 		}
+	}
+
+	.nav-links-desktop span {
+		display: inline-flex;
+		align-items: center;
+		margin-left: 2rem;
+		height: 100%;
 
 		a {
 			display: inline-flex;
