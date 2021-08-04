@@ -134,6 +134,14 @@ async function updateCachedGetResponse(newHunt, isFullHuntObj) {
 	return putResponse;
 }
 
+async function cacheGetResponseIfNotLoaded() {
+	const getCache = await caches.open(GET_CACHE_NAME);
+	const keys = await getCache.keys();
+	if(keys.length === 0) {
+		await getCache.add('/api/active-hunts');
+	}
+}
+
 self.addEventListener('fetch', (event) => {
 	const url = event.request.url;
 	if(url.match(/\/api\/active-hunts/)) {
@@ -150,6 +158,7 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('activate', (event) => {
 	clients.claim();
 	registerSyncHandler();
+	cacheGetResponseIfNotLoaded();
 	event.waitUntil(createDB());
 });
 
