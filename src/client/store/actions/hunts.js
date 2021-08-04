@@ -51,6 +51,20 @@ export function setFocusedHunt(hunt) {
 	}
 }
 
+export function quickHuntUpdate(id, count) {
+	return {
+		type: types.QUICK_HUNT_UPDATE,
+		id,
+		count
+	};
+}
+
+export function revertQuickHuntUpdate() {
+	return {
+		type: types.REVERT_QUICK_HUNT_UPDATE
+	};
+}
+
 export function getActiveHunts() {
 	return async (dispatch) => {
 		const hunts = await axios.get(ACTIVE_HUNTS_URL);
@@ -78,20 +92,30 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 
 export function putHuntUpdate(id, action, count, completionString) {
 	return async (dispatch) => {
-		const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
-			id,
-			op: action,
-			val: count,
-			str: completionString
-		});
-
-		if(updatedHunt.status === 200) {
-			if(action === 'complete') {
-				dispatch(removeHunt(updatedHunt.data));
-				dispatch(addCompletedHunt(updatedHunt.data));
+		if(action === 'setCount') {
+			dispatch(quickHuntUpdate(id, count));
+		}
+		try {
+			const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
+				id,
+				op: action,
+				val: count,
+				str: completionString
+			});
+	
+			if(updatedHunt.status === 200) {
+				if(action === 'complete') {
+					dispatch(removeHunt(updatedHunt.data));
+					dispatch(addCompletedHunt(updatedHunt.data));
+				} else {
+					dispatch(updateHunt(updatedHunt.data));
+				}
 			} else {
-				dispatch(updateHunt(updatedHunt.data));
+				dispatch(revertQuickHuntUpdate());
 			}
+		} catch(err) {
+			console.error(err);
+			dispatch(revertQuickHuntUpdate());
 		}
 	}
 }
