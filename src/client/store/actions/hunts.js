@@ -85,13 +85,14 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 	}
 }
 
-export function putHuntUpdate(id, action, count) {
+export function putHuntUpdate(id, action, count, completionString) {
 	return async (dispatch) => {
 		try {
 			const updatedHunt = await axios.put(ACTIVE_HUNTS_URL, {
 				id,
 				op: action,
-				val: count
+				val: count,
+				str: completionString
 			});
 	
 			if(updatedHunt.status === 200) {

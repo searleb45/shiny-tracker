@@ -94,7 +94,7 @@ router.post('/', checkAuth, async (req, res) => {
 });
 
 router.put('/', checkAuth, async (req, res) => {
-	const { id, op, val } = req.body;
+	const { id, op, val, str } = req.body;
 	const hunt = await db.hunt.findOne({
 		where: {
 			userId: req.session.id,
@@ -103,19 +103,16 @@ router.put('/', checkAuth, async (req, res) => {
 		}
 	});
 	
-	if(op === 'inc') {
-		hunt.encounters = hunt.encounters + 1;
-	} else if(op === 'dec') {
-		hunt.encounters = Math.max(hunt.encounters - 1, 0);
-	} else if(op ==='complete') {
+	if(op ==='complete') {
 		hunt.completed = true;
 		hunt.completionDate = new Date();
+		hunt.encounters = val;
 
 		await db.shinydex.create({
 			userId: req.session.id,
 			gameId: hunt.gameId,
 			pokemon: hunt.pokemon,
-			notes: val
+			notes: str
 		})
 	} else if(typeof(val) === 'number' && val >= 0) {
 		hunt.encounters = val

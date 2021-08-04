@@ -2,8 +2,13 @@
 
 .completed-hunts {
 	.filter {
-		flex-grow: 3;
+		flex-basis: 50%;
 		margin-right: 1rem;
+
+		@include media-breakpoint(md) {
+			flex-basis: auto;
+			flex-grow: 3;
+		}
 	}
 	.sort {
 		flex-grow: 1;

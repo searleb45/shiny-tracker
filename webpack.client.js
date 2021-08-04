@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const dotenv = require('dotenv');
 const sharp = require('sharp');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { GenerateSW } = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = (env, argv) => {
@@ -98,36 +98,12 @@ module.exports = (env, argv) => {
 			new HtmlWebpackPlugin({
 				template: path.join(__dirname, 'src/client/index.html')
 			}),
-			new GenerateSW({
-				skipWaiting: true,
-				exclude: [/sprites\/.*/],
-				navigateFallbackDenylist: [/\/twitchAuth(\/.*)?/],
-				navigateFallback: 'index.html',
-				runtimeCaching: [
-					{
-						urlPattern: /\/(boxart|sprites)\/.*/,
-						handler: 'CacheFirst'
-					},
-					{
-						urlPattern: /\.(css|js)/,
-						handler: 'CacheFirst'
-					},
-					{
-						urlPattern: /\/api\/.*/,
-						method: 'GET',
-						handler: 'NetworkFirst'
-					},
-					{
-						urlPattern: /\/api\/.*/,
-						method: 'PUT',
-						handler: 'NetworkOnly',
-						options: {
-							backgroundSync: {
-								name: 'hunt-update-sync'
-							}
-						}
-					}
-				]
+			new InjectManifest({
+				swSrc: './src/client/service-worker/index.js',
+				swDest: 'service-worker.js',
+				compileSrc: true,
+				injectionPoint: '$WEBPACK_GENERATED_MANIFEST',
+				exclude: [/sprites\/.*/]
 			}),
 			new WebpackPwaManifest({
 				short_name: "Shiny Tracker",

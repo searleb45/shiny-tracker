@@ -9,13 +9,17 @@ import './scss/main.scss';
 import App from './app.jsx';
 
 // Handler service worker registration
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && 'SyncManager' in window) {
 	window.addEventListener('load', function() {
 		navigator.serviceWorker.register('/service-worker.js').then(() => {
 			console.log('service worker registered');
-			window.serviceWorkerRegistered = true;
-			reactRender(true);
-		})
+			if('SyncManager' in window) {
+				window.serviceWorkerRegistered = true;
+				reactRender(true);
+			} else {
+				reactRender(false);
+			}
+		}).catch(() => reactRender(false));
 	});
 } else {
 	reactRender(false);

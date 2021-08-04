@@ -48,12 +48,6 @@ export default function huntsReducer(state = initialState.hunts, action) {
 			const offlineActiveList = [...state.active];
 			let completedItem = null;
 			switch(action.action) {
-				case 'inc':
-					offlineActiveList[offlineIdx].encounters++;
-					break;
-				case 'dec':
-					offlineActiveList[offlineIdx].encounters = Math.max(offlineActiveList[offlineIdx].encounters - 1, 0);
-					break;
 				case 'setCount':
 					offlineActiveList[offlineIdx].encounters = action.val;
 					break;

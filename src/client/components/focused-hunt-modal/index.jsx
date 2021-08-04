@@ -42,7 +42,14 @@ const FocusedHuntModal = (props) => {
 
 	function handleHuntInteract(action) {
 		window.navigator.vibrate(50);
-		dispatch(putHuntUpdate(hunt.id, action));
+		switch(action) {
+			case 'inc':
+				updateHuntCount(hunt.encounters + 1);
+				break;
+			case 'dec':
+				updateHuntCount(Math.max(hunt.encounters - 1, 0));
+				break;
+		}
 	}
 
 	function handleComplete() {
@@ -50,7 +57,7 @@ const FocusedHuntModal = (props) => {
 		
 		if(confirmComplete) {
 			const completionString = `Shiny hunt - Completed ${new Date().toLocaleDateString()} after ${hunt.encounters.toLocaleString()} encounters`;
-			dispatch(putHuntUpdate(hunt.id, 'complete', completionString));
+			dispatch(putHuntUpdate(hunt.id, 'complete', hunt.encounters, completionString));
 		}
 	}
 
