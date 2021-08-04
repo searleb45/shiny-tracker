@@ -11,6 +11,7 @@ import PokemonViewer from '../pokemon-viewer';
 import './focused-hunt-modal.scss';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
+import GAME_LIST from '../../static/data/pokemon-games.json';
 
 const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
@@ -56,7 +57,10 @@ const FocusedHuntModal = (props) => {
 		const confirmComplete = confirm('Are you sure you want to finish this shiny hunt? (This will also add an entry for this Pokémon to your Shinydex)');
 		
 		if(confirmComplete) {
-			const completionString = `Shiny hunt - Completed ${new Date().toLocaleDateString()} after ${hunt.encounters.toLocaleString()} encounters`;
+			const date = new Date().toLocaleDateString();
+			const game = GAME_LIST.find(game => game.id === hunt.gameId);
+			const gameName = game.name.replace('Pokémon ', '');
+			const completionString = `Shiny hunt in ${gameName} via ${hunt.huntType} - Completed ${date} after ${hunt.encounters.toLocaleString()} encounters`;
 			dispatch(putHuntUpdate(hunt.id, 'complete', hunt.encounters, completionString));
 		}
 	}
