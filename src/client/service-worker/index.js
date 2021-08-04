@@ -4,6 +4,7 @@ import {precacheAndRoute, createHandlerBoundToURL} from 'workbox-precaching';
 import {openDB} from 'idb';
 
 self.skipWaiting();
+
 precacheAndRoute($WEBPACK_GENERATED_MANIFEST);
 
 registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html"), {
@@ -17,10 +18,14 @@ const PUT_DB_NAME = 'API_PUT_DB';
 const PUT_DB_VERSION = 1;
 const PUT_OBJECT_STORE = 'huntsToUpdate';
 
+const SYNC_EVENT_NAME = 'ShinyTracker:backgroundPutSync';
+let isSyncing = false;
+let requestAddedDuringSync = false;
+
 const createDB = () => {
 	openDB(PUT_DB_NAME, PUT_DB_VERSION, {
 		upgrade: (db) => {
-			db.createObjectStore(PUT_OBJECT_STORE, { keyPath: 'id' })
+			db.createObjectStore(PUT_OBJECT_STORE, { keyPath: 'id' });
 		}
 	});
 };
@@ -79,17 +84,21 @@ function handleUpdateActiveHunts(event) {
 				return res;
 			})
 			.catch(async () => {
-				const requestBody = await event.request.json();
-				// We're just gonna let React handle the failure of this request
-				// Gotta cache the new value in IndexedDB for sync later though
-				const db = await openDB(PUT_DB_NAME, PUT_DB_VERSION);
-				await db.put(PUT_OBJECT_STORE, requestBody);
-				// TODO Register sync request for when we come back online
-
-				// Also update the cache for the GET response in case of refresh
-				const putResponse = await updateCachedGetResponse(requestBody, false);
-				if(putResponse) {
-					return new Response(JSON.stringify(putResponse));
+				try {
+					// Register sync request for when we come back online
+					await self.registration.sync.register(SYNC_EVENT_NAME);
+					const requestBody = await event.request.json();
+					// Cache the new value in IndexedDB for sync later
+					const db = await openDB(PUT_DB_NAME, PUT_DB_VERSION);
+					await db.put(PUT_OBJECT_STORE, requestBody);
+					if(isSyncing) requestAddedDuringSync = true;
+					// Also update the cache for the GET response in case of refresh
+					const putResponse = await updateCachedGetResponse(requestBody, false);
+					if(putResponse) {
+						return new Response(JSON.stringify(putResponse));
+					}
+				} catch (err) {
+					console.error('Background sync registration failed', err);
 				}
 			})
 	);
@@ -97,6 +106,7 @@ function handleUpdateActiveHunts(event) {
 
 async function updateCachedGetResponse(newHunt, isFullHuntObj) {
 	// Update the cache for the GET response in case we go offline
+	let putResponse = null;
 	const getCache = await caches.open(GET_CACHE_NAME);
 	const keys = await getCache.keys();
 	const cachedResponse = await getCache.match(keys[0]);
@@ -105,6 +115,7 @@ async function updateCachedGetResponse(newHunt, isFullHuntObj) {
 	if(isFullHuntObj) {
 		if(huntIndex >= 0) {
 			responseBody[huntIndex] = newHunt;
+			putResponse = newHunt;
 		} else {
 			responseBody.push(newHunt);
 		}
@@ -112,6 +123,7 @@ async function updateCachedGetResponse(newHunt, isFullHuntObj) {
 		if(huntIndex >= 0) {
 			const hunt = responseBody[huntIndex];
 			hunt.encounters = newHunt.val;
+			putResponse = hunt;
 			if(newHunt.op === 'complete') {
 				hunt.completed = true;
 				responseBody.splice(huntIndex, 1);
@@ -119,12 +131,12 @@ async function updateCachedGetResponse(newHunt, isFullHuntObj) {
 		}
 	}
 	await getCache.put(keys[0], new Response(JSON.stringify(responseBody)));
-	return huntIndex >= 0 ? responseBody[huntIndex] : null;
+	return putResponse;
 }
 
 self.addEventListener('fetch', (event) => {
 	const url = event.request.url;
-	if(url.match(/\/api\/.*/)) {
+	if(url.match(/\/api\/active-hunts/)) {
 		if(event.request.method === 'GET') {
 			handleGetActiveHunts(event);
 		} else if(event.request.method === 'PUT') {
@@ -136,7 +148,65 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
+	clients.claim();
+	registerSyncHandler();
 	event.waitUntil(createDB());
 });
 
-// TODO Register sync event to dispatch update sync to API
+// Register sync event to dispatch update sync to API
+function registerSyncHandler() {
+	if('sync' in self.registration) {
+		self.addEventListener('sync', (event) => {
+			if(event.tag === SYNC_EVENT_NAME) {
+				const syncComplete = async () => {
+					isSyncing = true;
+		
+					let syncError;
+					try {
+						await replayRequests();
+					} catch (error) {
+						if(error instanceof Error) {
+							syncError = error;
+		
+							throw syncError;
+						}
+					} finally {
+						if(requestAddedDuringSync && !(syncError && !event.lastChance)) {
+							await registerSync();
+						}
+					}
+				};
+				event.waitUntil(syncComplete());
+			}
+		})
+	} else {
+		console.log('background sync not supported, replaying requests on every SW wake');
+	
+		replayRequests();
+	}
+}
+
+async function replayRequests() {
+	// Fetch requests from IDB and replay them one at a time
+	const db = await openDB(PUT_DB_NAME, PUT_DB_VERSION);
+	let cursor = await db.transaction(PUT_OBJECT_STORE, 'readwrite').store.openCursor();
+
+	while(cursor) {
+		const reqBody = {...cursor.value};
+		fetch('/api/active-hunts', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json;charset=UTF-8'
+			},
+			body: JSON.stringify(reqBody)
+		})
+		.then(res => {
+			if(res.ok) {
+				db.delete(PUT_OBJECT_STORE, reqBody.id);
+			}
+		}).catch(err => {
+			console.error('Sync fetch failed with error', err);
+		});
+		cursor = await cursor.continue();
+	}
+}

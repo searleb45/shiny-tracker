@@ -12,7 +12,6 @@ import App from './app.jsx';
 if ('serviceWorker' in navigator && 'SyncManager' in window) {
 	window.addEventListener('load', function() {
 		navigator.serviceWorker.register('/service-worker.js').then(() => {
-			console.log('service worker registered');
 			if('SyncManager' in window) {
 				window.serviceWorkerRegistered = true;
 				reactRender(true);
