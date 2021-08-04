@@ -17,7 +17,7 @@ const OfflineWarningBanner = (props) => {
 	const location = useLocation();
 
 	return (
-		<Offline>
+		<Offline polling={{enabled: false}}>
 			<div className="offline-warning-banner">
 				<div className="content">
 					{!serviceWorkerEnabled || showBoth && defaultMessage}

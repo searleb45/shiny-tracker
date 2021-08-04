@@ -157,42 +157,39 @@ self.addEventListener('fetch', (event) => {
 
 self.addEventListener('activate', (event) => {
 	clients.claim();
-	registerSyncHandler();
 	cacheGetResponseIfNotLoaded();
 	event.waitUntil(createDB());
 });
 
 // Register sync event to dispatch update sync to API
-function registerSyncHandler() {
-	if('sync' in self.registration) {
-		self.addEventListener('sync', (event) => {
-			if(event.tag === SYNC_EVENT_NAME) {
-				const syncComplete = async () => {
-					isSyncing = true;
-		
-					let syncError;
-					try {
-						await replayRequests();
-					} catch (error) {
-						if(error instanceof Error) {
-							syncError = error;
-		
-							throw syncError;
-						}
-					} finally {
-						if(requestAddedDuringSync && !(syncError && !event.lastChance)) {
-							await registerSync();
-						}
-					}
-				};
-				event.waitUntil(syncComplete());
-			}
-		})
-	} else {
-		console.log('background sync not supported, replaying requests on every SW wake');
+if('sync' in self.registration) {
+	self.addEventListener('sync', (event) => {
+		if(event.tag === SYNC_EVENT_NAME) {
+			const syncComplete = async () => {
+				isSyncing = true;
 	
-		replayRequests();
-	}
+				let syncError;
+				try {
+					await replayRequests();
+				} catch (error) {
+					if(error instanceof Error) {
+						syncError = error;
+	
+						throw syncError;
+					}
+				} finally {
+					if(requestAddedDuringSync && !(syncError && !event.lastChance)) {
+						await registerSync();
+					}
+				}
+			};
+			event.waitUntil(syncComplete());
+		}
+	})
+} else {
+	console.log('background sync not supported, replaying requests on every SW wake');
+
+	replayRequests();
 }
 
 async function replayRequests() {

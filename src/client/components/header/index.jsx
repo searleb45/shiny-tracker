@@ -25,7 +25,7 @@ const AuthedHeader = () => {
 	const picture = useSelector(state => state.user.picture);
 
 	const navLinks = 
-		<Online>
+		<Online polling={{enabled: false}}>
 			<NavLink activeClassName="active" to="/active-hunts">Active Hunts</NavLink>
 			<NavLink activeClassName="active" to="/completed-hunts">Completed Hunts</NavLink>
 			<NavLink activeClassName="active" to="/shinydex">Shinydex</NavLink>

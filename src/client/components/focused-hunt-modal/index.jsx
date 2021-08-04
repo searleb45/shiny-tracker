@@ -131,7 +131,7 @@ const FocusedHuntModal = (props) => {
 				</div>
 				<div className="focused-hunt-final-interactions">
 					{isModifiable && <button className="focused-hunt-finish" onClick={handleComplete}>Got it!</button>}
-					<Online><button className="focused-hunt-delete" onClick={handleDelete}>Delete</button></Online>
+					<Online polling={{enabled: false}}><button className="focused-hunt-delete" onClick={handleDelete}>Delete</button></Online>
 				</div>
 			</div>
 		</Modal>
