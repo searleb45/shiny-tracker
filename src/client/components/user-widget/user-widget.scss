@@ -93,6 +93,14 @@
 			&:hover, &:focus {
 				background-color: var(--user-menu-hover-color);
 			}
+
+			&:last-child {
+				border-bottom: 1px solid var(--user-menu-border-color);
+
+				@include media-breakpoint(lg) {
+					border-bottom: 0;
+				}
+			}
 		}
 
 		a {
@@ -105,7 +113,7 @@
 			}
 		}
 
-		button:first-of-type {
+		label:first-of-type {
 			border-top: 2px solid var(--user-menu-border-color);
 
 			@include media-breakpoint(lg) {

@@ -24,7 +24,7 @@ const App = () => {
 			<div className="page-content">
 				<OfflineWarningBanner />
 				<Switch>
-					<React.Suspense fallback={<h2>Loading...</h2>}>
+					<React.Suspense fallback={<h2 className="loading-msg">Loading...</h2>}>
 						<Route path="/active-hunts">
 							{!userAuthenticated ? <Redirect to="/" /> : <ActiveHunts />}
 						</Route>

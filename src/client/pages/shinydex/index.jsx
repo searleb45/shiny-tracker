@@ -44,7 +44,7 @@ const Shinydex = () => {
 
 	if(!shinydex) {
 		dispatch(getShinydex());
-		return <h2>Loading your information...</h2>
+		return <h2 className="loading-msg">Loading your information...</h2>
 	}
 
 	const handleGameChange = (game) => {
