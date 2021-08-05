@@ -122,7 +122,7 @@ const FocusedHuntModal = (props) => {
 					{hunt.odds}
 				</div>
 				<div className="focused-hunt-detail">
-					<label>Binomial distribution</label>
+					<label>Aggregate shiny chance</label>
 					{finalDist.toFixed(2)}%
 				</div>
 				<div className="focused-hunt-detail">
