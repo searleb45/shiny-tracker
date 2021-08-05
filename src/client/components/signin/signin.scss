@@ -12,7 +12,7 @@
 	background-position: 20px center;
 	background-size: 25px;
 	border: 0;
-	box-shadow: 2px 2px 5px $copy;
+	box-shadow: 2px 2px 5px var(--copy);
 	cursor: pointer;
 	white-space: nowrap;
 
@@ -20,6 +20,6 @@
 
 	&-text-container {
 		font-size: 1.2rem;
-		color: $white;
+		color: var(--btn-color);
 	}
 }

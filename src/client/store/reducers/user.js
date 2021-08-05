@@ -16,7 +16,15 @@ export default function userReducer(state = initialState.user, action) {
 				authenticated: false,
 				username: undefined,
 				picture: undefined
-			}
+			};
+		case types.SET_DARK_MODE_PREFERENCE:
+			localStorage.setItem('darkModePreference', action.enabled);
+			if(action.enabled) document.body.classList.add('dark');
+			else document.body.classList.remove('dark');
+			return {
+				...state,
+				darkMode: action.enabled
+			};
 		default:
 			return state;
 	}

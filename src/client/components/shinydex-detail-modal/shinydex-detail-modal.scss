@@ -47,7 +47,7 @@
 
 		th, td {
 			width: 30%;
-			border: 1px solid $copy;
+			border: 1px solid var(--copy);
 			padding: 0.5rem;
 
 			&:last-child {

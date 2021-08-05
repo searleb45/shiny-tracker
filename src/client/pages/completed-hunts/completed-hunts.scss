@@ -4,6 +4,7 @@
 	.filter {
 		flex-basis: 50%;
 		margin-right: 1rem;
+		padding: 0.5rem;
 
 		@include media-breakpoint(md) {
 			flex-basis: auto;
@@ -19,7 +20,7 @@
 			margin-right: 0.5rem;
 		}
 	
-		&-dropdown {
+		.react-select {
 			&__control {
 				height: 100%;
 			}

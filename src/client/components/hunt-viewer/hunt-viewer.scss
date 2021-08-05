@@ -18,18 +18,19 @@
 	.pokemon-image {
 		width: 35%;
 		border-radius: 100%;
-		background-color: $background-color;
+		background-color: var(--background-color);
 		z-index: 1;
 	}
 
 	.data-container {
 		width: 65%;
-		border: 1px solid $subtle-divide;
+		border: var(--viewer-border);
 		border-top-right-radius: 3px;
 		border-bottom-right-radius: 3px;
 		border-left: none;
 		margin-left: -50px;
 		padding: 5px 10px 5px 60px;
+		background-color: var(--viewer-background-color);
 
 		.name {
 			font-size: 1.2rem;

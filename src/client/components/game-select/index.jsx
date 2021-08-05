@@ -27,11 +27,12 @@ const GameSelect = (props) => {
 			getOptionValue={opt => opt.gameId}
 			onChange={(newOpt) => onChange(newOpt)}
 			maxMenuHeight={500}
-			className="game-select"
-			classNamePrefix="game-select"
+			className="react-select game-select"
+			classNamePrefix="react-select"
 			placeholder={placeholder}
 			isClearable={isClearable || false}
 			isSearchable={isSearchable || true}
+			// menuIsOpen={true}
 		/>
 	);
 }

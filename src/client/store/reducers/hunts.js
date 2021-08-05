@@ -23,7 +23,7 @@ export default function huntsReducer(state = initialState.hunts, action) {
 			};
 		case types.QUICK_HUNT_UPDATE:
 			const quickUpdateIndex = state.active.findIndex(hunt => hunt.id === action.id);
-			localStorage.setItem('quickUpdateRevertCache', state.active[quickUpdateIndex]);
+			localStorage.setItem('quickUpdateRevertCache', JSON.stringify(state.active[quickUpdateIndex]));
 			const quickUpdateActiveList = [...state.active];
 			quickUpdateActiveList[quickUpdateIndex].encounters = action.count;
 			return {
@@ -31,7 +31,7 @@ export default function huntsReducer(state = initialState.hunts, action) {
 				active: quickUpdateActiveList
 			};
 		case types.REVERT_QUICK_HUNT_UPDATE:
-			const cachedValue = localStorage.getItem('quickUpdateRevertCache');
+			const cachedValue = JSON.parse(localStorage.getItem('quickUpdateRevertCache') || '{}');
 			const revertUpdateIndex = state.active.findIndex(hunt => hunt.id === cachedValue.id);
 			const revertUpdateActiveList = [...state.active];
 			revertUpdateActiveList[revertUpdateIndex] = cachedValue;

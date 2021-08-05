@@ -1,6 +1,7 @@
 // User auth
 export const SET_USER = 'SET_USER';
 export const CLEAR_USER = 'CLEAR_USER';
+export const SET_DARK_MODE_PREFERENCE = 'SET_DARK_MODE_PREFERENCE';
 
 // Shiny hunts
 export const SET_ACTIVE_HUNTS = 'SET_ACTIVE_HUNTS';

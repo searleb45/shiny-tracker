@@ -18,6 +18,8 @@ const HuntTypeSelect = (props) => {
 			options={huntOptions}
 			getOptionLabel={(obj) => `${obj.name}${obj.hintText ? ` (${obj.hintText})` : ''}`}
 			getOptionValue={(obj) => obj.name}
+			className="react-select hunt-select"
+			classNamePrefix="react-select"
 		/>
 	)
 }

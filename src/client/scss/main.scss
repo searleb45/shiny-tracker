@@ -6,8 +6,8 @@
 
 body {
 	margin: 0;
-	background-color: $background-color;
-	color: $copy;
+	background-color: var(--background-color);
+	color: var(--copy);
 	font-family: 'Nunito Sans', Arial, sans-serif;
 }
 
@@ -27,12 +27,36 @@ button {
 
 .btn-primary {
 	padding: 0.75rem 1rem;
-	background-color: $ming;
-	color: $tshirt-white;
+	color: var(--btn-primary-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+	background-color: var(--btn-primary-background-color);
 
-	@include background-color-hover-react($ming);
+	&:hover, &:focus {
+		background-color: var(--btn-primary-hover-background-color);
+	}
+}
+
+input {
+	border-style: solid;
+}
+
+input[type="text"], input[type="number"], textarea {
+	background-color: var(--input-background-color);
+	color: var(--input-color);
+}
+
+.react-select {
+	div {
+		background-color: var(--input-background-color);
+		color: var(--input-color);
+
+		&.react-select__option--is-focused {
+			background-color: var(--dropdown-hover-color);
+
+			div { background-color: var(--dropdown-hover-color) };
+		}
+	}
 }

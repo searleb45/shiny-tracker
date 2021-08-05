@@ -1,8 +1,8 @@
 @import '../../scss';
 
 .offline-warning-banner {
-	background-color: $warning-yellow;
-	color: $white;
+	background-color: var(--warning-label-background-color);
+	color: var(--warning-label-color);
 	padding: 0.5rem;
 	text-align: center;
 

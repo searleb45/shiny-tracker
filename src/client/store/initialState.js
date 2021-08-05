@@ -5,7 +5,8 @@ export default {
 	user: {
 		authenticated: CookieHelper.read(AUTH_COOKIE) !== null,
 		username: CookieHelper.read(USERNAME_COOKIE),
-		picture: decodeURI(CookieHelper.read(PICTURE_COOKIE))
+		picture: decodeURI(CookieHelper.read(PICTURE_COOKIE)),
+		darkMode: localStorage.getItem('darkModePreference') ? JSON.parse(localStorage.getItem('darkModePreference')) : window.matchMedia('(prefers-color-scheme: dark)').matches
 	},
 	hunts: {
 		active: undefined,

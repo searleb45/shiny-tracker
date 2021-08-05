@@ -1,4 +1,1 @@
-6. Dark mode support
-	6a. Can we have a mixin to set colors based on light/dark preference?
-	6b. Save dark theme preference as persistent cookie
 7. Homepage content

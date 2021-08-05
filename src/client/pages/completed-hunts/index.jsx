@@ -108,7 +108,7 @@ const CompletedHunts = () => {
 					<>
 						<input className="filter" type="text" value={filterString} onChange={(e) => setFilterString(e.target.value)} placeholder="Filter Hunts" />
 						<label className="sort-label">Sort by:</label>
-						<Select classNamePrefix="sort-dropdown" isSearchable={false} className="sort" options={SORT_OPTIONS} value={SORT_OPTIONS.find(opt => opt.value === sort)} onChange={opt => setSort(opt.value)} />
+						<Select classNamePrefix="react-select" isSearchable={false} className="react-select sort" options={SORT_OPTIONS} value={SORT_OPTIONS.find(opt => opt.value === sort)} onChange={opt => setSort(opt.value)} />
 					</>
 				}
 				page={

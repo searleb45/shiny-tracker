@@ -6,7 +6,7 @@
 	.header {
 		padding: 1rem 0.5rem;
 		font-size: 1rem;
-		border-bottom: 1px solid $subtle-divide;
+		border-bottom: 1px solid var(--subtle-divider-color);
 		min-height: 81px;
 		display: flex;
 	}

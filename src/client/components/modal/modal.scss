@@ -3,7 +3,7 @@
 .modal {
 	&-header {
 		padding: 1rem 0.5rem 0.5rem;
-		border-bottom: 1px solid $gainsboro;
+		border-bottom: 1px solid var(--subtle-divider-color);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -11,7 +11,7 @@
 
 	&-title {
 		font-weight: bold;
-		color: $copy;
+		color: var(--copy);
 		margin: 0;
 	}
 
@@ -29,8 +29,8 @@
 
 	&-container {
 		position: absolute;
-		border: 1px solid rgb(204, 204, 204);
-		background: #f0f0f0;;
+		border: var(--modal-border);
+		background: var(--modal-background-color);
 		inset: 90px 40px;
 		max-width: 1200px;
 		margin: 0 auto;

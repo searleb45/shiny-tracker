@@ -14,8 +14,15 @@ export function setUser(id, username, picture) {
 export function clearUser() {
 	return {
 		type: types.CLEAR_USER
-	}
-}
+	};
+};
+
+export function setDarkModePreference(enabled) {
+	return {
+		type: types.SET_DARK_MODE_PREFERENCE,
+		enabled
+	};
+};
 
 export function logout() {
 	return (dispatch) => {

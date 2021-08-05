@@ -6,11 +6,11 @@
 	top: 0;
 	left: 0;
 	width: 100vw;
-	background-color: $header-background-color;
-	color: $header-color;
+	background-color: var(--header-background-color);
+	color: var(--header-color);
 	margin-bottom: 5px;
 	z-index: 2;
-	border-bottom: 1px solid $header-background-color;
+	border-bottom: 1px solid var(--header-background-color);
 
 	.header-container {
 		@extend %container;
@@ -42,7 +42,7 @@
 
 		a {
 			display: inline-flex;
-			color: $header-color;
+			color: var(--header-color);
 			margin-right: 0.5rem;
 			font-size: 1.2rem;
 			text-decoration: none;
@@ -54,7 +54,7 @@
 
 			&.active {
 				padding-bottom: calc(1.1rem - 5px);
-				border-bottom: 5px solid $header-color;
+				border-bottom: 5px solid var(--header-color);
 			}
 		}
 	}

@@ -30,6 +30,10 @@ function reactRender(isServiceWorkerEnabled) {
 		rootReducer, 
 		{...initialState, serviceWorkerEnabled: isServiceWorkerEnabled},
 		composeEnhancers(applyMiddleware(thunk)));
+	
+	if(store.getState().user.darkMode) {
+		document.body.classList.add('dark');
+	}
 	ReactDOM.render(
 		<Provider store={store}>
 			<App />

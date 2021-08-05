@@ -1,15 +1,10 @@
 $jet: #353535;
 $ming: #3c6e71;
-$subtle-divide: #c1c1c1;
 $gainsboro: #d9d9d9;
 $indigo-dye: #284b63;
 $tshirt-white: #e3e3e3;
-$off-white: #f0f0f0;
 $white: #fff;
-$black: #000;
 
-$pokeball-red: #ee1515;
-$pokeball-white: #f0f0f0;
 $twitch-purple: #9146ff;
 
 $decrement-red: #bf0802;
@@ -17,7 +12,63 @@ $increment-green: #06991a;
 $interact-blue: #479aed;
 $warning-yellow: #d4d000;
 
-$background-color: $tshirt-white;
-$header-background-color: $indigo-dye;
-$header-color: $gainsboro;
-$copy: $jet;
+:root {
+	--background-color: #{$tshirt-white};
+	--header-background-color: #{$indigo-dye};
+	--header-color: #{$gainsboro};
+	--copy: #{$jet};
+
+	--btn-primary-background-color: #{$ming};
+	--btn-primary-hover-background-color: #{darken($ming, 10%)};
+	--btn-primary-color: #{$tshirt-white};
+
+	--btn-color: #{$white};
+
+	--warning-label-background-color: #d4d000;
+	--warning-label-color: #{$white};
+
+	--user-menu-background-color: #{$white};
+	--user-menu-hover-color: #{$tshirt-white};
+	--user-menu-border-color: #{$gainsboro};
+	--user-menu-color: #{$jet};
+
+	--subtle-divider-color: #c1c1c1;
+
+	--viewer-background-color: #{$tshirt-white};
+	--viewer-border: 1px solid var(--subtle-divider-color);
+
+	--modal-background-color: #f0f0f0;
+	--modal-border: 1px solid #ccc;
+
+	--focused-hunt-label-background-color: #{$ming};
+	--focused-hunt-label-border-color: #{darken($ming, 10%)};
+	--focused-hunt-label-color: #{$white};
+
+	--input-background-color: #{$white};
+	--input-color: #{$jet};
+	--dropdown-hover-color: #deebff;
+}
+
+.dark {
+	--background-color: #{$jet};
+	--copy: #{$tshirt-white};
+
+	--user-menu-background-color: #{$jet};
+	--user-menu-border-color: #222;
+	--user-menu-hover-color: #555;
+	--user-menu-color: #{$tshirt-white};
+
+	--warning-label-background-color: #8b8903;
+
+	--subtle-divider-color: #555;
+
+	--modal-background-color: #333;
+	--modal-border: 0;
+
+	--viewer-background-color: rgba(0, 0, 0, 0.5);
+	--viewer-border: 0;
+
+	--input-background-color: #{$jet};
+	--input-color: #{$tshirt-white};
+	--dropdown-hover-color: #555;
+}

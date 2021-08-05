@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { logout } from '../../store/actions/user';
+import { setDarkModePreference } from '../../store/actions/user';
 
 import './user-widget.scss';
 
 const UserWidget = (props) => {
+	const isDarkModeEnabled = useSelector(state => state.user.darkMode);
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const { username, picture, links } = props;
 	const dispatch = useDispatch();
@@ -14,8 +15,8 @@ const UserWidget = (props) => {
 		window.location.href = 'twitchAuth/logout';
 	}
 
-	function toggleColorPreference() {
-		console.log('dark mode');
+	function toggleColorPreference(e) {
+		dispatch(setDarkModePreference(e.target.checked));
 	}
 
 	return (
@@ -28,7 +29,13 @@ const UserWidget = (props) => {
 				<div className="mobile-nav-links" onClick={() => setDropdownOpen(false)}>
 					{links}
 				</div>
-				<button onClick={toggleColorPreference}>Dark Mode</button>
+				<label htmlFor="darkModeToggle">
+					<span>Dark Mode</span>
+					<span className="switch">
+						<input id="darkModeToggle" type="checkbox" defaultChecked={isDarkModeEnabled} onChange={(e) => toggleColorPreference(e)} />
+						<span className="slider round"></span>
+					</span>
+				</label>
 				<button onClick={performSignOut}>Log Out</button>
 			</div>
 		</div>
