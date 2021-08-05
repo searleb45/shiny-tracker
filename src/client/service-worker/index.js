@@ -35,7 +35,7 @@ const assetFromNetwork = async (request, timeout) => {
 	try {
 		const res = await fetch(request.clone());
 		clearTimeout(timeoutId);
-		if(request.method === 'GET') {
+		if(res.status === 200 && request.method === 'GET') {
 			updateCache(request, res.clone());
 		}
 		return res;
@@ -66,8 +66,10 @@ function handleGetActiveHunts(event) {
 
 function handlePostActiveHunt(event) {
 	event.respondWith(
-		assetFromNetwork(event.request, 10000).then(async (res) => {
-			updateCachedGetResponse(await res.clone().json(), true);
+		assetFromNetwork(event.request, 5000).then(async (res) => {
+			if(res.status === 200) {
+				updateCachedGetResponse(await res.clone().json(), true);
+			}
 			return res;
 		})
 	);
@@ -75,15 +77,18 @@ function handlePostActiveHunt(event) {
 
 function handleUpdateActiveHunts(event) {
 	event.respondWith(
-		assetFromNetwork(event.request, 10000)
+		assetFromNetwork(event.request, 2000)
 			.then(async (res) => {
-				const response = res.clone();
-				const newHunt = await response.json();
-				// Update the cache for the GET response in case we go offline
-				await updateCachedGetResponse(newHunt, true);
+				if(res.status === 200) {
+					const response = res.clone();
+					const newHunt = await response.json();
+					// Update the cache for the GET response in case we go offline
+					await updateCachedGetResponse(newHunt, true);
+				}
 				return res;
 			})
-			.catch(async () => {
+			.catch(async (err) => {
+				console.log('update catch method', err);
 				try {
 					// Register sync request for when we come back online
 					await self.registration.sync.register(SYNC_EVENT_NAME);
@@ -179,7 +184,7 @@ if('sync' in self.registration) {
 					}
 				} finally {
 					if(requestAddedDuringSync && !(syncError && !event.lastChance)) {
-						await registerSync();
+						await self.registration.sync.register(SYNC_EVENT_NAME);
 					}
 				}
 			};

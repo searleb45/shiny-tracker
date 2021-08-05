@@ -7,7 +7,7 @@ import authModule from './auth';
 
 const app = express();
 app.use(express.json());
-app.use(cookieSession({ keys: [process.env.SESSION_KEY] }));
+app.use(cookieSession({ keys: [process.env.SESSION_KEY], maxAge: 1000 * 60 * 60 * 24 * 365 }));
 
 app.use(express.static(__dirname));
 app.use('/api', apiModule);

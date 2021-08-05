@@ -3,6 +3,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from '../client/constants';
+const COOKIE_EXPIRATION = 1000 * 60 * 60 * 24 * 365;
 
 const router = express.Router();
 
@@ -47,9 +48,9 @@ router.get('/callback', async (req, res) => {
 
 			const decodedToken = jwt_decode(jwt.id_token);
 			req.session.id = decodedToken.sub;
-			res.cookie(AUTH_COOKIE, true);
-			res.cookie(USERNAME_COOKIE, decodedToken.preferred_username);
-			res.cookie(PICTURE_COOKIE, decodedToken.picture, { encode: encodeURI });
+			res.cookie(AUTH_COOKIE, true, { maxAge: COOKIE_EXPIRATION });
+			res.cookie(USERNAME_COOKIE, decodedToken.preferred_username, { maxAge: COOKIE_EXPIRATION });
+			res.cookie(PICTURE_COOKIE, decodedToken.picture, { maxAge: COOKIE_EXPIRATION, encode: encodeURI });
 			res.redirect('/active-hunts');
 		} else {
 			console.log('error');
@@ -72,8 +73,7 @@ export default router;
 
 export function checkAuth(req, res, next) {
 	if(!req.session.id) {
-		res.redirect('/auth/logout');
-		next('user invalid');
+		res.status(401).send();
 	}
 
 	next();

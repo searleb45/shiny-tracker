@@ -1,6 +1,7 @@
 import * as types from './_types';
 import { ACTIVE_HUNTS_URL, COMPLETED_HUNTS_URL } from '../../constants';
 import axios from 'axios';
+import axiosConfig from './axios-config';
 
 export function setActiveHunts(hunts) {
 	return {
@@ -67,9 +68,11 @@ export function revertQuickHuntUpdate() {
 
 export function getActiveHunts() {
 	return async (dispatch) => {
-		const hunts = await axios.get(ACTIVE_HUNTS_URL);
+		const hunts = await axios.get(ACTIVE_HUNTS_URL, axiosConfig);
 		if(hunts.status === 200) {
 			dispatch(setActiveHunts(hunts.data));
+		} else if(hunts.status === 401) {
+			window.location.href = '/twitchAuth/logout';
 		}
 	}
 }
@@ -81,11 +84,13 @@ export function postNewHunt(game, pokemon, huntType, odds, callback) {
 			pokemon: pokemon.id,
 			huntType: huntType.name,
 			odds
-		});
+		}, axiosConfig);
 
 		if(newHunt.status === 200) {
 			dispatch(addNewHunt(newHunt.data));
 			typeof(callback) === 'function' && callback();
+		} else if(newHunt.status === 401) {
+			window.location.href = '/twitchAuth/logout';
 		}
 	}
 }
@@ -101,7 +106,7 @@ export function putHuntUpdate(id, action, count, completionString) {
 				op: action,
 				val: count,
 				str: completionString
-			});
+			}, axiosConfig);
 	
 			if(updatedHunt.status === 200) {
 				if(action === 'complete') {
@@ -110,6 +115,8 @@ export function putHuntUpdate(id, action, count, completionString) {
 				} else {
 					dispatch(updateHunt(updatedHunt.data));
 				}
+			} else if(updatedHunt.status === 401) {
+				window.location.href = '/twitchAuth/logout';
 			} else {
 				dispatch(revertQuickHuntUpdate());
 			}
@@ -122,19 +129,23 @@ export function putHuntUpdate(id, action, count, completionString) {
 
 export function deleteHunt(id) {
 	return async (dispatch) => {
-		const deleteHunt = await axios.delete(`${ACTIVE_HUNTS_URL}/${id}`);
+		const deleteHunt = await axios.delete(`${ACTIVE_HUNTS_URL}/${id}`, axiosConfig);
 
 		if(deleteHunt.status === 200) {
 			dispatch(removeHunt({id}));
+		} else if(deleteHunt.status === 401) {
+			window.location.href = '/twitchAuth/logout';
 		}
 	}
 }
 
 export function getCompletedHunts() {
 	return async (dispatch) => {
-		const hunts = await axios.get(COMPLETED_HUNTS_URL);
+		const hunts = await axios.get(COMPLETED_HUNTS_URL, axiosConfig);
 		if(hunts.status === 200) {
 			dispatch(setCompletedHunts(hunts.data));
+		} else if(hunts.status === 401) {
+			window.location.href = '/twitchAuth/logout';
 		}
 	}
 }
