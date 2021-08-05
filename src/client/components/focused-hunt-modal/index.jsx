@@ -58,7 +58,7 @@ const FocusedHuntModal = (props) => {
 		
 		if(confirmComplete) {
 			const date = new Date().toLocaleDateString();
-			const game = GAME_LIST.find(game => game.id === hunt.gameId);
+			const game = GAME_LIST.find(game => game.gameId === hunt.gameId);
 			const gameName = game.name.replace('Pokémon ', '');
 			const completionString = `Shiny hunt in ${gameName} via ${hunt.huntType} - Completed ${date} after ${hunt.encounters.toLocaleString()} encounters`;
 			dispatch(putHuntUpdate(hunt.id, 'complete', hunt.encounters, completionString));
