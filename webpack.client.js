@@ -107,7 +107,7 @@ module.exports = (env, argv) => {
 			}),
 			new WebpackPwaManifest({
 				short_name: "Shiny Tracker",
-				name: "Shiny Tracker: Pokémon Shiny Hunt Tracker",
+				name: "Pokémon Shiny Hunt Tracker",
 				description: "Pokémon Shiny Hunt Tracker",
 				icons: [
 					{
