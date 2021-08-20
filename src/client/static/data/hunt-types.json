@@ -99,6 +99,11 @@
 		"shinyCharmOdds": "1/1300"
 	},
 	{
+		"name": "Max Raid Event",
+		"generations": [8],
+		"baseOdds": "1/50"
+	},
+	{
 		"name": "Dynamax Adventures",
 		"generations": [8],
 		"baseOdds": "1/300",
