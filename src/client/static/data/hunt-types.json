@@ -100,6 +100,7 @@
 	},
 	{
 		"name": "Max Raid Event",
+		"hintText": "odds for 5* event raids only",
 		"generations": [8],
 		"baseOdds": "1/50"
 	},
