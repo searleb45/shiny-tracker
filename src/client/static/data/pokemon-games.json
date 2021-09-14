@@ -276,10 +276,11 @@
 	{
 		"gameId": "legendsarceus",
 		"name": "Pokémon Legends Arceus",
-		"generation": 8,
+		"generation": 8.5,
 		"boxArt": "/boxart/pkmn-legendsarceus.webp",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false
+		"lureAvailable": false,
+		"useHisuianForm": true
 	},
 	{
 		"gameId": "go",

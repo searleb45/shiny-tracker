@@ -18,6 +18,9 @@ const PokemonViewer = (props) => {
 	if(game && game.useGalarianForm && pokemon.hasGalarianForm) {
 		pokemon.sprite = pokemon.sprite.replace('.gif', '-galar.gif');
 	}
+	if(game.useHisuianForm && pokemon.hasHisuianForm) {
+		pokemon.sprite = pokemon.sprite.replace('.gif', '-hisui.gif');
+	}
 
 	return (
 		<div className="pokemon-viewer">
