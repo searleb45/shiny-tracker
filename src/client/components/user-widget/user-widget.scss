@@ -13,8 +13,11 @@
 		background-position: center;
 		background-size: cover;
 		border-radius: 100%;
-		margin-right: 1rem;
 		vertical-align: middle;
+
+		@include media-breakpoint(sm) {
+			margin-right: 1rem;
+		}
 	}
 
 	&-text {
