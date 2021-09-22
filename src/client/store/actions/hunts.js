@@ -60,9 +60,17 @@ export function quickHuntUpdate(id, count) {
 	};
 }
 
-export function revertQuickHuntUpdate() {
+export function revertQuickHuntUpdate(count, action) {
 	return {
-		type: types.REVERT_QUICK_HUNT_UPDATE
+		type: types.REVERT_QUICK_HUNT_UPDATE,
+		count,
+		action
+	};
+}
+
+export function clearError() {
+	return {
+		type: types.CLEAR_ERROR
 	};
 }
 
@@ -118,11 +126,11 @@ export function putHuntUpdate(id, action, count, completionString) {
 			} else if(updatedHunt.status === 401) {
 				window.location.href = '/twitchAuth/logout';
 			} else {
-				dispatch(revertQuickHuntUpdate());
+				dispatch(revertQuickHuntUpdate(count, action));
 			}
 		} catch(err) {
 			console.error(err);
-			dispatch(revertQuickHuntUpdate());
+			dispatch(revertQuickHuntUpdate(count, action));
 		}
 	}
 }

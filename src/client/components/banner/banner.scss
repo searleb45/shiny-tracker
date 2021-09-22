@@ -1,0 +1,16 @@
+.error-banner {
+	background-color: var(--error-banner-background-color);
+	color: var(--error-banner-color);
+
+	border: 1px solid var(--error-banner-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	border-radius: 3px;
+	padding: 0.5rem;
+
+	.close-error-banner {
+		font-size: 1.25rem;
+		line-height: 1;
+	}
+}

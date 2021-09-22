@@ -11,7 +11,8 @@ export default {
 	hunts: {
 		active: undefined,
 		completed: undefined,
-		focused: -1
+		focused: -1,
+		error: undefined
 	},
 	shinyDex: null,
 	serviceWorkerEnabled: false

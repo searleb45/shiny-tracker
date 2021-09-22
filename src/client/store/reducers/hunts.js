@@ -19,7 +19,7 @@ export default function huntsReducer(state = initialState.hunts, action) {
 			newActiveList[updateIndex] = action.hunt;
 			return {
 				...state,
-				active: newActiveList
+				active: newActiveList,
 			};
 		case types.QUICK_HUNT_UPDATE:
 			const quickUpdateIndex = state.active.findIndex(hunt => hunt.id === action.id);
@@ -28,7 +28,8 @@ export default function huntsReducer(state = initialState.hunts, action) {
 			quickUpdateActiveList[quickUpdateIndex].encounters = action.count;
 			return {
 				...state,
-				active: quickUpdateActiveList
+				active: quickUpdateActiveList,
+				error: undefined
 			};
 		case types.REVERT_QUICK_HUNT_UPDATE:
 			const cachedValue = JSON.parse(localStorage.getItem('quickUpdateRevertCache') || '{}');
@@ -37,7 +38,13 @@ export default function huntsReducer(state = initialState.hunts, action) {
 			revertUpdateActiveList[revertUpdateIndex] = cachedValue;
 			return {
 				...state,
-				active: revertUpdateActiveList
+				active: revertUpdateActiveList,
+				error: `Hunt update failed when setting ${action.action === 'complete' ? 'status to complete' : `count to ${action.count}`}`
+			};
+		case types.CLEAR_ERROR:
+			return {
+				...state,
+				error: undefined
 			};
 		case types.REMOVE_HUNT:
 			return {

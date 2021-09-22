@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import TimeAgo from 'timeago-react';
 import { Online } from 'react-detect-offline';
 
-import { putHuntUpdate, deleteHunt } from '../../store/actions/hunts';
+import { putHuntUpdate, deleteHunt, clearError } from '../../store/actions/hunts';
 
 import Modal from '../modal';
+import ErrorBanner from '../banner';
 import PokemonViewer from '../pokemon-viewer';
 
 import './focused-hunt-modal.scss';
@@ -16,6 +17,7 @@ import GAME_LIST from '../../static/data/pokemon-games.json';
 const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
 	const [updatedCount, setUpdatedCount] = useState(-1);
+	const updateError = useSelector(state => state.hunts.error);
 	const dispatch = useDispatch();
 
 	if(!hunt) return null;
@@ -30,6 +32,7 @@ const FocusedHuntModal = (props) => {
 
 	function onModalClose() {
 		setUpdatedCount(-1);
+		dispatch(clearError());
 		typeof(close) === 'function' && close();
 	}
 
@@ -75,6 +78,7 @@ const FocusedHuntModal = (props) => {
 
 	return (
 		<Modal isOpen={!!hunt} close={onModalClose} modalName={pokemon.name} containerClassName="focused-hunt-modal">
+			<ErrorBanner message={updateError} onClose={() => dispatch(clearError())} />
 			<div className="focused-hunt-pokemon-view">
 				<PokemonViewer pokemonId={hunt.pokemon} gameId={hunt.gameId} />
 			</div>

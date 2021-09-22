@@ -47,6 +47,9 @@ $warning-yellow: #d4d000;
 	--input-background-color: #{$white};
 	--input-color: #{$jet};
 	--dropdown-hover-color: #deebff;
+
+	--error-banner-color: #{$decrement-red};
+	--error-banner-background-color: #{lighten($decrement-red, 50%)};
 }
 
 .dark {
