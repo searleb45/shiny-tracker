@@ -1,0 +1,3 @@
+To run MySQL in WSL:
+
+sudo /etc/init.d/mysql start

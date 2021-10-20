@@ -92,11 +92,11 @@
 		"lureShinyCharmOdds": "1/273"
 	},
 	{
-		"name": "Chain KOs",
-		"hintText": "chain > 500",
+		"name": "Brilliant Pokémon",
+		"hintText": "odds for brilliant mons with >500 KOs only",
 		"generations": [8],
-		"baseOdds": "1/3562",
-		"shinyCharmOdds": "1/1300"
+		"baseOdds": "1/585",
+		"shinyCharmOdds": "1/455"
 	},
 	{
 		"name": "Max Raid Event",

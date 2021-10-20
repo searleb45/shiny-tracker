@@ -31,13 +31,23 @@
 		position: absolute;
 		border: var(--modal-border);
 		background: var(--modal-background-color);
-		inset: 90px 40px;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 1rem;
 		padding-top: 0;
 		overflow: auto;
-		border-radius: 4px;
 		outline: none;
+
+		inset: 0;
+		border-radius: 0;
+
+		@include media-breakpoint(md) {
+			inset: unset;
+			top: 90px;
+			left: 40px;
+			right: 40px;
+			max-width: 650px;
+			border-radius: 4px;
+		}
 	}
 }

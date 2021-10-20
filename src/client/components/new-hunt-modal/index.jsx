@@ -70,6 +70,7 @@ const NewHuntModal = (props) => {
 						value={game}
 						onChange={(newGame) => setGameWrapper(newGame)}
 						useStorageGames={false}
+						menuHeight={300}
 					/>
 				</div>
 				{game && (

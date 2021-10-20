@@ -6,7 +6,7 @@ import './game-select.scss';
 import GAME_DATA from '../../static/data/pokemon-games.json';
 
 const GameSelect = (props) => {
-	const { id, value, onChange, useStorageGames, placeholder, isClearable, isSearchable } = props;
+	const { id, value, onChange, useStorageGames, placeholder, isClearable, isSearchable, menuHeight } = props;
 
 	const options = GAME_DATA.filter((game) => useStorageGames ? true : !game.storageGame);
 
@@ -26,7 +26,7 @@ const GameSelect = (props) => {
 			getOptionLabel={opt => opt.name}
 			getOptionValue={opt => opt.gameId}
 			onChange={(newOpt) => onChange(newOpt)}
-			maxMenuHeight={500}
+			maxMenuHeight={menuHeight || 500}
 			className="react-select game-select"
 			classNamePrefix="react-select"
 			placeholder={placeholder}

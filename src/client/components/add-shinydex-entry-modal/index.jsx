@@ -49,6 +49,7 @@ const NewShinydexEntryModal = (props) => {
 						value={game}
 						onChange={(newGame) => setGameWrapper(newGame)}
 						useStorageGames={true}
+						menuHeight={300}
 					/>
 				</div>
 				{game && (
