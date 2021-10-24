@@ -2,7 +2,6 @@
 
 .modal-container.add-shinydex-entry-modal {
 	min-height: 70%;
-	bottom: 50%;
 
 	@include media-breakpoint(md) {
 		inset: unset;
