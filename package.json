@@ -8,7 +8,8 @@
     "start:dev": "rimraf build && webpack --mode=development --config webpack.server.js && concurrently --kill-others \"npm run build:watch\" \"npm run start\"",
     "build": "rimraf build && webpack --mode=production --config webpack.server.js && webpack --mode=production --config webpack.client.js",
     "build:watch": "webpack --progress --mode=development --config webpack.client.js -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git checkout release && git merge master && git push && git checkout master"
   },
   "author": "",
   "license": "ISC",
