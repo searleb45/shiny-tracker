@@ -11,12 +11,12 @@ How to add new Pokemon:
 2. Download animated gifs of the Pokemon in question to src/static/sprites
 	2a. Sprites can be found at https://play.pokemonshowdown.com/sprites/ani-shiny/
 	2b. Make sure to filter out alternate forms that aren't regional variants
-3. Regional variants are a true/false flag on a Pokemon's base entry. JS code for fetching 
-	images will need to be updated for any new region types. This is in:
-	- src/client/components/pokemon-viewer
-	- src/client/components/hunt-viewer
-	Ex: if(game.useGalarianForm && pokemon.hasGalarianForm) {
-		url = url.replace('.gif', '-galar.gif')
-	}
+3. Regional variants are a separate listing within a generation - convention is as follows:
+	3a. Pokemon ID is the base national Pokedex number plus X00,000 with X incrementing for each new region with forms
+		Alola - 100,000
+		Galar - 200,000
+		Hisui - 300,000 (etc)
+	3b. Pokemon name should be "Alolan X", "Galarian X", etc.
+	3c. Pokemon sprite should live at name-region.gif
 4. New batches of Pokemon within a generation should use decimal gen numbers to denote 
-	different Pokemon sets and (maybe)hunt odds (7.5 for USUM, 7.75 for LGPE, etc)
+	different Pokemon sets and (maybe)hunt odds (7.5 for USUM, 7.75 for LGPE, 8.5 for Legends Arceus, etc)

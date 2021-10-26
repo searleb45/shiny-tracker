@@ -95,14 +95,14 @@
 			{
 				"id": 19,
 				"name": "Rattata",
-				"sprite": "/sprites/rattata.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/rattata.gif"
+
 			},
 			{
 				"id": 20,
 				"name": "Raticate",
-				"sprite": "/sprites/raticate.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/raticate.gif"
+
 			},
 			{
 				"id": 21,
@@ -132,20 +132,20 @@
 			{
 				"id": 26,
 				"name": "Raichu",
-				"sprite": "/sprites/raichu.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/raichu.gif"
+
 			},
 			{
 				"id": 27,
 				"name": "Sandshrew",
-				"sprite": "/sprites/sandshrew.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/sandshrew.gif"
+
 			},
 			{
 				"id": 28,
 				"name": "Sandslash",
-				"sprite": "/sprites/sandslash.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/sandslash.gif"
+
 			},
 			{
 				"id": 29,
@@ -190,14 +190,14 @@
 			{
 				"id": 37,
 				"name": "Vulpix",
-				"sprite": "/sprites/vulpix.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/vulpix.gif"
+
 			},
 			{
 				"id": 38,
 				"name": "Ninetales",
-				"sprite": "/sprites/ninetales.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/ninetales.gif"
+
 			},
 			{
 				"id": 39,
@@ -257,27 +257,24 @@
 			{
 				"id": 50,
 				"name": "Diglett",
-				"sprite": "/sprites/diglett.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/diglett.gif"
+
 			},
 			{
 				"id": 51,
 				"name": "Dugtrio",
-				"sprite": "/sprites/dugtrio.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/dugtrio.gif"
+
 			},
 			{
 				"id": 52,
 				"name": "Meowth",
-				"sprite": "/sprites/meowth.gif",
-				"hasAlolanForm": true,
-				"hasGalarianForm": true
+				"sprite": "/sprites/meowth.gif"
 			},
 			{
 				"id": 53,
 				"name": "Persian",
-				"sprite": "/sprites/persian.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/persian.gif"
 			},
 			{
 				"id": 54,
@@ -382,44 +379,40 @@
 			{
 				"id": 74,
 				"name": "Geodude",
-				"sprite": "/sprites/geodude.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/geodude.gif"
+
 			},
 			{
 				"id": 75,
 				"name": "Graveler",
-				"sprite": "/sprites/graveler.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/graveler.gif"
+
 			},
 			{
 				"id": 76,
 				"name": "Golem",
-				"sprite": "/sprites/golem.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/golem.gif"
+
 			},
 			{
 				"id": 77,
 				"name": "Ponyta",
-				"sprite": "/sprites/ponyta.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/ponyta.gif"
 			},
 			{
 				"id": 78,
 				"name": "Rapidash",
-				"sprite": "/sprites/rapidash.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/rapidash.gif"
 			},
 			{
 				"id": 79,
 				"name": "Slowpoke",
-				"sprite": "/sprites/slowpoke.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/slowpoke.gif"
 			},
 			{
 				"id": 80,
 				"name": "Slowbro",
-				"sprite": "/sprites/slowbro.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/slowbro.gif"
 			},
 			{
 				"id": 81,
@@ -434,8 +427,7 @@
 			{
 				"id": 83,
 				"name": "Farfetch'd",
-				"sprite": "/sprites/farfetchd.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/farfetchd.gif"
 			},
 			{
 				"id": 84,
@@ -460,14 +452,14 @@
 			{
 				"id": 88,
 				"name": "Grimer",
-				"sprite": "/sprites/grimer.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/grimer.gif"
+
 			},
 			{
 				"id": 89,
 				"name": "Muk",
-				"sprite": "/sprites/muk.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/muk.gif"
+
 			},
 			{
 				"id": 90,
@@ -537,8 +529,8 @@
 			{
 				"id": 103,
 				"name": "Exeggutor",
-				"sprite": "/sprites/exeggutor.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/exeggutor.gif"
+
 			},
 			{
 				"id": 104,
@@ -548,8 +540,8 @@
 			{
 				"id": 105,
 				"name": "Marowak",
-				"sprite": "/sprites/marowak.gif",
-				"hasAlolanForm": true
+				"sprite": "/sprites/marowak.gif"
+
 			},
 			{
 				"id": 106,
@@ -574,8 +566,7 @@
 			{
 				"id": 110,
 				"name": "Weezing",
-				"sprite": "/sprites/weezing.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/weezing.gif"
 			},
 			{
 				"id": 111,
@@ -635,8 +626,7 @@
 			{
 				"id": 122,
 				"name": "Mr. Mime",
-				"sprite": "/sprites/mrmime.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/mrmime.gif"
 			},
 			{
 				"id": 123,
@@ -746,20 +736,17 @@
 			{
 				"id": 144,
 				"name": "Articuno",
-				"sprite": "/sprites/articuno.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/articuno.gif"
 			},
 			{
 				"id": 145,
 				"name": "Zapdos",
-				"sprite": "/sprites/zapdos.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/zapdos.gif"
 			},
 			{
 				"id": 146,
 				"name": "Moltres",
-				"sprite": "/sprites/moltres.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/moltres.gif"
 			},
 			{
 				"id": 147,
@@ -1029,8 +1016,7 @@
 			{
 				"id": 199,
 				"name": "Slowking",
-				"sprite": "/sprites/slowking.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/slowking.gif"
 			},
 			{
 				"id": 200,
@@ -1145,8 +1131,7 @@
 			{
 				"id": 222,
 				"name": "Corsola",
-				"sprite": "/sprites/corsola.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/corsola.gif"
 			},
 			{
 				"id": 223,
@@ -1356,14 +1341,12 @@
 			{
 				"id": 263,
 				"name": "Zigzagoon",
-				"sprite": "/sprites/zigzagoon.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/zigzagoon.gif"
 			},
 			{
 				"id": 264,
 				"name": "Linoone",
-				"sprite": "/sprites/linoone.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/linoone.gif"
 			},
 			{
 				"id": 265,
@@ -2823,14 +2806,12 @@
 			{
 				"id": 554,
 				"name": "Darumaka",
-				"sprite": "/sprites/darumaka.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/darumaka.gif"
 			},
 			{
 				"id": 555,
 				"name": "Darmanitan",
-				"sprite": "/sprites/darmanitan.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/darmanitan.gif"
 			},
 			{
 				"id": 556,
@@ -2865,8 +2846,7 @@
 			{
 				"id": 562,
 				"name": "Yamask",
-				"sprite": "/sprites/yamask.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/yamask.gif"
 			},
 			{
 				"id": 563,
@@ -3146,8 +3126,7 @@
 			{
 				"id": 618,
 				"name": "Stunfisk",
-				"sprite": "/sprites/stunfisk.gif",
-				"hasGalarianForm": true
+				"sprite": "/sprites/stunfisk.gif"
 			},
 			{
 				"id": 619,
@@ -4078,6 +4057,96 @@
 				"id": 802,
 				"name": "Marshadow",
 				"sprite": "/sprites/marshadow.gif"
+			},
+			{
+				"id": 100019,
+				"name": "Alolan Rattata",
+				"sprite": "/sprites/rattata-alola.gif"
+			},
+			{
+				"id": 100020,
+				"name": "Alolan Raticate",
+				"sprite": "/sprites/raticate-alola.gif"
+			},
+			{
+				"id": 100026,
+				"name": "Alolan Raichu",
+				"sprite": "/sprites/raichu-alola.gif"
+			},
+			{
+				"id": 100027,
+				"name": "Alolan Sandshrew",
+				"sprite": "/sprites/sandshrew-alola.gif"
+			},
+			{
+				"id": 100028,
+				"name": "Alolan Sandslash",
+				"sprite": "/sprites/sandslash-alola.gif"
+			},
+			{
+				"id": 100037,
+				"name": "Alolan Vulpix",
+				"sprite": "/sprites/vulpix-alola.gif"
+			},
+			{
+				"id": 100038,
+				"name": "Alolan Ninetales",
+				"sprite": "/sprites/ninetales-alola.gif"
+			},
+			{
+				"id": 100050,
+				"name": "Alolan Diglett",
+				"sprite": "/sprites/diglett-alola.gif"
+			},
+			{
+				"id": 100051,
+				"name": "Alolan Dugtrio",
+				"sprite": "/sprites/dugtrio-alola.gif"
+			},
+			{
+				"id": 100052,
+				"name": "Alolan Meowth",
+				"sprite": "/sprites/meowth-alola.gif"
+			},
+			{
+				"id": 100053,
+				"name": "Alolan Persian",
+				"sprite": "/sprites/persian-alola.gif"
+			},
+			{
+				"id": 100074,
+				"name": "Alolan Geodude",
+				"sprite": "/sprites/geodude-alola.gif"
+			},
+			{
+				"id": 100075,
+				"name": "Alolan Graveler",
+				"sprite": "/sprites/graveler-alola.gif"
+			},
+			{
+				"id": 100076,
+				"name": "Alolan Golem",
+				"sprite": "/sprites/golem-alola.gif"
+			},
+			{
+				"id": 100088,
+				"name": "Alolan Grimer",
+				"sprite": "/sprites/grimer-alola.gif"
+			},
+			{
+				"id": 100089,
+				"name": "Alolan Muk",
+				"sprite": "/sprites/muk-alola.gif"
+			},
+			{
+				"id": 100103,
+				"name": "Alolan Exeggutor",
+				"sprite": "/sprites/exeggutor-alola.gif"
+			},
+			{
+				"id": 100105,
+				"name": "Alolan Marowak",
+				"sprite": "/sprites/marowak-alola.gif"
 			}
 		]
 	},
@@ -4573,6 +4642,101 @@
 				"id": 898,
 				"name": "Calyrex",
 				"sprite": "/sprites/calyrex.gif"
+			},
+			{
+				"id": 200052,
+				"name": "Galarian Meowth",
+				"sprite": "/sprites/meowth-galar.gif"
+			},
+			{
+				"id": 200077,
+				"name": "Galarian Ponyta",
+				"sprite": "/sprites/ponyta-galar.gif"
+			},
+			{
+				"id": 200078,
+				"name": "Galarian Rapidash",
+				"sprite": "/sprites/rapidash-galar.gif"
+			},
+			{
+				"id": 200079,
+				"name": "Galarian Slowpoke",
+				"sprite": "/sprites/slowpoke-galar.gif"
+			},
+			{
+				"id": 200080,
+				"name": "Galarian Slowbro",
+				"sprite": "/sprites/slowbro-galar.gif"
+			},
+			{
+				"id": 200083,
+				"name": "Galarian Farfetch'd",
+				"sprite": "/sprites/farfetchd-galar.gif"
+			},
+			{
+				"id": 200110,
+				"name": "Galarian Weezing",
+				"sprite": "/sprites/weezing-galar.gif"
+			},
+			{
+				"id": 200122,
+				"name": "Galarian Mr. Mime",
+				"sprite": "/sprites/mrmime-galar.gif"
+			},
+			{
+				"id": 200144,
+				"name": "Galarian Articuno",
+				"sprite": "/sprites/articuno-galar.gif"
+			},
+			{
+				"id": 200145,
+				"name": "Galarian Zapdos",
+				"sprite": "/sprites/zapdos-galar.gif"
+			},
+			{
+				"id": 200146,
+				"name": "Galarian Moltres",
+				"sprite": "/sprites/moltres-galar.gif"
+			},
+			{
+				"id": 200199,
+				"name": "Galarian Slowking",
+				"sprite": "/sprites/slowking-galar.gif"
+			},
+			{
+				"id": 200222,
+				"name": "Galarian Corsola",
+				"sprite": "/sprites/corsola-galar.gif"
+			},
+			{
+				"id": 200263,
+				"name": "Galarian Zigzagoon",
+				"sprite": "/sprites/zigzagoon-galar.gif"
+			},
+			{
+				"id": 200264,
+				"name": "Galarian Linoone",
+				"sprite": "/sprites/linoone-galar.gif"
+			},
+			{
+				"id": 200554,
+				"name": "Galarian Darumaka",
+				"sprite": "/sprites/darumaka-galar.gif"
+			},
+			{
+				"id": 200555,
+				"name": "Galarian Darmanitan",
+				"sprite": "/sprites/darmanitan-galar.gif"
+			},
+			{
+				"id": 200562,
+				"name": "Galarian Yamask",
+				"sprite": "/sprites/yamask-galar.gif"
+			},
+			{
+				"id": 200618,
+				"name": "Galarian Stunfisk",
+				"sprite": "/sprites/stunfisk-galar.gif"
 			}
 		]
 	}

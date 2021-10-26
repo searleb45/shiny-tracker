@@ -8,7 +8,8 @@ const PokemonSelect = (props) => {
 
 	const pokemonOptions = POKEMON_GENERATION_LIST
 		.filter((gen) => generation === -1 || gen.generation <= generation)
-		.reduce((acc, obj) => [...acc, ...obj.pokemon], []);
+		.reduce((acc, obj) => [...acc, ...obj.pokemon], [])
+		.sort((a,b) => a.id - b.id);
 	
 	return (
 		<Select

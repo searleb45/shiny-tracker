@@ -13,16 +13,6 @@ const HuntViewer = (props) => {
 	const pokemon = {...POKEMON_LIST.find((pkmn) => pkmn.id === hunt.pokemon)};
 	const game = GAME_LIST.find((game) => game.gameId === hunt.gameId);
 
-	if(game.useAlolanForm && pokemon.hasAlolanForm) {
-		pokemon.sprite = pokemon.sprite.replace('.gif', '-alola.gif');
-	}
-	if(game.useGalarianForm && pokemon.hasGalarianForm) {
-		pokemon.sprite = pokemon.sprite.replace('.gif', '-galar.gif');
-	}
-	if(game.useHisuianForm && pokemon.hasHisuianForm) {
-		pokemon.sprite = pokemon.sprite.replace('.gif', '-hisui.gif');
-	}
-
 	return (
 		<div className="hunt-viewer">
 			<button onClick={onClick}>
