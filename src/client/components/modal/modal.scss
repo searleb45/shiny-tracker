@@ -13,6 +13,13 @@
 		font-weight: bold;
 		color: var(--copy);
 		margin: 0;
+		display: inline;
+	}
+
+	&-subtitle {
+		font-style: italic;
+		font-size: 0.9rem;
+		margin-left: 1rem;
 	}
 
 	&-close {

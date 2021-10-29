@@ -76,8 +76,10 @@ const FocusedHuntModal = (props) => {
 		}
 	}
 
+	let subtitle = !hunt.completed && hunt.lastUpdated ? `Last updated ${new Date(hunt.lastUpdated).toLocaleString()}` : '';
+
 	return (
-		<Modal isOpen={!!hunt} close={onModalClose} modalName={pokemon.name} containerClassName="focused-hunt-modal">
+		<Modal isOpen={!!hunt} close={onModalClose} modalName={pokemon.name} modalSubTitle={subtitle} containerClassName="focused-hunt-modal">
 			<ErrorBanner message={updateError} onClose={() => dispatch(clearError())} />
 			<div className="focused-hunt-pokemon-view">
 				<PokemonViewer pokemonId={hunt.pokemon} gameId={hunt.gameId} />
@@ -120,10 +122,6 @@ const FocusedHuntModal = (props) => {
 						<div className="focused-hunt-detail">
 							<label>Hunt started</label>
 							<TimeAgo datetime={hunt.started} />
-						</div>
-						<div className="focused-hunt-detail">
-							<label>Last updated</label>
-							{new Date(hunt.lastUpdated).toLocaleString()}
 						</div>
 					</>
 				)}

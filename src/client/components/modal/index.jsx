@@ -32,7 +32,10 @@ const Modal = (props) => {
 	return (
 		<ReactModal {...modalOpts}>
 			<header className="modal-header">
-				<h2 className="modal-title">{props.modalName || ''}</h2>
+				<div className="modal-left">
+					<h2 className="modal-title">{props.modalName || ''}</h2>
+					<span className="modal-subtitle">{props.modalSubTitle || ''}</span>
+				</div>
 				<button className="modal-close" onClick={() => props.close()}>&times;</button>
 			</header>
 			<main className="modal-content">
