@@ -22,10 +22,12 @@ const Modal = (props) => {
 	useEffect(() => {
 		if(modalOpts.isOpen) {
 			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'auto';
+	
+			return () => {
+				document.body.style.overflow = 'auto';
+			}
 		}
-	});
+	}, [props.isOpen]);
 
 	return (
 		<ReactModal {...modalOpts}>
