@@ -116,10 +116,16 @@ const FocusedHuntModal = (props) => {
 						</div>
 					</>
 				) : (
-					<div className="focused-hunt-detail">
-						<label>Hunt started</label>
-						<TimeAgo datetime={hunt.started} />
-					</div>
+					<>
+						<div className="focused-hunt-detail">
+							<label>Hunt started</label>
+							<TimeAgo datetime={hunt.started} />
+						</div>
+						<div className="focused-hunt-detail">
+							<label>Last updated</label>
+							{new Date(hunt.lastUpdated).toLocaleString()}
+						</div>
+					</>
 				)}
 				<div className="focused-hunt-detail">
 					<label>Odds</label>

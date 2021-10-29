@@ -39,8 +39,9 @@ export default (sequelize, Sequelize) => {
 			defaultValue: null
 		}
 	}, {
+		timestamps: true,
 		createdAt: 'started',
-		updatedAt: false
+		updatedAt: 'lastUpdated'
 	});
 
 
