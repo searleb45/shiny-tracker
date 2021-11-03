@@ -20,6 +20,7 @@ const HuntTypeSelect = (props) => {
 			getOptionValue={(obj) => obj.name}
 			className="react-select hunt-select"
 			classNamePrefix="react-select"
+			maxMenuHeight={window.innerWidth > 768 ? 150 : 500}
 		/>
 	)
 }

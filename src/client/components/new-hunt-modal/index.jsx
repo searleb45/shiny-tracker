@@ -82,6 +82,7 @@ const NewHuntModal = (props) => {
 								value={pokemonHunted}
 								onChange={(pokemon) => setPokemonHunted(pokemon)}
 								generation={game.generation}
+								maxHeight={window.innerWidth > 768 ? 200 : 500}
 							/>
 						</div>
 						<div className="form-input">
