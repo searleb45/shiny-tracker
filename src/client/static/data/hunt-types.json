@@ -7,9 +7,14 @@
 	},
 	{
 		"name": "Random Encounter",
-		"generations": [6,6.5,7,7.5,7.75,8,8.25],
+		"generations": [6,6.5,7,7.5,7.75,8],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
+	},
+	{
+		"name": "Random Encounter",
+		"generations": [8.25],
+		"baseOdds": "1/4096"
 	},
 	{
 		"name": "Odd Egg",
