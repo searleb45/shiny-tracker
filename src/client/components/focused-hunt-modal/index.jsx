@@ -13,6 +13,35 @@ import './focused-hunt-modal.scss';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
 import GAME_LIST from '../../static/data/pokemon-games.json';
+import HUNT_LIST from '../../static/data/hunt-types.json';
+
+function getOddsForHunt(hunt) {
+	if(hunt.isStaticOdds) {
+		return hunt.odds;
+	}
+	const generation = GAME_LIST.find(game => game.gameId === hunt.gameId).generation;
+	const huntData = HUNT_LIST.find(huntEntry => huntEntry.generations.includes(generation) && huntEntry.id === hunt.huntType);
+
+	let oddsString = '';
+	if(huntData.variableOdds) {
+		if(hunt.hasShinyCharm && huntData.shinyCharmVariableOdds) {
+			oddsString = huntData.shinyCharmVariableOdds[Math.min(hunt.encounters, huntData.shinyCharmVariableOdds.length - 1)];
+		} else {
+			oddsString = huntData.variableOdds[Math.min(hunt.encounters, huntData.variableOdds.length - 1)];
+		}
+	} else {
+		if(hunt.hasLure && hunt.hasShinyCharm) {
+			oddsString = huntData.lureShinyCharmOdds || huntData.shinyCharmOdds || huntData.baseOdds;
+		} else if(hunt.hasLure) {
+			oddsString = huntData.lureOdds || huntData.baseOdds;
+		} else if(hunt.hasShinyCharm) {
+			oddsString = huntData.shinyCharmOdds || huntData.baseOdds;
+		} else {
+			oddsString = huntData.baseOdds;
+		}
+	}
+	return oddsString;
+}
 
 const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
@@ -23,8 +52,9 @@ const FocusedHuntModal = (props) => {
 	if(!hunt) return null;
 
 	const pokemon = POKEMON_LIST.find((pkmn) => pkmn.id === hunt.pokemon);
-		
-	const odds = parseInt(hunt.odds.split('/')[0]) / parseInt(hunt.odds.split('/')[1]);
+	
+	const oddsString = getOddsForHunt(hunt);
+	const odds = parseInt(oddsString.split('/')[0]) / parseInt(oddsString.split('/')[1]);
 	const partialDist = Math.pow(1-odds, hunt.encounters);
 	const finalDist = 100 * (partialDist * Math.pow(-(1 / (odds - 1)), hunt.encounters) - partialDist);
 
@@ -127,7 +157,7 @@ const FocusedHuntModal = (props) => {
 				)}
 				<div className="focused-hunt-detail">
 					<label>Odds</label>
-					{hunt.odds}
+					{oddsString}
 				</div>
 				<div className="focused-hunt-detail">
 					<label>Aggregate shiny chance</label>

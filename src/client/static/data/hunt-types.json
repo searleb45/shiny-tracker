@@ -1,105 +1,130 @@
 [
 	{
+		"id": "randomencounter_classic",
 		"name": "Random Encounter",
 		"generations": [2,3,4,5],
 		"baseOdds": "1/8192",
 		"shinyCharmOdds": "1/2731"
 	},
 	{
+		"id": "randomencounter_modern",
 		"name": "Random Encounter",
 		"generations": [6,6.5,7,7.5,7.75,8],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
 	},
 	{
+		"id": "randomencounter_bdsp",
 		"name": "Random Encounter",
 		"generations": [8.25],
 		"baseOdds": "1/4096"
 	},
 	{
+		"id": "oddegg",
 		"name": "Odd Egg",
 		"generations": [2],
 		"baseOdds": "1/7"
 	},
 	{
+		"id": "breeding_gen2",
 		"name": "Breeding",
 		"hintText": "shiny parent",
 		"generations": [2],
 		"baseOdds": "1/64"
 	},
 	{
+		"id": "breeding_bdsp",
 		"name": "Breeding",
 		"generations": [8.25],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/2048"
 	},
 	{
+		"id": "masuda_gen4",
 		"name": "Masuda Method",
 		"generations": [4],
 		"baseOdds": "1/1638"
 	},
 	{
+		"id": "radar_gen4",
 		"name": "Poké Radar",
 		"hintText": "chain > 40",
 		"generations": [4],
-		"baseOdds": "1/200"
+		"baseOdds": "1/200",
+		"variableOdds": ["1/8192","1/7282","1/7282","1/7282","1/7282","1/6554","1/6554","1/6554","1/6554","1/5958","1/5958","1/5958","1/5461","1/5461","1/5041","1/5041","1/4681","1/4681","1/4369","1/4369","1/4096","1/3855","1/3641","1/3449","1/3277","1/3121","1/2979","1/2731","1/2521","1/2341","1/2185","1/1986","1/1771","1/1598","1/1394","1/1192","1/993","1/799","1/596","1/400","1/200"]
 	},
 	{
+		"id": "masuda_gen5",
 		"name": "Masuda Method",
 		"generations": [5],
 		"baseOdds": "1/1365",
 		"shinyCharmOdds": "1/1024"
 	},
 	{
+		"id": "masuda_modern",
 		"name": "Masuda Method",
 		"generations": [6,6.5,7,7.5,8,8.25],
 		"baseOdds": "1/683",
 		"shinyCharmOdds": "1/512"
 	},
 	{
+		"id": "horde",
 		"name": "Horde Battles",
 		"generations": [6],
 		"baseOdds": "1/819",
 		"shinyCharmOdds": "1/273"
 	},
 	{
+		"id": "chainfishing",
 		"name": "Chain Fishing",
 		"hintText": "chain > 20",
 		"generations": [6],
 		"baseOdds": "1/100",
-		"shinyCharmOdds": "1/96"
+		"shinyCharmOdds": "1/96",
+		"variableOdds": ["1/4096","1/1366","1/820","1/586","1/456","1/373","1/316","1/274","1/241","1/216","1/196","1/179","1/164","1/152","1/142","1/133","1/125","1/118","1/111","1/106","1/100"],
+		"shinyCharmVariableOdds": ["1/1366","1/820","1/586","1/456","1/373","1/316","1/274","1/241","1/216","1/196","1/179","1/164","1/152","1/142","1/133","1/125","1/118","1/111","1/106","1/100","1/96"]
 	},
 	{
+		"id": "radar_gen6",
 		"name": "Poké Radar",
 		"hintText": "chain > 40",
 		"generations": [6],
-		"baseOdds": "1/200"
+		"baseOdds": "1/200",
+		"variableOdds": ["1/8192","1/7282","1/7282","1/7282","1/7282","1/6554","1/6554","1/6554","1/6554","1/5958","1/5958","1/5958","1/5461","1/5461","1/5041","1/5041","1/4681","1/4681","1/4369","1/4369","1/4096","1/3855","1/3641","1/3449","1/3277","1/3121","1/2979","1/2731","1/2521","1/2341","1/2185","1/1986","1/1771","1/1598","1/1394","1/1192","1/993","1/799","1/596","1/400","1/200"]
 	},
 	{
+		"id": "radar_bdsp",
 		"name": "Poké Radar",
 		"hintText": "chain > 40",
 		"generations": [8.25],
-		"baseOdds": "1/99"
+		"baseOdds": "1/99",
+		"variableOdds": ["1/4096","1/3855","1/3640","1/3449","1/3277","1/3121","1/2979","1/2849","1/2731","1/2621","1/2521","1/2427","1/2341","1/2259","1/2185","1/2114","1/2048","1/1986","1/1927","1/1872","1/1820","1/1771","1/1724","1/1680","1/1638","1/1598","1/1560","1/1524","1/1489","1/1456","1/1310","1/1285","1/1260","1/1236","1/1213","1/1192","1/993","1/799","1/400","1/200","1/99"]
 	},
 	{
+		"id": "friendsafari",
 		"name": "Friend Safari",
 		"generations": [6],
 		"baseOdds": "1/819",
 		"shinyCharmOdds": "1/585"
 	},
 	{
+		"id": "dexnav",
 		"name": "DexNav",
 		"generations": [6.5],
 		"baseOdds": "1/512"
 	},
 	{
+		"id": "sos",
 		"name": "SOS Chain",
 		"hintText": "chain > 30",
 		"generations": [7,7.5],
 		"baseOdds": "1/315",
-		"shinyCharmOdds": "1/273"
+		"shinyCharmOdds": "1/273",
+		"variableOdds": ["1/4096","1/4096","1/4096","1/4096","1/4096","1/4096","1/4096","1/4096","1/4096","1/4096","1/4096","1/819","1/819","1/819","1/819","1/819","1/819","1/819","1/819","1/819","1/819","1/455","1/455","1/455","1/455","1/455","1/455","1/455","1/455","1/455","1/455","1/315"],
+		"shinyCharmVariableOdds": ["1/1365","1/1365","1/1365","1/1365","1/1365","1/1365","1/1365","1/1365","1/1365","1/1365","1/1365","1/585","1/585","1/585","1/585","1/585","1/585","1/585","1/585","1/585","1/585","1/372","1/372","1/372","1/372","1/372","1/372","1/372","1/372","1/372","1/372","1/273"]
 	},
 	{
+		"id": "catchcombo",
 		"name": "Catch Combo",
 		"hintText": "chain > 31",
 		"generations": [7.75],
@@ -109,6 +134,7 @@
 		"lureShinyCharmOdds": "1/273"
 	},
 	{
+		"id": "brilliant",
 		"name": "Brilliant Pokémon",
 		"hintText": "odds for brilliant mons with >500 KOs only",
 		"generations": [8],
@@ -116,12 +142,14 @@
 		"shinyCharmOdds": "1/455"
 	},
 	{
+		"id": "maxraidevent",
 		"name": "Max Raid Event",
 		"hintText": "odds for 5* event raids only",
 		"generations": [8],
 		"baseOdds": "1/50"
 	},
 	{
+		"id": "dynamaxadventures",
 		"name": "Dynamax Adventures",
 		"generations": [8],
 		"baseOdds": "1/300",

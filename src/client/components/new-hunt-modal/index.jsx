@@ -25,7 +25,8 @@ const NewHuntModal = (props) => {
 			game,
 			pokemonHunted,
 			huntType,
-			calculateOdds(huntType, hasShinyCharm, hasLure),
+			hasShinyCharm,
+			hasLure,
 			closeModal
 		))
 	}

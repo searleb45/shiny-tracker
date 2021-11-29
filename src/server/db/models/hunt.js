@@ -24,13 +24,25 @@ export default (sequelize, Sequelize) => {
 		},
 		odds: {
 			type: Sequelize.STRING(10),
-			allowNull: false
+			allowNull: true
 		},
 		encounters: {
 			type: Sequelize.INTEGER,
 			defaultValue: 0
 		},
 		completed: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: 0
+		},
+		isStaticOdds: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: 1
+		},
+		hasShinyCharm: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: 0
+		},
+		hasLure: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: 0
 		},

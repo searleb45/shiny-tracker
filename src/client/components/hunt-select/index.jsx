@@ -17,7 +17,7 @@ const HuntTypeSelect = (props) => {
 			onChange={(obj) => onChange(obj)}
 			options={huntOptions}
 			getOptionLabel={(obj) => `${obj.name}${obj.hintText ? ` (${obj.hintText})` : ''}`}
-			getOptionValue={(obj) => obj.name}
+			getOptionValue={(obj) => obj.id}
 			className="react-select hunt-select"
 			classNamePrefix="react-select"
 			maxMenuHeight={window.innerWidth > 768 ? 150 : 500}

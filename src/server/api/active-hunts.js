@@ -16,14 +16,16 @@ router.get('/', checkAuth, async (req, res) => {
 });
 
 router.post('/', checkAuth, async (req, res) => {
-	const { gameId, pokemon, huntType, odds } = req.body;
+	const { gameId, pokemon, huntType, hasShinyCharm, hasLure } = req.body;
 
 	const newHunt = await db.hunt.create({
 		userId: req.session.id,
 		gameId,
 		pokemon,
 		huntType,
-		odds
+		hasShinyCharm,
+		hasLure,
+		isStaticOdds: false
 	});
 
 	res.status(200).send(newHunt);
