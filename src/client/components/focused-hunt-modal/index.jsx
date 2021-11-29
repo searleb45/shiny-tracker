@@ -24,11 +24,15 @@ function getOddsForHunt(hunt) {
 
 	let oddsString = '';
 	if(huntData.variableOdds) {
-		if(hunt.hasShinyCharm && huntData.shinyCharmVariableOdds) {
-			oddsString = huntData.shinyCharmVariableOdds[Math.min(hunt.encounters, huntData.shinyCharmVariableOdds.length - 1)];
-		} else {
-			oddsString = huntData.variableOdds[Math.min(hunt.encounters, huntData.variableOdds.length - 1)];
+		let oddsArray = huntData.variableOdds;
+		if(hunt.hasLure && hunt.hasShinyCharm && huntData.shinyCharmLureVariableOdds) {
+			oddsArray = huntData.shinyCharmLureVariableOdds;
+		} else if(hunt.hasLure && huntData.lureVariableOdds) {
+			oddsArray = huntData.lureVariableOdds;
+		} else if(hunt.hasShinyCharm && huntData.shinyCharmVariableOdds) {
+			oddsArray = huntData.shinyCharmVariableOdds;
 		}
+		oddsString = oddsArray[Math.min(hunt.encounters, oddsArray.length - 1)];
 	} else {
 		if(hunt.hasLure && hunt.hasShinyCharm) {
 			oddsString = huntData.lureShinyCharmOdds || huntData.shinyCharmOdds || huntData.baseOdds;
