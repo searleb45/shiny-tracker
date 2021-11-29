@@ -7,7 +7,7 @@
 	},
 	{
 		"name": "Random Encounter",
-		"generations": [6,6.5,7,7.5,7.75,8],
+		"generations": [6,6.5,7,7.5,7.75,8,8.25],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
 	},
@@ -21,6 +21,12 @@
 		"hintText": "shiny parent",
 		"generations": [2],
 		"baseOdds": "1/64"
+	},
+	{
+		"name": "Breeding",
+		"generations": [8.25],
+		"baseOdds": "1/4096",
+		"shinyCharmOdds": "1/2048"
 	},
 	{
 		"name": "Masuda Method",
@@ -41,7 +47,7 @@
 	},
 	{
 		"name": "Masuda Method",
-		"generations": [6,6.5,7,7.5,8],
+		"generations": [6,6.5,7,7.5,8,8.25],
 		"baseOdds": "1/683",
 		"shinyCharmOdds": "1/512"
 	},
@@ -63,6 +69,12 @@
 		"hintText": "chain > 40",
 		"generations": [6],
 		"baseOdds": "1/200"
+	},
+	{
+		"name": "Poké Radar",
+		"hintText": "chain > 40",
+		"generations": [8.25],
+		"baseOdds": "1/99"
 	},
 	{
 		"name": "Friend Safari",

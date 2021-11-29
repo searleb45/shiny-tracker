@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "sql:dev": "sudo /etc/init.d/mysql start",
     "start": "NODE_ENV=production node build/server-bundle.js",
     "start:dev": "rimraf build && webpack --mode=development --config webpack.server.js && concurrently --kill-others \"npm run build:watch\" \"npm run start\"",
     "build": "rimraf build && webpack --mode=production --config webpack.server.js && webpack --mode=production --config webpack.client.js",

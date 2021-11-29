@@ -258,7 +258,7 @@
 	{
 		"gameId": "brilliantdiamond",
 		"name": "Pokémon Brilliant Diamond",
-		"generation": 8,
+		"generation": 8.25,
 		"boxArt": "/boxart/pkmn-brilliantdiamond.webp",
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
@@ -267,7 +267,7 @@
 	{
 		"gameId": "shiningpearl",
 		"name": "Pokémon Shining Pearl",
-		"generation": 8,
+		"generation": 8.25,
 		"boxArt": "/boxart/pkmn-shiningpearl.png",
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
