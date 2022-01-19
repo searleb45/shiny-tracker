@@ -9,7 +9,7 @@
 	{
 		"id": "randomencounter_modern",
 		"name": "Random Encounter",
-		"generations": [6,6.5,7,7.5,7.75,8],
+		"generations": [6,6.5,7,7.5,7.75,8,8.5],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
 	},

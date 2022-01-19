@@ -4739,5 +4739,130 @@
 				"sprite": "/sprites/stunfisk-galar.gif"
 			}
 		]
+	},
+	{
+		"generation": 8.5,
+		"pokemon": [
+			{
+				"id": 899,
+				"name": "Wyrdeer",
+				"sprite": "/sprites/wyrdeer.png"
+			},
+			{
+				"id": 900,
+				"name": "Kleavor",
+				"sprite": "/sprites/kleavor.png"
+			},
+			{
+				"id": 901,
+				"name": "Sneasler",
+				"sprite": "/sprites/sneasler.png"
+			},
+			{
+				"id": 902,
+				"name": "Enamorus",
+				"sprite": "/sprites/enamorus.png"
+			},
+			{
+				"id": 903,
+				"name": "Overqwil",
+				"sprite": "/sprites/overqwil.png"
+			},
+			{
+				"id": 904,
+				"name": "Basculegion",
+				"sprite": "/sprites/basculegion.png"
+			},
+			{
+				"id": 905,
+				"name": "Ursaluna",
+				"sprite": "/sprites/ursaluna.png"
+			},
+			{
+				"id": 300724,
+				"name": "Hisuian Decidueye",
+				"sprite": "/sprites/decidueye-hisui.png"
+			},
+			{
+				"id": 300157,
+				"name": "Hisuian Typhlosion",
+				"sprite": "/sprites/typhlosion-hisui.png"
+			},
+			{
+				"id": 300503,
+				"name": "Hisuian Samurott",
+				"sprite": "/sprites/samurott-hisui.png"
+			},
+			{
+				"id": 300058,
+				"name": "Hisuian Growlithe",
+				"sprite": "/sprites/growlithe-hisui.png"
+			},
+			{
+				"id":300059,
+				"name": "Hisuian Arcanine",
+				"sprite": "/sprites/arcanine-hisui.png"
+			},
+			{
+				"id": 300100,
+				"name": "Hisuian Voltorb",
+				"sprite": "/sprites/voltorb-hisui.png"
+			},
+			{
+				"id": 300101,
+				"name": "Hisuian Electrode",
+				"sprite": "/sprites/electrode-hisui.png"
+			},
+			{
+				"id": 300211,
+				"name": "Hisuian Qwilfish",
+				"sprite": "/sprites/qwilfish-hisui.png"
+			},
+			{
+				"id": 300215,
+				"name": "Hisuian Sneasel",
+				"sprite": "/sprites/sneasel-hisui.png"
+			},
+			{
+				"id": 300549,
+				"name": "Hisuian Lilligant",
+				"sprite": "/sprites/lilligant-hisui.png"
+			},
+			{
+				"id": 300550,
+				"name": "Hisuian Basculin",
+				"sprite": "/sprites/basculin-hisui.png"
+			},
+			{
+				"id": 300570,
+				"name": "Hisuian Zorua",
+				"sprite": "/sprites/zorua-hisui.png"
+			},
+			{
+				"id": 300571,
+				"name": "Hisuian Zoroark",
+				"sprite": "/sprites/zoroark-hisui.png"
+			},
+			{
+				"id": 300628,
+				"name": "Hisuian Braviary",
+				"sprite": "/sprites/braviary-hisui.png"
+			},
+			{
+				"id": 300713,
+				"name": "Hisuian Avalugg",
+				"sprite": "/sprites/avalugg-hisui.png"
+			},
+			{
+				"id": 300705,
+				"name": "Hisuian Sliggoo",
+				"sprite": "/sprites/sliggoo-hisui.png"
+			},
+			{
+				"id": 300706,
+				"name": "Hisuian Goodra",
+				"sprite": "/sprites/goodra-hisui.png"
+			}
+		]
 	}
 ]
