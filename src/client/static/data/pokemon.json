@@ -4755,28 +4755,28 @@
 			},
 			{
 				"id": 901,
-				"name": "Sneasler",
-				"sprite": "/sprites/sneasler.png"
+				"name": "Ursaluna",
+				"sprite": "/sprites/ursaluna.png"
 			},
 			{
 				"id": 902,
-				"name": "Enamorus",
-				"sprite": "/sprites/enamorus.png"
-			},
-			{
-				"id": 903,
-				"name": "Overqwil",
-				"sprite": "/sprites/overqwil.png"
-			},
-			{
-				"id": 904,
 				"name": "Basculegion",
 				"sprite": "/sprites/basculegion.png"
 			},
 			{
+				"id": 903,
+				"name": "Sneasler",
+				"sprite": "/sprites/sneasler.png"
+			},
+			{
+				"id": 904,
+				"name": "Overqwil",
+				"sprite": "/sprites/overqwil.png"
+			},
+			{
 				"id": 905,
-				"name": "Ursaluna",
-				"sprite": "/sprites/ursaluna.png"
+				"name": "Enamorus",
+				"sprite": "/sprites/enamorus.png"
 			},
 			{
 				"id": 300724,
