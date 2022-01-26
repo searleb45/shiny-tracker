@@ -34,3 +34,15 @@
 		max-width: 1320px;
 	}
 }
+
+%flexible-view-items {
+	flex: 0 0 100%;
+
+	@include media-breakpoint(md) {
+		flex: 0 0 50%;
+	}
+
+	@include media-breakpoint(xl) {
+		flex: 0 0 33%;
+	}
+}

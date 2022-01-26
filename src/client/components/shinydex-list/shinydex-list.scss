@@ -1,0 +1,9 @@
+@import '../../scss';
+
+.shinydex-row {
+	display: flex;
+
+	.shinydex-entry {
+		@extend %flexible-view-items;
+	}
+}

@@ -54,6 +54,13 @@ module.exports = (env, argv) => {
 					],
 				},
 				{
+					test: /\.css$/,
+					use: [
+						MiniCssExtractPlugin.loader,
+						'css-loader'
+					]
+				},
+				{
 					test: /\.(png|jpg|jpeg|gif)$/,
 					type: 'asset/resource'
 				},

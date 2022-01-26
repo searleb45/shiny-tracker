@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import BasePageTemplate from '../_base-template';
 
 import GameSelect from '../../components/game-select';
-import ShinyDexEntry from '../../components/shinydex-entry';
 import AddShinydexEntryModal from '../../components/add-shinydex-entry-modal';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
 
 import './shinydex.scss';
 import { getShinydex } from '../../store/actions/shinydex';
+import ShinyDexList from '../../components/shinydex-list';
 import ShinydexDetailModal from '../../components/shinydex-detail-modal';
 
 function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter) {
@@ -83,7 +83,7 @@ const Shinydex = () => {
 							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : null}
 							<h4>Obtained {numObtained} of {POKEMON_LIST.length} | {shinydex.length} entr{shinydex.length === 1 ? 'y' : 'ies'} total</h4>
 						</div>
-						{filteredDexList.map(pkmn => <ShinyDexEntry key={pkmn.id} pokemon={pkmn} collected={shinydex.some(entry => entry.pokemon === pkmn.id)} onClick={() => setFocusedEntry(pkmn.id)} />)}
+						<ShinyDexList pokemon={filteredDexList} collection={shinydex} onFocus={setFocusedEntry} />
 					</>
 				}
 			/>

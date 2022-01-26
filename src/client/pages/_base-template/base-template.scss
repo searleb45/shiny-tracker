@@ -16,16 +16,8 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		& > * {
-			flex: 0 0 100%;
-
-			@include media-breakpoint(md) {
-				flex: 0 0 50%;
-			}
-
-			@include media-breakpoint(xl) {
-				flex: 0 0 33%;
-			}
+		& > :not(.ignore-parent-flex) {
+			@extend %flexible-view-items;
 		}
 	}
 }
