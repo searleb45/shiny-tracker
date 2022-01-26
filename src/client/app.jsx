@@ -23,25 +23,25 @@ const App = () => {
 			<Header />
 			<div className="page-content">
 				<OfflineWarningBanner />
-				<Switch>
-					<React.Suspense fallback={<h2 className="loading-msg">Loading...</h2>}>
-						<Route path="/active-hunts">
-							{!userAuthenticated ? <Redirect to="/" /> : <ActiveHunts />}
-						</Route>
-						<Route path="/completed-hunts">
-							{!userAuthenticated ? <Redirect to="/" /> : <CompletedHunts />}
-						</Route>
-						<Route path="/shinydex">
-							{!userAuthenticated ? <Redirect to="/" /> : <Shinydex />}
-						</Route>
-						<Route exact path="/">
-							{userAuthenticated ? <Redirect to="/active-hunts" /> : <Home />}
-						</Route>
-						<Route path="/">
-							{userAuthenticated ? <Redirect to="/active-hunts" /> : <Redirect to="/" />}
-						</Route>
-					</React.Suspense>
-				</Switch>
+				<React.Suspense fallback={<h2 className="loading-msg">Loading...</h2>}>
+					<Switch>
+							{
+								userAuthenticated ? (
+									<>
+										<Route path="/active-hunts" component={ActiveHunts} />
+										<Route path="/completed-hunts" component={CompletedHunts} />
+										<Route path="/shinydex" component={Shinydex} />
+										<Route path="*" component={ActiveHunts} />
+									</>
+								) : (
+									<>
+										<Route exact path="/" component={Home} />
+										<Redirect to="/" />
+									</>
+								)
+							}
+					</Switch>
+				</React.Suspense>
 			</div>
 		</Router>
 	)
