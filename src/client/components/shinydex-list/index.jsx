@@ -11,7 +11,6 @@ const ShinyDexList = (props) => {
 	const { pokemon, collection, onFocus } = props;
 	const { width: windowWidth } = useWindowSize();
 	const itemsPerRow = windowWidth >= 1200 ? 3 : windowWidth >= 768 ? 2 : 1;
-	const rowHeight = windowWidth >= 1200 ? 170 : 200;
 
 	return (
 		<WindowScroller>
@@ -24,7 +23,7 @@ const ShinyDexList = (props) => {
 					onScroll={onChildScroll}
 					scrollTop={scrollTop}
 					rowCount={Math.ceil(pokemon.length / itemsPerRow)}
-					rowHeight={rowHeight}
+					rowHeight={170}
 					width={windowWidth}
 					overscanRowCount={20}
 					rowRenderer={({ index, key, style }) => {
