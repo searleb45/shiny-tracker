@@ -46,6 +46,14 @@ export default (sequelize, Sequelize) => {
 			type: Sequelize.BOOLEAN,
 			defaultValue: 0
 		},
+		hasResearch10: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: 0
+		},
+		hasResearchPerfect: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: 0
+		},
 		completionDate: {
 			type: Sequelize.DATE,
 			defaultValue: null

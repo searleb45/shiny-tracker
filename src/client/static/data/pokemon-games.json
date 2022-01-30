@@ -280,6 +280,7 @@
 		"boxArt": "/boxart/pkmn-legendsarceus.webp",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false,
+		"researchLevels": true,
 		"useHisuianForm": true
 	},
 	{

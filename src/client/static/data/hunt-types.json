@@ -9,7 +9,7 @@
 	{
 		"id": "randomencounter_modern",
 		"name": "Random Encounter",
-		"generations": [6,6.5,7,7.5,7.75,8,8.5],
+		"generations": [6,6.5,7,7.5,7.75,8],
 		"baseOdds": "1/4096",
 		"shinyCharmOdds": "1/1365"
 	},
@@ -18,6 +18,16 @@
 		"name": "Random Encounter",
 		"generations": [8.25],
 		"baseOdds": "1/4096"
+	},
+	{
+		"id": "randomencounter_legends",
+		"name": "Random Encounter",
+		"generations": [8.5],
+		"baseOdds": "1/4096",
+		"research10Odds": "1/2048",
+		"researchPerfectOdds": "1/1024",
+		"shinyCharmOdds": "1/820",
+		"shinyCharmPerfectOdds": "1/586"
 	},
 	{
 		"id": "oddegg",
@@ -158,5 +168,15 @@
 		"generations": [8],
 		"baseOdds": "1/300",
 		"shinyCharmOdds": "1/100"
+	},
+	{
+		"id": "massoutbreak",
+		"name": "Mass Outbreak",
+		"generations": [8.5],
+		"baseOdds": "1/158",
+		"research10Odds": "1/152",
+		"researchPerfectOdds": "1/142",
+		"shinyCharmOdds": "1/137",
+		"shinyCharmPerfectOdds": "1/128"
 	}
 ]

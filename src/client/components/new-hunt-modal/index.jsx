@@ -7,6 +7,8 @@ import GameSelect from '../game-select';
 import PokemonSelect from '../pokemon-select';
 import HuntTypeSelect from '../hunt-select';
 
+import calculateOdds from '../../huntOddsCalc';
+
 import './new-hunt-modal.scss';
 
 const NewHuntModal = (props) => {
@@ -16,8 +18,25 @@ const NewHuntModal = (props) => {
 	const [huntType, setHuntType] = useState();
 	const [hasShinyCharm, setHasShinyCharm] = useState(false);
 	const [hasLure, setHasLure] = useState(false);
+	const [hasResearch10, setHasResearch10] = useState(false);
+	const [hasResearchPerfect, setHasResearchPerfect] = useState(false);
 
 	const dispatch = useDispatch();
+
+	function setResearchLevel(level, value) {
+		if(level === '10') {
+			setHasResearch10(value);
+			if(value === false) {
+				setHasResearchPerfect(false);
+				setHasShinyCharm(false);
+			}
+		} else if(level === 'Perfect') {
+			setHasResearchPerfect(value);
+			if(value === true) {
+				setHasResearch10(true);
+			}
+		}
+	}
 
 	function submitHunt(evt) {
 		evt.preventDefault();
@@ -27,8 +46,21 @@ const NewHuntModal = (props) => {
 			huntType,
 			hasShinyCharm,
 			hasLure,
+			hasResearch10,
+			hasResearchPerfect,
 			closeModal
 		))
+	}
+
+	function setHasShinyCharmWrapper(val) {
+		setHasShinyCharm(val);
+		if(game.researchLevels) {
+			if(val === true) {
+				setResearchLevel('10', true);
+			} else {
+				setResearchLevel('10', false);
+			}
+		}
 	}
 
 	function setGameWrapper(game) {
@@ -37,23 +69,13 @@ const NewHuntModal = (props) => {
 		setHuntType(undefined);
 		setHasShinyCharm(false);
 		setHasLure(false);
+		setHasResearch10(false);
+		setHasResearchPerfect(false);
 	}
 
 	function closeModal() {
 		setGameWrapper(undefined);
 		typeof(close) === 'function' && close();
-	}
-
-	function calculateOdds(huntType, hasShinyCharm, hasLure) {
-		if(hasLure && hasShinyCharm) {
-			return huntType.lureShinyCharmOdds || huntType.shinyCharmOdds || huntType.baseOdds;
-		} else if(hasLure) {
-			return huntType.lureOdds || huntType.baseOdds;
-		} else if(hasShinyCharm) {
-			return huntType.shinyCharmOdds || huntType.baseOdds;
-		} else {
-			return huntType.baseOdds;
-		}
 	}
 
 	return (
@@ -98,19 +120,31 @@ const NewHuntModal = (props) => {
 						<div className="form-input">
 							{game.shinyCharmAvailable && (
 								<label htmlFor="newHuntHasShinyCharm">
-									<input id="newHuntHasShinyCharm" type="checkbox" value={hasShinyCharm} onClick={() => setHasShinyCharm(!hasShinyCharm)} />
+									<input id="newHuntHasShinyCharm" type="checkbox" checked={hasShinyCharm} onChange={() => setHasShinyCharmWrapper(!hasShinyCharm)} />
 									Do you have the Shiny Charm?
 								</label>
 							)}
 							{game.lureAvailable && (
 								<label htmlFor="newHuntHasLureActive">
-									<input id="newHuntHasLureActive" type="checkbox" value={hasLure} onClick={() => setHasLure(!hasLure)} />
+									<input id="newHuntHasLureActive" type="checkbox" checked={hasLure} onChange={() => setHasLure(!hasLure)} />
 									Are you using a lure?
 								</label>
 							)}
+							{game.researchLevels && (
+								<>
+									<label htmlFor="newHuntHasResearch10">
+										<input id="newHuntHasResearch10" type="checkbox" checked={hasResearch10} onChange={() => setResearchLevel('10', !hasResearch10)} />
+										Have you achieved Research Level 10 for this Pokémon?
+									</label>
+									<label htmlFor="newHuntHasResearchPerfect">
+										<input id="newHuntHasResearchPerfect" type="checkbox" checked={hasResearchPerfect} onChange={() => setResearchLevel('Perfect', !hasResearchPerfect)} />
+										Have you achieved Perfect Research for this Pokémon?
+									</label>
+								</>
+							)}
 						</div>
 						{ huntType && pokemonHunted && (<div className="bottom-submit">
-							<div className="odds">{huntType && `Your shiny odds are: ${calculateOdds(huntType, hasShinyCharm, hasLure)}`}</div>
+							<div className="odds">{huntType && `Your shiny odds are: ${calculateOdds(huntType, { hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect })}`}</div>
 							<div className="submit">
 								<button className="btn-primary" disabled={!(game && huntType && pokemonHunted)} type="submit">Submit</button>
 							</div>

@@ -5,6 +5,8 @@ import { Online } from 'react-detect-offline';
 
 import { putHuntUpdate, deleteHunt, clearError } from '../../store/actions/hunts';
 
+import calculateOdds from '../../huntOddsCalc';
+
 import Modal from '../modal';
 import ErrorBanner from '../banner';
 import PokemonViewer from '../pokemon-viewer';
@@ -22,29 +24,7 @@ function getOddsForHunt(hunt) {
 	const generation = GAME_LIST.find(game => game.gameId === hunt.gameId).generation;
 	const huntData = HUNT_LIST.find(huntEntry => huntEntry.generations.includes(generation) && huntEntry.id === hunt.huntType);
 
-	let oddsString = '';
-	if(huntData.variableOdds) {
-		let oddsArray = huntData.variableOdds;
-		if(hunt.hasLure && hunt.hasShinyCharm && huntData.shinyCharmLureVariableOdds) {
-			oddsArray = huntData.shinyCharmLureVariableOdds;
-		} else if(hunt.hasLure && huntData.lureVariableOdds) {
-			oddsArray = huntData.lureVariableOdds;
-		} else if(hunt.hasShinyCharm && huntData.shinyCharmVariableOdds) {
-			oddsArray = huntData.shinyCharmVariableOdds;
-		}
-		oddsString = oddsArray[Math.min(hunt.encounters, oddsArray.length - 1)];
-	} else {
-		if(hunt.hasLure && hunt.hasShinyCharm) {
-			oddsString = huntData.lureShinyCharmOdds || huntData.shinyCharmOdds || huntData.baseOdds;
-		} else if(hunt.hasLure) {
-			oddsString = huntData.lureOdds || huntData.baseOdds;
-		} else if(hunt.hasShinyCharm) {
-			oddsString = huntData.shinyCharmOdds || huntData.baseOdds;
-		} else {
-			oddsString = huntData.baseOdds;
-		}
-	}
-	return oddsString;
+	return calculateOdds(huntData, hunt);
 }
 
 const FocusedHuntModal = (props) => {
