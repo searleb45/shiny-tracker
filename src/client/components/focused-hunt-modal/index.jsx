@@ -17,6 +17,8 @@ import POKEMON_LIST from '../../static/data/pokemon-list';
 import GAME_LIST from '../../static/data/pokemon-games.json';
 import HUNT_LIST from '../../static/data/hunt-types.json';
 
+const DATE_FORMAT = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' });
+
 function getOddsForHunt(hunt) {
 	if(hunt.isStaticOdds) {
 		return hunt.odds;
@@ -125,11 +127,11 @@ const FocusedHuntModal = (props) => {
 					<>
 						<div className="focused-hunt-detail">
 							<label>Hunt started</label>
-							{new Date(hunt.started).toLocaleDateString()}
+							{DATE_FORMAT.format(new Date(hunt.started))}
 						</div>
 						<div className="focused-hunt-detail">
 							<label>Hunt finished</label>
-							{new Date(hunt.completionDate).toLocaleDateString()}
+							{DATE_FORMAT.format(new Date(hunt.completionDate))}
 						</div>
 					</>
 				) : (
