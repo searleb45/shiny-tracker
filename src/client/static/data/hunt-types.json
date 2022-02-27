@@ -178,5 +178,15 @@
 		"researchPerfectOdds": "1/142",
 		"shinyCharmOdds": "1/137",
 		"shinyCharmPerfectOdds": "1/128"
+	},
+	{
+		"id": "massiveoutbreak",
+		"name": "Massive Mass Outbreak",
+		"generations": [8.5],
+		"baseOdds": "1/316",
+		"research10Odds": "1/293",
+		"researchPerfectOdds": "1/256",
+		"shinyCharmOdds": "1/241",
+		"shinyCharmPerfectOdds": "1/216"
 	}
 ]
