@@ -8,15 +8,18 @@ How to add a new game/generation:
 
 How to add new Pokemon:
 1. Add new generation Pokemon to src/static/data/pokemon.json
-2. Download animated gifs of the Pokemon in question to src/static/sprites
-	2a. Sprites can be found at https://play.pokemonshowdown.com/sprites/ani-shiny/ or https://projectpokemon.org/home/docs/spriteindex_148/
-	2b. Make sure to filter out alternate forms that aren't regional variants
-3. Regional variants are a separate listing within a generation - convention is as follows:
-	3a. Pokemon ID is the base national Pokedex number plus X00,000 with X incrementing for each new region with forms
+2. Download animated gifs of the Pokemon in question to src/static/new-sprites
+	2a. Ideally use HD sprites similar to those from FurretTurret (TilableToast), Eternia.fr, or WikiDex.net (WikiDex might do more, idk)
+	2b. If those are unavailable, sprites can (maybe) be found at https://play.pokemonshowdown.com/sprites/ani-shiny/ or https://projectpokemon.org/home/docs/spriteindex_148/
+	2c. Make sure to filter out alternate forms that aren't regional variants
+	2d. Names should be all lowercase w/o punctuation.
+3. "npm run sprite-optimize" will compress/resize gifs and move them to the proper sprites folder
+4. Regional variants are a separate listing within a generation - convention is as follows:
+	4a. Pokemon ID is the base national Pokedex number plus X00,000 with X incrementing for each new region with forms
 		Alola - 100,000
 		Galar - 200,000
 		Hisui - 300,000 (etc)
-	3b. Pokemon name should be "Alolan X", "Galarian X", etc.
-	3c. Pokemon sprite should live at name-region.gif
-4. New batches of Pokemon within a generation should use decimal gen numbers to denote 
+	4b. Pokemon name should be "Alolan X", "Galarian X", etc.
+	4c. Pokemon sprite should live at name-region.gif
+5. New batches of Pokemon within a generation should use decimal gen numbers to denote 
 	different Pokemon sets and (maybe)hunt odds (7.5 for USUM, 7.75 for LGPE, 8.5 for Legends Arceus, etc)
