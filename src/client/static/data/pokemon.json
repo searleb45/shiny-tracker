@@ -150,7 +150,7 @@
 			{
 				"id": 29,
 				"name": "Nidoran♀",
-				"sprite": "/sprites/nidoran_f.gif"
+				"sprite": "/sprites/nidoran-f.gif"
 			},
 			{
 				"id": 30,
@@ -165,7 +165,7 @@
 			{
 				"id": 32,
 				"name": "Nidoran♂",
-				"sprite": "/sprites/nidoran_m.gif"
+				"sprite": "/sprites/nidoran-m.gif"
 			},
 			{
 				"id": 33,
