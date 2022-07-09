@@ -36,8 +36,12 @@
 
 	&-content {
 		padding: 0.5rem;
-		height: calc(100% - 60px);
+		height: calc(100% - 80px);
 		overflow-y: auto;
+
+		@include media-breakpoint(md) {
+			height: calc(100% - 60px);
+		}
 	}
 
 	&-container {
