@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import BasePageTemplate from '../_base-template';
@@ -42,8 +42,11 @@ const Shinydex = () => {
 	const [focusedEntry, setFocusedEntry] = useState(-1);
 	const dispatch = useDispatch();
 
-	if(!shinydex) {
+	useEffect(() => {
 		dispatch(getShinydex());
+	}, []);
+
+	if(!shinydex) {
 		return <h2 className="loading-msg">Loading your information...</h2>
 	}
 

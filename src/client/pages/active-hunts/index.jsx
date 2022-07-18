@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Online } from 'react-detect-offline';
 import NewHuntModal from '../../components/new-hunt-modal';
@@ -16,9 +16,20 @@ const ActiveHunts = () => {
 	const focusedHunt = useSelector(state => state.hunts.focused);
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		if(!hunts) {
+			dispatch(getActiveHunts());
+		}
+		const updateInterval = setInterval(() => {
+			dispatch(getActiveHunts());
+		}, 1000 * 60 * 30);
+
+		return () => {
+			clearInterval(updateInterval);
+		}
+	}, [focusedHunt])
+
 	if(!hunts) {
-		// Need to fetch shiny hunt list for user
-		dispatch(getActiveHunts());
 		return <h2 className="loading-msg">Fetching your information...</h2>;
 	}
 	return (

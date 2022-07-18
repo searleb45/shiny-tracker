@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
 
@@ -91,10 +91,12 @@ const CompletedHunts = () => {
 	const hunts = useSelector(state => state.hunts.completed);
 	const focusedHunt = useSelector(state => state.hunts.focused);
 	const dispatch = useDispatch();
+	
+	useEffect(() => {
+		dispatch(getCompletedHunts());
+	}, [])
 
 	if(!hunts) {
-		// Need to fetch shiny hunt list for user
-		dispatch(getCompletedHunts());
 		return <h2 className="loading-msg">Fetching your information...</h2>;
 	}
 
