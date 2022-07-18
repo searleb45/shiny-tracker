@@ -17,9 +17,8 @@ const ActiveHunts = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if(!hunts) {
-			dispatch(getActiveHunts());
-		}
+		dispatch(getActiveHunts());
+		
 		const updateInterval = setInterval(() => {
 			dispatch(getActiveHunts());
 		}, 1000 * 60 * 30);
@@ -27,7 +26,7 @@ const ActiveHunts = () => {
 		return () => {
 			clearInterval(updateInterval);
 		}
-	}, [focusedHunt])
+	}, [])
 
 	if(!hunts) {
 		return <h2 className="loading-msg">Fetching your information...</h2>;
