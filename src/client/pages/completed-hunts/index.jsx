@@ -7,6 +7,8 @@ import BasePageTemplate from '../_base-template';
 import HuntViewer from '../../components/hunt-viewer';
 import FocusedHuntModal from '../../components/focused-hunt-modal';
 
+import { getOddsForHunt } from '../../huntOddsCalc';
+
 import { getCompletedHunts, setFocusedHunt } from '../../store/actions/hunts';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
@@ -50,15 +52,19 @@ function sortHunts(hunts, sortMode) {
 			break;
 		case 'bestOdds':
 			sortFunction = (a, b) => {
-				const aOddsDec = parseInt(a.odds.split('/')[0]) / parseInt(a.odds.split('/')[1]);
-				const bOddsDec = parseInt(b.odds.split('/')[0]) / parseInt(b.odds.split('/')[1]);
+				const aOdds = getOddsForHunt(a);
+				const bOdds = getOddsForHunt(b);
+				const aOddsDec = parseInt(aOdds.split('/')[0]) / parseInt(aOdds.split('/')[1]);
+				const bOddsDec = parseInt(bOdds.split('/')[0]) / parseInt(bOdds.split('/')[1]);
 				return bOddsDec - aOddsDec;
 			};
 			break;
 		case 'worstOdds':
 			sortFunction = (a, b) => {
-				const aOddsDec = parseInt(a.odds.split('/')[0]) / parseInt(a.odds.split('/')[1]);
-				const bOddsDec = parseInt(b.odds.split('/')[0]) / parseInt(b.odds.split('/')[1]);
+				const aOdds = getOddsForHunt(a);
+				const bOdds = getOddsForHunt(b);
+				const aOddsDec = parseInt(aOdds.split('/')[0]) / parseInt(aOdds.split('/')[1]);
+				const bOddsDec = parseInt(bOdds.split('/')[0]) / parseInt(bOdds.split('/')[1]);
 				return aOddsDec - bOddsDec;
 			};
 			break;

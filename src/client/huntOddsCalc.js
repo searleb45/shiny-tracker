@@ -1,3 +1,6 @@
+import GAME_LIST from './static/data/pokemon-games.json';
+import HUNT_LIST from './static/data/hunt-types.json';
+
 export default function calculateOdds(huntType, modifiers) {
 	if(huntType.variableOdds && modifiers.encounters !== undefined) {
 		return calculateVariableOddsHunt(huntType, modifiers);
@@ -10,6 +13,16 @@ export default function calculateOdds(huntType, modifiers) {
 	}
 
 	return calculateNormalOdds(huntType, modifiers.hasShinyCharm);
+}
+
+export function getOddsForHunt(hunt) {
+	if(hunt.isStaticOdds) {
+		return hunt.odds;
+	}
+	const generation = GAME_LIST.find(game => game.gameId === hunt.gameId).generation;
+	const huntData = HUNT_LIST.find(huntEntry => huntEntry.generations.includes(generation) && huntEntry.id === hunt.huntType);
+
+	return calculateOdds(huntData, hunt);
 }
 
 function calculateVariableOddsHunt(huntType, hunt) {

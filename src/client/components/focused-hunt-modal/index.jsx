@@ -5,7 +5,7 @@ import { Online } from 'react-detect-offline';
 
 import { putHuntUpdate, deleteHunt, clearError } from '../../store/actions/hunts';
 
-import calculateOdds from '../../huntOddsCalc';
+import { getOddsForHunt } from '../../huntOddsCalc';
 
 import Modal from '../modal';
 import ErrorBanner from '../banner';
@@ -18,16 +18,6 @@ import GAME_LIST from '../../static/data/pokemon-games.json';
 import HUNT_LIST from '../../static/data/hunt-types.json';
 
 const DATE_FORMAT = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' });
-
-function getOddsForHunt(hunt) {
-	if(hunt.isStaticOdds) {
-		return hunt.odds;
-	}
-	const generation = GAME_LIST.find(game => game.gameId === hunt.gameId).generation;
-	const huntData = HUNT_LIST.find(huntEntry => huntEntry.generations.includes(generation) && huntEntry.id === hunt.huntType);
-
-	return calculateOdds(huntData, hunt);
-}
 
 const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
