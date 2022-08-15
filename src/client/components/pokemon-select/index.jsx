@@ -4,7 +4,7 @@ import Select from 'react-select';
 import POKEMON_GENERATION_LIST from '../../static/data/pokemon.json';
 
 const PokemonSelect = (props) => {
-	const { id, value, onChange, generation, maxHeight } = props;
+	const { id, value, onChange, generation, maxHeight, onKeyDown } = props;
 
 	const pokemonOptions = POKEMON_GENERATION_LIST
 		.filter((gen) => generation === -1 || gen.generation <= generation)
@@ -22,6 +22,7 @@ const PokemonSelect = (props) => {
 			className="react-select pokemon-select"
 			classNamePrefix="react-select"
 			maxMenuHeight={maxHeight || 500}
+			onKeyDown={onKeyDown}
 		/>
 	)
 }

@@ -33,6 +33,12 @@ const ShinydexDetailModal = (props) => {
 		}
 	}
 
+	function checkEnterSubmit(e) {
+		if (e.which === 13) {
+			submitEditing();
+		}
+	}
+
 	function submitEditing() {
 		setEditing(null);
 		dispatch(putShinydexUpdate(editing.id, editing.gameId, editing.pokemon, editing.notes))
@@ -59,6 +65,7 @@ const ShinydexDetailModal = (props) => {
 									value={POKEMON_LIST.find(pkmn => pkmn.id === editing.pokemon)}
 									onChange={opt => setEditing({...editing, pokemon: opt.id})}
 									generation={GAME_LIST.find(game => game.gameId === editing.gameId).generation}
+									onKeyDown={checkEnterSubmit}
 								/>
 							</td>
 							<td>
@@ -67,6 +74,7 @@ const ShinydexDetailModal = (props) => {
 									onChange={(opt) => setEditing({...editing, gameId: opt.gameId})}
 									useStorageGames={true}
 									isSearchable={false}
+									onKeyDown={checkEnterSubmit}
 								/>
 							</td>
 							<td>
@@ -102,6 +110,7 @@ const ShinydexDetailModal = (props) => {
 					))}
 				</tbody>
 			</table>
+			{editing && (<form id="editForm" onSubmit={submitEditing} />)}
 		</Modal>
 	)
 }
