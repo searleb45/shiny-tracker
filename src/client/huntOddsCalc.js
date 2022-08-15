@@ -5,13 +5,17 @@ export default function calculateOdds(huntType, modifiers) {
 	if(huntType.variableOdds && modifiers.encounters !== undefined) {
 		return calculateVariableOddsHunt(huntType, modifiers);
 	}
+	if(huntType.variableOddsObj && modifiers.encounters !== undefined) {
+		console.log('returning variable hunt odds from obj');
+		return calculateVariableOddsHuntFromObj(huntType, modifiers);
+	}
 	if(modifiers.hasLure) {
 		return calculateOddsForLetsGo(huntType, modifiers.hasShinyCharm, modifiers.hasLure);
 	}
 	if(modifiers.hasResearch10 || modifiers.hasResearchPerfect) {
 		return calculateOddsForLegends(huntType, modifiers.hasShinyCharm, modifiers.hasResearch10, modifiers.hasResearchPerfect)
 	}
-
+	console.log('normal odds');
 	return calculateNormalOdds(huntType, modifiers.hasShinyCharm);
 }
 
@@ -35,6 +39,23 @@ function calculateVariableOddsHunt(huntType, hunt) {
 		oddsArray = huntType.shinyCharmVariableOdds;
 	}
 	return oddsArray[Math.min(hunt.encounters, oddsArray.length - 1)];
+}
+
+function calculateVariableOddsHuntFromObj(huntType, hunt) {
+	let oddsObj = huntType.variableOddsObj;
+	if(hunt.hasShinyCharm && huntType.shinyCharmVariableOddsObj) {
+		oddsObj = huntType.shinyCharmVariableOddsObj
+	}
+
+	const stepValues = Object.keys(oddsObj).map(i => parseInt(i)).sort();
+	let currentOddsKey = stepValues[0];
+	for (let i=0; i<stepValues.length; i++) {
+		if (hunt.encounters >= stepValues[i]) {
+			currentOddsKey = stepValues[i];
+		}
+	}
+
+	return oddsObj[currentOddsKey.toString()];
 }
 
 function calculateOddsForLetsGo(huntType, hasShinyCharm, hasLure) {
