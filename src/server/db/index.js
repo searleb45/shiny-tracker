@@ -10,6 +10,11 @@ if(user && password && host && db) {
 	connection = new Sequelize(db, user, password, {
 		host,
 		dialect: 'mysql',
+		dialectOptions: {
+			ssl: {
+				require: true
+			}
+		}
 	});
 
 	connection.hunt = createHuntModel(connection, Sequelize);
