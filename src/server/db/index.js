@@ -10,10 +10,9 @@ if(user && password && host && db) {
 	connection = new Sequelize(db, user, password, {
 		host,
 		dialect: 'mysql',
-		dialectOptions: {
+		dialectOptions: process.env.CLEARDB_DATABASE_URL ? undefined : {
 			ssl: {
-				// No SSL for Heroku env, yes for others to connect to PlanetScale
-				require: process.env.CLEARDB_DATABASE_URL ? false : true
+				require: true
 			}
 		}
 	});
