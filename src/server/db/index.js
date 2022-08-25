@@ -12,7 +12,8 @@ if(user && password && host && db) {
 		dialect: 'mysql',
 		dialectOptions: {
 			ssl: {
-				require: true
+				// No SSL for Heroku env, yes for others to connect to PlanetScale
+				require: process.env.CLEARDB_DATABASE_URL ? false : true
 			}
 		}
 	});
