@@ -3,7 +3,7 @@ import Sequelize from 'sequelize';
 import createHuntModel from './models/hunt';
 import createShinydexModel from './models/shinydex';
 
-const [,user, password, host, db] = process.env.CLEARDB_DATABASE_URL.match(/\/\/(.*):(.*)@(.*)\/(.*)\?.*/);
+const [,user, password, host, db] = process.env.DATABASE_URL.match(/\/\/(.*):(.*)@(.*)\/(.*)\?.*/);
 
 let connection = {};
 if(user && password && host && db) {
