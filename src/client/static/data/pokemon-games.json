@@ -189,8 +189,7 @@
 		"generation": 7,
 		"boxArt": "/boxart/pkmn-sun.webp",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false,
-		"useAlolanForm": true
+		"lureAvailable": false
 	},
 	{
 		"gameId": "moon",
@@ -198,8 +197,7 @@
 		"generation": 7,
 		"boxArt": "/boxart/pkmn-moon.png",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false,
-		"useAlolanForm": true
+		"lureAvailable": false
 	},
 	{
 		"gameId": "ultrasun",
@@ -207,8 +205,7 @@
 		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-ultrasun.png",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false,
-		"useAlolanForm": true
+		"lureAvailable": false
 	},
 	{
 		"gameId": "ultramoon",
@@ -216,8 +213,7 @@
 		"generation": 7.5,
 		"boxArt": "/boxart/pkmn-ultramoon.png",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false,
-		"useAlolanForm": true
+		"lureAvailable": false
 	},
 	{
 		"gameId": "letsgo-pikachu",
@@ -242,8 +238,7 @@
 		"boxArt": "/boxart/pkmn-sword.webp",
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false,
-		"useGalarianForm": true
+		"lureAvailable": false
 	},
 	{
 		"gameId": "shield",
@@ -252,8 +247,7 @@
 		"boxArt": "/boxart/pkmn-shield.png",
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
-		"lureAvailable": false,
-		"useGalarianForm": true
+		"lureAvailable": false
 	},
 	{
 		"gameId": "brilliantdiamond",
@@ -280,8 +274,27 @@
 		"boxArt": "/boxart/pkmn-legendsarceus.webp",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false,
-		"researchLevels": true,
-		"useHisuianForm": true
+		"researchLevels": true
+	},
+	{
+		"gameId": "scarlet",
+		"name": "Pokémon Scarlet",
+		"generation": 9,
+		"boxArt": "/boxart/pkmn-scarlet.jpg",
+		"boxArtOffset": "15%",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false,
+		"researchLevels": false
+	},
+	{
+		"gameId": "violet",
+		"name": "Pokémon Violet",
+		"generation": 9,
+		"boxArt": "/boxart/pkmn-violet.jpg",
+		"boxArtOffset": "15%",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false,
+		"researchLevels": false
 	},
 	{
 		"gameId": "go",
