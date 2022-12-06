@@ -11,7 +11,9 @@
 		"name": "Random Encounter",
 		"generations": [6,6.5,7,7.5,7.75,8,9],
 		"baseOdds": "1/4096",
-		"shinyCharmOdds": "1/1365"
+		"shinyCharmOdds": "1/1365",
+		"sparklingPowerOdds": "1/1024",
+		"sparklingShinyCharmOdds": "1/683"
 	},
 	{
 		"id": "randomencounter_bdsp",
@@ -223,6 +225,8 @@
 		"generations": [9],
 		"baseOdds": "1/1365",
 		"shinyCharmOdds": "1/819",
+		"sparklingPowerOdds": "1/683",
+		"sparklingShinyCharmOdds": "1/512",
 		"variableOddsObj": {
 			"0": "1/4096",
 			"30": "1/2048",
@@ -232,6 +236,16 @@
 			"0": "1/1365",
 			"30": "1/1024",
 			"60": "1/819"
+		},
+		"sparklingPowerVariableOddsObj": {
+			"0": "1/1024",
+			"30": "1/819",
+			"60": "1/683"
+		},
+		"sparklingShinyCharmVariableOddsObj": {
+			"0": "1/683",
+			"30": "1/585",
+			"60": "1/512"
 		}
 	}
 ]

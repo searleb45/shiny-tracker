@@ -20,6 +20,7 @@ const NewHuntModal = (props) => {
 	const [hasLure, setHasLure] = useState(false);
 	const [hasResearch10, setHasResearch10] = useState(false);
 	const [hasResearchPerfect, setHasResearchPerfect] = useState(false);
+	const [hasSparklingPower, setHasSparklingPower] = useState(false);
 
 	const dispatch = useDispatch();
 
@@ -48,6 +49,7 @@ const NewHuntModal = (props) => {
 			hasLure,
 			hasResearch10,
 			hasResearchPerfect,
+			hasSparklingPower,
 			closeModal
 		))
 	}
@@ -55,11 +57,7 @@ const NewHuntModal = (props) => {
 	function setHasShinyCharmWrapper(val) {
 		setHasShinyCharm(val);
 		if(game.researchLevels) {
-			if(val === true) {
-				setResearchLevel('10', true);
-			} else {
-				setResearchLevel('10', false);
-			}
+			setResearchLevel('10', val);
 		}
 	}
 
@@ -71,6 +69,7 @@ const NewHuntModal = (props) => {
 		setHasLure(false);
 		setHasResearch10(false);
 		setHasResearchPerfect(false);
+		setHasSparklingPower(false);
 	}
 
 	function closeModal() {
@@ -142,9 +141,15 @@ const NewHuntModal = (props) => {
 									</label>
 								</>
 							)}
+							{game.sparklingPower && (
+								<label htmlFor="newHuntHasSparklingPower">
+									<input id="newHuntHasSparklingPower" type="checkbox" checked={hasSparklingPower} onChange={() => setHasSparklingPower(!hasSparklingPower)} />
+									Do you have Sparkling Power Lv3 for this Pokémon's type?
+								</label>
+							)}
 						</div>
 						{ huntType && pokemonHunted && (<div className="bottom-submit">
-							<div className="odds">{huntType && `Your shiny odds are: ${calculateOdds(huntType, { hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect })}`}</div>
+							<div className="odds">{huntType && `Your shiny odds are: ${calculateOdds(huntType, { hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect, hasSparklingPower })}`}</div>
 							<div className="submit">
 								<button className="btn-primary" disabled={!(game && huntType && pokemonHunted)} type="submit">Submit</button>
 							</div>

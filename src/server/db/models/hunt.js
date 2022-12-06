@@ -54,6 +54,10 @@ export default (sequelize, Sequelize) => {
 			type: Sequelize.BOOLEAN,
 			defaultValue: 0
 		},
+		hasSparklingPower: {
+			type: Sequelize.BOOLEAN,
+			defaultValue: 0
+		},
 		completionDate: {
 			type: Sequelize.DATE,
 			defaultValue: null

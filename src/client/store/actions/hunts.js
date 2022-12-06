@@ -85,7 +85,7 @@ export function getActiveHunts() {
 	}
 }
 
-export function postNewHunt(game, pokemon, huntType, hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect, callback) {
+export function postNewHunt(game, pokemon, huntType, hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect, hasSparklingPower, callback) {
 	return async (dispatch) => {
 		const newHunt = await axios.post(ACTIVE_HUNTS_URL, {
 			gameId: game.gameId,
@@ -94,7 +94,8 @@ export function postNewHunt(game, pokemon, huntType, hasShinyCharm, hasLure, has
 			hasShinyCharm,
 			hasLure,
 			hasResearch10,
-			hasResearchPerfect
+			hasResearchPerfect,
+			hasSparklingPower
 		}, axiosConfig);
 
 		if(newHunt.status === 200) {

@@ -284,7 +284,8 @@
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false,
-		"researchLevels": false
+		"researchLevels": false,
+		"sparklingPower": true
 	},
 	{
 		"gameId": "violet",
@@ -294,7 +295,8 @@
 		"boxArtOffset": "15%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false,
-		"researchLevels": false
+		"researchLevels": false,
+		"sparklingPower": true
 	},
 	{
 		"gameId": "go",

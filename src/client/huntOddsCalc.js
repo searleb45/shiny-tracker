@@ -6,7 +6,6 @@ export default function calculateOdds(huntType, modifiers) {
 		return calculateVariableOddsHunt(huntType, modifiers);
 	}
 	if(huntType.variableOddsObj && modifiers.encounters !== undefined) {
-		console.log('returning variable hunt odds from obj');
 		return calculateVariableOddsHuntFromObj(huntType, modifiers);
 	}
 	if(modifiers.hasLure) {
@@ -15,7 +14,9 @@ export default function calculateOdds(huntType, modifiers) {
 	if(modifiers.hasResearch10 || modifiers.hasResearchPerfect) {
 		return calculateOddsForLegends(huntType, modifiers.hasShinyCharm, modifiers.hasResearch10, modifiers.hasResearchPerfect)
 	}
-	console.log('normal odds');
+	if(modifiers.hasSparklingPower) {
+		return calculateOddsForSparklingPower(huntType, modifiers.hasShinyCharm, modifiers.hasSparklingPower);
+	}
 	return calculateNormalOdds(huntType, modifiers.hasShinyCharm);
 }
 
@@ -43,8 +44,12 @@ function calculateVariableOddsHunt(huntType, hunt) {
 
 function calculateVariableOddsHuntFromObj(huntType, hunt) {
 	let oddsObj = huntType.variableOddsObj;
-	if(hunt.hasShinyCharm && huntType.shinyCharmVariableOddsObj) {
-		oddsObj = huntType.shinyCharmVariableOddsObj
+	if(hunt.hasShinyCharm && hunt.hasSparklingPower && huntType.sparklingShinyCharmVariableOddsObj) {
+		oddsObj = huntType.sparklingShinyCharmVariableOddsObj;
+	} else if(hunt.hasSparklingPower && huntType.sparklingPowerVariableOddsObj) {
+		oddsObj = huntType.sparklingPowerVariableOddsObj;
+	} else if(hunt.hasShinyCharm && huntType.shinyCharmVariableOddsObj) {
+		oddsObj = huntType.shinyCharmVariableOddsObj;
 	}
 
 	const stepValues = Object.keys(oddsObj).map(i => parseInt(i)).sort();
@@ -79,6 +84,18 @@ function calculateOddsForLegends(huntType, hasShinyCharm, hasResearch10, hasRese
 		return huntType.shinyCharmOdds || huntType.baseOdds;
 	} else if(hasResearch10) {
 		return huntType.research10Odds || huntType.baseOdds;
+	} else {
+		return huntType.baseOdds;
+	}
+}
+
+function calculateOddsForSparklingPower(huntType, hasShinyCharm, hasSparklingPower) {
+	if(hasSparklingPower && hasShinyCharm) {
+		return huntType.sparklingShinyCharmOdds || huntType.baseOdds;
+	} else if(hasSparklingPower) {
+		return huntType.sparklingPowerOdds || huntType.baseOdds;
+	} else if(hasShinyCharm) {
+		return huntType.shinyCharmOdds || huntType.baseOdds;
 	} else {
 		return huntType.baseOdds;
 	}

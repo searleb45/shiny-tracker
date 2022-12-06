@@ -16,7 +16,7 @@ router.get('/', checkAuth, async (req, res) => {
 });
 
 router.post('/', checkAuth, async (req, res) => {
-	const { gameId, pokemon, huntType, hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect } = req.body;
+	const { gameId, pokemon, huntType, hasShinyCharm, hasLure, hasResearch10, hasResearchPerfect, hasSparklingPower } = req.body;
 
 	const newHunt = await db.hunt.create({
 		userId: req.session.id,
@@ -27,6 +27,7 @@ router.post('/', checkAuth, async (req, res) => {
 		hasLure,
 		hasResearch10,
 		hasResearchPerfect,
+		hasSparklingPower,
 		isStaticOdds: false
 	});
 
