@@ -43,8 +43,19 @@
 	}
 
 	.shinydex-metadata {
-		flex-basis: 100% !important;
-		display: flex;
-		justify-content: space-around;
+		text-align: center;
+		h4 {
+			margin: 0.25rem 0;
+		}
+		@include media-breakpoint(sm) {
+			flex-basis: 100% !important;
+			display: flex;
+			justify-content: space-around;
+
+			h4 {
+				margin: 0.5rem 0 1.5rem;
+			}
+		}
+
 	}
 }

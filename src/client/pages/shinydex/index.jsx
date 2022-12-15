@@ -83,8 +83,13 @@ const Shinydex = () => {
 				page={
 					<>
 						<div className="shinydex-metadata">
-							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : null}
-							<h4>Obtained {numObtained} of {POKEMON_LIST.length} | {shinydex.length} entr{shinydex.length === 1 ? 'y' : 'ies'} total</h4>
+							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
+								<>
+									<h4>Obtained {numObtained} of {POKEMON_LIST.length}</h4>
+									<h4>{(numObtained / POKEMON_LIST.length * 100).toFixed(2)}% complete</h4>
+									<h4>{shinydex.length} total shin{shinydex.length === 1 ? 'y' : 'ies'}</h4>
+								</>
+							)}
 						</div>
 						<ShinyDexList pokemon={filteredDexList} collection={shinydex} onFocus={setFocusedEntry} />
 					</>
