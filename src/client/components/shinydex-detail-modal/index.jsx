@@ -52,7 +52,8 @@ const ShinydexDetailModal = (props) => {
 				<thead>
 					<tr>
 						<th>Species</th>
-						<th>Game</th>
+						<th>Caught In</th>
+						<th>Currently In</th>
 						<th>Notes</th>
 						<th></th>
 					</tr>
@@ -68,6 +69,7 @@ const ShinydexDetailModal = (props) => {
 									onKeyDown={checkEnterSubmit}
 								/>
 							</td>
+							<td>{GAME_LIST.find(game => game.gameId === entry.originGame).name}</td>
 							<td>
 								<GameSelect
 									value={GAME_LIST.find(game => game.gameId === editing.gameId)}
@@ -94,6 +96,7 @@ const ShinydexDetailModal = (props) => {
 					) : (
 						<tr key={entry.id}>
 							<td>{POKEMON_LIST.find(pkmn => pkmn.id === entry.pokemon).name}</td>
+							<td>{GAME_LIST.find(game => game.gameId === entry.originGame).name}</td>
 							<td>{GAME_LIST.find(game => game.gameId === entry.gameId).name}</td>
 							<td>{entry.notes}</td>
 							<td>

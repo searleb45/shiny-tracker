@@ -20,6 +20,7 @@ router.post('/', checkAuth, async (req, res) => {
 	const newEntry = await db.shinydex.create({
 		userId: req.session.id,
 		gameId,
+		originGame: gameId,
 		pokemon,
 		notes
 	});

@@ -14,6 +14,10 @@ export default (sequelize, Sequelize) => {
 			type: Sequelize.STRING(50),
 			allowNull: false
 		},
+		originGame: {
+			type: Sequelize.STRING(50),
+			allowNull: false,
+		},
 		pokemon: {
 			type: Sequelize.INTEGER,
 			allowNull: false

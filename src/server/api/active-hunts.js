@@ -52,6 +52,7 @@ router.put('/', checkAuth, async (req, res) => {
 		await db.shinydex.create({
 			userId: req.session.id,
 			gameId: hunt.gameId,
+			originGame: hunt.gameId,
 			pokemon: hunt.pokemon,
 			notes: str
 		})
