@@ -1,3 +1,5 @@
 To run MySQL in WSL:
 
 sudo /etc/init.d/mysql start
+
+UPDATE shinydex SET originGame = gameId WHERE originGame = ""

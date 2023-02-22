@@ -4746,122 +4746,122 @@
 			{
 				"id": 899,
 				"name": "Wyrdeer",
-				"sprite": "/sprites/wyrdeer.png"
+				"sprite": "/sprites/wyrdeer.gif"
 			},
 			{
 				"id": 900,
 				"name": "Kleavor",
-				"sprite": "/sprites/kleavor.png"
+				"sprite": "/sprites/kleavor.gif"
 			},
 			{
 				"id": 901,
 				"name": "Ursaluna",
-				"sprite": "/sprites/ursaluna.png"
+				"sprite": "/sprites/ursaluna.gif"
 			},
 			{
 				"id": 902,
 				"name": "Basculegion",
-				"sprite": "/sprites/basculegion.png"
+				"sprite": "/sprites/basculegion.gif"
 			},
 			{
 				"id": 903,
 				"name": "Sneasler",
-				"sprite": "/sprites/sneasler.png"
+				"sprite": "/sprites/sneasler.gif"
 			},
 			{
 				"id": 904,
 				"name": "Overqwil",
-				"sprite": "/sprites/overqwil.png"
+				"sprite": "/sprites/overqwil.gif"
 			},
 			{
 				"id": 905,
 				"name": "Enamorus",
-				"sprite": "/sprites/enamorus.png"
+				"sprite": "/sprites/enamorus.gif"
 			},
 			{
 				"id": 300724,
 				"name": "Hisuian Decidueye",
-				"sprite": "/sprites/decidueye-hisui.png"
+				"sprite": "/sprites/decidueye-hisui.gif"
 			},
 			{
 				"id": 300157,
 				"name": "Hisuian Typhlosion",
-				"sprite": "/sprites/typhlosion-hisui.png"
+				"sprite": "/sprites/typhlosion-hisui.gif"
 			},
 			{
 				"id": 300503,
 				"name": "Hisuian Samurott",
-				"sprite": "/sprites/samurott-hisui.png"
+				"sprite": "/sprites/samurott-hisui.gif"
 			},
 			{
 				"id": 300058,
 				"name": "Hisuian Growlithe",
-				"sprite": "/sprites/growlithe-hisui.png"
+				"sprite": "/sprites/growlithe-hisui.gif"
 			},
 			{
 				"id":300059,
 				"name": "Hisuian Arcanine",
-				"sprite": "/sprites/arcanine-hisui.png"
+				"sprite": "/sprites/arcanine-hisui.gif"
 			},
 			{
 				"id": 300100,
 				"name": "Hisuian Voltorb",
-				"sprite": "/sprites/voltorb-hisui.png"
+				"sprite": "/sprites/voltorb-hisui.gif"
 			},
 			{
 				"id": 300101,
 				"name": "Hisuian Electrode",
-				"sprite": "/sprites/electrode-hisui.png"
+				"sprite": "/sprites/electrode-hisui.gif"
 			},
 			{
 				"id": 300211,
 				"name": "Hisuian Qwilfish",
-				"sprite": "/sprites/qwilfish-hisui.png"
+				"sprite": "/sprites/qwilfish-hisui.gif"
 			},
 			{
 				"id": 300215,
 				"name": "Hisuian Sneasel",
-				"sprite": "/sprites/sneasel-hisui.png"
+				"sprite": "/sprites/sneasel-hisui.gif"
 			},
 			{
 				"id": 300549,
 				"name": "Hisuian Lilligant",
-				"sprite": "/sprites/lilligant-hisui.png"
+				"sprite": "/sprites/lilligant-hisui.gif"
 			},
 			{
 				"id": 300550,
 				"name": "Hisuian Basculin",
-				"sprite": "/sprites/basculin-hisui.png"
+				"sprite": "/sprites/basculin-hisui.gif"
 			},
 			{
 				"id": 300570,
 				"name": "Hisuian Zorua",
-				"sprite": "/sprites/zorua-hisui.png"
+				"sprite": "/sprites/zorua-hisui.gif"
 			},
 			{
 				"id": 300571,
 				"name": "Hisuian Zoroark",
-				"sprite": "/sprites/zoroark-hisui.png"
+				"sprite": "/sprites/zoroark-hisui.gif"
 			},
 			{
 				"id": 300628,
 				"name": "Hisuian Braviary",
-				"sprite": "/sprites/braviary-hisui.png"
+				"sprite": "/sprites/braviary-hisui.gif"
 			},
 			{
 				"id": 300713,
 				"name": "Hisuian Avalugg",
-				"sprite": "/sprites/avalugg-hisui.png"
+				"sprite": "/sprites/avalugg-hisui.gif"
 			},
 			{
 				"id": 300705,
 				"name": "Hisuian Sliggoo",
-				"sprite": "/sprites/sliggoo-hisui.png"
+				"sprite": "/sprites/sliggoo-hisui.gif"
 			},
 			{
 				"id": 300706,
 				"name": "Hisuian Goodra",
-				"sprite": "/sprites/goodra-hisui.png"
+				"sprite": "/sprites/goodra-hisui.gif"
 			}
 		]
 	},
@@ -4871,527 +4871,527 @@
 			{
 				"id": 906,
 				"name": "Sprigatito",
-				"sprite": "/sprites/sprigatito.png"
+				"sprite": "/sprites/sprigatito.gif"
 			},
 			{
 				"id": 907,
 				"name": "Floragato",
-				"sprite": "/sprites/floragato.png"
+				"sprite": "/sprites/floragato.gif"
 			},
 			{
 				"id": 908,
 				"name": "Meowscarada",
-				"sprite": "/sprites/meowscarada.png"
+				"sprite": "/sprites/meowscarada.gif"
 			},
 			{
 				"id": 909,
 				"name": "Fuecoco",
-				"sprite": "/sprites/fuecoco.png"
+				"sprite": "/sprites/fuecoco.gif"
 			},
 			{
 				"id": 910,
 				"name": "Crocalor",
-				"sprite": "/sprites/crocalor.png"
+				"sprite": "/sprites/crocalor.gif"
 			},
 			{
 				"id": 911,
 				"name": "Skeledirge",
-				"sprite": "/sprites/skeledirge.png"
+				"sprite": "/sprites/skeledirge.gif"
 			},
 			{
 				"id": 912,
 				"name": "Quaxly",
-				"sprite": "/sprites/quaxly.png"
+				"sprite": "/sprites/quaxly.gif"
 			},
 			{
 				"id": 913,
 				"name": "Quaxwell",
-				"sprite": "/sprites/quaxwell.png"
+				"sprite": "/sprites/quaxwell.gif"
 			},
 			{
 				"id": 914,
 				"name": "Quaquaval",
-				"sprite": "/sprites/quaquaval.png"
+				"sprite": "/sprites/quaquaval.gif"
 			},
 			{
 				"id": 915,
 				"name": "Lechonk",
-				"sprite": "/sprites/lechonk.png"
+				"sprite": "/sprites/lechonk.gif"
 			},
 			{
 				"id": 916,
 				"name": "Oinkologne",
-				"sprite": "/sprites/oinkologne.png"
+				"sprite": "/sprites/oinkologne.gif"
 			},
 			{
 				"id": 917,
 				"name": "Tarountula",
-				"sprite": "/sprites/tarountula.png"
+				"sprite": "/sprites/tarountula.gif"
 			},
 			{
 				"id": 918,
 				"name": "Spidops",
-				"sprite": "/sprites/spidops.png"
+				"sprite": "/sprites/spidops.gif"
 			},
 			{
 				"id": 919,
 				"name": "Nymble",
-				"sprite": "/sprites/nymble.png"
+				"sprite": "/sprites/nymble.gif"
 			},
 			{
 				"id": 920,
 				"name": "Lokix",
-				"sprite": "/sprites/lokix.png"
+				"sprite": "/sprites/lokix.gif"
 			},
 			{
 				"id": 921,
 				"name": "Pawmi",
-				"sprite": "/sprites/pawmi.png"
+				"sprite": "/sprites/pawmi.gif"
 			},
 			{
 				"id": 922,
 				"name": "Pawmo",
-				"sprite": "/sprites/pawmo.png"
+				"sprite": "/sprites/pawmo.gif"
 			},
 			{
 				"id": 923,
 				"name": "Pawmot",
-				"sprite": "/sprites/pawmot.png"
+				"sprite": "/sprites/pawmot.gif"
 			},
 			{
 				"id": 924,
 				"name": "Tandemaus",
-				"sprite": "/sprites/tandemaus.png"
+				"sprite": "/sprites/tandemaus.gif"
 			},
 			{
 				"id": 925,
 				"name": "Maushold",
-				"sprite": "/sprites/maushold.png"
+				"sprite": "/sprites/maushold.gif"
 			},
 			{
 				"id": 926,
 				"name": "Fidough",
-				"sprite": "/sprites/fidough.png"
+				"sprite": "/sprites/fidough.gif"
 			},
 			{
 				"id": 927,
 				"name": "Dachsbun",
-				"sprite": "/sprites/dachsbun.png"
+				"sprite": "/sprites/dachsbun.gif"
 			},
 			{
 				"id": 928,
 				"name": "Smoliv",
-				"sprite": "/sprites/smoliv.png"
+				"sprite": "/sprites/smoliv.gif"
 			},
 			{
 				"id": 929,
 				"name": "Dolliv",
-				"sprite": "/sprites/dolliv.png"
+				"sprite": "/sprites/dolliv.gif"
 			},
 			{
 				"id": 930,
 				"name": "Arboliva",
-				"sprite": "/sprites/arboliva.png"
+				"sprite": "/sprites/arboliva.gif"
 			},
 			{
 				"id": 931,
 				"name": "Squawkabilly",
-				"sprite": "/sprites/squawkabilly.png"
+				"sprite": "/sprites/squawkabilly.gif"
 			},
 			{
 				"id": 932,
 				"name": "Nacli",
-				"sprite": "/sprites/nacli.png"
+				"sprite": "/sprites/nacli.gif"
 			},
 			{
 				"id": 933,
 				"name": "Naclstack",
-				"sprite": "/sprites/naclstack.png"
+				"sprite": "/sprites/naclstack.gif"
 			},
 			{
 				"id": 934,
 				"name": "Garganacl",
-				"sprite": "/sprites/garganacl.png"
+				"sprite": "/sprites/garganacl.gif"
 			},
 			{
 				"id": 935,
 				"name": "Charcadet",
-				"sprite": "/sprites/charcadet.png"
+				"sprite": "/sprites/charcadet.gif"
 			},
 			{
 				"id": 936,
 				"name": "Armarouge",
-				"sprite": "/sprites/armarouge.png"
+				"sprite": "/sprites/armarouge.gif"
 			},
 			{
 				"id": 937,
 				"name": "Ceruledge",
-				"sprite": "/sprites/ceruledge.png"
+				"sprite": "/sprites/ceruledge.gif"
 			},
 			{
 				"id": 938,
 				"name": "Tadbulb",
-				"sprite": "/sprites/tadbulb.png"
+				"sprite": "/sprites/tadbulb.gif"
 			},
 			{
 				"id": 939,
 				"name": "Bellibolt",
-				"sprite": "/sprites/bellibolt.png"
+				"sprite": "/sprites/bellibolt.gif"
 			},
 			{
 				"id": 940,
 				"name": "Wattrel",
-				"sprite": "/sprites/wattrel.png"
+				"sprite": "/sprites/wattrel.gif"
 			},
 			{
 				"id": 941,
 				"name": "Kilowattrel",
-				"sprite": "/sprites/kilowattrel.png"
+				"sprite": "/sprites/kilowattrel.gif"
 			},
 			{
 				"id": 942,
 				"name": "Maschiff",
-				"sprite": "/sprites/maschiff.png"
+				"sprite": "/sprites/maschiff.gif"
 			},
 			{
 				"id": 943,
 				"name": "Mabosstiff",
-				"sprite": "/sprites/mabosstiff.png"
+				"sprite": "/sprites/mabosstiff.gif"
 			},
 			{
 				"id": 944,
 				"name": "Shroodle",
-				"sprite": "/sprites/shroodle.png"
+				"sprite": "/sprites/shroodle.gif"
 			},
 			{
 				"id": 945,
 				"name": "Grafaiai",
-				"sprite": "/sprites/grafaiai.png"
+				"sprite": "/sprites/grafaiai.gif"
 			},
 			{
 				"id": 946,
 				"name": "Bramblin",
-				"sprite": "/sprites/bramblin.png"
+				"sprite": "/sprites/bramblin.gif"
 			},
 			{
 				"id": 947,
 				"name": "Brambleghast",
-				"sprite": "/sprites/brambleghast.png"
+				"sprite": "/sprites/brambleghast.gif"
 			},
 			{
 				"id": 948,
 				"name": "Toedscool",
-				"sprite": "/sprites/toedscool.png"
+				"sprite": "/sprites/toedscool.gif"
 			},
 			{
 				"id": 949,
 				"name": "Toedscruel",
-				"sprite": "/sprites/toedscruel.png"
+				"sprite": "/sprites/toedscruel.gif"
 			},
 			{
 				"id": 950,
 				"name": "Klawf",
-				"sprite": "/sprites/klawf.png"
+				"sprite": "/sprites/klawf.gif"
 			},
 			{
 				"id": 951,
 				"name": "Capsakid",
-				"sprite": "/sprites/capsakid.png"
+				"sprite": "/sprites/capsakid.gif"
 			},
 			{
 				"id": 952,
 				"name": "Scovillain",
-				"sprite": "/sprites/scovillain.png"
+				"sprite": "/sprites/scovillain.gif"
 			},
 			{
 				"id": 953,
 				"name": "Rellor",
-				"sprite": "/sprites/rellor.png"
+				"sprite": "/sprites/rellor.gif"
 			},
 			{
 				"id": 954,
 				"name": "Rabsca",
-				"sprite": "/sprites/rabsca.png"
+				"sprite": "/sprites/rabsca.gif"
 			},
 			{
 				"id": 955,
 				"name": "Flittle",
-				"sprite": "/sprites/flittle.png"
+				"sprite": "/sprites/flittle.gif"
 			},
 			{
 				"id": 956,
 				"name": "Espathra",
-				"sprite": "/sprites/espathra.png"
+				"sprite": "/sprites/espathra.gif"
 			},
 			{
 				"id": 957,
 				"name": "Tinkatink",
-				"sprite": "/sprites/tinkatink.png"
+				"sprite": "/sprites/tinkatink.gif"
 			},
 			{
 				"id": 958,
 				"name": "Tinkatuff",
-				"sprite": "/sprites/tinkatuff.png"
+				"sprite": "/sprites/tinkatuff.gif"
 			},
 			{
 				"id": 959,
 				"name": "Tinkaton",
-				"sprite": "/sprites/tinkaton.png"
+				"sprite": "/sprites/tinkaton.gif"
 			},
 			{
 				"id": 960,
 				"name": "Wiglett",
-				"sprite": "/sprites/wiglett.png"
+				"sprite": "/sprites/wiglett.gif"
 			},
 			{
 				"id": 961,
 				"name": "Wugtrio",
-				"sprite": "/sprites/wugtrio.png"
+				"sprite": "/sprites/wugtrio.gif"
 			},
 			{
 				"id": 962,
 				"name": "Bombirdier",
-				"sprite": "/sprites/bombirdier.png"
+				"sprite": "/sprites/bombirdier.gif"
 			},
 			{
 				"id": 963,
 				"name": "Finizen",
-				"sprite": "/sprites/finizen.png"
+				"sprite": "/sprites/finizen.gif"
 			},
 			{
 				"id": 964,
 				"name": "Palafin",
-				"sprite": "/sprites/palafin.png"
+				"sprite": "/sprites/palafin.gif"
 			},
 			{
 				"id": 965,
 				"name": "Varoom",
-				"sprite": "/sprites/varoom.png"
+				"sprite": "/sprites/varoom.gif"
 			},
 			{
 				"id": 966,
 				"name": "Revavroom",
-				"sprite": "/sprites/revavroom.png"
+				"sprite": "/sprites/revavroom.gif"
 			},
 			{
 				"id": 967,
 				"name": "Cyclizar",
-				"sprite": "/sprites/cyclizar.png"
+				"sprite": "/sprites/cyclizar.gif"
 			},
 			{
 				"id": 968,
 				"name": "Orthworm",
-				"sprite": "/sprites/orthworm.png"
+				"sprite": "/sprites/orthworm.gif"
 			},
 			{
 				"id": 969,
 				"name": "Glimmet",
-				"sprite": "/sprites/glimmet.png"
+				"sprite": "/sprites/glimmet.gif"
 			},
 			{
 				"id": 970,
 				"name": "Glimmora",
-				"sprite": "/sprites/glimmora.png"
+				"sprite": "/sprites/glimmora.gif"
 			},
 			{
 				"id": 971,
 				"name": "Greavard",
-				"sprite": "/sprites/greavard.png"
+				"sprite": "/sprites/greavard.gif"
 			},
 			{
 				"id": 972,
 				"name": "Houndstone",
-				"sprite": "/sprites/houndstone.png"
+				"sprite": "/sprites/houndstone.gif"
 			},
 			{
 				"id": 973,
 				"name": "Flamigo",
-				"sprite": "/sprites/flamigo.png"
+				"sprite": "/sprites/flamigo.gif"
 			},
 			{
 				"id": 974,
 				"name": "Cetoddle",
-				"sprite": "/sprites/cetoddle.png"
+				"sprite": "/sprites/cetoddle.gif"
 			},
 			{
 				"id": 975,
 				"name": "Cetitan",
-				"sprite": "/sprites/cetitan.png"
+				"sprite": "/sprites/cetitan.gif"
 			},
 			{
 				"id": 976,
 				"name": "Veluza",
-				"sprite": "/sprites/veluza.png"
+				"sprite": "/sprites/veluza.gif"
 			},
 			{
 				"id": 977,
 				"name": "Dondozo",
-				"sprite": "/sprites/dondozo.png"
+				"sprite": "/sprites/dondozo.gif"
 			},
 			{
 				"id": 978,
 				"name": "Tatsugiri",
-				"sprite": "/sprites/tatsugiri.png"
+				"sprite": "/sprites/tatsugiri.gif"
 			},
 			{
 				"id": 979,
 				"name": "Annihilape",
-				"sprite": "/sprites/annihilape.png"
+				"sprite": "/sprites/annihilape.gif"
 			},
 			{
 				"id": 980,
 				"name": "Clodsire",
-				"sprite": "/sprites/clodsire.png"
+				"sprite": "/sprites/clodsire.gif"
 			},
 			{
 				"id": 981,
 				"name": "Farigiraf",
-				"sprite": "/sprites/farigiraf.png"
+				"sprite": "/sprites/farigiraf.gif"
 			},
 			{
 				"id": 982,
 				"name": "Dudunsparce",
-				"sprite": "/sprites/dudunsparce.png"
+				"sprite": "/sprites/dudunsparce.gif"
 			},
 			{
 				"id": 983,
 				"name": "Kingambit",
-				"sprite": "/sprites/kingambit.png"
+				"sprite": "/sprites/kingambit.gif"
 			},
 			{
 				"id": 984,
 				"name": "Great Tusk",
-				"sprite": "/sprites/greattusk.png"
+				"sprite": "/sprites/greattusk.gif"
 			},
 			{
 				"id": 985,
 				"name": "Scream Tail",
-				"sprite": "/sprites/screamtail.png"
+				"sprite": "/sprites/screamtail.gif"
 			},
 			{
 				"id": 986,
 				"name": "Brute Bonnet",
-				"sprite": "/sprites/brutebonnet.png"
+				"sprite": "/sprites/brutebonnet.gif"
 			},
 			{
 				"id": 987,
 				"name": "Flutter Mane",
-				"sprite": "/sprites/fluttermane.png"
+				"sprite": "/sprites/fluttermane.gif"
 			},
 			{
 				"id": 988,
 				"name": "Slither Wing",
-				"sprite": "/sprites/slitherwing.png"
+				"sprite": "/sprites/slitherwing.gif"
 			},
 			{
 				"id": 989,
 				"name": "Sandy Shocks",
-				"sprite": "/sprites/sandyshocks.png"
+				"sprite": "/sprites/sandyshocks.gif"
 			},
 			{
 				"id": 990,
 				"name": "Iron Treads",
-				"sprite": "/sprites/irontreads.png"
+				"sprite": "/sprites/irontreads.gif"
 			},
 			{
 				"id": 991,
 				"name": "Iron Bundle",
-				"sprite": "/sprites/ironbundle.png"
+				"sprite": "/sprites/ironbundle.gif"
 			},
 			{
 				"id": 992,
 				"name": "Iron Hands",
-				"sprite": "/sprites/ironhands.png"
+				"sprite": "/sprites/ironhands.gif"
 			},
 			{
 				"id": 993,
 				"name": "Iron Jugulis",
-				"sprite": "/sprites/ironjugulis.png"
+				"sprite": "/sprites/ironjugulis.gif"
 			},
 			{
 				"id": 994,
 				"name": "Iron Moth",
-				"sprite": "/sprites/ironmoth.png"
+				"sprite": "/sprites/ironmoth.gif"
 			},
 			{
 				"id": 995,
 				"name": "Iron Thorns",
-				"sprite": "/sprites/ironthorns.png"
+				"sprite": "/sprites/ironthorns.gif"
 			},
 			{
 				"id": 996,
 				"name": "Frigibax",
-				"sprite": "/sprites/frigibax.png"
+				"sprite": "/sprites/frigibax.gif"
 			},
 			{
 				"id": 997,
 				"name": "Arctibax",
-				"sprite": "/sprites/arctibax.png"
+				"sprite": "/sprites/arctibax.gif"
 			},
 			{
 				"id": 998,
 				"name": "Baxcalibur",
-				"sprite": "/sprites/baxcalibur.png"
+				"sprite": "/sprites/baxcalibur.gif"
 			},
 			{
 				"id": 999,
 				"name": "Gimmighoul",
-				"sprite": "/sprites/gimmighoul.png"
+				"sprite": "/sprites/gimmighoul.gif"
 			},
 			{
 				"id": 1000,
 				"name": "Gholdengo",
-				"sprite": "/sprites/gholdengo.png"
+				"sprite": "/sprites/gholdengo.gif"
 			},
 			{
 				"id": 1001,
 				"name": "Wo-Chien",
-				"sprite": "/sprites/wochien.png"
+				"sprite": "/sprites/wochien.gif"
 			},
 			{
 				"id": 1002,
 				"name": "Chien-Pao",
-				"sprite": "/sprites/chienpao.png"
+				"sprite": "/sprites/chienpao.gif"
 			},
 			{
 				"id": 1003,
 				"name": "Ting-Lu",
-				"sprite": "/sprites/tinglu.png"
+				"sprite": "/sprites/tinglu.gif"
 			},
 			{
 				"id": 1004,
 				"name": "Chi-Yu",
-				"sprite": "/sprites/chiyu.png"
+				"sprite": "/sprites/chiyu.gif"
 			},
 			{
 				"id": 1005,
 				"name": "Roaring Moon",
-				"sprite": "/sprites/roaringmoon.png"
+				"sprite": "/sprites/roaringmoon.gif"
 			},
 			{
 				"id": 1006,
 				"name": "Iron Valiant",
-				"sprite": "/sprites/ironvaliant.png"
+				"sprite": "/sprites/ironvaliant.gif"
 			},
 			{
 				"id": 1007,
 				"name": "Koraidon",
-				"sprite": "/sprites/koraidon.png"
+				"sprite": "/sprites/koraidon.gif"
 			},
 			{
 				"id": 1008,
 				"name": "Miraidon",
-				"sprite": "/sprites/miraidon.png"
+				"sprite": "/sprites/miraidon.gif"
 			},
 			{
 				"id": 400128,
 				"name": "Paldean Tauros",
-				"sprite": "/sprites/tauros-paldea.png"
+				"sprite": "/sprites/tauros-paldea.gif"
 			},
 			{
 				"id": 400194,
 				"name": "Paldean Wooper",
-				"sprite": "/sprites/wooper-paldea.png"
+				"sprite": "/sprites/wooper-paldea.gif"
 			}
 		]
 	}

@@ -11,8 +11,9 @@ How to add new Pokemon:
 2. Download animated gifs of the Pokemon in question to src/static/new-sprites
 	2a. Ideally use HD sprites similar to those from FurretTurret (TilableToast), Eternia.fr, or WikiDex.net (WikiDex might do more, idk)
 	2b. If those are unavailable, sprites can (maybe) be found at https://play.pokemonshowdown.com/sprites/ani-shiny/ or https://projectpokemon.org/home/docs/spriteindex_148/
-	2c. Make sure to filter out alternate forms that aren't regional variants
-	2d. Names should be all lowercase w/o punctuation.
+	2c. Also check Google Drive, several links to different sprite sources are saved there
+	2d. Make sure to filter out alternate forms that aren't regional variants
+	2e. Names should be all lowercase w/o punctuation.
 3. "npm run sprite-optimize" will compress/resize gifs and move them to the proper sprites folder
 4. Regional variants are a separate listing within a generation - convention is as follows:
 	4a. Pokemon ID is the base national Pokedex number plus X00,000 with X incrementing for each new region with forms
