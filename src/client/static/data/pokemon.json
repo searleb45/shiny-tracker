@@ -5384,6 +5384,16 @@
 				"sprite": "/sprites/miraidon.gif"
 			},
 			{
+				"id": 1009,
+				"name": "Walking Wake",
+				"sprite": "/sprites/walkingwake.gif"
+			},
+			{
+				"id": 1010,
+				"name": "Iron Leaves",
+				"sprite": "/sprites/ironleaves.gif"
+			},
+			{
 				"id": 400128,
 				"name": "Paldean Tauros",
 				"sprite": "/sprites/tauros-paldea.gif"
