@@ -31,6 +31,11 @@ button {
 	border: 0;
 	cursor: pointer;
 	font: inherit;
+
+	&[disabled] {
+		opacity: 0.6;
+		cursor: default;
+	}
 }
 
 .btn-primary {
@@ -44,6 +49,10 @@ button {
 
 	&:hover, &:focus {
 		background-color: var(--btn-primary-hover-background-color);
+
+		&[disabled] {
+			background-color: var(--btn-primary-background-color);
+		}
 	}
 }
 
