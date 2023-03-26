@@ -22,6 +22,12 @@
 		"baseOdds": "1/4096"
 	},
 	{
+		"id": "randomencounter_go",
+		"name": "Standard Spawns",
+		"generations": [-1],
+		"baseOdds": "1/500"
+	},
+	{
 		"id": "randomencounter_legends",
 		"name": "Random Encounter",
 		"generations": [8.5],
@@ -247,5 +253,23 @@
 			"30": "1/585",
 			"60": "1/512"
 		}
+	},
+	{
+		"id": "raid_go",
+		"name": "Legendary/Mythical Raid",
+		"generations": [-1],
+		"baseOdds": "1/20"
+	},
+	{
+		"id": "commday_go",
+		"name": "Community Day",
+		"generations": [-1],
+		"baseOdds": "1/25"
+	},
+	{
+		"id": "raidday_go",
+		"name": "Raid Day Event",
+		"generations": [-1],
+		"baseOdds": "1/10"
 	}
 ]

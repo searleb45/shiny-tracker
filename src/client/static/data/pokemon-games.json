@@ -303,7 +303,7 @@
 		"name": "Pokémon GO",
 		"generation": -1,
 		"boxArt": "/boxart/pkmn-go.png",
-		"storageGame": true
+		"storageGame": false
 	},
 	{
 		"gameId": "bank",
