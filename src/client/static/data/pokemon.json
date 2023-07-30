@@ -1,5 +1,15 @@
 [
 	{
+		"generation": 0,
+		"pokemon": [
+			{
+				"id": 0,
+				"name": "Any",
+				"sprite": "/sprites/any.gif"
+			}
+		]
+	},
+	{
 		"generation": 1,
 		"pokemon": [
 			{

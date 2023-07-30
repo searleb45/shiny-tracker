@@ -107,7 +107,7 @@ export function postNewHunt(game, pokemon, huntType, hasShinyCharm, hasLure, has
 	}
 }
 
-export function putHuntUpdate(id, action, count, completionString) {
+export function putHuntUpdate(id, action, count, completionString, pokemon) {
 	return async (dispatch) => {
 		if(action === 'setCount') {
 			dispatch(quickHuntUpdate(id, count));
@@ -117,7 +117,8 @@ export function putHuntUpdate(id, action, count, completionString) {
 				id,
 				op: action,
 				val: count,
-				str: completionString
+				str: completionString,
+				pokemon: pokemon
 			}, axiosConfig);
 	
 			if(updatedHunt.status === 200) {

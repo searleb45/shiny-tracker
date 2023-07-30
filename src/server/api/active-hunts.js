@@ -35,7 +35,7 @@ router.post('/', checkAuth, async (req, res) => {
 });
 
 router.put('/', checkAuth, async (req, res) => {
-	const { id, op, val, str } = req.body;
+	const { id, op, val, str, pokemon } = req.body;
 	const hunt = await db.hunt.findOne({
 		where: {
 			userId: req.session.id,
@@ -53,7 +53,7 @@ router.put('/', checkAuth, async (req, res) => {
 			userId: req.session.id,
 			gameId: hunt.gameId,
 			originGame: hunt.gameId,
-			pokemon: hunt.pokemon,
+			pokemon: hunt.pokemon || pokemon,
 			notes: str
 		})
 	} else if(typeof(val) === 'number' && val >= 0) {

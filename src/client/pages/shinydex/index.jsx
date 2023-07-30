@@ -14,7 +14,7 @@ import ShinyDexList from '../../components/shinydex-list';
 import ShinydexDetailModal from '../../components/shinydex-detail-modal';
 
 function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter) {
-	let filteredList = POKEMON_LIST;
+	let filteredList = POKEMON_LIST.filter((pkmn) => pkmn.id !== 0); // Always filter out the "Any" entry
 	if(pokemonFilter) {
 		const regex = new RegExp(pokemonFilter, 'i');
 		filteredList = filteredList.filter((pkmn) => regex.test(pkmn.name));
