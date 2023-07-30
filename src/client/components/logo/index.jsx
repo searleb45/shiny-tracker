@@ -10,7 +10,7 @@ const Logo = () => {
 			<span className="logo-ball-container">
 				<img src={pokeBall} />
 			</span>
-			<span className="logo-text">ShinyTrack</span>
+			<span className="logo-text">SparkleTracker</span>
 		</Link>
 	)
 };

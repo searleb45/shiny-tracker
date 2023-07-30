@@ -1,10 +1,10 @@
 import React from 'react';
 import './signin.scss';
 
-const SignIn = () => {
+const SignIn = (props) => {
 	return (
 		<a href="/twitchAuth" className="signin">
-			<div className="signin-text-container">Sign in with Twitch</div>
+			<div className="signin-text-container">{props.text || 'Sign in with Twitch'}</div>
 		</a>
 	)
 }

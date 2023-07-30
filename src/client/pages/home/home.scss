@@ -1,5 +1,28 @@
 @import '../../scss';
 
 .home {
-	@extend %container;
+	// @extend %container;
+
+	section {
+		height: calc(100vh - 76px);
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.divider-center {
+		@extend %container;
+	}
+
+	.divider-left:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-top: 100vh solid $ming;
+		border-right: 100vh solid transparent;
+	}
 }
