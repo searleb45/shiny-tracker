@@ -55,7 +55,9 @@ const FocusedHuntModal = (props) => {
 	}
 
 	function handleHuntInteract(action) {
-		window.navigator.vibrate(50);
+		if(typeof window.navigator.vibrate !== 'undefined') {
+			window.navigator.vibrate(50);
+		}
 		switch(action) {
 			case 'inc':
 				updateHuntCount(hunt.encounters + 1);
