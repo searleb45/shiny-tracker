@@ -77,6 +77,7 @@ const ShinydexDetailModal = (props) => {
 									useStorageGames={true}
 									isSearchable={false}
 									onKeyDown={checkEnterSubmit}
+									generationFloor={pokemon.generation}
 								/>
 							</td>
 							<td>

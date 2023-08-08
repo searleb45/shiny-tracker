@@ -8,7 +8,19 @@ import GAME_DATA from '../../static/data/pokemon-games.json';
 const GameSelect = (props) => {
 	const { id, value, onChange, useStorageGames, placeholder, isClearable, isSearchable, menuHeight, onKeyDown } = props;
 
-	const options = GAME_DATA.filter((game) => useStorageGames ? true : !game.storageGame);
+	const options = GAME_DATA.filter((game) => {
+		if (useStorageGames && game.storageGame) {
+			return true;
+		} else if (game.storageGame) {
+			return false;
+		}
+
+		if (props.generationFloor) {
+			return game.generation >= props.generationFloor;
+		}
+
+		return true;
+	});
 
 	return (
 		<Select
