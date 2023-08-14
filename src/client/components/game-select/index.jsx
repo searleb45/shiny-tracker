@@ -9,14 +9,12 @@ const GameSelect = (props) => {
 	const { id, value, onChange, useStorageGames, placeholder, isClearable, isSearchable, menuHeight, onKeyDown } = props;
 
 	const options = GAME_DATA.filter((game) => {
-		if (useStorageGames && game.storageGame) {
-			return true;
-		} else if (game.storageGame) {
+		if (!useStorageGames && game.storageGame) {
 			return false;
 		}
 
 		if (props.generationFloor) {
-			return game.generation >= props.generationFloor;
+			return game.generation >= props.generationFloor || game.generation === -1;
 		}
 
 		return true;
