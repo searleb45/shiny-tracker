@@ -9,7 +9,7 @@ import './scss/main.scss';
 import App from './app.jsx';
 
 // Handler service worker registration
-if ('serviceWorker' in navigator && 'SyncManager' in window) {
+if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function() {
 		navigator.serviceWorker.register('/service-worker.js').then(() => {
 			if('SyncManager' in window) {
