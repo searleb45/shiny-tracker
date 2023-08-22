@@ -41,3 +41,7 @@ function reactRender(isServiceWorkerEnabled) {
 		document.getElementById('root')
 	);
 }
+
+setTimeout(() => {
+	alert('Wow it works');
+}, 5000);
