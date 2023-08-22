@@ -1,11 +1,12 @@
 import { NavigationRoute, registerRoute } from 'workbox-routing';
 import {CacheFirst, NetworkFirst} from 'workbox-strategies';
-import {precacheAndRoute, createHandlerBoundToURL} from 'workbox-precaching';
+import {precacheAndRoute, createHandlerBoundToURL, cleanupOutdatedCaches} from 'workbox-precaching';
 import {openDB} from 'idb';
 
 self.skipWaiting();
 
 precacheAndRoute($WEBPACK_GENERATED_MANIFEST);
+cleanupOutdatedCaches();
 
 registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html"), {
 	denylist: [/\/twitchAuth(\/.*)?/]
