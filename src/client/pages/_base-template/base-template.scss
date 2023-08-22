@@ -20,4 +20,19 @@
 			@extend %flexible-view-items;
 		}
 	}
+
+	.scrollTop {
+		position: fixed;
+		right: 1rem;
+		bottom: 1rem;
+		width: auto;
+		border-radius: 50%;
+		padding: 0.5rem;
+
+		svg {
+			width: 3rem;
+			height: 3rem;
+			stroke: var(--btn-primary-color);
+		}
+	}
 }
