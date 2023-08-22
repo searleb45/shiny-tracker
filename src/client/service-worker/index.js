@@ -1,13 +1,15 @@
 import { NavigationRoute, registerRoute } from 'workbox-routing';
 import {CacheFirst, NetworkFirst} from 'workbox-strategies';
-import {precacheAndRoute} from 'workbox-precaching';
+import {precacheAndRoute, createHandlerBoundToURL} from 'workbox-precaching';
 import {openDB} from 'idb';
 
 self.skipWaiting();
 
 precacheAndRoute($WEBPACK_GENERATED_MANIFEST);
 
-registerRoute(new NavigationRoute(new NetworkFirst()));
+registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html"), {
+	denylist: [/\/twitchAuth(\/.*)?/]
+}), new NetworkFirst());
 registerRoute(/\/(boxart|sprites)\/.*/, new CacheFirst(), 'GET');
 registerRoute(/\.(css|js)/, new CacheFirst(), 'GET');
 
