@@ -1,6 +1,6 @@
 import { NavigationRoute, registerRoute } from 'workbox-routing';
 import {CacheFirst, NetworkFirst} from 'workbox-strategies';
-import {precacheAndRoute, createHandlerBoundToURL, cleanupOutdatedCaches} from 'workbox-precaching';
+import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
 import {openDB} from 'idb';
 
 self.skipWaiting();
@@ -8,11 +8,9 @@ self.skipWaiting();
 precacheAndRoute($WEBPACK_GENERATED_MANIFEST);
 cleanupOutdatedCaches();
 
-registerRoute(new NavigationRoute(createHandlerBoundToURL("index.html"), {
-	denylist: [/\/twitchAuth(\/.*)?/]
-}), new NetworkFirst());
+registerRoute(new NavigationRoute(new NetworkFirst()));
 registerRoute(/\/(boxart|sprites)\/.*/, new CacheFirst(), 'GET');
-registerRoute(/\.(css|js)/, new CacheFirst(), 'GET');
+registerRoute(/\.(css|js)$/, new CacheFirst(), 'GET');
 
 const GET_CACHE_NAME = 'API_GET_CACHE';
 const PUT_DB_NAME = 'API_PUT_DB';
