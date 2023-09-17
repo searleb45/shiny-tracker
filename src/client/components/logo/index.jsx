@@ -8,7 +8,7 @@ const Logo = () => {
 	return (
 		<Link to="/" className="header-logo">
 			<span className="logo-ball-container">
-				<img src={pokeBall} />
+				<img src={pokeBall} width="40" height="40" />
 			</span>
 			<span className="logo-text">ShinyTrack</span>
 		</Link>
