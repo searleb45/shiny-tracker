@@ -5404,6 +5404,41 @@
 				"sprite": "/sprites/ironleaves.gif"
 			},
 			{
+				"id": 1011,
+				"name": "Dipplin",
+				"sprite": "/sprites/dipplin.gif"
+			},
+			{
+				"id": 1012,
+				"name": "Poltchageist",
+				"sprite": "/sprites/poltchageist.gif"
+			},
+			{
+				"id": 1013,
+				"name": "Sinistcha",
+				"sprite": "/sprites/sinistcha.gif"
+			},
+			{
+				"id": 1014,
+				"name": "Okidogi",
+				"sprite": "/sprites/okidogi.gif"
+			},
+			{
+				"id": 1015,
+				"name": "Munkidori",
+				"sprite": "/sprites/munkidori.gif"
+			},
+			{
+				"id": 1016,
+				"name": "Fezandipiti",
+				"sprite": "/sprites/fezandipiti.gif"
+			},
+			{
+				"id": 1017,
+				"name": "Ogerpon",
+				"sprite": "/sprites/ogerpon.gif"
+			},
+			{
 				"id": 400128,
 				"name": "Paldean Tauros",
 				"sprite": "/sprites/tauros-paldea.gif"
