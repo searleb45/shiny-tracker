@@ -13,6 +13,7 @@
 			align-items: center;
 			margin-bottom: 0.5rem;
 			min-height: 38px;
+			flex-wrap: wrap;
 
 			@include media-breakpoint(md) {
 				flex-basis: 25%;
@@ -33,7 +34,7 @@
 			z-index: 2;
 		}
 	}
-	#shinydex-obtained-filter {
+	input[type="checkbox"] {
 		margin-right: 0.5rem;
 	}
 	.add-shinydex-entry {

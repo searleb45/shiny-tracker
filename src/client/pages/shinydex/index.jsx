@@ -13,12 +13,8 @@ import { getShinydex } from '../../store/actions/shinydex';
 import ShinyDexList from '../../components/shinydex-list';
 import ShinydexDetailModal from '../../components/shinydex-detail-modal';
 
-function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter) {
+function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, includeEvolutions) {
 	let filteredList = POKEMON_LIST.filter((pkmn) => pkmn.id !== 0); // Always filter out the "Any" entry
-	if(pokemonFilter) {
-		const regex = new RegExp(pokemonFilter, 'i');
-		filteredList = filteredList.filter((pkmn) => regex.test(pkmn.name));
-	}
 	if(gameFilter) {
 		filteredList = filteredList.filter((pkmn) => {
 			return shinydex.reduce((acc, dexEntry) => acc || (dexEntry.pokemon === pkmn.id && dexEntry.gameId === gameFilter.gameId), false);
@@ -29,6 +25,20 @@ function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter) {
 			return shinydex.some((dexEntry) => dexEntry.pokemon === pkmn.id);
 		});
 	}
+	if(pokemonFilter) {
+		const regex = new RegExp(pokemonFilter, 'i');
+		filteredList = filteredList.filter((pkmn) => regex.test(pkmn.name));
+
+		if(includeEvolutions) {
+			const idSet = new Set();
+			filteredList.forEach((pkmn) => {
+				idSet.add(pkmn.id);
+				pkmn.evolutions.forEach((evo) => idSet.add(evo));
+			});
+
+			filteredList = [...idSet].sort((a,b) => a-b).map((id) => POKEMON_LIST.find((pkmn) => pkmn.id === id));
+		}
+	}
 
 	return filteredList;
 }
@@ -38,6 +48,7 @@ const Shinydex = () => {
 	const [pokemonFilter, setPokemonFilter] = useState('');
 	const [gameFilter, setGameFilter] = useState(null);
 	const [showObtainedOnly, setShowObtainedOnly] = useState(false);
+	const [includeEvolutions, setIncludeEvolutions] = useState(false);
 	const [addEntryModalOpen, setAddEntryModalOpen] = useState(false);
 	const [focusedEntry, setFocusedEntry] = useState(-1);
 	const dispatch = useDispatch();
@@ -45,6 +56,12 @@ const Shinydex = () => {
 	useEffect(() => {
 		dispatch(getShinydex());
 	}, []);
+
+	useEffect(() => {
+		if (!pokemonFilter) {
+			setIncludeEvolutions(false);
+		}
+	}, [pokemonFilter]);
 
 	if(!shinydex) {
 		return <h2 className="loading-msg">Loading your information...</h2>
@@ -62,7 +79,7 @@ const Shinydex = () => {
 		setGameFilter(null);
 	};
 
-	const filteredDexList = applyFilters(shinydex, pokemonFilter, gameFilter, showObtainedOnly);
+	const filteredDexList = applyFilters(shinydex, pokemonFilter, gameFilter, showObtainedOnly, includeEvolutions);
 	const numObtained = POKEMON_LIST.reduce((acc, pkmn) => {
 		return shinydex.some(entry => entry.pokemon === pkmn.id) ? acc + 1 : acc;
 	}, 0);
@@ -74,10 +91,18 @@ const Shinydex = () => {
 				header={<>
 					<input type="text" className="shinydex-pokemon-filter" placeholder="Filter Pokémon" value={pokemonFilter} onChange={(e) => setPokemonFilter(e.target.value)} />
 					<GameSelect id="shinydex-game-filter" placeholder="Filter Games" isSearchable={false} isClearable={true} useStorageGames={true} value={gameFilter} onChange={(opt) => handleGameChange(opt)} />
-					<label htmlFor="shinydex-obtained-filter">
-						<input id="shinydex-obtained-filter" type="checkbox" checked={showObtainedOnly} onChange={(e) => handleObtainedCheckbox(e.target.checked)} />
-						Show obtained Pokémon only
-					</label>
+					<div className="checkbox-container">
+						<label htmlFor="shinydex-obtained-filter">
+							<input id="shinydex-obtained-filter" type="checkbox" checked={showObtainedOnly} onChange={(e) => handleObtainedCheckbox(e.target.checked)} />
+							Show obtained Pokémon only
+						</label>
+						{pokemonFilter && (
+							<label htmlFor="include-evolutions-filter" className="float">
+								<input id="include-evolutions-filter" type="checkbox" checked={includeEvolutions} onChange={(e) => setIncludeEvolutions(e.target.checked)} />
+								Include evolutions
+							</label>
+						)}
+					</div>
 					<button className="btn-primary add-shinydex-entry" onClick={() => setAddEntryModalOpen(true)}>Add New Entry</button>
 				</>}
 				page={
