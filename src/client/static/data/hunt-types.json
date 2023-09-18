@@ -24,7 +24,7 @@
 	{
 		"id": "randomencounter_go",
 		"name": "Standard Spawns",
-		"generations": [9999],
+		"generations": [-1, 9999],
 		"baseOdds": "1/500"
 	},
 	{
@@ -257,19 +257,25 @@
 	{
 		"id": "raid_go",
 		"name": "Legendary/Mythical Raid",
-		"generations": [9999],
+		"generations": [-1, 9999],
 		"baseOdds": "1/20"
 	},
 	{
 		"id": "commday_go",
 		"name": "Community Day",
-		"generations": [9999],
+		"generations": [-1, 9999],
 		"baseOdds": "1/25"
 	},
 	{
 		"id": "raidday_go",
 		"name": "Raid Day Event",
-		"generations": [9999],
+		"generations": [-1, 9999],
+		"baseOdds": "1/10"
+	},
+	{
+		"id": "researchday_go",
+		"name": "Research Day",
+		"generations": [-1, 9999],
 		"baseOdds": "1/10"
 	}
 ]
