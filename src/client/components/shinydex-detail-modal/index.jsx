@@ -67,6 +67,7 @@ const ShinydexDetailModal = (props) => {
 									onChange={opt => setEditing({...editing, pokemon: opt.id})}
 									generation={GAME_LIST.find(game => game.gameId === editing.gameId).generation}
 									onKeyDown={checkEnterSubmit}
+									prioritySort={[...POKEMON_LIST.find(pkmn => pkmn.id === editing.pokemon).evolutions, pokemon.id]}
 								/>
 							</td>
 							<td>{GAME_LIST.find(game => game.gameId === entry.originGame).name}</td>
