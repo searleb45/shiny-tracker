@@ -44,6 +44,7 @@ const GameSelect = (props) => {
 			isSearchable={isSearchable || true}
 			// menuIsOpen={true}
 			onKeyDown={onKeyDown}
+			styles={props.styles || {}}
 		/>
 	);
 }

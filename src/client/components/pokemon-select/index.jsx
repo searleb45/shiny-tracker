@@ -33,6 +33,7 @@ const PokemonSelect = (props) => {
 			classNamePrefix="react-select"
 			maxMenuHeight={maxHeight || 500}
 			onKeyDown={onKeyDown}
+			styles={props.styles || {}}
 		/>
 	)
 }

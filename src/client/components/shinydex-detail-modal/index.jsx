@@ -68,6 +68,9 @@ const ShinydexDetailModal = (props) => {
 									generation={GAME_LIST.find(game => game.gameId === editing.gameId).generation}
 									onKeyDown={checkEnterSubmit}
 									prioritySort={[...POKEMON_LIST.find(pkmn => pkmn.id === editing.pokemon).evolutions, pokemon.id]}
+									styles={{
+										menu: (baseStyles, state) => ({ ...baseStyles, minWidth: 200 })
+									}}
 								/>
 							</td>
 							<td>{GAME_LIST.find(game => game.gameId === entry.originGame).name}</td>
@@ -79,6 +82,9 @@ const ShinydexDetailModal = (props) => {
 									isSearchable={false}
 									onKeyDown={checkEnterSubmit}
 									generationFloor={pokemon.generation}
+									styles={{
+										menu: (baseStyles, state) => ({ ...baseStyles, minWidth: 200, right: 0 })
+									}}
 								/>
 							</td>
 							<td>
