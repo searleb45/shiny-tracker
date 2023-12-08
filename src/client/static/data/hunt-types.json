@@ -255,6 +255,36 @@
 		}
 	},
 	{
+		"id": "eventmassoutbreaksv",
+		"name": "Mass Outbreak Event",
+		"hintText": "0.5% boosted shiny odds",
+		"generations": [9],
+		"baseOdds": "1/191",
+		"shinyCharmOdds": "1/174",
+		"sparklingPowerOdds": "1/167",
+		"sparklingShinyCharmOdds": "1/155",
+		"variableOddsObj": {
+			"0": "1/191",
+			"30": "1/182",
+			"60": "1/175"
+		},
+		"shinyCharmVariableOddsObj": {
+			"0": "1/174",
+			"30": "1/167",
+			"60": "1/161"
+		},
+		"sparklingPowerVariableOddsObj": {
+			"0": "1/167",
+			"30": "1/161",
+			"60": "1/155"
+		},
+		"sparklingShinyCharmVariableOddsObj": {
+			"0": "1/155",
+			"30": "1/149",
+			"60": "1/144"
+		}
+	},
+	{
 		"id": "raid_go",
 		"name": "Legendary/Mythical Raid",
 		"generations": [-1, 9999],

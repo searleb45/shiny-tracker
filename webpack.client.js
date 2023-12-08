@@ -81,7 +81,7 @@ module.exports = (env, argv) => {
 
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: '[name].[hash].css',
+				filename: '[name].[fullhash].css',
 				chunkFilename: '[chunkhash].css',
 			}),
 			new CopyPlugin({
