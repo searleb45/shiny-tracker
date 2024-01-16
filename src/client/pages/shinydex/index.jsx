@@ -111,6 +111,8 @@ const Shinydex = () => {
 						<div className="shinydex-metadata">
 							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
 								<>
+									<h4>Obtained {numObtained} of {POKEMON_LIST.length - 1}</h4>
+									<h4>{(numObtained / (POKEMON_LIST.length - 1) * 100).toFixed(2)}% complete</h4>
 									<h4><a href="#" className="link-btn" onClick={shinyStatLinkClick}>Shinydex Stats</a></h4>
 								</>
 							)}
