@@ -111,7 +111,7 @@ const Shinydex = () => {
 						<div className="shinydex-metadata">
 							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
 								<>
-									<h4><a href="#" className="link-btn" onClick={shinyStatLinkClick}>See Shiny Collection</a></h4>
+									<h4><a href="#" className="link-btn" onClick={shinyStatLinkClick}>Shinydex Stats</a></h4>
 								</>
 							)}
 						</div>

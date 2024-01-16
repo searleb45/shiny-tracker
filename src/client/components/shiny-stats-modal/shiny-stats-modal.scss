@@ -30,6 +30,10 @@
 		justify-content: center;
 		flex-wrap: wrap;
 
+		.generation-header {
+			font-weight: bold;
+		}
+
 		.generation-row {
 			flex-basis: 80%;
 			padding: 0.25rem 0.5rem;

@@ -49,9 +49,7 @@ const ShinyStatsModal = (props) => {
 			const monsInGen = GENERATIONS[i].pokemon.length;
 			elements.push((
 				<div className="generation-row" key={`generation-${i}`}>
-					<div>
-						<div colSpan="2">Generation {i + 1}</div>
-					</div>
+					<div className="generation-header">Generation {i + 1}</div>
 					<div className="row">
 						<div className="title">Obtained</div>
 						<div className="value">{obtainedByGen[i]}/{monsInGen}</div>
