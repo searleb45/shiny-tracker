@@ -5,6 +5,7 @@ import BasePageTemplate from '../_base-template';
 
 import GameSelect from '../../components/game-select';
 import AddShinydexEntryModal from '../../components/add-shinydex-entry-modal';
+import ShinyStatsModal from '../../components/shiny-stats-modal';
 
 import POKEMON_LIST from '../../static/data/pokemon-list';
 
@@ -51,17 +52,12 @@ const Shinydex = () => {
 	const [includeEvolutions, setIncludeEvolutions] = useState(false);
 	const [addEntryModalOpen, setAddEntryModalOpen] = useState(false);
 	const [focusedEntry, setFocusedEntry] = useState(-1);
+	const [showShinyStats, setShowShinyStats] = useState(false);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getShinydex());
 	}, []);
-
-	useEffect(() => {
-		if (!pokemonFilter) {
-			setIncludeEvolutions(false);
-		}
-	}, [pokemonFilter]);
 
 	if(!shinydex) {
 		return <h2 className="loading-msg">Loading your information...</h2>
@@ -79,6 +75,11 @@ const Shinydex = () => {
 		setGameFilter(null);
 	};
 
+	const shinyStatLinkClick = (e) => {
+		e.preventDefault();
+		setShowShinyStats(true);
+	}
+
 	const filteredDexList = applyFilters(shinydex, pokemonFilter, gameFilter, showObtainedOnly, includeEvolutions);
 	const numObtained = POKEMON_LIST.reduce((acc, pkmn) => {
 		return shinydex.some(entry => entry.pokemon === pkmn.id) ? acc + 1 : acc;
@@ -89,7 +90,7 @@ const Shinydex = () => {
 			<BasePageTemplate
 				className="shinydex"
 				header={<>
-					<input type="text" className="shinydex-pokemon-filter" placeholder="Filter Pokémon" value={pokemonFilter} onChange={(e) => setPokemonFilter(e.target.value)} />
+					<input type="text" className="shinydex-pokemon-filter" placeholder="Filter Pokémon" value={pokemonFilter} onChange={(e) => setPokemonFilter(e.target.value)} onBlur={() => !pokemonFilter && setIncludeEvolutions(false)} />
 					<GameSelect id="shinydex-game-filter" placeholder="Filter Games" isSearchable={false} isClearable={true} useStorageGames={true} value={gameFilter} onChange={(opt) => handleGameChange(opt)} />
 					<div className="checkbox-container">
 						<label htmlFor="shinydex-obtained-filter">
@@ -110,9 +111,7 @@ const Shinydex = () => {
 						<div className="shinydex-metadata">
 							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
 								<>
-									<h4>Obtained {numObtained} of {POKEMON_LIST.length}</h4>
-									<h4>{(numObtained / POKEMON_LIST.length * 100).toFixed(2)}% complete</h4>
-									<h4>{shinydex.length} total shin{shinydex.length === 1 ? 'y' : 'ies'}</h4>
+									<h4><a href="#" className="link-btn" onClick={shinyStatLinkClick}>See Shiny Collection</a></h4>
 								</>
 							)}
 						</div>
@@ -128,6 +127,10 @@ const Shinydex = () => {
 				close={() => setFocusedEntry(null)}
 				pokemon={POKEMON_LIST.find(pkmn => pkmn.id === focusedEntry)}
 				entries={(shinydex || []).filter(entry => entry.pokemon === focusedEntry)}
+			/>
+			<ShinyStatsModal
+				isOpen={showShinyStats}
+				close={() => setShowShinyStats(false)}
 			/>
 		</>
 	)
