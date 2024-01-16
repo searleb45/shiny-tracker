@@ -11,6 +11,7 @@
 		min-width: 600px;
 		max-width: 800px;
 		border-radius: 4px;
+		max-height: 80vh;
 	}
 
 	.row { display: flex; justify-content: center; align-items: center;}
@@ -22,7 +23,7 @@
 		margin: 0 auto;
 
 		@include media-breakpoint(md) {
-			width: 50%;
+			width: 60%;
 		}
 	}
 	.generations-container {
