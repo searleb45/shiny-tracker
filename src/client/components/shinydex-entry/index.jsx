@@ -6,12 +6,12 @@ import pokeBall from '../../static/icons/Pokeball.png';
 import './shinydex-entry.scss';
 
 const ShinyDexEntry = (props) => {
-	const { pokemon, collected, onClick } = props;
+	const { pokemon, collected, showSprite, onClick } = props;
 
 	return (
 		<div className="shinydex-entry">
 			<button onClick={onClick}>
-				<div className={`pokemon-image ${!collected && 'silhouette'}`}>
+				<div className={`pokemon-image ${!(collected || showSprite) && 'silhouette'}`}>
 					<PokemonViewer pokemonId={pokemon.id} />
 				</div>
 				<div className="data-container">
