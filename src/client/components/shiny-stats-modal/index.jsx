@@ -95,6 +95,10 @@ const ShinyStatsModal = (props) => {
 					<div className="value">{shinydex.length - numObtained}</div>
 				</div>
 			</div>
+			<h4>Generation Breakdown</h4>
+			<div className="generations-container">
+				{getGenerationBreakdown()}
+			</div>
 			{notObtained.length > 0 && 
 				<div className="overall-wrapper">
 					{randomTarget && (
@@ -106,10 +110,6 @@ const ShinyStatsModal = (props) => {
 					<button className="btn btn-primary" onClick={() => pickRandomTarget(notObtained)}>{randomTarget ? 'Pick New Target' : 'Generate Random Hunt Target'}</button>
 				</div>
 			}
-			<h4>Generation Breakdown</h4>
-			<div className="generations-container">
-				{getGenerationBreakdown()}
-			</div>
 		</Modal>
 	)
 }
