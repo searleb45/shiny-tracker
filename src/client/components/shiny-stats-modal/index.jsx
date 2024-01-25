@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import Modal from '../modal';
 import { useSelector } from 'react-redux';
 
@@ -30,6 +30,7 @@ const GENERATIONS = POKEMON_GENERATION_LIST
 const ShinyStatsModal = (props) => {
 	const { isOpen, close } = props;
 	const shinydex = useSelector(state => state.shinyDex);
+	const [randomTarget, setRandomTarget] = useState(null);
 
 	const obtainedByGen = GENERATIONS.map((gen) => {
 		return gen.pokemon.reduce((acc, pkmn) => {
@@ -65,6 +66,10 @@ const ShinyStatsModal = (props) => {
 		return elements;
 	}
 
+	function pickRandomTarget(notObtained) {
+		setRandomTarget(notObtained[Math.floor(Math.random() * notObtained.length)]);
+	}
+
 	return (
 		<Modal isOpen={isOpen} close={close} modalName="Shinydex Stats" containerClassName="shinydex-stats-modal">
 			<h4>Overall Stats</h4>
@@ -90,12 +95,17 @@ const ShinyStatsModal = (props) => {
 					<div className="value">{shinydex.length - numObtained}</div>
 				</div>
 			</div>
-			{notObtained.length > 0 && (
-				<>
-					<h4>Random Target</h4>
-					<ShinyDexEntry pokemon={notObtained[Math.floor(Math.random() * notObtained.length)]} showSprite={true}/>
-				</>
-			)}
+			{notObtained.length > 0 && 
+				<div className="overall-wrapper">
+					{randomTarget && (
+						<>
+							<h4>Random Target</h4>
+							<ShinyDexEntry pokemon={randomTarget} showSprite={true}/>
+						</>
+					)}
+					<button className="btn btn-primary" onClick={() => pickRandomTarget(notObtained)}>{randomTarget ? 'Pick New Target' : 'Generate Random Hunt Target'}</button>
+				</div>
+			}
 			<h4>Generation Breakdown</h4>
 			<div className="generations-container">
 				{getGenerationBreakdown()}
