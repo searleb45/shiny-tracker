@@ -69,7 +69,6 @@ const FocusedHuntModal = (props) => {
 	}
 
 	function completeHunt(pokemon) {
-		console.log('Complete random hunt for ', pokemon);
 		const date = new Date().toLocaleDateString();
 		const game = GAME_LIST.find(game => game.gameId === hunt.gameId);
 		const gameName = game.name.replace('Pokémon ', '');

@@ -10,7 +10,6 @@ const BasePageTemplate = (props) => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			console.log(window.scrollY, window.innerHeight);
 			setScrollPos(window.scrollY);
 		}
 
