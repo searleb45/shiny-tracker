@@ -20,10 +20,14 @@
 
 	.overall-wrapper {
 		width: 80%;
-		margin: 0 auto;
+		margin: 0 auto 0.25rem;
 
 		@include media-breakpoint(md) {
 			width: 60%;
+		}
+
+		.btn-primary {
+			margin-top: 0.5rem;
 		}
 	}
 	.generations-container {
@@ -44,14 +48,5 @@
 			}
 		}
 
-	}
-
-	.shinydex-entry {
-		max-width: 80%;
-		margin: 0 auto;
-
-		@include media-breakpoint(md) {
-			max-width: 60%;
-		}
 	}
 }
