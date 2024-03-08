@@ -73,6 +73,6 @@
     "workbox-webpack-plugin": "^6.5.4"
   },
   "engines": {
-    "node": "^14.x"
+    "node": "^20.x"
   }
 }
