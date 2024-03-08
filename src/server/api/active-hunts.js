@@ -64,7 +64,7 @@ router.put('/', checkAuth, async (req, res) => {
 	}
 
 	await hunt.save();
-	res.status(200).send(hunt);
+	res.status(200).send({...hunt.dataValues, lastUpdated: hunt.dataValues.lastUpdated || hunt.dataValues.lastupdated});
 });
 
 router.delete('/:id', checkAuth, async(req, res) => {
