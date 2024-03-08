@@ -12,7 +12,8 @@ router.get('/', checkAuth, async (req, res) => {
 			completed: true
 		}
 	});
-	res.send(results);
+	const mappedResults = results.map((result) => ({ ...result.dataValues, lastUpdated: result.dataValues.lastUpdated || result.dataValues.lastupdated}));
+	res.send(mappedResults);
 });
 
 export default router;

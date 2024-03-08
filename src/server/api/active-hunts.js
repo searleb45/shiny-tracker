@@ -2,7 +2,6 @@ import express from 'express';
 import { checkAuth } from '../auth';
 
 import db from '../db';
-
 const router = express.Router();
 
 router.get('/', checkAuth, async (req, res) => {
@@ -10,9 +9,13 @@ router.get('/', checkAuth, async (req, res) => {
 		where: {
 			userId: req.session.id,
 			completed: false
-		}
+		},
+		order: [
+			['id', 'ASC']
+		]
 	});
-	res.send(results);
+	const mappedResults = results.map((result) => ({ ...result.dataValues, lastUpdated: result.dataValues.lastUpdated || result.dataValues.lastupdated}));
+	res.send(mappedResults);
 });
 
 router.post('/', checkAuth, async (req, res) => {
