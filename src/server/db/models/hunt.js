@@ -1,4 +1,4 @@
-export default (sequelize, Sequelize) => {
+export default (sequelize, Sequelize, local) => {
 	const Hunt = sequelize.define('hunt', {
 		id: {
 			type: Sequelize.INTEGER,
@@ -9,10 +9,12 @@ export default (sequelize, Sequelize) => {
 		userId: {
 			type: Sequelize.STRING(12),
 			allowNull: false,
+			field: local ? undefined : 'userid'
 		},
 		gameId: {
 			type: Sequelize.STRING(50),
-			allowNull: false
+			allowNull: false,
+			field: local ? undefined : 'gameid'
 		},
 		pokemon: {
 			type: Sequelize.INTEGER,
@@ -20,7 +22,8 @@ export default (sequelize, Sequelize) => {
 		},
 		huntType: {
 			type: Sequelize.STRING(100),
-			allowNull: false
+			allowNull: false,
+			field: local ? undefined : 'hunttype'
 		},
 		odds: {
 			type: Sequelize.STRING(10),
@@ -32,40 +35,47 @@ export default (sequelize, Sequelize) => {
 		},
 		completed: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 0
+			defaultValue: false
 		},
 		isStaticOdds: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 1
+			defaultValue: true,
+			field: local ? undefined : 'isstaticodds'
 		},
 		hasShinyCharm: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 0
+			defaultValue: false,
+			field: local ? undefined : 'hasshinycharm'
 		},
 		hasLure: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 0
+			defaultValue: false,
+			field: local ? undefined : 'haslure'
 		},
 		hasResearch10: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 0
+			defaultValue: false,
+			field: local ? undefined : 'hasresearch10'
 		},
 		hasResearchPerfect: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 0
+			defaultValue: false,
+			field: local ? undefined : 'hasresearchperfect'
 		},
 		hasSparklingPower: {
 			type: Sequelize.BOOLEAN,
-			defaultValue: 0
+			defaultValue: false,
+			field: local ? undefined : 'hassparklingpower'
 		},
 		completionDate: {
 			type: Sequelize.DATE,
-			defaultValue: null
+			defaultValue: null,
+			field: local ? undefined : 'completiondate'
 		}
 	}, {
 		timestamps: true,
 		createdAt: 'started',
-		updatedAt: 'lastUpdated'
+		updatedAt: local ? 'lastUpdated' : 'lastupdated'
 	});
 
 

@@ -6,8 +6,8 @@
   "scripts": {
     "sql:dev": "sudo /etc/init.d/mysql start",
     "sprite-optimize": "cd src/client/static/new-sprites && node --harmony ./sprite-optimize.mjs && rm ./*.gif && cd ../../../..",
-    "start": "NODE_ENV=production node build/server-bundle.js",
-    "start:dev": "rimraf build && webpack --mode=development --config webpack.server.js && concurrently --kill-others \"npm run build:watch\" \"npm run start\"",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && NODE_ENV=production node build/server-bundle.js",
+    "start:dev": "export NODE_OPTIONS=--openssl-legacy-provider && rimraf build && webpack --mode=development --config webpack.server.js && concurrently --kill-others \"npm run build:watch\" \"npm run start\"",
     "build": "rimraf build && webpack --mode=production --config webpack.server.js && webpack --mode=production --config webpack.client.js",
     "build:watch": "webpack --progress --mode=development --config webpack.client.js -w",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,6 +25,7 @@
     "jwt-decode": "^3.1.2",
     "localforage": "^1.9.0",
     "mysql2": "^2.2.5",
+    "pg": "^8.11.3",
     "react": "^17.0.2",
     "react-detect-offline": "^2.4.4",
     "react-dom": "^17.0.2",
@@ -72,6 +73,6 @@
     "workbox-webpack-plugin": "^6.5.4"
   },
   "engines": {
-    "node": "14.x"
+    "node": "^14.x"
   }
 }
