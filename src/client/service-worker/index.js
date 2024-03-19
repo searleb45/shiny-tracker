@@ -160,6 +160,16 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
+	// Purge all caches
+	event.waitUntil(async () => {
+		const cacheNames = await caches.keys();
+		await Promise.all(cacheNames.map((async cacheName => {
+			if (!cacheName.includes('precache')) {
+				return await caches.delete(cacheName);
+			}
+			return await Promise.resolve();
+		})));
+	});
 	clients.claim();
 	cacheGetResponseIfNotLoaded();
 	event.waitUntil(createDB());
