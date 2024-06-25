@@ -7,6 +7,7 @@ import POKEMON_GENERATION_LIST from '../../static/data/pokemon.json';
 
 import './shiny-stats-modal.scss';
 import ShinyDexEntry from '../shinydex-entry';
+import ProgressBar from '../progress-bar'
 
 const NUM_POKEMON = POKEMON_LIST.length - 1;
 
@@ -52,12 +53,7 @@ const ShinyStatsModal = (props) => {
 				<div className="generation-row" key={`generation-${i}`}>
 					<div className="generation-header">Generation {i + 1}</div>
 					<div className="row">
-						<div className="title">Obtained</div>
-						<div className="value">{obtainedByGen[i]}/{monsInGen}</div>
-					</div>
-					<div className="row">
-						<div className="title">% completed</div>
-						<div className="value">{(obtainedByGen[i] / monsInGen * 100).toFixed(2)}%</div>
+						<ProgressBar value={obtainedByGen[i]} maxValue={monsInGen} />
 					</div>
 				</div>
 			))
@@ -74,17 +70,12 @@ const ShinyStatsModal = (props) => {
 		<Modal isOpen={isOpen} close={close} modalName="Shinydex Stats" containerClassName="shinydex-stats-modal">
 			<h4>Overall Stats</h4>
 			<div className="overall-wrapper">
-				<div className="row">
-					<div className="title">Number obtained</div>
-					<div className="value">{numObtained}/{NUM_POKEMON}</div>
+				<div className="row" style={{ marginBottom: '0.5rem'}}>
+					<ProgressBar value={numObtained} maxValue={NUM_POKEMON} />
 				</div>
 				<div className="row">
 					<div className="title">Number remaining</div>
 					<div className="value">{NUM_POKEMON - numObtained}</div>
-				</div>
-				<div className="row">
-					<div className="title">Percentage completed</div>
-					<div className="value">{(numObtained / NUM_POKEMON * 100).toFixed(2)}%</div>
 				</div>
 				<div className="row">
 					<div className="title">Total shinies</div>

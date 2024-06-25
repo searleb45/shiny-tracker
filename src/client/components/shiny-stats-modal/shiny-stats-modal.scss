@@ -6,6 +6,10 @@
 	max-width: none;
 	text-align: center;
 
+	h4 {
+		margin: 1rem 0;
+	}
+
 	@include media-breakpoint(md) {
 		inset: 90px;
 		min-width: 600px;

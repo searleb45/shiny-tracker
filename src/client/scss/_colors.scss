@@ -52,6 +52,9 @@ $warning-yellow: #d4d000;
 
 	--error-banner-color: #{$decrement-red};
 	--error-banner-background-color: #{lighten($decrement-red, 50%)};
+
+	--loading-bar-background-color: #{darken($tshirt-white, 20%)};
+	--loading-bar-color: #{$ming};
 }
 
 .dark {
@@ -76,4 +79,6 @@ $warning-yellow: #d4d000;
 	--input-background-color: #{$jet};
 	--input-color: #{$tshirt-white};
 	--dropdown-hover-color: #555;
+
+	--loading-bar-background-color: #{lighten($jet, 20%)};
 }
