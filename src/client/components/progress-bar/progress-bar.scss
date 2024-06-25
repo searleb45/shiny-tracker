@@ -1,0 +1,25 @@
+@import '../../scss';
+
+.progressWrapper {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	border-radius: 20px;
+	background-color: var(--loading-bar-background-color);
+	position: relative;
+	overflow: hidden;
+	height: 1.25rem;
+	margin: 0.25rem 0;
+}
+
+.progressAmount {
+	background-color: var(--loading-bar-color);
+}
+
+.progressText {
+	position: absolute;
+	left: 0;
+	right: 0;
+	color: var(--btn-primary-color);
+	text-align: center;
+}
