@@ -47,20 +47,24 @@ router.put('/', checkAuth, async (req, res) => {
 		}
 	});
 	
-	if(op ==='complete') {
-		hunt.completed = true;
-		hunt.completionDate = new Date();
-		hunt.encounters = val;
-
-		await db.shinydex.create({
-			userId: req.session.id,
-			gameId: hunt.gameId,
-			originGame: hunt.gameId,
-			pokemon: hunt.pokemon || pokemon,
-			notes: str
-		})
-	} else if(typeof(val) === 'number' && val >= 0) {
-		hunt.encounters = val
+	if (hunt) {
+		if(op === 'complete') {
+			hunt.completed = true;
+			hunt.completionDate = new Date();
+			hunt.encounters = val;
+	
+			await db.shinydex.create({
+				userId: req.session.id,
+				gameId: hunt.gameId,
+				originGame: hunt.gameId,
+				pokemon: hunt.pokemon || pokemon,
+				notes: str
+			})
+		} else if(typeof(val) === 'number' && val >= 0) {
+			hunt.encounters = val
+		}
+	} else {
+		res.status(500).send('ERROR: Hunt not found');
 	}
 
 	await hunt.save();
