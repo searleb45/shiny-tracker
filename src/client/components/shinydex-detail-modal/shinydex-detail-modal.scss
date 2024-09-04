@@ -88,10 +88,17 @@
 		justify-content: space-around;
 		align-items: center;
 
-		a { height: 24px; }
+		a { height: 32px; @include media-breakpoint(md) { height: 24px; } }
 
 		svg {
 			fill: $interact-blue;
+			width: 32px;
+			height: 32px;
+
+			@include media-breakpoint(md) {
+				width: 24px;
+				height: 24px;
+			}
 		}
 	}
 }
