@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TimeAgo from 'timeago-react';
 import { Online } from 'react-detect-offline';
@@ -24,10 +24,12 @@ const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
 	const [updatedCount, setUpdatedCount] = useState(-1);
 	const [confirmRandomPokemon, setConfirmRandomPokemon] = useState(false);
-	const [randomPokemon, setRandomPokemon] = useState(null);
+	const [collapsePokemon, setCollapsePokemon] = useState(false);
 	const updateError = useSelector(state => state.hunts.error);
 	const dispatch = useDispatch();
-
+	
+	useEffect(() => setCollapsePokemon(false), [hunt?.pokemon, hunt?.gameId, hunt?.started]);
+	
 	if(!hunt) return null;
 
 	const pokemon = POKEMON_LIST.find((pkmn) => pkmn.id === hunt.pokemon);
@@ -104,10 +106,14 @@ const FocusedHuntModal = (props) => {
 		<>
 			<Modal isOpen={!!hunt} close={onModalClose} modalName={pokemon.name} modalSubTitle={subtitle} containerClassName="focused-hunt-modal">
 				<ErrorBanner message={updateError} onClose={() => dispatch(clearError())} />
-				<div className="focused-hunt-pokemon-view">
-					<PokemonViewer pokemonId={hunt.pokemon} gameId={hunt.gameId} />
-				</div>
-				<div className="focused-hunt-counter">
+				{!collapsePokemon && (
+					<div className="focused-hunt-pokemon-view">
+						<button onClick={() => setCollapsePokemon(true)}>
+							<PokemonViewer pokemonId={hunt.pokemon} gameId={hunt.gameId} />
+						</button>
+					</div>
+				)}
+				<div className={`focused-hunt-counter ${collapsePokemon && 'center'}`}>
 					{updatedCount > -1 ? (
 						<form onSubmit={(e) => updateHuntCount(updatedCount, e)}>
 							<input
@@ -144,7 +150,8 @@ const FocusedHuntModal = (props) => {
 						<>
 							<div className="focused-hunt-detail">
 								<label>Hunt started</label>
-								<TimeAgo datetime={hunt.started} />
+								<TimeAgo datetime={hunt.started} className="timeago" />
+								<div className="overlay">{DATE_FORMAT.format(new Date(hunt.started))}</div>
 							</div>
 						</>
 					)}
