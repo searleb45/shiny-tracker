@@ -100,7 +100,8 @@ const FocusedHuntModal = (props) => {
 		}
 	}
 
-	let subtitle = !hunt.completed && hunt.lastUpdated ? `Last updated ${new Date(hunt.lastUpdated).toLocaleString()}` : '';
+	const date = new Date(hunt.lastUpdated);
+	let subtitle = !hunt.completed && hunt.lastUpdated ? `Last updated ${collapsePokemon ? date.toLocaleTimeString() : date.toLocaleString()}` : '';
 
 	return (
 		<>
@@ -113,7 +114,7 @@ const FocusedHuntModal = (props) => {
 						</button>
 					</div>
 				)}
-				<div className={`focused-hunt-counter ${collapsePokemon && 'center'}`}>
+				<div className={`focused-hunt-counter ${collapsePokemon && 'focused-hunt-inline'}`}>
 					{updatedCount > -1 ? (
 						<form onSubmit={(e) => updateHuntCount(updatedCount, e)}>
 							<input
@@ -128,13 +129,13 @@ const FocusedHuntModal = (props) => {
 						) : hunt.encounters.toLocaleString()
 					}
 				</div>
+				{isModifiable && (
+					<div className={`focused-hunt-interactions ${collapsePokemon && 'focused-hunt-inline'}`}>
+						<button className="focused-hunt-decrement" onClick={() => handleHuntInteract('dec')}>-</button>
+						<button className="focused-hunt-increment" onClick={() => handleHuntInteract('inc')}>+</button>
+					</div>
+				)}
 				<div className="focused-hunt-display">
-					{isModifiable && (
-						<div className="focused-hunt-interactions">
-							<button className="focused-hunt-decrement" onClick={() => handleHuntInteract('dec')}>-</button>
-							<button className="focused-hunt-increment" onClick={() => handleHuntInteract('inc')}>+</button>
-						</div>
-					)}
 					{hunt.completed ? (
 						<>
 							<div className="focused-hunt-detail">

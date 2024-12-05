@@ -31,7 +31,11 @@
 		}
 
 		.btn-primary {
-			margin-top: 0.5rem;
+			margin-top: 1rem;
+
+			@include media-breakpoint(md) {
+				margin-top: 0.5rem;
+			}
 		}
 	}
 	.generations-container {
