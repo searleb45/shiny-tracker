@@ -63,12 +63,12 @@ router.put('/', checkAuth, async (req, res) => {
 		} else if(typeof(val) === 'number' && val >= 0) {
 			hunt.encounters = val
 		}
+		await hunt.save();
+		res.status(200).send({...hunt.dataValues, lastUpdated: hunt.dataValues.lastUpdated || hunt.dataValues.lastupdated});
 	} else {
 		res.status(500).send('ERROR: Hunt not found');
 	}
 
-	await hunt.save();
-	res.status(200).send({...hunt.dataValues, lastUpdated: hunt.dataValues.lastUpdated || hunt.dataValues.lastupdated});
 });
 
 router.delete('/:id', checkAuth, async(req, res) => {
