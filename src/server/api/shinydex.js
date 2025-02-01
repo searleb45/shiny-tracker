@@ -36,13 +36,17 @@ router.put('/', checkAuth, async (req, res) => {
 			id,
 		}
 	});
-	
-	entry.gameId = gameId;
-	entry.pokemon = pokemon;
-	entry.notes = notes;
 
-	await entry.save();
-	res.status(200).send(entry);
+	if (entry) {
+		entry.gameId = gameId;
+		entry.pokemon = pokemon;
+		entry.notes = notes;
+	
+		await entry.save();
+		res.status(200).send(entry);
+	} else {
+		res.status(500).send('ERROR: Entry not found');
+	}
 });
 
 router.delete('/:id', checkAuth, async(req, res) => {
