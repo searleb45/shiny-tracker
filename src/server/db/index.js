@@ -22,6 +22,10 @@ if(user && password && host && db) {
 			ssl: {
 				require: true
 			}
+		},
+		pool: {
+			acquire: 90000,
+			maxUses: 50
 		}
 	});
 
