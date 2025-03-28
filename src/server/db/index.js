@@ -22,23 +22,30 @@ if(user && password && host && db) {
 			ssl: {
 				require: true
 			}
-		},
-		pool: {
-			acquire: 90000,
-			maxUses: 50
 		}
 	});
 
 	connection.hunt = createHuntModel(connection, Sequelize, process.env.LOCAL_CONNECTION);
 	connection.shinydex = createShinydexModel(connection, Sequelize, process.env.LOCAL_CONNECTION);
+	
+	authConnection();
 }
 
-connection.authenticate().then(() => {
-	console.log('Connection successful!');
-	connection.sync({ alter: true });
-}).catch((err) => {
-	throw new Error('Database connection unsuccessful', err);
-});
-
+function authConnection(isRetry = false) {
+	connection.authenticate().then(() => {
+		console.log(isRetry ? 'Connection retry worked!' : 'Connection successful!');
+		connection.sync({ alter: true });
+		isRetry = false;
+	}).catch((err) => {
+		if (!isRetry) {
+			console.error('Database connection error, retrying in 10 seconds...');
+			console.error(err);
+			setTimeout(() => authConnection(true), 10000);
+		} else {
+			console.error('Retry also failed, check DB usage stats.', err);
+			throw new Error('Database connection unsuccessful', err);
+		}
+	});
+}
 
 export default connection;
