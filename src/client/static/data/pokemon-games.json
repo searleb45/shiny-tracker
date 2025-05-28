@@ -303,7 +303,7 @@
 		"name": "Pokémon Legends Z-A",
 		"generation": 9.5,
 		"boxArt": "/boxart/pkmn-legendsza.webp",
-		"boxArtOffset": "15%",
+		"boxArtOffset": "40%",
 		"shinyCharmAvailable": true,
 		"lureAvailable": false,
 		"researchLevels": false,
