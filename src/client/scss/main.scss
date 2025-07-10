@@ -81,3 +81,16 @@ input[type="text"], input[type="number"], textarea {
 		}
 	}
 }
+
+.mobile-only {
+	@include media-breakpoint(md) {
+		display: none;
+	}
+}
+
+.desktop-only {
+	display: none;
+	@include media-breakpoint(md) {
+		display: initial;
+	}
+}
