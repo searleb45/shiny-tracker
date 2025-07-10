@@ -136,7 +136,7 @@ const FocusedHuntModal = (props) => {
 					</div>
 				)}
 				<div className="focused-hunt-display">
-					{hunt.completed ? (
+					{hunt.completed && (
 						<>
 							<div className="focused-hunt-detail">
 								<label>Hunt started</label>
@@ -147,27 +147,26 @@ const FocusedHuntModal = (props) => {
 								{DATE_FORMAT.format(new Date(hunt.completionDate))}
 							</div>
 						</>
-					) : (
-						<>
-							<div className="focused-hunt-detail">
-								<label>Hunt started</label>
-								<TimeAgo datetime={hunt.started} className="timeago" />
-								<div className="overlay">{DATE_FORMAT.format(new Date(hunt.started))}</div>
-							</div>
-						</>
 					)}
 					<div className="focused-hunt-detail">
-						<label>Odds</label>
-						{oddsString}
-					</div>
-					<div className="focused-hunt-detail">
-						<label>Aggregate shiny chance</label>
+						<label>Aggregate shiny <span className="mobile-only">%</span><span className="desktop-only">chance</span></label>
 						{finalDist.toFixed(2)}%
 					</div>
 					<div className="focused-hunt-detail">
 						<label>Encounters until 90%</label>
 						{encountersTo90.toLocaleString()}
 					</div>
+					<div className="focused-hunt-detail">
+						<label>Odds</label>
+						{oddsString}
+					</div>
+					{!hunt.completed && (
+						<div className="focused-hunt-detail">
+							<label>Hunt started</label>
+							<TimeAgo datetime={hunt.started} className="timeago" />
+							<div className="overlay">{DATE_FORMAT.format(new Date(hunt.started))}</div>
+						</div>
+					)}
 					<div className="focused-hunt-final-interactions">
 						{isModifiable && <button className="focused-hunt-finish" onClick={handleComplete}>Got it!</button>}
 						<Online polling={{enabled: false}}><button className="focused-hunt-delete" onClick={handleDelete}>Delete</button></Online>
