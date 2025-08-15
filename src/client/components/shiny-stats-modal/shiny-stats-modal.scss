@@ -37,6 +37,11 @@
 				margin-top: 0.5rem;
 			}
 		}
+
+		.subtext {
+			font-style: italic;
+			font-size: 0.75rem;
+		}
 	}
 	.generations-container {
 		display: flex;
@@ -45,6 +50,19 @@
 
 		.generation-header {
 			font-weight: bold;
+		}
+
+		img {
+			max-width: 0.75rem;
+			margin-top: -2px;
+			margin-left: 0.25rem;
+			vertical-align: middle;
+		}
+
+		.generation-subheader {
+			font-style: italic;
+			font-size: 0.75rem;
+			vertical-align: middle;
 		}
 
 		.generation-row {
