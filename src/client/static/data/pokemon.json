@@ -2995,7 +2995,8 @@
 				"id": 494,
 				"name": "Victini",
 				"sprite": "/sprites/victini.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 495,
@@ -4350,19 +4351,22 @@
 				"id": 719,
 				"name": "Diancie",
 				"sprite": "/sprites/diancie.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 720,
 				"name": "Hoopa",
 				"sprite": "/sprites/hoopa.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 721,
 				"name": "Volcanion",
 				"sprite": "/sprites/volcanion.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			}
 		]
 	},
@@ -4775,13 +4779,15 @@
 				"id": 789,
 				"name": "Cosmog",
 				"sprite": "/sprites/cosmog.gif",
-				"evolutions": [790,791,792]
+				"evolutions": [790,791,792],
+				"shinyLocked": true
 			},
 			{
 				"id": 790,
 				"name": "Cosmoem",
 				"sprite": "/sprites/cosmoem.gif",
-				"evolutions": [789,791,792]
+				"evolutions": [789,791,792],
+				"shinyLocked": true
 			},
 			{
 				"id": 791,
@@ -4847,13 +4853,15 @@
 				"id": 801,
 				"name": "Magearna",
 				"sprite": "/sprites/magearna.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 802,
 				"name": "Marshadow",
 				"sprite": "/sprites/marshadow.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 100019,
@@ -5510,19 +5518,22 @@
 				"id": 891,
 				"name": "Kubfu",
 				"sprite": "/sprites/kubfu.gif",
-				"evolutions": [892]
+				"evolutions": [892],
+				"shinyLocked": true
 			},
 			{
 				"id": 892,
 				"name": "Urshifu",
 				"sprite": "/sprites/urshifu.gif",
-				"evolutions": [891]
+				"evolutions": [891],
+				"shinyLocked": true
 			},
 			{
 				"id": 893,
 				"name": "Zarude",
 				"sprite": "/sprites/zarude.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 894,
@@ -5540,19 +5551,22 @@
 				"id": 896,
 				"name": "Glastrier",
 				"sprite": "/sprites/glastrier.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 897,
 				"name": "Spectrier",
 				"sprite": "/sprites/spectrier.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 898,
 				"name": "Calyrex",
 				"sprite": "/sprites/calyrex.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 200052,
@@ -6432,25 +6446,29 @@
 				"id": 1007,
 				"name": "Koraidon",
 				"sprite": "/sprites/koraidon.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1008,
 				"name": "Miraidon",
 				"sprite": "/sprites/miraidon.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1009,
 				"name": "Walking Wake",
 				"sprite": "/sprites/walkingwake.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1010,
 				"name": "Iron Leaves",
 				"sprite": "/sprites/ironleaves.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1011,
@@ -6474,25 +6492,29 @@
 				"id": 1014,
 				"name": "Okidogi",
 				"sprite": "/sprites/okidogi.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1015,
 				"name": "Munkidori",
 				"sprite": "/sprites/munkidori.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1016,
 				"name": "Fezandipiti",
 				"sprite": "/sprites/fezandipiti.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1017,
 				"name": "Ogerpon",
 				"sprite": "/sprites/ogerpon.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1018,
@@ -6510,37 +6532,43 @@
 				"id": 1020,
 				"name": "Gouging Fire",
 				"sprite": "/sprites/gougingfire.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1021,
 				"name": "Raging Bolt",
 				"sprite": "/sprites/ragingbolt.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1022,
 				"name": "Iron Boulder",
 				"sprite": "/sprites/ironboulder.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1023,
 				"name": "Iron Crown",
 				"sprite": "/sprites/ironcrown.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1024,
 				"name": "Terapagos",
 				"sprite": "/sprites/terapagos.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 1025,
 				"name": "Pecharunt",
 				"sprite": "/sprites/pecharunt.gif",
-				"evolutions": []
+				"evolutions": [],
+				"shinyLocked": true
 			},
 			{
 				"id": 400128,
