@@ -6447,14 +6447,14 @@
 				"name": "Koraidon",
 				"sprite": "/sprites/koraidon.gif",
 				"evolutions": [],
-				"shinyLocked": true
+				"shinyLocked": false
 			},
 			{
 				"id": 1008,
 				"name": "Miraidon",
 				"sprite": "/sprites/miraidon.gif",
 				"evolutions": [],
-				"shinyLocked": true
+				"shinyLocked": false
 			},
 			{
 				"id": 1009,
