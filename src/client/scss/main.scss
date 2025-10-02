@@ -5,7 +5,9 @@
 }
 
 html {
-	scrollbar-gutter: stable;
+	@include media-breakpoint(md) {
+		scrollbar-gutter: stable;
+	}
 }
 
 body {
