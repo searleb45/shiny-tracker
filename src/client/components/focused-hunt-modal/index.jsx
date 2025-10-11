@@ -71,6 +71,7 @@ const FocusedHuntModal = (props) => {
 	}
 
 	function completeHunt(pokemon) {
+		setConfirmRandomPokemon(false);
 		console.log('Complete random hunt for ', pokemon);
 		const date = new Date().toLocaleDateString();
 		const game = GAME_LIST.find(game => game.gameId === hunt.gameId);

@@ -14,6 +14,8 @@ import { getShinydex } from '../../store/actions/shinydex';
 import ShinyDexList from '../../components/shinydex-list';
 import ShinydexDetailModal from '../../components/shinydex-detail-modal';
 
+const NUM_OBTAINABLE = POKEMON_LIST.filter((pkmn) => !pkmn.shinyLocked).length - 1;
+
 function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, includeEvolutions) {
 	let filteredList = POKEMON_LIST.filter((pkmn) => pkmn.id !== 0); // Always filter out the "Any" entry
 	if(gameFilter) {
@@ -111,8 +113,8 @@ const Shinydex = () => {
 						<div className="shinydex-metadata">
 							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
 								<>
-									<h4>Obtained {numObtained} of {POKEMON_LIST.length - 1}</h4>
-									<h4>{(numObtained / (POKEMON_LIST.length - 1) * 100).toFixed(2)}% complete</h4>
+									<h4>Obtained {numObtained} of {NUM_OBTAINABLE}</h4>
+									<h4>{(numObtained / (NUM_OBTAINABLE) * 100).toFixed(2)}% complete</h4>
 									<h4><a href="#" className="link-btn" onClick={shinyStatLinkClick}>Shinydex Stats</a></h4>
 								</>
 							)}

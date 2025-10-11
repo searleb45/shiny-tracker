@@ -2,6 +2,7 @@ import React from 'react';
 import PokemonViewer from '../pokemon-viewer';
 
 import pokeBall from '../../static/icons/Pokeball.png';
+import lock from '../../static/icons/lock.svg';
 
 import './shinydex-entry.scss';
 
@@ -16,7 +17,7 @@ const ShinyDexEntry = (props) => {
 				</div>
 				<div className="data-container">
 					<div className="name">
-						{collected && <img src={pokeBall} />}
+						{collected ? <img src={pokeBall} /> : pokemon.shinyLocked ? <img className="lock" src={lock} /> : null}
 						{pokemon.name}
 					</div>
 				</div>
