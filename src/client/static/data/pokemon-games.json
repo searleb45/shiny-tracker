@@ -299,6 +299,17 @@
 		"sparklingPower": true
 	},
 	{
+		"gameId": "legendsza",
+		"name": "Pokémon Legends Z-A",
+		"generation": 9.5,
+		"boxArt": "/boxart/pkmn-legendsza.webp",
+		"boxArtOffset": "40%",
+		"shinyCharmAvailable": true,
+		"lureAvailable": false,
+		"researchLevels": false,
+		"sparklingPower": false
+	},
+	{
 		"gameId": "go",
 		"name": "Pokémon GO",
 		"generation": -1,
