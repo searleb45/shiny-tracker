@@ -37,6 +37,13 @@
 		"shinyCharmOdds": "1/820",
 		"shinyCharmPerfectOdds": "1/586"
 	},
+		{
+		"id": "randomencounter_za",
+		"name": "Random Encounter",
+		"generations": [9.5],
+		"baseOdds": "1/4096",
+		"shinyCharmOdds": "1/1024"
+	},
 	{
 		"id": "oddegg",
 		"name": "Odd Egg",
