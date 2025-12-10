@@ -1,4 +1,4 @@
-export default (sequelize, Sequelize, local) => {
+export default (sequelize, Sequelize) => {
 	const Hunt = sequelize.define('hunt', {
 		id: {
 			type: Sequelize.INTEGER,
@@ -9,12 +9,12 @@ export default (sequelize, Sequelize, local) => {
 		userId: {
 			type: Sequelize.STRING(12),
 			allowNull: false,
-			field: local ? undefined : 'userid'
+			field: 'userid'
 		},
 		gameId: {
 			type: Sequelize.STRING(50),
 			allowNull: false,
-			field: local ? undefined : 'gameid'
+			field: 'gameid'
 		},
 		pokemon: {
 			type: Sequelize.INTEGER,
@@ -23,7 +23,7 @@ export default (sequelize, Sequelize, local) => {
 		huntType: {
 			type: Sequelize.STRING(100),
 			allowNull: false,
-			field: local ? undefined : 'hunttype'
+			field: 'hunttype'
 		},
 		odds: {
 			type: Sequelize.STRING(10),
@@ -40,42 +40,42 @@ export default (sequelize, Sequelize, local) => {
 		isStaticOdds: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: true,
-			field: local ? undefined : 'isstaticodds'
+			field: 'isstaticodds'
 		},
 		hasShinyCharm: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: false,
-			field: local ? undefined : 'hasshinycharm'
+			field: 'hasshinycharm'
 		},
 		hasLure: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: false,
-			field: local ? undefined : 'haslure'
+			field: 'haslure'
 		},
 		hasResearch10: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: false,
-			field: local ? undefined : 'hasresearch10'
+			field: 'hasresearch10'
 		},
 		hasResearchPerfect: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: false,
-			field: local ? undefined : 'hasresearchperfect'
+			field: 'hasresearchperfect'
 		},
 		hasSparklingPower: {
 			type: Sequelize.BOOLEAN,
 			defaultValue: false,
-			field: local ? undefined : 'hassparklingpower'
+			field: 'hassparklingpower'
 		},
 		completionDate: {
 			type: Sequelize.DATE,
 			defaultValue: null,
-			field: local ? undefined : 'completiondate'
+			field: 'completiondate'
 		}
 	}, {
 		timestamps: true,
 		createdAt: 'started',
-		updatedAt: local ? 'lastUpdated' : 'lastupdated'
+		updatedAt: 'lastupdated'
 	});
 
 

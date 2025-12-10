@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sql:dev": "sudo /etc/init.d/mysql start",
+    "sql:dev": "sudo service postgres start",
     "sprite-optimize": "cd src/client/static/new-sprites && node --harmony ./sprite-optimize.mjs && rm ./*.gif && cd ../../../..",
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && NODE_ENV=production node build/server-bundle.js",
     "start:dev": "export NODE_OPTIONS=--openssl-legacy-provider && rimraf build && webpack --mode=development --config webpack.server.js && concurrently --kill-others \"npm run build:watch\" \"npm run start\"",
