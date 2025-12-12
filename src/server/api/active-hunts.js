@@ -24,6 +24,7 @@ router.get('/', checkAuth, async (req, res) => {
 			const percentageObj = getAggregatePercentage(result.dataValues);
 
 			return {
+				id: result.dataValues.id,
 				pokemon: getPokemonById(pokemon).name,
 				encounters: encounters,
 				huntType: getHuntTypeById(huntType).name,
