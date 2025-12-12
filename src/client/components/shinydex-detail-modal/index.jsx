@@ -11,12 +11,11 @@ import SendIcon from '../../static/icons/send.svg?react';
 
 import { putShinydexUpdate, deleteShinydexEntry } from '../../store/actions/shinydex';
 
-import POKEMON_LIST from '../../static/data/pokemon-list';
-import GAME_LIST from '../../static/data/pokemon-games.json';
 import PokemonSelect from '../pokemon-select';
 import GameSelect from '../game-select';
 
 import './shinydex-detail-modal.scss';
+import { getPokemonById, getGameById } from '../../../shared/dataLookup';
 
 const ShinydexDetailModal = (props) => {
 	const { pokemon, entries, close } = props;
@@ -63,20 +62,20 @@ const ShinydexDetailModal = (props) => {
 						<tr key={entry.id}>
 							<td>
 								<PokemonSelect
-									value={POKEMON_LIST.find(pkmn => pkmn.id === editing.pokemon)}
+									value={getPokemonById(editing.pokemon)}
 									onChange={opt => setEditing({...editing, pokemon: opt.id})}
-									generation={GAME_LIST.find(game => game.gameId === editing.gameId).generation}
+									generation={getGameById(editing.gameId).generation}
 									onKeyDown={checkEnterSubmit}
-									prioritySort={[...POKEMON_LIST.find(pkmn => pkmn.id === editing.pokemon).evolutions, pokemon.id]}
+									prioritySort={[...getPokemonById(editing.pokemon).evolutions, pokemon.id]}
 									styles={{
 										menu: (baseStyles, state) => ({ ...baseStyles, minWidth: 200 })
 									}}
 								/>
 							</td>
-							<td>{GAME_LIST.find(game => game.gameId === entry.originGame).name}</td>
+							<td>{getGameById(entry.originGame).name}</td>
 							<td>
 								<GameSelect
-									value={GAME_LIST.find(game => game.gameId === editing.gameId)}
+									value={getGameById(editing.gameId)}
 									onChange={(opt) => setEditing({...editing, gameId: opt.gameId})}
 									useStorageGames={true}
 									isSearchable={false}
@@ -103,9 +102,9 @@ const ShinydexDetailModal = (props) => {
 						</tr>
 					) : (
 						<tr key={entry.id}>
-							<td>{POKEMON_LIST.find(pkmn => pkmn.id === entry.pokemon).name}</td>
-							<td>{GAME_LIST.find(game => game.gameId === entry.originGame).name}</td>
-							<td>{GAME_LIST.find(game => game.gameId === entry.gameId).name}</td>
+							<td>{getPokemonById(entry.pokemon).name}</td>
+							<td>{getGameById(entry.originGame).name}</td>
+							<td>{getGameById(entry.gameId).name}</td>
 							<td>{entry.notes}</td>
 							<td>
 								<div className="interaction-container">

@@ -1,4 +1,4 @@
-import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from "../constants";
+import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from "../../shared/constants";
 import CookieHelper from 'cookie-helper';
 
 export default {

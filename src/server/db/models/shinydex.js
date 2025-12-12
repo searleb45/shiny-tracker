@@ -1,4 +1,4 @@
-export default (sequelize, Sequelize, local) => {
+export default (sequelize, Sequelize) => {
 	const Shinydex = sequelize.define('shinydex', {
 		id: {
 			type: Sequelize.INTEGER,
@@ -9,17 +9,17 @@ export default (sequelize, Sequelize, local) => {
 		userId: {
 			type: Sequelize.STRING(12),
 			allowNull: false,
-			field: local ? undefined : 'userid'
+			field: 'userid'
 		},
 		gameId: {
 			type: Sequelize.STRING(50),
 			allowNull: false,
-			field: local ? undefined : 'gameid'
+			field: 'gameid'
 		},
 		originGame: {
 			type: Sequelize.STRING(50),
 			allowNull: false,
-			field: local ? undefined : 'origingame'
+			field: 'origingame'
 		},
 		pokemon: {
 			type: Sequelize.INTEGER,
@@ -30,8 +30,8 @@ export default (sequelize, Sequelize, local) => {
 		}
 	}, {
 		freezeTableName: true,
-		createdAt: local ? undefined : 'createdat',
-		updatedAt: local ? undefined : 'updatedat'
+		createdAt: 'createdat',
+		updatedAt: 'updatedat'
 	});
 
 	return Shinydex;

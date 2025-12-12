@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-import HUNT_LIST from '../../static/data/hunt-types.json';
+import HUNT_LIST from '../../../shared/data/hunt-types.json';
 
 const HuntTypeSelect = (props) => {
 	const { id, value, onChange, generation } = props;

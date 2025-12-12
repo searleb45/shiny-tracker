@@ -2,7 +2,9 @@ import express from 'express';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from '../client/constants';
+import db from './db';
+
+import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from '../shared/constants';
 const COOKIE_EXPIRATION = 1000 * 60 * 60 * 24 * 365;
 
 const router = express.Router();
@@ -16,12 +18,16 @@ function createQueryString(params) {
 
 // Twitch authentication handling
 router.get('/', (req, res) => {
+	// Check if auth request came from Pebble device
+	const pblAcctId = req.query.pblAcctId;
+	const fromPebble = !!pblAcctId;
 	const params = {
 		client_id: process.env.TWITCH_CLIENT_ID,
 		redirect_uri: REDIRECT_URI,
 		response_type: 'code',
 		scope: 'openid',
 		claims: JSON.stringify({'id_token': {picture: null, preferred_username: null}}),
+		state: JSON.stringify({ source: fromPebble ? 'pebble' : 'web', id: fromPebble ? pblAcctId : undefined }),
 	};
 
 	
@@ -31,6 +37,9 @@ router.get('/', (req, res) => {
 
 router.get('/callback', async (req, res) => {
 	const code = req.query.code;
+	// Check if callback came from Pebble device
+	const state = JSON.parse(req.query.state);
+	const fromPebble = state?.source === 'pebble';
 	if(!code) res.redirect('/');
 
 	try {
@@ -47,11 +56,24 @@ router.get('/callback', async (req, res) => {
 			const jwt = jwtRes.data;
 
 			const decodedToken = jwt_decode(jwt.id_token);
-			req.session.id = decodedToken.sub;
-			res.cookie(AUTH_COOKIE, true, { maxAge: COOKIE_EXPIRATION });
-			res.cookie(USERNAME_COOKIE, decodedToken.preferred_username, { maxAge: COOKIE_EXPIRATION });
-			res.cookie(PICTURE_COOKIE, decodedToken.picture, { maxAge: COOKIE_EXPIRATION, encode: encodeURI });
-			res.redirect('/active-hunts');
+			// For Pebble users, save user ID in DB and associate with the Pebble account ID
+			if (fromPebble) {
+				const pblAcctId = state.id;
+				await db.pebbleuser.upsert({
+					pblAcctId: pblAcctId,
+					twitchId: decodedToken.sub
+				});
+				// Success - no need to pass session to Pebble, they will pass the 
+				// Pebble account ID as a header to associate an account ID
+				// res.redirect('pebblejs://close#');
+				res.send('<script>function done(){javascript:alert("Authentication successful! Press OK to close this window");window.location.href="pebblejs://close#";}done()</script>');
+			} else {
+				req.session.id = decodedToken.sub;
+				res.cookie(AUTH_COOKIE, true, { maxAge: COOKIE_EXPIRATION });
+				res.cookie(USERNAME_COOKIE, decodedToken.preferred_username, { maxAge: COOKIE_EXPIRATION });
+				res.cookie(PICTURE_COOKIE, decodedToken.picture, { maxAge: COOKIE_EXPIRATION, encode: encodeURI });
+				res.redirect('/active-hunts');
+			}
 		} else {
 			console.log('error');
 			console.log(jwtRes);
@@ -63,17 +85,30 @@ router.get('/callback', async (req, res) => {
 
 router.get('/logout', (req, res) => {
 	req.session = null;
-	res.clearCookie('authenticated');
-	res.clearCookie('username');
-	res.clearCookie('picture_url');
+	res.clearCookie(AUTH_COOKIE);
+	res.clearCookie(USERNAME_COOKIE);
+	res.clearCookie(PICTURE_COOKIE);
 	res.redirect('/');
 });
 
 export default router;
 
-export function checkAuth(req, res, next) {
+export async function checkAuth(req, res, next) {
+	// Pebble doesn't support session cookies, so we save the user ID server-side
+	if (req.headers.pbl_acct_id) {
+		const pblUser = await db.pebbleuser.findOne({
+			where: {
+				pblAcctId: req.headers.pbl_acct_id
+			}
+		});
+		if (pblUser) {
+			req.session.id = pblUser.twitchId;
+		}
+	}
+	// Handle sessionless requests
 	if(!req.session.id) {
 		res.status(401).send();
+		return;
 	}
 
 	next();

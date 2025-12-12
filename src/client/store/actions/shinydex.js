@@ -1,5 +1,5 @@
 import * as types from './_types';
-import { SHINYDEX_URL } from '../../constants';
+import { SHINYDEX_URL } from '../../../shared/constants';
 import axios from 'axios';
 import axiosConfig from './axios-config';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-import POKEMON_GENERATION_LIST from '../../static/data/pokemon.json';
+import POKEMON_GENERATION_LIST from '../../../shared/data/pokemon.json';
 
 const PokemonSelect = (props) => {
 	const { id, value, onChange, generation, maxHeight, onKeyDown, showAnyOption, prioritySort } = props;

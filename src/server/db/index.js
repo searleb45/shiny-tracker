@@ -2,22 +2,19 @@ import Sequelize from 'sequelize';
 
 import createHuntModel from './models/hunt';
 import createShinydexModel from './models/shinydex';
+import createPebbleUserModel from './models/pebble-user';
 
 let connection = {};
-let user, password, host, db;
-if (process.env.LOCAL_CONNECTION) {
-	[,user, password, host, db] = process.env.DATABASE_URL.match(/\/\/(.*):(.*)@(.*)\/(.*)\?.*/);
-} else {
-	user = process.env.DATABASE_USER;
-	password = process.env.DATABASE_PASSWORD;
-	host = process.env.DATABASE_HOST;
-	db = process.env.DATABASE_NAME;
-}
+
+const user = process.env.DATABASE_USER;
+const password = process.env.DATABASE_PASSWORD;
+const host = process.env.DATABASE_HOST;
+const db = process.env.DATABASE_NAME;
 
 if(user && password && host && db) {
 	connection = new Sequelize(db, user, password, {
 		host,
-		dialect: process.env.LOCAL_CONNECTION ? 'mysql' : 'postgres',
+		dialect: 'postgres',
 		dialectOptions: process.env.LOCAL_CONNECTION ? undefined : {
 			ssl: {
 				require: true
@@ -25,8 +22,9 @@ if(user && password && host && db) {
 		}
 	});
 
-	connection.hunt = createHuntModel(connection, Sequelize, process.env.LOCAL_CONNECTION);
-	connection.shinydex = createShinydexModel(connection, Sequelize, process.env.LOCAL_CONNECTION);
+	connection.hunt = createHuntModel(connection, Sequelize);
+	connection.shinydex = createShinydexModel(connection, Sequelize);
+	connection.pebbleuser = createPebbleUserModel(connection, Sequelize);
 	
 	authConnection();
 }

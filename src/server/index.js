@@ -18,4 +18,8 @@ app.use('/api', apiModule);
 app.use('/twitchAuth', authModule);
 app.use('*', express.static(path.join(__dirname, 'index.html')));
 
-app.listen(process.env.PORT || 3000);
+if(process.env.LOCAL_CONNECTION) {
+	app.listen(process.env.PORT || 3000, '0.0.0.0');
+} else {
+	app.listen(process.env.PORT || 3000);
+}

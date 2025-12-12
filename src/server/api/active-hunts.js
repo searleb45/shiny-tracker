@@ -2,6 +2,8 @@ import express from 'express';
 import { checkAuth } from '../auth';
 
 import db from '../db';
+import { getGameById, getPokemonById, getHuntTypeById } from '../../shared/dataLookup';
+import { getAggregatePercentage, calculateOdds } from '../../shared/huntOddsCalc';
 const router = express.Router();
 
 router.get('/', checkAuth, async (req, res) => {
@@ -14,7 +16,26 @@ router.get('/', checkAuth, async (req, res) => {
 			['id', 'ASC']
 		]
 	});
-	const mappedResults = results.map((result) => ({ ...result.dataValues, lastUpdated: result.dataValues.lastUpdated || result.dataValues.lastupdated}));
+	let mappedResults;
+	if (req.headers.pbl_acct_id) {
+		mappedResults = results.map((result) => {
+			const { pokemon, encounters, huntType, gameId } = result.dataValues;
+
+			const percentageObj = getAggregatePercentage(result.dataValues);
+
+			return {
+				pokemon: getPokemonById(pokemon).name,
+				encounters: encounters,
+				huntType: getHuntTypeById(huntType).name,
+				game: getGameById(gameId).name,
+				odds: percentageObj.oddsString,
+				percentage: percentageObj.percentage.toFixed(2) + '%',
+				encountersTo90: percentageObj.encountersTo90,
+			};
+		});
+	} else {
+		mappedResults = results.map((result) => ({ ...result.dataValues, lastUpdated: result.dataValues.lastUpdated || result.dataValues.lastupdated}));
+	}
 	res.send(mappedResults);
 });
 

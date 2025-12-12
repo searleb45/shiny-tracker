@@ -5,7 +5,7 @@ import { Online } from 'react-detect-offline';
 
 import { putHuntUpdate, deleteHunt, clearError } from '../../store/actions/hunts';
 
-import { getOddsForHunt } from '../../huntOddsCalc';
+import { getAggregatePercentage, getOddsForHunt } from '../../../shared/huntOddsCalc';
 
 import Modal from '../modal';
 import ErrorBanner from '../banner';
@@ -14,9 +14,7 @@ import PokemonSelect from '../pokemon-select';
 
 import './focused-hunt-modal.scss';
 
-import POKEMON_LIST from '../../static/data/pokemon-list';
-import GAME_LIST from '../../static/data/pokemon-games.json';
-import HUNT_LIST from '../../static/data/hunt-types.json';
+import { getPokemonById, getGameById, getHuntTypeById } from '../../../shared/dataLookup';
 
 const DATE_FORMAT = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' });
 
@@ -32,14 +30,9 @@ const FocusedHuntModal = (props) => {
 	
 	if(!hunt) return null;
 
-	const pokemon = POKEMON_LIST.find((pkmn) => pkmn.id === hunt.pokemon);
+	const pokemon = getPokemonById(hunt.pokemon);
 	
-	const oddsString = getOddsForHunt(hunt);
-	const odds = parseInt(oddsString.split('/')[0]) / parseInt(oddsString.split('/')[1]);
-	const partialDist = Math.pow(1-odds, hunt.encounters);
-	const finalDist = 100 * (partialDist * Math.pow(-(1 / (odds - 1)), hunt.encounters) - partialDist);
-
-	const encountersTo90 = Math.ceil(Math.log(.1) / Math.log(1 - odds)) - hunt.encounters;
+	const percentageObj = getAggregatePercentage(hunt);
 
 	function onModalClose() {
 		setUpdatedCount(-1);
@@ -72,11 +65,10 @@ const FocusedHuntModal = (props) => {
 
 	function completeHunt(pokemon) {
 		setConfirmRandomPokemon(false);
-		console.log('Complete random hunt for ', pokemon);
 		const date = new Date().toLocaleDateString();
-		const game = GAME_LIST.find(game => game.gameId === hunt.gameId);
+		const game = getGameById(hunt.gameId);
 		const gameName = game.name.replace('Pokémon ', '');
-		const huntName = HUNT_LIST.find(huntEntry => hunt.huntType === huntEntry.id).name;
+		const huntName = getHuntTypeById(hunt.huntType).name;
 		const completionString = `Shiny hunt in ${gameName} via ${huntName} - Completed ${date} after ${hunt.encounters.toLocaleString()} encounters`;
 		dispatch(putHuntUpdate(hunt.id, 'complete', hunt.encounters, completionString, pokemon?.id || hunt.pokemon));
 	}
@@ -151,15 +143,15 @@ const FocusedHuntModal = (props) => {
 					)}
 					<div className="focused-hunt-detail">
 						<label>Aggregate shiny <span className="mobile-only">%</span><span className="desktop-only">chance</span></label>
-						{finalDist.toFixed(2)}%
+						{percentageObj.percentage.toFixed(2)}%
 					</div>
 					<div className="focused-hunt-detail">
 						<label>Encounters until 90%</label>
-						{encountersTo90.toLocaleString()}
+						{percentageObj.encountersTo90.toLocaleString()}
 					</div>
 					<div className="focused-hunt-detail">
 						<label>Odds</label>
-						{oddsString}
+						{percentageObj.oddsString}
 					</div>
 					{!hunt.completed && (
 						<div className="focused-hunt-detail">
@@ -180,7 +172,7 @@ const FocusedHuntModal = (props) => {
 					<PokemonSelect
 						id="whichRandomPokemon"
 						onChange={(pokemon) => completeHunt(pokemon)}
-						generation={GAME_LIST.find(game => game.gameId === hunt.gameId).generation}
+						generation={getGameById(hunt.gameId).generation}
 						maxHeight={window.innerWidth > 768 ? 200 : 500}
 						showAnyOption={false}
 						menuHeight={300}

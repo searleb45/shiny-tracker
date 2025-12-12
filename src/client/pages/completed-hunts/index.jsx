@@ -7,14 +7,14 @@ import BasePageTemplate from '../_base-template';
 import HuntViewer from '../../components/hunt-viewer';
 import FocusedHuntModal from '../../components/focused-hunt-modal';
 
-import { getOddsForHunt } from '../../huntOddsCalc';
+import { getOddsForHunt } from '../../../shared/huntOddsCalc';
 
 import { getCompletedHunts, setFocusedHunt } from '../../store/actions/hunts';
 
-import POKEMON_LIST from '../../static/data/pokemon-list';
-import POKEMON_GAMES from '../../static/data/pokemon-games.json';
+import POKEMON_GAMES from '../../../shared/data/pokemon-games.json';
 
 import './completed-hunts.scss';
+import { getPokemonById } from '../../../shared/dataLookup';
 
 const SORT_OPTIONS = [
 	{value: 'completionDate', label: 'Recently Completed'},
@@ -72,7 +72,7 @@ function sortHunts(hunts, sortMode) {
 			sortFunction = (a, b) => a.pokemon - b.pokemon;
 			break;
 		case 'pokemonName':
-			sortFunction = (a, b) => POKEMON_LIST.find(pkmn => pkmn.id === a.pokemon).name.localeCompare(POKEMON_LIST.find(pkmn => pkmn.id === b.pokemon).name);
+			sortFunction = (a, b) => getPokemonById(a.pokemon).name.localeCompare(getPokemonById(b.pokemon).name);
 			break;
 	}
 
@@ -83,7 +83,7 @@ function filterHunts(hunts, filterString) {
 	const regex = new RegExp(filterString, 'i');
 	return hunts.filter((hunt) => {
 		const game = POKEMON_GAMES.find((game) => game.gameId === hunt.gameId);
-		const pokemon = POKEMON_LIST.find((pkmn) => pkmn.id === hunt.pokemon);
+		const pokemon = getPokemonById(hunt.pokemon);
 
 		return regex.test(pokemon.name)
 			|| regex.test(game.name.replace('é', 'e'))
