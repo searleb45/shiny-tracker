@@ -2,15 +2,13 @@ import React from 'react';
 
 import './pokemon-viewer.scss';
 
-import POKEMON_LIST from '../../static/data/pokemon-list';
-import GAME_LIST from '../../static/data/pokemon-games.json';
+import { getPokemonById } from '../../../shared/dataLookup';
 
 const PokemonViewer = (props) => {
 	const { pokemonId, gameId } = props;
 	
 	// Shallow clone pokemon object to avoid mutating sprite
-	const pokemon = {...POKEMON_LIST.find((pkmn) => pkmn.id === pokemonId)};
-	const game = GAME_LIST.find((game) => game.gameId === gameId);
+	const pokemon = {...getPokemonById(pokemonId)};
 
 	return (
 		<div className="pokemon-viewer">

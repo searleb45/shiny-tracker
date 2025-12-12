@@ -1,5 +1,5 @@
 import * as types from './_types';
-import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from '../../constants';
+import { AUTH_COOKIE, USERNAME_COOKIE, PICTURE_COOKIE } from '../../../shared/constants';
 import CookieHelper from 'cookie-helper';
 
 export function setUser(id, username, picture) {

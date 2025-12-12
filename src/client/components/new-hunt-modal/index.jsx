@@ -7,7 +7,7 @@ import GameSelect from '../game-select';
 import PokemonSelect from '../pokemon-select';
 import HuntTypeSelect from '../hunt-select';
 
-import calculateOdds from '../../huntOddsCalc';
+import calculateOdds from '../../../shared/huntOddsCalc';
 
 import './new-hunt-modal.scss';
 

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Modal from '../modal';
 import { useSelector } from 'react-redux';
 
-import POKEMON_LIST from '../../static/data/pokemon-list';
-import POKEMON_GENERATION_LIST from '../../static/data/pokemon.json';
+import POKEMON_LIST from '../../../shared/data/pokemon-list';
+import POKEMON_GENERATION_LIST from '../../../shared/data/pokemon.json';
 
 import './shiny-stats-modal.scss';
 import ShinyDexEntry from '../shinydex-entry';

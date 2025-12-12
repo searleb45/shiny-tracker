@@ -1,5 +1,5 @@
 import * as types from './_types';
-import { ACTIVE_HUNTS_URL, COMPLETED_HUNTS_URL } from '../../constants';
+import { ACTIVE_HUNTS_URL, COMPLETED_HUNTS_URL } from '../../../shared/constants';
 import axios from 'axios';
 import axiosConfig from './axios-config';
 

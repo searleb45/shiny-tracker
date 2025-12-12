@@ -7,12 +7,13 @@ import GameSelect from '../../components/game-select';
 import AddShinydexEntryModal from '../../components/add-shinydex-entry-modal';
 import ShinyStatsModal from '../../components/shiny-stats-modal';
 
-import POKEMON_LIST from '../../static/data/pokemon-list';
+import POKEMON_LIST from '../../../shared/data/pokemon-list';
 
 import './shinydex.scss';
 import { getShinydex } from '../../store/actions/shinydex';
 import ShinyDexList from '../../components/shinydex-list';
 import ShinydexDetailModal from '../../components/shinydex-detail-modal';
+import { getPokemonById } from '../../../shared/dataLookup';
 
 const NUM_OBTAINABLE = POKEMON_LIST.filter((pkmn) => !pkmn.shinyLocked).length - 1;
 
@@ -39,7 +40,7 @@ function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, i
 				pkmn.evolutions.forEach((evo) => idSet.add(evo));
 			});
 
-			filteredList = [...idSet].sort((a,b) => a-b).map((id) => POKEMON_LIST.find((pkmn) => pkmn.id === id));
+			filteredList = [...idSet].sort((a,b) => a-b).map((id) => getPokemonById(id));
 		}
 	}
 
@@ -129,7 +130,7 @@ const Shinydex = () => {
 			/>
 			<ShinydexDetailModal
 				close={() => setFocusedEntry(null)}
-				pokemon={POKEMON_LIST.find(pkmn => pkmn.id === focusedEntry)}
+				pokemon={getPokemonById(focusedEntry)}
 				entries={(shinydex || []).filter(entry => entry.pokemon === focusedEntry)}
 			/>
 			<ShinyStatsModal

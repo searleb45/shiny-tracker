@@ -3,7 +3,7 @@ import Select from 'react-select';
 
 import './game-select.scss';
 
-import GAME_DATA from '../../static/data/pokemon-games.json';
+import GAME_DATA from '../../../shared/data/pokemon-games.json';
 
 const GameSelect = (props) => {
 	const { id, value, onChange, useStorageGames, placeholder, isClearable, isSearchable, menuHeight, onKeyDown } = props;

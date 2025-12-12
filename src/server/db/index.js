@@ -2,6 +2,7 @@ import Sequelize from 'sequelize';
 
 import createHuntModel from './models/hunt';
 import createShinydexModel from './models/shinydex';
+import createPebbleUserModel from './models/pebble-user';
 
 let connection = {};
 
@@ -23,6 +24,7 @@ if(user && password && host && db) {
 
 	connection.hunt = createHuntModel(connection, Sequelize);
 	connection.shinydex = createShinydexModel(connection, Sequelize);
+	connection.pebbleuser = createPebbleUserModel(connection, Sequelize);
 	
 	authConnection();
 }
