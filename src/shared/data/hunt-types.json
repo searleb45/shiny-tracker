@@ -42,7 +42,9 @@
 		"name": "Random Encounter",
 		"generations": [9.5],
 		"baseOdds": "1/4096",
-		"shinyCharmOdds": "1/1024"
+		"shinyCharmOdds": "1/1024",
+		"sparklingPowerOdds": "1/1024",
+		"sparklingShinyCharmOdds": "1/586"
 	},
 	{
 		"id": "oddegg",
