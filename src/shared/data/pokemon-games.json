@@ -307,7 +307,7 @@
 		"shinyCharmAvailable": true,
 		"lureAvailable": false,
 		"researchLevels": false,
-		"sparklingPower": false
+		"sparklingPower": true
 	},
 	{
 		"gameId": "go",

@@ -86,7 +86,26 @@ router.put('/', checkAuth, async (req, res) => {
 			hunt.encounters = val
 		}
 		await hunt.save();
-		res.status(200).send({...hunt.dataValues, lastUpdated: hunt.dataValues.lastUpdated || hunt.dataValues.lastupdated});
+		if (req.headers.pbl_acct_id) {
+			const { pokemon, encounters, huntType, gameId } = hunt.dataValues;
+
+			const percentageObj = getAggregatePercentage(hunt.dataValues);
+
+			const payload = {
+				id: hunt.dataValues.id,
+				pokemon: getPokemonById(pokemon).name,
+				encounters: encounters,
+				huntType: getHuntTypeById(huntType).name,
+				game: getGameById(gameId).name,
+				odds: percentageObj.oddsString,
+				percentage: percentageObj.percentage.toFixed(2) + '%',
+				encountersTo90: percentageObj.encountersTo90,
+			};
+
+			res.status(200).send(payload);
+		} else {
+			res.status(200).send({...hunt.dataValues, lastUpdated: hunt.dataValues.lastUpdated || hunt.dataValues.lastupdated});
+		}
 	} else {
 		res.status(500).send('ERROR: Hunt not found');
 	}
