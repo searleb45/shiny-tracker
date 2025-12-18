@@ -17,7 +17,7 @@ import { getPokemonById } from '../../../shared/dataLookup';
 
 const NUM_OBTAINABLE = POKEMON_LIST.filter((pkmn) => !pkmn.shinyLocked).length - 1;
 
-function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, includeEvolutions) {
+function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, unobtainedOnlyFilter,includeEvolutions) {
 	let filteredList = POKEMON_LIST.filter((pkmn) => pkmn.id !== 0); // Always filter out the "Any" entry
 	if(gameFilter) {
 		filteredList = filteredList.filter((pkmn) => {
@@ -27,6 +27,11 @@ function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, i
 	if(obtainedOnlyFilter) {
 		filteredList = filteredList.filter((pkmn) => {
 			return shinydex.some((dexEntry) => dexEntry.pokemon === pkmn.id);
+		});
+	}
+	if(unobtainedOnlyFilter) {
+		filteredList = filteredList.filter((pkmn) => {
+			return !shinydex.some((dexEntry) => dexEntry.pokemon === pkmn.id);
 		});
 	}
 	if(pokemonFilter) {
@@ -52,6 +57,7 @@ const Shinydex = () => {
 	const [pokemonFilter, setPokemonFilter] = useState('');
 	const [gameFilter, setGameFilter] = useState(null);
 	const [showObtainedOnly, setShowObtainedOnly] = useState(false);
+	const [showUnobtainedOnly, setShowUnobtainedOnly] = useState(false);
 	const [includeEvolutions, setIncludeEvolutions] = useState(false);
 	const [addEntryModalOpen, setAddEntryModalOpen] = useState(false);
 	const [focusedEntry, setFocusedEntry] = useState(-1);
@@ -69,12 +75,20 @@ const Shinydex = () => {
 	const handleGameChange = (game) => {
 		if(game != null) {
 			setShowObtainedOnly(true);
+			setShowUnobtainedOnly(false);
 		}
 		setGameFilter(game);
 	};
 
 	const handleObtainedCheckbox = (val) => {
 		setShowObtainedOnly(val);
+		setShowUnobtainedOnly(false);
+		setGameFilter(null);
+	};
+
+	const handleUnobtainedCheckbox = (val) => {
+		setShowUnobtainedOnly(val);
+		setShowObtainedOnly(false);
 		setGameFilter(null);
 	};
 
@@ -83,7 +97,7 @@ const Shinydex = () => {
 		setShowShinyStats(true);
 	}
 
-	const filteredDexList = applyFilters(shinydex, pokemonFilter, gameFilter, showObtainedOnly, includeEvolutions);
+	const filteredDexList = applyFilters(shinydex, pokemonFilter, gameFilter, showObtainedOnly, showUnobtainedOnly, includeEvolutions);
 	const numObtained = POKEMON_LIST.reduce((acc, pkmn) => {
 		return shinydex.some(entry => entry.pokemon === pkmn.id) ? acc + 1 : acc;
 	}, 0);
@@ -100,6 +114,10 @@ const Shinydex = () => {
 							<input id="shinydex-obtained-filter" type="checkbox" checked={showObtainedOnly} onChange={(e) => handleObtainedCheckbox(e.target.checked)} />
 							Show obtained Pokémon only
 						</label>
+						<label htmlFor="shinydex-unobtained-filter">
+							<input id="shinydex-unobtained-filter" type="checkbox" checked={showUnobtainedOnly} onChange={(e) => handleUnobtainedCheckbox(e.target.checked)} />
+							Show unobtained Pokémon only
+						</label>
 						{pokemonFilter && (
 							<label htmlFor="include-evolutions-filter" className="float">
 								<input id="include-evolutions-filter" type="checkbox" checked={includeEvolutions} onChange={(e) => setIncludeEvolutions(e.target.checked)} />
@@ -112,7 +130,7 @@ const Shinydex = () => {
 				page={
 					<>
 						<div className="shinydex-metadata">
-							{pokemonFilter || gameFilter || showObtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
+							{pokemonFilter || gameFilter || showObtainedOnly || showUnobtainedOnly ? <h4>Showing {filteredDexList.length} Pokémon</h4> : (
 								<>
 									<h4>Obtained {numObtained} of {NUM_OBTAINABLE}</h4>
 									<h4>{(numObtained / (NUM_OBTAINABLE) * 100).toFixed(2)}% complete</h4>
