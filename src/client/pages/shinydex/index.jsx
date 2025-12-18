@@ -31,7 +31,7 @@ function applyFilters(shinydex, pokemonFilter, gameFilter, obtainedOnlyFilter, u
 	}
 	if(unobtainedOnlyFilter) {
 		filteredList = filteredList.filter((pkmn) => {
-			return !shinydex.some((dexEntry) => dexEntry.pokemon === pkmn.id);
+			return !pkmn.shinyLocked && !shinydex.some((dexEntry) => dexEntry.pokemon === pkmn.id);
 		});
 	}
 	if(pokemonFilter) {
