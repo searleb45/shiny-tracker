@@ -4365,7 +4365,7 @@
 				"name": "Volcanion",
 				"sprite": "/sprites/volcanion.gif",
 				"evolutions": [],
-				"shinyLocked": true
+				"shinyLocked": false
 			}
 		]
 	},
