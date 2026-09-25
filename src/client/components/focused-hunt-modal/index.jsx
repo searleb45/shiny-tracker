@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TimeAgo from 'timeago-react';
 import { Online } from 'react-detect-offline';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { putHuntUpdate, deleteHunt, clearError } from '../../store/actions/hunts';
 
@@ -22,11 +23,15 @@ const FocusedHuntModal = (props) => {
 	const { hunt, isModifiable, close } = props;
 	const [updatedCount, setUpdatedCount] = useState(-1);
 	const [confirmRandomPokemon, setConfirmRandomPokemon] = useState(false);
-	const [collapsePokemon, setCollapsePokemon] = useState(false);
+	const [manualCollapsePokemon, setManualCollapsePokemon] = useState(false);
 	const updateError = useSelector(state => state.hunts.error);
 	const dispatch = useDispatch();
 	
-	useEffect(() => setCollapsePokemon(false), [hunt?.pokemon, hunt?.gameId, hunt?.started]);
+	useEffect(() => setManualCollapsePokemon(false), [hunt?.pokemon, hunt?.gameId, hunt?.started]);
+
+	const matches = useMediaQuery('(max-height: 300px)');
+
+	const collapsePokemon = matches || manualCollapsePokemon;
 	
 	if(!hunt) return null;
 
@@ -94,15 +99,15 @@ const FocusedHuntModal = (props) => {
 	}
 
 	const date = new Date(hunt.lastUpdated);
-	let subtitle = !hunt.completed && hunt.lastUpdated ? `Last updated ${collapsePokemon ? date.toLocaleTimeString() : date.toLocaleString()}` : '';
+	let subtitle = !hunt.completed && hunt.lastUpdated ? `Last updated ${date.toLocaleString()}` : '';
 
 	return (
 		<>
-			<Modal isOpen={!!hunt} close={onModalClose} modalName={pokemon.name} modalSubTitle={subtitle} containerClassName="focused-hunt-modal">
+			<Modal isOpen={!!hunt} close={onModalClose} modalName={pokemon.name} modalSubTitle={collapsePokemon ? null : subtitle} containerClassName="focused-hunt-modal">
 				<ErrorBanner message={updateError} onClose={() => dispatch(clearError())} />
 				{!collapsePokemon && (
 					<div className="focused-hunt-pokemon-view">
-						<button onClick={() => setCollapsePokemon(true)}>
+						<button onClick={() => setManualCollapsePokemon(true)}>
 							<PokemonViewer pokemonId={hunt.pokemon} gameId={hunt.gameId} />
 						</button>
 					</div>
