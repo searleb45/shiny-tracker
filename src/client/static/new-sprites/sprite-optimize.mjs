@@ -11,7 +11,7 @@ import sharp from 'sharp';
 			gifsicle({
 				interlaced: true,
 				optimizationLevel: 3,
-				resize: '75x_',
+				resize: '150x_',
 			})
 		]
 	});
